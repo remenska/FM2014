@@ -1,0 +1,32 @@
+\begin{thebibliography}{1}
+
+\bibitem{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}
+Remenska, D., Templon, J., Willemse, T.A.C., Homburg, P., Verstoep, K.,
+  Casajus, A., Bal, H.E.:
+\newblock {From {UML} to {P}rocess {A}lgebra and {B}ack: {A}n {A}utomated
+  {A}pproach to {M}odel-{C}hecking {S}oftware {D}esign {A}rtifacts of
+  {C}oncurrent {S}ystems.}
+\newblock In: {NASA Formal Methods}. (2013)  244--260
+
+\bibitem{FormalLanguagemCRL2}
+Groote, J.,  et~al.:
+\newblock {The Formal Specification Language m{CRL2}}.
+\newblock In: {Proc. MMOSS'06}
+
+\bibitem{Groote05model-checkingprocesses}
+Groote, J.F., Willemse, T.A.C.:
+\newblock {Model-checking processes with data}.
+\newblock In: {Science of Computer Programming}, Elsevier (2005)  251--273
+
+\bibitem{Dwyer:1999:PPS:302405.302672}
+Dwyer, M.B.,  et~al.:
+\newblock {Patterns in property specifications for finite-state verification}.
+\newblock In: {Proceedings of the 21st international conference on Software
+  engineering}. {ICSE '99}, New York, NY, USA, ACM (1999)  411--420
+
+\bibitem{PSP}
+Dwyer, M.B.,  et~al.:
+\newblock {Property Specification Patterns}
+  http://patterns.projects.cis.ksu.edu.
+
+\end{thebibliography}

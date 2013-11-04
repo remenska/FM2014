@@ -20,7 +20,10 @@ frank.holzwarth,|
 \newcommand{\TrA}{\ensuremath{\mathsf{Cond}}}
 \renewcommand{\a}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\concat}{\ensuremath{\mathop{+\!\!+}}}
+\documentclass[letter]{llncs}
+\newcommand{\figshrink}{\vspace{-.6cm}}
 %\newcommand{\figshrinkend}{\vspace{-.4cm}}
+\newcommand{\figshrinkend}{}
 \newcommand{\secshrink}{\vspace{-.5cm}}
 \newcommand{\secshrinkbegin}{\vspace{-.2cm}}
 \newcommand{\subsecshrink}{\vspace{-.5cm}}
@@ -52,6 +55,7 @@ frank.holzwarth,|
 \usepackage{listings}
 \usepackage{enumerate}
 \usepackage{textcomp}
+\usepackage{times}
 \DeclareMathSizes{10}{10}{9}{9}
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 
@@ -136,11 +140,11 @@ practitioners to capture them accurately with temporal logic. There are subtle, 
 need to be carefully considered in order to distill the right formula.
 The objective of this work is to simplify the process of correctly eliciting functional requirements, without the need of expertise in temporal logic. 
 
-Based on investigation of more than 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
+Based on investigation of more than 500 properties coming from different domains, and specified in several different formalisms, a pattern-based classification
 was developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed that almost all the surveyed properties
 can be mapped into one of several property patterns. Each pattern is a
 high-level, formalism-independent, specification abstraction that captures a
-commonly occurring requirement. These patterns can be instantiated with specific
+commonly-occurring requirement. These patterns can be instantiated with specific
 events or states and then mapped to several different formalisms for model
 checking tools. Their hierarchical taxonomy is based on the idea that each
 pattern has a \emph{scope}, which defines the extent of program execution over
@@ -149,9 +153,7 @@ system identifies 5 scopes and 8 behavior variations that can be
 combined to create 40 different properties. Examples of scopes are: globally, before an event or state occurs, after an event or state occurs.
 Examples of behavior variations are: absence (an event or state should never occur during an execution), precedence (which require that a given event or state always occurs before another one), 
 or response properties (which require that the occurrence of a given event or state be followed by designated event or state), capturing a cause-effect relation.
-Although the patterns website~\cite{PSP} contains a collection of templates for different target formalisms, such as LTL, CTL, Graphical Interval Logic (GIL), and Quantified Regular Expressions (QRE), which can be considered helpful, practitioners have to fully understand the provided solutions before they can select and apply the appropriate ones in practice.
-
-To mitigate the problem, several approaches propose conversational tools for elucidating properties, based on the property patterns. 
+Although the patterns website~\cite{PSP} contains a collection of templates for different target formalisms, such as LTL, CTL, Graphical Interval Logic (GIL) [], and Quantified Regular Expressions, (QRE), practitioners have to fully understand the provided solutions before they can select and apply the appropriate ones.
 
 We have thoroughly surveyed the advantages and disadvantages of these approaches, and a more detailed comparison with our approach is given in Section~\ref{sec:RelatedWork}.
 \section{Preliminaries}
@@ -238,6 +240,7 @@ mention free drawing and the profile application
 \label{sec:RelatedWork}
 \section{Conclusions and future work}
 \bibliographystyle{splncs} 
+\vspace{-8 pt}
 \bibliography{FM2014}
 \end{document}
 
