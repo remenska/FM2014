@@ -20,10 +20,7 @@ frank.holzwarth,|
 \newcommand{\TrA}{\ensuremath{\mathsf{Cond}}}
 \renewcommand{\a}[1]{\ensuremath{\mathsf{#1}}}
 \newcommand{\concat}{\ensuremath{\mathop{+\!\!+}}}
-\documentclass[letter]{llncs}
-\newcommand{\figshrink}{\vspace{-.6cm}}
 %\newcommand{\figshrinkend}{\vspace{-.4cm}}
-\newcommand{\figshrinkend}{}
 \newcommand{\secshrink}{\vspace{-.5cm}}
 \newcommand{\secshrinkbegin}{\vspace{-.2cm}}
 \newcommand{\subsecshrink}{\vspace{-.5cm}}
@@ -32,7 +29,7 @@ frank.holzwarth,|
 \setlength{\belowcaptionskip}{1ex}
 \setlength{\floatsep}{1ex}
 \setlength{\textfloatsep}{1ex}
-
+% \usepackage{times}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
@@ -55,7 +52,6 @@ frank.holzwarth,|
 \usepackage{listings}
 \usepackage{enumerate}
 \usepackage{textcomp}
-\usepackage{times}
 \DeclareMathSizes{10}{10}{9}{9}
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 
@@ -114,18 +110,18 @@ In the last decades, more rigorous methods and tools
 for modeling and formal analysis have been developed. Some of the leading model checking tools include SPIN, nuSMV, CADP and mCRL2. 
 Despite the research effort, these methods are still not widely accepted in industry. One problem is the lack of expertise and
 the necessary time investment in the development cycle, for becoming proficient in
-the underlying mathematical formalisms used for describing the models. A more substantial problem is the lack of a systematic connection between actual
-implementation and the semantics of the existing formal languages.
+the underlying mathematical formalisms used for describing the models. 
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model-checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verification of UML
 models, based on sequence and activity diagrams. Our prototype is able to produce
 a formal model into the mCRL2 process algebra language ~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
 tool, without the user having to leave the UML domain. We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
+%mention why we chose SDs!
 Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain.
 Although the mCRL2 toolset automatically discovers deadlocks, model checking
 for application-specific properties requires the use of modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. In principle, regardless of the formal language and tool choice for writing the model, these properties 
-are specified as formulae in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
+are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
 \begin{figure}[!t]
 \centering
 \figshrink
@@ -140,22 +136,111 @@ practitioners to capture them accurately with temporal logic. There are subtle, 
 need to be carefully considered in order to distill the right formula.
 The objective of this work is to simplify the process of correctly eliciting functional requirements, without the need of expertise in temporal logic. 
 
-Based on investigation of more than 500 properties coming from different domains, and specified in several different formalisms, a pattern-based classification
+% just mention here the patterns, the fact that there are 3 categories of approaches
+% tackling the problem, the general deficiencies of these approaches and how we want to
+% take the best of all worlds; Keep longer stuff below for a separate section Related Work; 
+% also add to what you already have below, all the disadvantages for each approach
+
+Based on investigation of more than 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
 was developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed that almost all the surveyed properties
 can be mapped into one of several property patterns. Each pattern is a
-high-level, formalism-independent, specification abstraction that captures a
-commonly-occurring requirement. These patterns can be instantiated with specific
+high-level, formalism-independent abstraction that captures a
+commonly occurring requirement. These patterns can be instantiated with specific
 events or states and then mapped to several different formalisms for model
 checking tools. Their hierarchical taxonomy is based on the idea that each
 pattern has a \emph{scope}, which defines the extent of program execution over
-which the pattern must hold and a \emph{behavior}, which describes the intent of the pattern. The pattern
+which the pattern must hold, and a \emph{behavior}, which describes the intent of the pattern. The pattern
 system identifies 5 scopes and 8 behavior variations that can be
-combined to create 40 different properties. Examples of scopes are: globally, before an event or state occurs, after an event or state occurs.
-Examples of behavior variations are: absence (an event or state should never occur during an execution), precedence (which require that a given event or state always occurs before another one), 
-or response properties (which require that the occurrence of a given event or state be followed by designated event or state), capturing a cause-effect relation.
-Although the patterns website~\cite{PSP} contains a collection of templates for different target formalisms, such as LTL, CTL, Graphical Interval Logic (GIL) [], and Quantified Regular Expressions, (QRE), practitioners have to fully understand the provided solutions before they can select and apply the appropriate ones.
+combined to create 40 different properties. Examples of scopes are: globally,
+before an event or state occurs, after an event or state occurs.
+Examples of behavior classification are: absence (an event or state should never
+occur during an execution), precedence (which requires that a given event or
+state always occurs before another one), 
+or response (the occurrence of a given event or state must be followed by
+designated event or state), capturing a cause-effect relation.
+Although the patterns website~\cite{PSP} contains a collection of templates for
+different target formalisms, such as LTL, CTL, Graphical Interval Logic (GIL),
+and Quantified Regular Expressions (QRE), which can be considered helpful,
+practitioners have to fully understand the provided solutions before they can
+select and apply the appropriate ones in practice.
 
-We have thoroughly surveyed the advantages and disadvantages of these approaches, and a more detailed comparison with our approach is given in Section~\ref{sec:RelatedWork}.
+To mitigate the problem, several approaches propose conversational tools for elucidating properties, based on the property patterns. 
+In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
+selecting the appropriate template. Recognizing that there are subtle aspects
+not covered by the original patterns, such as what happens in a response
+property if the cause occurs multiple times before the effect takes place,
+they extended them with variants. The resulting templates 
+are represented using disciplined natural language and finite state automata. 
+In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
+Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
+with compositional patterns that are built up from combinations of more basic patterns.
+Another category of approaches deal with temporal extensions of the Object Constraint Language (OCL), 
+as means to specify system properties. OCL is a declarative textual language for describing 
+invariants for classes and pre- and postconditions of operations. Although it forms an integral part of UML, it lacks means to
+specify constraints over the dynamic behavior of a model. 
+For specification of past and future state-oriented constraints, the @next and @pre temporal modifiers
+are introduced in~\cite{Ziemann02anextension}. By means of UML Profiles,~\cite{Flake03formalsemantics}
+proposes another OCL extension for real-time constraints. They claim to be able to describe all the existing 
+patterns in these OCL expressions. Their starting point for model descriptions are UML state machines.
+To simplify constraint definition with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors 
+propose to use specification patterns for which OCL constraints can be generated automatically.
+The behavioral specification of software components refers to interface specifications,
+which are not really dynamic views. This work does not yet introduce means to specify temporal properties.
+Resembling an OO programming language, OCL constraints can become quite complex and cryptic, and editing 
+them manually is error-prone. Another problem is the extent to which designers are familiar with this language.
+Finally, a third class of approaches tackle the property specification problem by proposing graphical notations,
+which come closer to the realm of modeling the system behavior.
+%closest to our work...
+The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents a scenario-based visual language called 
+Property Sequence Charts, where a property is seen as a relation on a set of exchanged
+system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, and its expressiveness
+is measured with the property patterns. SPIN is used as a backend for model checking of
+the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
+an operational representation for LTL formulas generated automatically with this approach.
+Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
+are represented as acyclic graphs of states and temporal operators as nodes.
+While they manage to hide the formal notation from the user by generating LTL formulas, 
+their notation is still very close to an actual temporal logic formula.
+The TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} also attempts to simplify the formalization of certain
+kinds of requirements. Response formulas are depicted in timeline diagrams by specifying temporal relations among events and constraints. 
+The timeline specification is automatically converted into a Buchi automaton, amenable to model checking with SPIN.
+HUGO/RT~\cite{Knapp:2006:MCU:1762828.1762836} is a tool for model checking UML 2.0 interactions 
+against a model composed of message-exchanging state machines. The interactions represent the desired properties,
+and are translated together with the system model into Buchi automata for model checking with SPIN.
+The approach uses some inner format for textual representation of UML interactions (rather than
+the standard XMI), and the version we tested does not support asynchronous messages, or combined fragments.
+vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models comprising state machines.
+However, properties must be specified in terms of undesired events, which is not always convenient.
+This is because the verification is based on checking whether it is possible to reach error states, specified by the user.
+Live Sequence Charts (LSC) are also used as a graphical formalism for expressing behavioral properties.
+Every element in an LSC has a temperature which can be either hot or cold. This is used to distinguish between possible (cold) and mandatory (hot) elements and behaviour.
+
+In both approaches, Buchi automata and a LTL formulas
+However, UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing the assert and negate fragments
+to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lack many UML features.
+
+
+% Third, Theseus [8] visually animates the analysis results (i.e., witness scenarios) in terms of the original UML diagrams.
+% 
+% Our previous work did not attempt to address the issue of how to guide users in
+% selecting the appropriate template. In this paper, we describe the Question Tree
+% (QT) representation, which is designed to provide this additional user guidance.
+% The QT representation is basically a decision tree, a representation that has
+% often been used in requirements engineering. The content of the QT is based on
+% natural language and its hierarchical format guides users through the
+% elaboration of intended properties by asking questions and, for each question,
+% providing a set of alternative answers for users to select from. The QT breaks
+% up the problem of deciding which template is most appropriate by asking users to
+% consider only one differentiating attribute at a time. The hierarchical
+% structure of the QT supports this isolation of concerns, only presenting
+% questions to the users that are relevant in the context of their previous
+% answers.
+% 
+
+We have thoroughly surveyed the advantages and shortcomings of the most relevant
+approaches up to date, and a more detailed comparison with our approach is given in
+Section~\ref{sec:RelatedWork}.
+
 \section{Preliminaries}
 \subsection{Property Patterns}
 
@@ -182,7 +267,7 @@ R_1,R_2 & ::= \alpha \mid nil \mid R_1\cdot R_2 \mid
               \exists d:D.\alpha_1
 \end{array}
 \]
-Before we present the translation, we convert the formulae in
+Before we present the translation, we convert the formulas in
 guarded form. That is, we remove every occurrence of $R^*$ and $nil$ using
 the following rules:
 \[
@@ -239,8 +324,8 @@ mention free drawing and the profile application
 \section{Related Work}
 \label{sec:RelatedWork}
 \section{Conclusions and future work}
+compositional patterns
 \bibliographystyle{splncs} 
-\vspace{-8 pt}
 \bibliography{FM2014}
 \end{document}
 

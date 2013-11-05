@@ -4,52 +4,52 @@ The style file: splncs.bst
 Database file #1: FM2014.bib
 Warning--entry type for "PSP" isn't style-file defined
 --line 77 of file FM2014.bib
-Repeated entry---line 1180 of file FM2014.bib
+Repeated entry---line 1173 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
-You've used 5 entries,
+You've used 19 entries,
             2087 wiz_defined-function locations,
-            523 strings with 4752 characters,
-and the built_in function-call counts, 1608 in all, are:
-= -- 167
-> -- 55
-< -- 3
-+ -- 20
-- -- 15
-* -- 88
-:= -- 211
-add.period$ -- 7
-call.type$ -- 5
-change.case$ -- 5
+            629 strings with 8185 characters,
+and the built_in function-call counts, 6821 in all, are:
+= -- 766
+> -- 202
+< -- 17
++ -- 73
+- -- 54
+* -- 396
+:= -- 856
+add.period$ -- 30
+call.type$ -- 19
+change.case$ -- 19
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 85
-empty$ -- 172
-format.name$ -- 15
-if$ -- 408
+cite$ -- 19
+duplicate$ -- 376
+empty$ -- 688
+format.name$ -- 54
+if$ -- 1762
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 27
-num.names$ -- 5
-pop$ -- 31
+int.to.str$ -- 19
+missing$ -- 18
+newline$ -- 98
+num.names$ -- 21
+pop$ -- 94
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 62
+skip$ -- 279
 stack$ -- 0
-substring$ -- 96
-swap$ -- 37
-text.length$ -- 3
+substring$ -- 439
+swap$ -- 186
+text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 14
-width$ -- 6
-write$ -- 56
+while$ -- 67
+width$ -- 21
+write$ -- 230
 (There were 2 error messages)

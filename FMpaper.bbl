@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}
 Remenska, D., Templon, J., Willemse, T.A.C., Homburg, P., Verstoep, K.,
@@ -28,5 +28,98 @@ Dwyer, M.B.,  et~al.:
 Dwyer, M.B.,  et~al.:
 \newblock {Property Specification Patterns}
   http://patterns.projects.cis.ksu.edu.
+
+\bibitem{Smith02propel:an}
+Smith, R.L., Avrunin, G.S., Clarke, L.A., Osterweil, L.J.:
+\newblock {Propel: an approach supporting property elucidation}.
+\newblock In: {24th Intl. Conf. on Software Engineering}, ACM Press (2002)
+  11--21
+
+\bibitem{konrad2005facilitating}
+Konrad, S., Cheng, B.H.:
+\newblock {Facilitating the construction of specification pattern-based
+  properties}.
+\newblock In: {Requirements Engineering, 2005. Proceedings. 13th IEEE
+  International Conference on}, IEEE (2005)  329--338
+
+\bibitem{Mondragon_prospec}
+Mondragon, O., Gates, A.Q., Roach, S.:
+\newblock {Prospec: Support for Elicitation and Formal Specification of
+  Software Properties}.
+\newblock In: {Proc. of Runtime Verification Workshop, ENTCS}.  2004
+
+\bibitem{Ziemann02anextension}
+Ziemann, P., Gogolla, M.:
+\newblock {An Extension of OCL with Temporal Logic}.
+\newblock In: {Critical Systems Development with UML}. (2002)  53--62
+
+\bibitem{Flake03formalsemantics}
+Flake, S., Mueller, W.:
+\newblock {Formal Semantics of Static and Temporal State-Oriented OCL
+  Constraints}.
+\newblock Software and Systems Modeling (SoSyM), Springer \textbf{2} (2003)
+  186
+
+\bibitem{Ackermann:2006:LOS:2135315.2135339}
+Ackermann, J., Turowski, K.:
+\newblock {A library of OCL specification patterns for behavioral specification
+  of software components}.
+\newblock In: {Proceedings of the 18th international conference on Advanced
+  Information Systems Engineering}. {CAiSE'06}, Berlin, Heidelberg,
+  Springer-Verlag (2006)  255--269
+
+\bibitem{Autili:2007:GSS:1290845.1290859}
+Autili, M., Inverardi, P., Pelliccione, P.:
+\newblock {Graphical scenarios for specifying temporal properties: an automated
+  approach}.
+\newblock Automated Software Engg. \textbf{14}(3) (September 2007)  293--340
+
+\bibitem{Giannakopoulou:2001:AVT:872023.872506}
+Giannakopoulou, D., Havelund, K.:
+\newblock {Automata-Based Verification of Temporal Properties on Running
+  Programs}.
+\newblock In: {Proceedings of the 16th IEEE international conference on
+  Automated software engineering}. {ASE '01}, Washington, DC, USA, IEEE
+  Computer Society (2001)  412--
+
+\bibitem{Lee97agraphical}
+Lee, I., Sokolsky, O.:
+\newblock {A Graphical Property Specification Language}.
+\newblock In: {In Proceedings of 2nd IEEE Workshop on High-Assurance Systems
+  Engineering. IEEE Computer}, Society Press (1997)  42--47
+
+\bibitem{Smith:2001:ECG:882477.883639}
+Smith, M.H., Holzmann, G.J., Etessami, K.:
+\newblock {Events and Constraints: A Graphical Editor for Capturing Logic
+  Requirements of Programs}.
+\newblock In: {Proceedings of the Fifth IEEE International Symposium on
+  Requirements Engineering}. {RE '01}, Washington, DC, USA, IEEE Computer
+  Society (2001)  14--
+
+\bibitem{Knapp:2006:MCU:1762828.1762836}
+Knapp, A., Wuttke, J.:
+\newblock {Model checking of UML 2.0 interactions}.
+\newblock In: {Proceedings of the 2006 international conference on Models in
+  software engineering}. {MoDELS'06}, Berlin, Heidelberg, Springer-Verlag
+  (2006)  42--51
+
+\bibitem{Lilius99vuml:a}
+Lilius, J., Paltor, I.P.:
+\newblock {vUML: a Tool for Verifying UML Models}.
+\newblock In: {}. (1999)  255--258
+
+\bibitem{Kugler:2005:TLS:2140653.2140692}
+Kugler, H., Harel, D., Pnueli, A., Lu, Y., Bontemps, Y.:
+\newblock {Temporal logic for scenario-based specifications}.
+\newblock In: {Proceedings of the 11th international conference on Tools and
+  Algorithms for the Construction and Analysis of Systems}. {TACAS'05}, Berlin,
+  Heidelberg, Springer-Verlag (2005)  445--460
+
+\bibitem{MVPSA}
+Baresi, L., Ghezzi, C., Zanolin, L.:
+\newblock {Modeling and Validation of Publish/Subscribe Architectures}.
+\newblock In Beydeda, S., Gruhn, V., eds.: {Testing Commercial-off-the-Shelf
+  Components and Systems}.
+\newblock Springer Berlin Heidelberg  273--291
 
 \end{thebibliography}
