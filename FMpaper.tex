@@ -164,6 +164,16 @@ and Quantified Regular Expressions (QRE), which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
+This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
+ survey the most relevant related approaches,
+and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
+syntax and semantics of mCRL2, $\mu$-calculus and UML Sequence diagrams.
+We describe our approach in Section~\ref{sec:Approach}.
+In Section~\ref{sec:CaseStudy} we apply it on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+
+
+\section{Related Work}
+\label{sec:RelatedWork}
 To mitigate the problem, several approaches propose conversational tools for elucidating properties, based on the property patterns. 
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
 selecting the appropriate template. Recognizing that there are subtle aspects
@@ -213,11 +223,9 @@ vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models co
 However, properties must be specified in terms of undesired events, which is not always convenient.
 This is because the verification is based on checking whether it is possible to reach error states, specified by the user.
 Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
-Every element in an LSC has a temperature which can be either hot or cold. This
-is used to distinguish between possible (cold) and mandatory (hot) elements and
-behaviour.
-In both approaches, Buchi automata and a LTL formulas
-However, UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing the assert and negate fragments
+Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
+In both approaches, Buchi automata and a LTL formulas are generated automatically from the diagrams.
+However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the assert and negate fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lack many UML features.
 
 
@@ -238,12 +246,11 @@ to capture mandatory and forbidden behavior. On the other hand, being an older g
 % answers.
 % 
 
-We have thoroughly surveyed the advantages and shortcomings of the most relevant
-approaches up to date, and a more detailed comparison with our approach is given in
-Section~\ref{sec:RelatedWork}.
+
 
 \section{Preliminaries}
-\subsection{Property Patterns}
+\label{sec:Preliminaries}
+%\subsection{Property Patterns}
 
 \subsection{Brief Introduction to mCRL2 and $\mu$-calculus}
 
@@ -251,6 +258,8 @@ Section~\ref{sec:RelatedWork}.
 
 
 \section{The Approach}
+\label{sec:Approach}
+
 \subsection{The Rationale}
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
@@ -321,10 +330,10 @@ the action formula:
 mention free drawing and the profile application 
 
 \section{Case Study: DIRAC's Executor Framework revisited}
-
-\section{Related Work}
-\label{sec:RelatedWork}
+\label{sec:CaseStudy}
 \section{Conclusions and future work}
+\label{sec:Conclusions}
+
 compositional patterns
 \bibliographystyle{splncs} 
 \bibliography{FM2014}
