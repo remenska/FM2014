@@ -74,14 +74,6 @@ Autili, M., Inverardi, P., Pelliccione, P.:
   approach}.
 \newblock Automated Software Engg. \textbf{14}(3) (September 2007)  293--340
 
-\bibitem{Giannakopoulou:2001:AVT:872023.872506}
-Giannakopoulou, D., Havelund, K.:
-\newblock {Automata-Based Verification of Temporal Properties on Running
-  Programs}.
-\newblock In: {Proceedings of the 16th IEEE international conference on
-  Automated software engineering}. {ASE '01}, Washington, DC, USA, IEEE
-  Computer Society (2001)  412--
-
 \bibitem{Lee97agraphical}
 Lee, I., Sokolsky, O.:
 \newblock {A Graphical Property Specification Language}.
@@ -121,5 +113,13 @@ Baresi, L., Ghezzi, C., Zanolin, L.:
 \newblock In Beydeda, S., Gruhn, V., eds.: {Testing Commercial-off-the-Shelf
   Components and Systems}.
 \newblock Springer Berlin Heidelberg  273--291
+
+\bibitem{Giannakopoulou:2001:AVT:872023.872506}
+Giannakopoulou, D., Havelund, K.:
+\newblock {Automata-Based Verification of Temporal Properties on Running
+  Programs}.
+\newblock In: {Proceedings of the 16th IEEE international conference on
+  Automated software engineering}. {ASE '01}, Washington, DC, USA, IEEE
+  Computer Society (2001)  412--
 
 \end{thebibliography}

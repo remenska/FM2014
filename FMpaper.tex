@@ -134,13 +134,10 @@ The level of sophistication and mathematical background required for using such 
 In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
 practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
 need to be carefully considered in order to distill the right formula.
-The objective of this work is to simplify the process of correctly eliciting functional requirements, without the need of expertise in temporal logic. 
 
 % just mention here the patterns, the fact that there are 3 categories of approaches
 % tackling the problem, the general deficiencies of these approaches and how we want to
-% take the best of all worlds; Keep longer stuff below for a separate section Related Work; 
-% also add to what you already have below, all the disadvantages for each approach
-
+% take the best of all worlds; 
 Based on investigation of more than 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
 was developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed that almost all the surveyed properties
 can be mapped into one of several property patterns. Each pattern is a
@@ -164,16 +161,40 @@ and Quantified Regular Expressions, which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
-To mitigate the problem, several approaches propose conversational tools for
+To mitigate the problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
 elucidating properties, based on the property patterns. These approaches guide users in selecting the appropriate pattern
 for the property in mind, and optionally produce a formula in some target temporal logic. 
-Another category of approaches deal with temporal extensions 
+Another category of approaches~\cite{Ziemann02anextension,Flake03formalsemantics,Ackermann:2006:LOS:2135315.2135339} deal with temporal extensions 
 of the Object Constraint Language (OCL), as means to specify system
 properties. OCL is a declarative textual language for describing invariants for
 classes and pre- and postconditions of operations. Although it forms an integral
 part of UML, it lacks means to specify constraints over the dynamic behavior
-of a model. Finally, a third class of approaches tackle the property
+of a model. Finally, a third class of approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA} tackle the property
 specification problem by proposing graphical notations.
+
+The objective of this work is to simplify the process of correctly eliciting
+functional requirements, without the need of expertise in temporal logic. 
+- stay within the same UML IDE environment (does not work with any of the approaches, be it wizards or LSC or other graphical formalisms)
+- sequence diagrams used - already the notation familiar to designers ← mention why not state machines for example
+- event-based formalism, most are state-based (LTL,FSA)
+
+- patterns extended, all existing patterns can be expressed
+- questionnaire for easier elucidation of properties, automatic generation of
+formulas for 100 property types ← which questionnaires distill what? and you
+have to manually provide states/events in the placeholders. If your design is
+changed later on, you must re-do it
+
+“This automation will increase the accessibility of our approach by allowing software engineers to remain focused in the realm of Sequence Diagrams.”
+
+- case study revisited, we were wrong in specifying the property
+- monitor for "runtime verification" for more efficient bug hunting, fighting state space 
+- quantification for dealing with data; possible to work with state-based
+formulas, states of objects, quantify forall! '*'  ← LTL, CTL are not that
+powerful to allow this
+Finally, we introduce the possibility to define quantifiers for temporal
+properties to express complex properties in a more concise manner, e.g., every
+element of a certain type has to fulfill a certain property. <- mu-calculus is
+reach enough to be able to achieve this
 
 This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
  survey the most relevant related approaches,
@@ -196,9 +217,9 @@ Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, 
 with compositional patterns that are built up from combinations of more basic patterns. 
 Unfortunately, we could not find SPIDER online, and the version of Prospec that we found (Fig.~\ref{fig:Prospec}) produces only 
 formulas in Future Interval Logic, not LTL as stated in the work.
-\begin{figure*}[t!]
+\begin{figure*}[b!]
   \centering
-  \subfloat{\label{fig:Prospec}\includegraphics[width=0.7\linewidth]{./Prospec.png}}    
+  \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
   \hfill
   \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
   \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}

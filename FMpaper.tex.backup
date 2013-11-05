@@ -159,27 +159,53 @@ state always occurs before another one),
 or response (the occurrence of a given event or state must be followed by
 designated event or state), capturing a cause-effect relation.
 Although the patterns website~\cite{PSP} contains a collection of templates for
-different target formalisms, such as LTL, CTL, Graphical Interval Logic (GIL),
-and Quantified Regular Expressions (QRE), which can be considered helpful,
+different target formalisms, such as LTL, CTL, Graphical Interval Logic,
+and Quantified Regular Expressions, which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
-To mitigate the problem, several approaches propose conversational tools for elucidating properties, based on the property patterns. 
+To mitigate the problem, several approaches propose conversational tools for
+elucidating properties, based on the property patterns. These approaches guide users in selecting the appropriate pattern
+for the property in mind, and optionally produce a formula in some target temporal logic. 
+Another category of approaches deal with temporal extensions 
+of the Object Constraint Language (OCL), as means to specify system
+properties. OCL is a declarative textual language for describing invariants for
+classes and pre- and postconditions of operations. Although it forms an integral
+part of UML, it lacks means to specify constraints over the dynamic behavior
+of a model. Finally, a third class of approaches tackle the property
+specification problem by proposing graphical notations.
+
+This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
+ survey the most relevant related approaches,
+and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
+syntax and semantics of mCRL2, $\mu$-calculus and UML Sequence diagrams.
+We describe our approach in Section~\ref{sec:Approach}.
+In Section~\ref{sec:CaseStudy} we apply it on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+\section{Related Work}
+\label{sec:RelatedWork}
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
 selecting the appropriate template. Recognizing that there are subtle aspects
 not covered by the original patterns, such as what happens in a response
 property if the cause occurs multiple times before the effect takes place,
 they extended them with variants. The resulting templates 
 are represented using disciplined natural language and finite state automata. 
+PROPEL does not support the universality, bounded existence, and the chain patterns. It also 
+does not produce a formula in any temporal logic formalism.
 In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
 Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
-with compositional patterns that are built up from combinations of more basic patterns.
-Another category of approaches deal with temporal extensions of the Object Constraint Language (OCL), 
-as means to specify system properties. OCL is a declarative textual language for describing 
-invariants for classes and pre- and postconditions of operations. Although it forms an integral part of UML, it lacks means to
-specify constraints over the dynamic behavior of a model. 
-For specification of past and future state-oriented constraints, the @next and @pre temporal modifiers
-are introduced in~\cite{Ziemann02anextension}. By means of UML Profiles,~\cite{Flake03formalsemantics}
+with compositional patterns that are built up from combinations of more basic patterns. 
+Unfortunately, we could not find SPIDER online, and the version of Prospec that we found (Fig.~\ref{fig:Prospec}) produces only 
+formulas in Future Interval Logic, not LTL as stated in the work.
+\begin{figure*}[t!]
+  \centering
+  \subfloat{\label{fig:Prospec}\includegraphics[width=0.7\linewidth]{./Prospec.png}}    
+  \hfill
+  \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
+  \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+\end{figure*}
+Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
+introduces the @next and @pre temporal modifiers for specification of past and future state-oriented constraints. 
+By means of UML Profiles,~\cite{Flake03formalsemantics}
 proposes another OCL extension for real-time constraints. They claim to be able to describe all the existing 
 patterns in these OCL expressions. Their starting point for model descriptions are UML state machines.
 To simplify constraint definition with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors 
@@ -188,8 +214,7 @@ The behavioral specification of software components refers to interface specific
 which are not really dynamic views. This work does not yet introduce means to specify temporal properties.
 Resembling an OO programming language, OCL constraints can become quite complex and cryptic, and editing 
 them manually is error-prone. Another problem is the extent to which designers are familiar with this language.
-Finally, a third class of approaches tackle the property specification problem by proposing graphical notations,
-which come closer to the realm of modeling the system behavior.
+Graphical notation approaches come closest to the realm of modeling the system behavior.
 %closest to our work...
 The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents a scenario-based visual language called 
 Property Sequence Charts, where a property is seen as a relation on a set of exchanged
@@ -197,6 +222,11 @@ system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, a
 is measured with the property patterns. SPIN is used as a backend for model checking of
 the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
 an operational representation for LTL formulas generated automatically with this approach.
+The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Charmy}).
+Such a mix of textual and visual representation of message communication
+within a diagram is tedious and error-prone. Additionally, asynchronous communication is not supported.
+Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone framework for architectural descriptions,
+not inter-operable with UML tools, and as such has limited usefulness in industrial context.
 Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
 are represented as acyclic graphs of states and temporal operators as nodes.
 While they manage to hide the formal notation from the user by generating LTL formulas, 
@@ -204,6 +234,7 @@ their notation is still very close to an actual temporal logic formula.
 The TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} also attempts to simplify the formalization of certain
 kinds of requirements. Response formulas are depicted in timeline diagrams by specifying temporal relations among events and constraints. 
 The timeline specification is automatically converted into a Buchi automaton, amenable to model checking with SPIN.
+Unfortunately the tool is no longer available.
 HUGO/RT~\cite{Knapp:2006:MCU:1762828.1762836} is a tool for model checking UML 2.0 interactions 
 against a model composed of message-exchanging state machines. The interactions represent the desired properties,
 and are translated together with the system model into Buchi automata for model checking with SPIN.
@@ -212,11 +243,10 @@ the standard XMI), and the version we tested does not support asynchronous messa
 vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models comprising state machines.
 However, properties must be specified in terms of undesired events, which is not always convenient.
 This is because the verification is based on checking whether it is possible to reach error states, specified by the user.
-Live Sequence Charts (LSC) are also used as a graphical formalism for expressing behavioral properties.
-Every element in an LSC has a temperature which can be either hot or cold. This is used to distinguish between possible (cold) and mandatory (hot) elements and behaviour.
-
-In both approaches, Buchi automata and a LTL formulas
-However, UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing the assert and negate fragments
+Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
+Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
+In both approaches, Buchi automata and a LTL formulas are generated automatically from the diagrams.
+However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the assert and negate fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lack many UML features.
 
 
@@ -237,12 +267,11 @@ to capture mandatory and forbidden behavior. On the other hand, being an older g
 % answers.
 % 
 
-We have thoroughly surveyed the advantages and shortcomings of the most relevant
-approaches up to date, and a more detailed comparison with our approach is given in
-Section~\ref{sec:RelatedWork}.
+
 
 \section{Preliminaries}
-\subsection{Property Patterns}
+\label{sec:Preliminaries}
+%\subsection{Property Patterns}
 
 \subsection{Brief Introduction to mCRL2 and $\mu$-calculus}
 
@@ -250,6 +279,8 @@ Section~\ref{sec:RelatedWork}.
 
 
 \section{The Approach}
+\label{sec:Approach}
+
 \subsection{The Rationale}
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
@@ -317,14 +348,14 @@ the action formula:
 \]
 
 \subsection{The Wizard} 
-mention free drawing and the profile application 
+%mention free drawing and the profile application 
 
 \section{Case Study: DIRAC's Executor Framework revisited}
-
-\section{Related Work}
-\label{sec:RelatedWork}
+\label{sec:CaseStudy}
 \section{Conclusions and future work}
-compositional patterns
+\label{sec:Conclusions}
+
+%compositional patterns
 \bibliographystyle{splncs} 
 \bibliography{FM2014}
 \end{document}
