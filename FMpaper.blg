@@ -10,48 +10,52 @@ Repeated entry---line 1173 of file FM2014.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "MDTUML2" isn't style-file defined
 --line 1833 of file FM2014.bib
+Repeated entry---line 1849 of file FM2014.bib
+ : @inproceedings{FormalLanguagemCRL2
+ :                                   ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
-You've used 20 entries,
+You've used 21 entries,
             2087 wiz_defined-function locations,
-            634 strings with 8282 characters,
-and the built_in function-call counts, 6942 in all, are:
-= -- 775
-> -- 206
-< -- 17
-+ -- 75
-- -- 55
-* -- 398
-:= -- 874
-add.period$ -- 31
-call.type$ -- 20
-change.case$ -- 20
+            641 strings with 8455 characters,
+and the built_in function-call counts, 7318 in all, are:
+= -- 820
+> -- 210
+< -- 18
++ -- 77
+- -- 56
+* -- 417
+:= -- 917
+add.period$ -- 32
+call.type$ -- 21
+change.case$ -- 21
 chr.to.int$ -- 0
-cite$ -- 20
-duplicate$ -- 382
-empty$ -- 706
-format.name$ -- 55
-if$ -- 1791
+cite$ -- 21
+duplicate$ -- 404
+empty$ -- 748
+format.name$ -- 56
+if$ -- 1891
 int.to.chr$ -- 0
-int.to.str$ -- 20
-missing$ -- 18
-newline$ -- 102
-num.names$ -- 22
-pop$ -- 102
+int.to.str$ -- 21
+missing$ -- 19
+newline$ -- 107
+num.names$ -- 23
+pop$ -- 107
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 282
+skip$ -- 299
 stack$ -- 0
-substring$ -- 439
-swap$ -- 186
-text.length$ -- 17
+substring$ -- 471
+swap$ -- 198
+text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 68
-width$ -- 22
-write$ -- 238
-(There were 2 error messages)
+while$ -- 72
+width$ -- 23
+write$ -- 250
+(There were 3 error messages)

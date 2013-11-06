@@ -126,4 +126,10 @@ Giannakopoulou, D., Havelund, K.:
   Automated software engineering}. {ASE '01}, Washington, DC, USA, IEEE
   Computer Society (2001)  412--
 
+\bibitem{Emerson97modelchecking}
+Emerson, E.A.:
+\newblock {Model checking and the Mu-calculus}.
+\newblock In: {DIMACS Series in Discrete Mathematics}, American Mathematical
+  Society (1997)  185--214
+
 \end{thebibliography}
