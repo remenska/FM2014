@@ -114,6 +114,10 @@ Baresi, L., Ghezzi, C., Zanolin, L.:
   Components and Systems}.
 \newblock Springer Berlin Heidelberg  273--291
 
+\bibitem{MDTUML2}
+Foundation, T.E.:
+\newblock {Eclipse Modeling {MDT-UML2} component} www.eclipse.org/uml2/.
+
 \bibitem{Giannakopoulou:2001:AVT:872023.872506}
 Giannakopoulou, D., Havelund, K.:
 \newblock {Automata-Based Verification of Temporal Properties on Running

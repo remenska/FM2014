@@ -8,39 +8,41 @@ Repeated entry---line 1173 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "MDTUML2" isn't style-file defined
+--line 1833 of file FM2014.bib
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
-You've used 19 entries,
+You've used 20 entries,
             2087 wiz_defined-function locations,
-            629 strings with 8185 characters,
-and the built_in function-call counts, 6821 in all, are:
-= -- 766
-> -- 202
+            634 strings with 8282 characters,
+and the built_in function-call counts, 6942 in all, are:
+= -- 775
+> -- 206
 < -- 17
-+ -- 73
-- -- 54
-* -- 396
-:= -- 856
-add.period$ -- 30
-call.type$ -- 19
-change.case$ -- 19
++ -- 75
+- -- 55
+* -- 398
+:= -- 874
+add.period$ -- 31
+call.type$ -- 20
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 19
-duplicate$ -- 376
-empty$ -- 688
-format.name$ -- 54
-if$ -- 1762
+cite$ -- 20
+duplicate$ -- 382
+empty$ -- 706
+format.name$ -- 55
+if$ -- 1791
 int.to.chr$ -- 0
-int.to.str$ -- 19
+int.to.str$ -- 20
 missing$ -- 18
-newline$ -- 98
-num.names$ -- 21
-pop$ -- 94
+newline$ -- 102
+num.names$ -- 22
+pop$ -- 102
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 279
+skip$ -- 282
 stack$ -- 0
 substring$ -- 439
 swap$ -- 186
@@ -49,7 +51,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 67
-width$ -- 21
-write$ -- 230
+while$ -- 68
+width$ -- 22
+write$ -- 238
 (There were 2 error messages)

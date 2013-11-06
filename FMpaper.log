@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  5 NOV 2013 17:50
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 13:25
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -449,63 +449,56 @@ File: ./Approach.png Graphic file (type png)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./Approach.png (PNG copy)>]
-Overfull \hbox (1.4604pt too wide) in paragraph at lines 164--174
+Overfull \hbox (1.4604pt too wide) in paragraph at lines 165--175
 \OT1/cmr/m/n/10 tools for elu-ci-dat-ing prop-er-ties, based on the prop-erty p
 at-terns. These ap-proaches
  []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ü in font cmr10!
-Missing character: There is no ê in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ü in font cmr10!
-Missing character: There is no ê in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ü in font cmr10!
-Missing character: There is no ê in font cmr10!
-[3] <./Prospec.png, id=20, 807.015pt x 481.8pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [3]
+<./Prospec.png, id=20, 807.015pt x 481.8pt>
 File: ./Prospec.png Graphic file (type png)
  <use ./Prospec.png>
 <./Charmy.png, id=21, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
- <use ./Charmy.png> [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>]
+ <use ./Charmy.png> [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5]
-(./FMpaper.bbl [6]
+ [5 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [6] (./FMpaper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-[7]) [8] (./FMpaper.aux) ) 
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+[]\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
+ []
+
+) [8] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5229 strings out of 495061
- 72202 string characters out of 1182621
- 143211 words of memory out of 3000000
- 8338 multiletter control sequences out of 15000+50000
+ 5230 strings out of 495061
+ 72211 string characters out of 1182621
+ 143215 words of memory out of 3000000
+ 8339 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  36i,14n,38p,284b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-t
-exlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/font
-s/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmti10.pfb>
-Output written on FMpaper.pdf (8 pages, 2522483 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmti10.pfb>
+Output written on FMpaper.pdf (8 pages, 2522626 bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

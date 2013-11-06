@@ -79,27 +79,29 @@ NIKHEF, Amsterdam, The Netherlands
 \maketitle
 
 \begin{abstract}
-One of the challenges in concurrent software development is early discovery of
-design errors which could lead to deadlocks or race-conditions. For safety-critical and
-complex distributed applications, traditional testing does not always expose
-such problems. Performing more rigorous formal
-analysis typically requires a model, which is an abstraction of the system. For
-object-oriented software, UML is the industry-adopted modeling
-language. UML offers a number of views to present the system from different
-perspectives. Behavioral views are necessary for the purpose of model checking,
-as they capture the dynamics of the system. Among them are sequence diagrams, in
-which the interaction between components is modeled by means of message
-exchanges. UML 2.x includes rich features that
-enable modeling code-like structures, such as loops, conditions and referring to
-existing interactions.
-We present an automatic procedure for translating UML into mCRL2 process algebra
-models. Our prototype is able to
-produce a formal model, and feed model-checking traces back into any
-UML modeling tool, without the user having to leave the UML domain. We argue why
-previous approaches of which we are aware have limitations that we overcome. We
-further apply our methodology on the Grid framework used to support production
-activities of one of the LHC experiments at CERN.
-\keywords{property specification, model checking, UML, sequence diagrams, modal $\mu$-calculus, property patterns}
+Early discovery of design errors which can lead to deadlocks or race-conditions is 
+challenging in concurrent software development. 
+In the last decades, more rigorous
+methods and tools for modeling and formal analysis have been developed. 
+Although approaches for automatically generating formal models from system designs have 
+been proposed, another serious obstacle for adopting model checking tools in industry
+is the formulation of application-specific properties to be checked. 
+This requires expertise in temporal logic, regardless of the verification tool used.
+To bring the process of correctly eliciting functional properties closer to software 
+designers, we introduce PASS, a Property ASSistant wizard developed 
+as an Eclipse plugin. Our starting point was the well-established property pattern system,
+which we also extended with new property templates, to capture variations not covered 
+in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
+and a UML sequence diagram depicting the desired behavior. Most approaches to date 
+have focused on LTL, which is a state-based formalism. On the other hand,
+ $\mu$-calculus is event-based, making it a good match for sequence diagrams. 
+Moreover, such communication is data-dependent, so we introduce
+the possibility to define data quantifiers, to express complex properties in a concise manner.
+To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
+We revisit a case study from the Grid domain, using PASS to obtain the
+formula and monitor for checking the property with mCRL2.
+% \keywords{property specification, model checking, UML, sequence diagrams, modal
+% $\mu$-calculus, property patterns}
 \end{abstract}
 \section{Introduction}
 \label{sec:Introduction}
@@ -148,16 +150,15 @@ checking tools. Their hierarchical taxonomy is based on the idea that each
 pattern has a \emph{scope}, which defines the extent of program execution over
 which the pattern must hold, and a \emph{behavior}, which describes the intent of the pattern. The pattern
 system identifies 5 scopes and 8 behavior variations that can be
-combined to create 40 different properties. Examples of scopes are: globally,
+combined to create 40 different property templates. Examples of scopes are: globally,
 before an event or state occurs, after an event or state occurs.
 Examples of behavior classification are: absence (an event or state should never
-occur during an execution), precedence (which requires that a given event or
+occur during an execution), precedence (a given event or
 state always occurs before another one), 
 or response (the occurrence of a given event or state must be followed by
 designated event or state), capturing a cause-effect relation.
 Although the patterns website~\cite{PSP} contains a collection of mappings for
-different target formalisms, such as LTL, CTL, Graphical Interval Logic,
-and Quantified Regular Expressions, which can be considered helpful,
+different target formalisms, such as LTL, CTL, QRE and Graphical Interval Logic, which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
@@ -174,32 +175,37 @@ specification problem by proposing graphical notations.
 
 The objective of this work is to simplify the process of correctly eliciting
 functional requirements, without the need of expertise in temporal logic. 
-- stay within the same UML IDE environment (does not work with any of the approaches, be it wizards or LSC or other graphical formalisms)
-- sequence diagrams used - already the notation familiar to designers ← mention why not state machines for example
-- event-based formalism, most are state-based (LTL,FSA)
-
-- patterns extended, all existing patterns can be expressed
-- questionnaire for easier elucidation of properties, automatic generation of
-formulas for 100 property types ← which questionnaires distill what? and you
-have to manually provide states/events in the placeholders. If your design is
-changed later on, you must re-do it
-
-“This automation will increase the accessibility of our approach by allowing software engineers to remain focused in the realm of Sequence Diagrams.”
-
-- case study revisited, we were wrong in specifying the property
-- monitor for "runtime verification" for more efficient bug hunting, fighting state space 
-- quantification for dealing with data; possible to work with state-based
-formulas, states of objects, quantify forall! '*'  ← LTL, CTL are not that
-powerful to allow this
-Finally, we introduce the possibility to define quantifiers for temporal
-properties to express complex properties in a more concise manner, e.g., every
-element of a certain type has to fulfill a certain property. <- mu-calculus is
-reach enough to be able to achieve this
+First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
+system properties. Our starting point was the pattern system,
+which we also extended with over 40 new property templates, to capture variations not covered 
+in the original classification. Our strong motivation was to stay
+in the same UML development environment, rather than use an external helper tool for this.
+It should increase the tool accessibility by allowing software engineers to remain focused in the realm of UML designs.
+In addition, a tight bond between elements of the design and instances of the property template is kept, such that, if the 
+design is changed, these changes can be easily propagated in the property template placeholders. 
+To this end, we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API. Our tool is developed as an Eclipse plugin.
+Second, the pattern templates instantiated with PASS have three notations: a natural language summary, a $\mu$-calculus formula
+and a UML sequence diagram depicting the desired behavior. Most approaches to date 
+have focused on LTL, which is a state-based temporal logics formalism. On the other hand,
+ $\mu$-calculus is event-based, and as such is a good match for the sequence diagrams notation. 
+These events can represent methods calls or asynchronous communication between distributed components.
+Moreover, such communication is data-dependent, which is why we introduce
+the possibility to define quantifiers, to express complex properties in a concise manner, e.g., every
+element of a certain type must fulfill a certain property. 
+Compared to LTL or CTL,  $\mu$-calculus is powerful enough
+to achieve this in a natural way. Third, to cope with state-space explosion,
+we provide one additional automatically-generated notation: a monitor for on-the-fly model checking, or bug hunting.
+We interpret a sequence diagram as an observer of the message exchanges in the system.
+This helps in avoiding generation of those parts of the state space for which it is 
+certain that they do not compose with the property monitor. The state space
+generation is thus property driven, and stops as soon as an error is found.
+Finally, we revisit a case study we did previously in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}, this time
+using the PASS tool to automatically obtain the formula and monitor for checking the property in mCRL2.
 
 This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
  survey the most relevant related approaches,
 and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
-syntax and semantics of mCRL2, $\mu$-calculus and UML Sequence diagrams.
+syntax and semantics of mCRL2, $\mu$-calculus and UML sequence diagrams.
 We describe our approach in Section~\ref{sec:Approach}.
 In Section~\ref{sec:CaseStudy} we apply it on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \section{Related Work}
@@ -211,21 +217,14 @@ property if the cause occurs multiple times before the effect takes place,
 they extended them with variants. The resulting templates 
 are represented using disciplined natural language and finite state automata. 
 PROPEL does not support the universality, bounded existence, and the chain patterns. It also 
-does not produce a formula in any temporal logic formalism.
+does not produce a formula in any of the commonly used temporal logic formalisms.
 In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
 Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
-with compositional patterns that are built up from combinations of more basic patterns. 
-Unfortunately, we could not find SPIDER online, and the version of Prospec that we found (Fig.~\ref{fig:Prospec}) produces only 
+with compositional ones that are built up from combinations of more basic patterns. 
+Unfortunately, we could not find SPIDER online, and the version of Prospec that we tested (Fig.~\ref{fig:Prospec}) produces only 
 formulas in Future Interval Logic, not LTL as stated in the work.
-\begin{figure*}[b!]
-  \centering
-  \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
-  \hfill
-  \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
-  \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
-\end{figure*}
 Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
-introduces the @next and @pre temporal modifiers for specification of past and future state-oriented constraints. 
+introduces the @pre and @next temporal modifiers for specification of past and future state-oriented constraints. 
 By means of UML Profiles,~\cite{Flake03formalsemantics}
 proposes another OCL extension for real-time constraints. They claim to be able to describe all the existing 
 patterns in these OCL expressions. Their starting point for model descriptions are UML state machines.
@@ -235,10 +234,18 @@ The behavioral specification of software components refers to interface specific
 which are not really dynamic views. This work does not yet introduce means to specify temporal properties.
 Resembling an OO programming language, OCL constraints can become quite complex and cryptic, and editing 
 them manually is error-prone. Another problem is the extent to which designers are familiar with this language.
+\begin{figure*}[t!]
+  \centering
+  \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
+  \hfill
+  \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
+  \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+\end{figure*}
+
 Graphical notation approaches come closest to the realm of modeling the system behavior.
 %closest to our work...
 The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents a scenario-based visual language called 
-Property Sequence Charts, where a property is seen as a relation on a set of exchanged
+Property Sequence Charts (PSC), where a property is seen as a relation on a set of exchanged
 system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, and its expressiveness
 is measured with the property patterns. SPIN is used as a backend for model checking of
 the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
@@ -250,7 +257,7 @@ Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone
 not inter-operable with UML tools, and as such has limited usefulness in industrial context.
 Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
 are represented as acyclic graphs of states and temporal operators as nodes.
-While they manage to hide the formal notation from the user by generating LTL formulas, 
+While they manage to hide the formalism from the user by generating LTL formulas, 
 their notation is still very close to an actual temporal logic formula.
 The TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} also attempts to simplify the formalization of certain
 kinds of requirements. Response formulas are depicted in timeline diagrams by specifying temporal relations among events and constraints. 
@@ -262,12 +269,12 @@ and are translated together with the system model into Buchi automata for model 
 The approach uses some inner format for textual representation of UML interactions (rather than
 the standard XMI), and the version we tested does not support asynchronous messages, or combined fragments.
 vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models comprising state machines.
-However, properties must be specified in terms of undesired events, which is not always convenient.
-This is because the verification is based on checking whether it is possible to reach error states, specified by the user.
+However, properties must be specified in terms of undesired scenarios, which is not always convenient.
+This is because the verification is based on checking whether it is possible to reach error states, which must be manually specified by the user.
 Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
 Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
 In both approaches, Buchi automata and a LTL formulas are generated automatically from the diagrams.
-However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the assert and negate fragments
+However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lack many UML features.
 
 
