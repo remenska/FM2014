@@ -312,7 +312,7 @@ reals, booleans, lists, and sets.
 Furthermore, by a \textbf{sort} definition one can define a new data type. A new process
 is declared by \textbf{proc}.
 
-The semantics associated with the mCRL2 syntax is a Labeled Transition System
+The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
 system that has multi-action labeled transitions, which can have data parameters. The language used by the mCRL2
 toolset for model-checking specific properties is the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
@@ -327,38 +327,40 @@ The syntax of a $\mu$-calculus formula is defined by the following grammar:
 \alpha & ::= \alpha\cup\alpha \mid \alpha\cap\alpha \mid\neg\alpha \mid true\\
 \end{array}
 \]
-
 Properties represented by $\phi$ can be combined using the standard Boolean connectives.
 The formula $\phi_1\wedge\phi_2$ is true whenever both $\phi_1$ and $\phi_2$ are true.
 $\rho$ represents a set of sequences of actions, while $\alpha$ stands for a set of actions.
-To describe a sequence of actions $\rho$, the concatenation $\rho\cdot\rho$ and iteration $\rho^*$ (infinite sequences) operators can be used.
+To describe a sequence of actions $\rho$, the concatenation $\rho\cdot\rho$ and iteration $\rho^*$ (possibly infinite sequences) operators can be used.
 Union and intersection of sets of actions is denoted by $\cup$ and $\cap$ respectively. 
 The notation $\neg\alpha$ denotes the complement of the set of actions $\alpha$ with respect to the set of all actions. 
 The set of actions characterized by $\emph{true}$ is the entire set of actions present in the model.
-% 
-% The ability to use actions parameterized with data in mCRL2 is reflected in the
-% property language as well.
-% and universal and existential quantification over (possibly infinite) data types
-% are allowed. For example, one may write true to denote the set of all actions,
-% or exists n:Nat.val( n > 5 )&& s(n) to denote the set of s(n) actions, where
-% n>5. The property [ true*. exists n: Nat.val( n > 5 ) && s(n) ]false then
-% expresses that such an action never occurs.
- 
 
-here: φ represents a property, ρ represents a set of sequences of actions and α
-represents a set of actions.  The formula φ1 ∧ φ2 is valid wherever both φ1 and
-φ2 hold. φ1 ∨ φ2 is valid whenever φ1 or φ2 holds. The formula [ρ]φ describes
-that φ holds in all states that can be reached by a sequence in ρ, while <ρ> φ
-describes that φ holds in some state that can be reached by a sequence in ρ. To
-describe a sequence of actions ρ, operators for concatenation (ρ.ρ) and
-iteration (ρ∗) are available. The connectives ∪ and ∩ in set of actions denote
-intersection and union of sets of actions. The notation !α denotes the
-complement of the set of actions α with respect to the set of all actions. An
-action a parameterized with data element d is denoted by a(d).
+The $\square$ (\emph{must}) and $\Diamond$ (\emph{may}) modalities  have the following semantics:
+a state of the LTS satisfies $\langle R \rangle\phi$ iff there is at least one transition sequence 
+starting at that state, satisfying R, and leading to a state satisfying $\phi$;
+$[R]\phi$ is satisfied iff all sequences starting at that state and satisfying R, 
+lead to states satisfying  $\phi$.
+In other words, $[R]\phi$ describes that $\phi$ holds in all states that can be reached by a sequence in R,
+while $\langle R \rangle\phi$ describes that $\phi$ holds in some state that can be reached by a sequence in R.
+Remember that $\langle a \rangle\phi$ is trivially satisfied for states with no “\emph{a}” transitions.
+Combined with these modalities, the least ($\mu X\ldotp f(X)$) and greatest
+($\nu X\ldotp f(X)$) fixpoints permit reasoning about finite and infinite runs
+of a system in a recursive-like manner.
+For example, we can read $\mu X\ldotp\phi\vee\langle\alpha\rangle X$ as: X is
+the smallest set of states such that a state is in X
+iff $\phi$ holds in that state or there is an $\alpha$-successor in X. 
+On the other hand, 
+Conversely, $\nu X\ldotp\phi \wedge[\alpha]X$ is the largest set of states such that a state is in X iff
+$\phi$ holds in that state and all of its $\alpha$-successors are in X.
 
+Finally, a strong asset of $\mu$-calculus are the universal (\emph{forall}) and existential (\emph{exists}) quantifiers over possibly-infinite data types.
+For example, \emph{forall n:Nat.$\langle$read(n)$\rangle$true} asserts that a process can execute a read action with every natural number as a parameter;
+\emph{[!exists n:Nat.read(n+n)]false} states that a process should not execute read actions with odd-valued natural numbers.
 
-Verification using $\mu$-calculus often requires too much overhead to serve as a basis for lightweight 
+Verification using $\mu$-calculus sometimes requires too much overhead to serve as a basis for lightweight 
 bug-hunting, since the entire state-space must be kept in memory in the verification process.
+Observers, or monitors (\`{a} la Buchi) defined in the mCRL2 model itself, are used in some cases to bypass the problem.
+Not all $\mu$-calculus formulas are amenable to such a conversion.
 
 \subsection{UML Sequence Diagrams}
 

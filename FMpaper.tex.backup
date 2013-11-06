@@ -292,7 +292,8 @@ $ \\ $
 $p ::= a(d_1,\dots,d_n)\ |\ \tau |\ \delta\ |\ p+p\ |\ p.p\ |\ p||p\ |\sum_{d:D}p\ |\ c\rightarrow p\diamond p$
 \vspace{4 pt}
 $ \\ $
-A basic action $a$ of a process may have a number of data arguments  \begin{math}d_1,...,d_n\end{math}.
+Actions are the basic ingredients for models. They represent some observable
+atomic event. An action $a$ of a process may have a number of data arguments  \begin{math}d_1,...,d_n\end{math}.
 The action ${\tau}$ denotes an internal step, which cannot be observed from the external world. 
 Non-deterministic choice between two processes
 is denoted by the “+” operator. Processes can be composed sequentially and in parallel by means of ``.'' and
@@ -300,7 +301,8 @@ is denoted by the “+” operator. Processes can be composed sequentially and i
 operator $\sum_{d:D}p$ denotes (possibly infinite) choice among
 processes parameterized by $d$. $c\rightarrow p\diamond p$ is a conditional
 process, and depending on the value of the boolean expression $c$, the first or second operand is selected.
-This permits the modeling of systems whose behavior crucially depends on the data that is exchanged
+This allows modeling of systems whose behavior is data-dependent.
+
 To enforce synchronization, the allow operator ${\Delta_H(p)}$ specifies the set of actions $H$ that are allowed
 to occur. To show possible communications in a system and the resulting actions, the communication operator
 ${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
@@ -310,8 +312,67 @@ reals, booleans, lists, and sets.
 Furthermore, by a \textbf{sort} definition one can define a new data type. A new process
 is declared by \textbf{proc}.
 
-The semantics associated with the mCRL2 syntax is a Labeled Transition System
-system that has multi-action labeled transitions. A more elaborate description of mCRL2 and its features can be found in \cite{mCRL2}.
+The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
+system that has multi-action labeled transitions, which can have data parameters. The language used by the mCRL2
+toolset for model-checking specific properties is the modal
+$\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
+expressive power. Temporal logics like LTL, CTL and CTL* all have translations into $\mu$-calculus,
+witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
+The syntax of a $\mu$-calculus formula is defined by the following grammar:
+\[
+\begin{array}{ll}
+
+\phi_1 & ::= true \mid false \mid \phi\wedge\phi \mid \phi\vee\phi \mid [\rho]\phi \mid \langle\rho\rangle\phi \mid \mu Z\ldotp\phi \mid \nu Z\ldotp\phi \\
+\rho & ::= \alpha \mid \rho\cdot\rho \mid \rho^* \\
+\alpha & ::= \alpha\cup\alpha \mid \alpha\cap\alpha \mid\neg\alpha \mid true\\
+\end{array}
+\]
+
+Properties represented by $\phi$ can be combined using the standard Boolean connectives.
+The formula $\phi_1\wedge\phi_2$ is true whenever both $\phi_1$ and $\phi_2$ are true.
+$\rho$ represents a set of sequences of actions, while $\alpha$ stands for a set of actions.
+To describe a sequence of actions $\rho$, the concatenation $\rho\cdot\rho$ and iteration $\rho^*$ (possibly infinite sequences) operators can be used.
+Union and intersection of sets of actions is denoted by $\cup$ and $\cap$ respectively. 
+The notation $\neg\alpha$ denotes the complement of the set of actions $\alpha$ with respect to the set of all actions. 
+The set of actions characterized by $\emph{true}$ is the entire set of actions present in the model.
+
+The $\square$ (\emph{must}) and $\Diamond$ (\emph{may}) modalities  have the following semantics:
+a state of the LTS satisfies $\langle R \rangle\phi$ iff there is at least one transition sequence 
+starting at that state, satisfying R, and leading to a state satisfying $\phi$;
+$[R]\phi$ is satisfied iff all sequences starting at that state and satisfying R, 
+lead to states satisfying  $\phi$.
+
+   < nil > F = < false* > F ← wtf?
+for paper: on the positive side, mu-calculus allows both state and action formulas!
+
+the formula <α>φ is read as ‘it is possible for α to execute and result in a state  satisfying φ’. Ok, makes sense the above then. s |= <a>φ iff ∃ t. s −(a)→ t ∧ t |= φ
+ <a>φ ‘it is possible to do an a action and then have φ be true’, and its dual 
+[a]φ = ‘φ holds after every a action’
+
+If that is unclear, remember that [a]ϕ is trivially satisfied for states with no “a” transitions.
+
+
+% 
+% The ability to use actions parameterized with data in mCRL2 is reflected in the
+% property language as well.
+% and universal and existential quantification over (possibly infinite) data types
+% are allowed. For example, one may write true to denote the set of all actions,
+% or exists n:Nat.val( n > 5 )&& s(n) to denote the set of s(n) actions, where
+% n>5. The property [ true*. exists n: Nat.val( n > 5 ) && s(n) ]false then
+% expresses that such an action never occurs.
+ 
+
+here: φ represents a property, ρ represents a set of sequences of actions and α
+represents a set of actions.  The formula φ1 ∧ φ2 is valid wherever both φ1 and
+φ2 hold. φ1 ∨ φ2 is valid whenever φ1 or φ2 holds. The formula [ρ]φ describes
+that φ holds in all states that can be reached by a sequence in ρ, while <ρ> φ
+describes that φ holds in some state that can be reached by a sequence in ρ. To
+describe a sequence of actions ρ, operators for concatenation (ρ.ρ) and
+iteration (ρ∗) are available. 
+
+Verification using $\mu$-calculus often requires too much overhead to serve as a basis for lightweight 
+bug-hunting, since the entire state-space must be kept in memory in the verification process.
+
 \subsection{UML Sequence Diagrams}
 
 \section{The Approach}
@@ -385,6 +446,8 @@ the action formula:
 
 \subsection{The Wizard} 
 %mention free drawing and the profile application 
+%mention The syntax of the µ-calculus consists of multiactions, action formulas, regular formulas and state formulas.
+% this is why we CAN describe state formulas with mu-calculus!
 
 \section{Case Study: DIRAC's Executor Framework revisited}
 \label{sec:CaseStudy}
