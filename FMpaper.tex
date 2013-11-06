@@ -79,7 +79,7 @@ NIKHEF, Amsterdam, The Netherlands
 \maketitle
 
 \begin{abstract}
-Early discovery of design errors which can lead to deadlocks or race-conditions is 
+Early discovery of design errors which can lead to deadlocks or race conditions is 
 challenging in concurrent software development. 
 In the last decades, more rigorous
 methods and tools for modeling and formal analysis have been developed. 
@@ -90,11 +90,12 @@ This requires expertise in temporal logic, regardless of the verification tool u
 To bring the process of correctly eliciting functional properties closer to software 
 designers, we introduce PASS, a Property ASSistant wizard developed 
 as an Eclipse plugin. Our starting point was the well-established property pattern system,
-which we also extended with new property templates, to capture variations not covered 
+which we extended with new property templates, to capture variations not covered 
 in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
 have focused on LTL, which is a state-based formalism. On the other hand,
- $\mu$-calculus is event-based, making it a good match for sequence diagrams. 
+ $\mu$-calculus is event-based, making it a good match for sequence diagrams where communication between
+ components is depicted. 
 Moreover, such communication is data-dependent, so we introduce
 the possibility to define data quantifiers, to express complex properties in a concise manner.
 To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
@@ -108,16 +109,16 @@ formula and monitor for checking the property with mCRL2.
 One of the challenges in concurrent software development is early discovery of design errors which can lead to deadlocks or race-conditions.
 Traditional testing does not always expose such problems in complex distributed applications. Performing more rigorous formal analysis, like model-checking, 
 typically requires a model which is an abstraction of the system.
-In the last decades, more rigorous methods and tools
+In the last decades, methods and tools
 for modeling and formal analysis have been developed. Some of the leading model checking tools include SPIN, nuSMV, CADP and mCRL2. 
-Despite the research effort, these methods are still not widely accepted in industry. One problem is the lack of expertise and
+Despite the research effort, these tools are still not widely accepted in the software industry. One problem is the lack of expertise and
 the necessary time investment in the development cycle, for becoming proficient in
 the underlying mathematical formalisms used for describing the models. 
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model-checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verification of UML
 models, based on sequence and activity diagrams. Our prototype is able to produce
-a formal model into the mCRL2 process algebra language ~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
+a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
 tool, without the user having to leave the UML domain. We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
 %mention why we chose SDs!
 Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain.
@@ -149,14 +150,14 @@ events or states and then mapped to several different formalisms for model
 checking tools. Their hierarchical taxonomy is based on the idea that each
 pattern has a \emph{scope}, which defines the extent of program execution over
 which the pattern must hold, and a \emph{behavior}, which describes the intent of the pattern. The pattern
-system identifies 5 scopes and 8 behavior variations that can be
-combined to create 40 different property templates. Examples of scopes are: globally,
+system identifies 5 scopes and 11 behavior variations that can be
+combined to create 55 different property templates. Examples of scopes are: globally,
 before an event or state occurs, after an event or state occurs.
 Examples of behavior classification are: absence (an event or state should never
-occur during an execution), precedence (a given event or
+occur during an execution), precedence (an event or
 state always occurs before another one), 
-or response (the occurrence of a given event or state must be followed by
-designated event or state), capturing a cause-effect relation.
+or response (the occurrence of a an event or state must be followed by
+another event or state), capturing a cause-effect relation.
 Although the patterns website~\cite{PSP} contains a collection of mappings for
 different target formalisms, such as LTL, CTL, QRE and Graphical Interval Logic, which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
@@ -223,6 +224,7 @@ Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, 
 with compositional ones that are built up from combinations of more basic patterns. 
 Unfortunately, we could not find SPIDER online, and the version of Prospec that we tested (Fig.~\ref{fig:Prospec}) produces only 
 formulas in Future Interval Logic, not LTL as stated in the work.
+
 Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
 introduces the @pre and @next temporal modifiers for specification of past and future state-oriented constraints. 
 By means of UML Profiles,~\cite{Flake03formalsemantics}
@@ -252,7 +254,7 @@ the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are
 an operational representation for LTL formulas generated automatically with this approach.
 The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Charmy}).
 Such a mix of textual and visual representation of message communication
-within a diagram is tedious and error-prone. Additionally, asynchronous communication is not supported.
+within a diagram can be error-prone. Additionally, asynchronous communication is not supported.
 Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone framework for architectural descriptions,
 not inter-operable with UML tools, and as such has limited usefulness in industrial context.
 Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
@@ -313,7 +315,7 @@ Furthermore, by a \textbf{sort} definition one can define a new data type. A new
 is declared by \textbf{proc}.
 
 The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
-system that has multi-action labeled transitions, which can have data parameters. The language used by the mCRL2
+system that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
 toolset for model-checking specific properties is the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
 expressive power. Temporal logics like LTL, CTL and CTL* all have translations into $\mu$-calculus,
@@ -342,7 +344,7 @@ $[R]\phi$ is satisfied iff all sequences starting at that state and satisfying R
 lead to states satisfying  $\phi$.
 In other words, $[R]\phi$ describes that $\phi$ holds in all states that can be reached by a sequence in R,
 while $\langle R \rangle\phi$ describes that $\phi$ holds in some state that can be reached by a sequence in R.
-Remember that $\langle a \rangle\phi$ is trivially satisfied for states with no “\emph{a}” transitions.
+Remember that $[a]\phi$ is trivially satisfied for states with no “\emph{a}” transitions.
 Combined with these modalities, the least ($\mu X\ldotp f(X)$) and greatest
 ($\nu X\ldotp f(X)$) fixpoints permit reasoning about finite and infinite runs
 of a system in a recursion-like manner.
@@ -367,7 +369,7 @@ Not all $\mu$-calculus formulas are amenable to such a conversion.
 Sequence diagrams model the interaction among a set of components, with
 emphasis on the sequence of \emph{messages} exchanged over time. Graphically, they have
 two dimensions: the objects participating in the scenarios are placed horizontally, 
-while time flows in a vertical dimension. The participants are shown as rectangular boxes, with the vertical lines
+while time flows in the vertical dimension. The participants are shown as rectangular boxes, with the vertical lines
 falling from them known as \emph{lifelines}. 
 Each message sent between the lifelines defines a specific act of communication, synchronous or asynchronous.
 Messages are shown as horizontal arrows from the lifeline of the sender instance to the lifeline of the receiver. 
@@ -388,66 +390,27 @@ used.
 \caption{Sequence diagrams with combined fragments}
 \label{fig:SDExample}
 \end{figure}
-There are also two less-known combined fragments: \emph{assert} and \emph{neg}.
-
-- mention why they are not used in practice; semantics not clear; 
-- UML spec valid vs invalid traces; open vs closed world;
-
-- alternative semantics proposed to clarify;
-
-- they should be considered rather as modalities;
-- we restrict their usage to simple non-nested fragments with one message
-  and we use them as modalities to specify properties;
-  
-(ii) operators that
-alter the order of events in the combined fragment such as par,
-strict, critical; and (iii) operators that alter the way a trace can be
-named as valid or invalid such as neg, assert, ignore and consider
-
-(parallel behaviour), neg (forbidden behaviour), assert (mandatory behaviour),
-
-The semantics of an
-interaction fragment with a given operator is described informally in the UML
-2.0 superstructure specification [11]. Below we give the meaning of some
-operators used in this paper according to [11]:
-
-neg: represents traces that are defined to be invalid
-
-The idea is that by default a sequence diagram only reflects possible behaviour
-(except for the assert operator) or forbidden behaviour (given by the neg
-operator).  
-
-...but the semantics given to these approaches differs from ours as they do not,
-in general, consider concurrent executions or a true-concurrent semantic model.
-← find the true concurrency thing in your paper, mention it perhaps?
----
-
-Still, none of the Petri net - translations covers the negation
-and assert primitives in particular. These are rather intricate,
-as they lead to open vs. closed world semantics, i.e. the
-question, whether unspecified behaviour is allowed or rejected.
-The problems coming with assertion and negation for UML 2
-semantics are explained by Harel and Maoz [8]. ← we limit assert and negate to single messages
-
-mention that assert and negate should be considered as modalities
-
-The OMG standard characterizes the semantics of sequence
-diagrams as the generation of valid and invalid traces where a
-trace is a sequence of event occurrences~\cite{UML2.4_superstructure}. 
-While the addition
-of combined fragments increases the expressiveness of sequence
-diagrams, it makes their interpretations quite difficult. This is
-complicated by the fact that sequence diagrams can be used for
-different modeling purposes. 
-
-These vague semantics are a consequence of the ways in
-which the OMG specification describes interactions in sequence
-diagrams. Automating the analysis, simulation and verification of
-these diagrams remains a challenge in the face of these vague
-semantics. To address this problem, several semantics were
-proposed in the past to narrow the scope of the original semantics
-using formal denotational or operational semantics in most cases
-
+There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in pracice
+is limited, because their semantics described in the UML 2.0 superstructure specification~\cite{UML2.4_superstructure}
+is rather vague and confusing. By default, sequence diagrams without the use of these two operators 
+only reflects possible behavior, while \emph{assert} and \emph{neg} alter the way 
+a trace can be classified as valid or invalid. The specification characterizes
+the semantics of a sequence diagram as a pair of valid and invalid traces,
+where a trace is a sequence of events or messages.
+The potential problems with the UML 2.0 assertion and negation are explained in~\cite{Harel07assertand}.
+In summary, the specification aims to allow depicting required and forbidden behaviors.
+However, as they point out, stating that ``the sequences of the operand of the assertion are the only valid continuations. All other continuations result in an invalid trace''
+suggests that the invalid set of traces for an \emph{assert} fragment is its complement, i.e., the set of all other possible traces.
+On the other hand, the standard declares that the
+invalid set of traces are associated only with the use of
+a \emph{neg} fragment, which is contradictory.
+For this reason, we also believe that these two operators should rather be considered 
+as modalities. We restrict their usage to property specifications, and assign the following semantics:
+\emph{neg} is considered a set-complement operator for the event captured by the fragment, while \emph{assert}
+specifies that an event sequence must occur for the property to hold. In addition, restrict the usage of \emph{neg} to a single event (or message),
+and dissalow nesting of \emph{assert} within a \emph{neg} fragment.
+We find that this does not limit the expressiveness of property specifications in practice.
+% I cannot find a counter-example where it would
 \section{The Approach}
 \label{sec:Approach}
 

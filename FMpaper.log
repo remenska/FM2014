@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 18:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  6 NOV 2013 23:23
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
 (./FMpaper.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (./llncs.cls
 Document Class: llncs 2013/09/27 v2.18 
  LaTeX document class for Lecture Notes in Computer Science
@@ -449,7 +455,7 @@ File: ./Approach.png Graphic file (type png)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./Approach.png (PNG copy)>]
-Overfull \hbox (1.4604pt too wide) in paragraph at lines 165--175
+Overfull \hbox (1.4604pt too wide) in paragraph at lines 166--176
 \OT1/cmr/m/n/10 tools for elu-ci-dat-ing prop-er-ties, based on the prop-erty p
 at-terns. These ap-proaches
  []
@@ -485,18 +491,9 @@ Missing character: There is no ù in font cmr10!
 File: ./Figure2_merged.png Graphic file (type png)
 
 <use ./Figure2_merged.png>
-Overfull \hbox (5.6828pt too wide) in paragraph at lines 398--399
-[]\OT1/cmr/m/n/10 (parallel be-haviour), neg (for-bid-den be-haviour), as-sert 
-(manda-tory be-haviour), 
- []
+Underfull \vbox (badness 2035) has occurred while \output is active []
 
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ü in font cmr10!
-Missing character: There is no ê in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ü in font cmr10!
-Missing character: There is no ê in font cmr10!
-[8 <./Figure2_merged.png (PNG copy)>] [9] (./FMpaper.bbl
+ [8 <./Figure2_merged.png (PNG copy)>] [9] (./FMpaper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
@@ -513,12 +510,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--139
 
 ) [11] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5239 strings out of 495061
- 72398 string characters out of 1182621
- 143233 words of memory out of 3000000
- 8347 multiletter control sequences out of 15000+50000
+ 5240 strings out of 493848
+ 72416 string characters out of 1152823
+ 143217 words of memory out of 3000000
+ 8447 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
+ 714 hyphenation exceptions out of 8191
  36i,14n,38p,284b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
@@ -534,7 +531,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (11 pages, 2580054 bytes).
+Output written on FMpaper.pdf (11 pages, 2579600 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

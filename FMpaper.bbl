@@ -137,4 +137,9 @@ OMG:
 \newblock {UML2.4 Superstructure Specification$\break$}
   http://www.omg.org/spec/UML/2.4/Superstructure.
 
+\bibitem{Harel07assertand}
+Harel, D., Maoz, S.:
+\newblock {Assert and negate revisited: Modal semantics for UML sequence
+  diagrams} (2007)
+
 \end{thebibliography}
