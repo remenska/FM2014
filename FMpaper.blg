@@ -14,39 +14,41 @@ Repeated entry---line 1849 of file FM2014.bib
  : @inproceedings{FormalLanguagemCRL2
  :                                   ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "UML2.4_superstructure" isn't style-file defined
+--line 1855 of file FM2014.bib
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
-You've used 21 entries,
+You've used 22 entries,
             2087 wiz_defined-function locations,
-            641 strings with 8455 characters,
-and the built_in function-call counts, 7318 in all, are:
-= -- 820
-> -- 210
+            647 strings with 8605 characters,
+and the built_in function-call counts, 7439 in all, are:
+= -- 829
+> -- 214
 < -- 18
-+ -- 77
-- -- 56
-* -- 417
-:= -- 917
-add.period$ -- 32
-call.type$ -- 21
-change.case$ -- 21
++ -- 79
+- -- 57
+* -- 419
+:= -- 935
+add.period$ -- 33
+call.type$ -- 22
+change.case$ -- 22
 chr.to.int$ -- 0
-cite$ -- 21
-duplicate$ -- 404
-empty$ -- 748
-format.name$ -- 56
-if$ -- 1891
+cite$ -- 22
+duplicate$ -- 410
+empty$ -- 766
+format.name$ -- 57
+if$ -- 1920
 int.to.chr$ -- 0
-int.to.str$ -- 21
+int.to.str$ -- 22
 missing$ -- 19
-newline$ -- 107
-num.names$ -- 23
-pop$ -- 107
+newline$ -- 111
+num.names$ -- 24
+pop$ -- 115
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 299
+skip$ -- 302
 stack$ -- 0
 substring$ -- 471
 swap$ -- 198
@@ -55,7 +57,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 72
-width$ -- 23
-write$ -- 250
+while$ -- 73
+width$ -- 24
+write$ -- 258
 (There were 3 error messages)

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 18:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 18:15
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -506,12 +506,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 136--139
+[]\OT1/cmr/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
+ []
+
 ) [11] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5238 strings out of 495061
- 72375 string characters out of 1182621
- 143229 words of memory out of 3000000
- 8346 multiletter control sequences out of 15000+50000
+ 5239 strings out of 495061
+ 72398 string characters out of 1182621
+ 143233 words of memory out of 3000000
+ 8347 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  36i,14n,38p,284b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -529,7 +534,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (11 pages, 2579963 bytes).
+Output written on FMpaper.pdf (11 pages, 2580054 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -390,6 +390,15 @@ used.
 \end{figure}
 There are also two less-known combined fragments: \emph{assert} and \emph{neg}.
 
+- mention why they are not used in practice; semantics not clear; 
+- UML spec valid vs invalid traces; open vs closed world;
+
+- alternative semantics proposed to clarify;
+
+- they should be considered rather as modalities;
+- we restrict their usage to simple non-nested fragments with one message
+  and we use them as modalities to specify properties;
+  
 (ii) operators that
 alter the order of events in the combined fragment such as par,
 strict, critical; and (iii) operators that alter the way a trace can be
@@ -424,7 +433,8 @@ mention that assert and negate should be considered as modalities
 
 The OMG standard characterizes the semantics of sequence
 diagrams as the generation of valid and invalid traces where a
-trace is a sequence of event occurrences [2]. While the addition
+trace is a sequence of event occurrences~\cite{UML2.4_superstructure}. 
+While the addition
 of combined fragments increases the expressiveness of sequence
 diagrams, it makes their interpretations quite difficult. This is
 complicated by the fact that sequence diagrams can be used for

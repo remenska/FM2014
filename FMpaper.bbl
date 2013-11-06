@@ -132,4 +132,9 @@ Emerson, E.A.:
 \newblock In: {DIMACS Series in Discrete Mathematics}, American Mathematical
   Society (1997)  185--214
 
+\bibitem{UML2.4_superstructure}
+OMG:
+\newblock {UML2.4 Superstructure Specification$\break$}
+  http://www.omg.org/spec/UML/2.4/Superstructure.
+
 \end{thebibliography}
