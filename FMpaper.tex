@@ -395,33 +395,16 @@ alter the order of events in the combined fragment such as par,
 strict, critical; and (iii) operators that alter the way a trace can be
 named as valid or invalid such as neg, assert, ignore and consider
 
-
-
-
-   For an example of a
-sequence diagram using UML 2.0 constructs see Fig. 1 given in Section 3. UML 2.0
-sequence diagrams may contain sub-interactions called interaction fragments
-which can be structured and combined using interaction operators. There are
-several possible operators, for example, alt (alternative behaviour), par
 (parallel behaviour), neg (forbidden behaviour), assert (mandatory behaviour),
-loop (repeated behaviour), and so
-on. Depending on the operator used, an interaction fragment consists of one or
-more operands. In the case of neg, assert and loop the fragment has exactly one
-operand, whilst for most other operators it has several. The semantics of an
+
+The semantics of an
 interaction fragment with a given operator is described informally in the UML
 2.0 superstructure specification [11]. Below we give the meaning of some
 operators used in this paper according to [11]:
-alt: At most one of the operands will execute (so it could be that none
-executes)
-par: parallel merge between the behaviors of the operands. The event occurrences
-of the different operands can be interleaved in any way as long as the ordering
-imposed by each operand as such is preserved.
-seq: event occurrences on the same lifeline
-from different operands are ordered such that an event occurrence of the first
-operand comes before that of the second operand
+
 neg: represents traces that are defined to be invalid
 
- The idea is that by default a sequence diagram only reflects possible behaviour
+The idea is that by default a sequence diagram only reflects possible behaviour
 (except for the assert operator) or forbidden behaviour (given by the neg
 operator).  
 
@@ -429,11 +412,6 @@ operator).
 in general, consider concurrent executions or a true-concurrent semantic model.
 ← find the true concurrency thing in your paper, mention it perhaps?
 ---
-
-or paper: In a loose sense, sequence diagrams in
-UML 1 are a variant of MSCs while in UML 2 they are a
-variant of MSCs augmented by features that resemble the LSC
-modalities mentioned above.
 
 Still, none of the Petri net - translations covers the negation
 and assert primitives in particular. These are rather intricate,
@@ -444,33 +422,21 @@ semantics are explained by Harel and Maoz [8]. ← we limit assert and negate to
 
 mention that assert and negate should be considered as modalities
 
-for paper:  In essence, sequence diagrams provide a
-visual notation to represent message interactions between objects
-or processes in a system. These and other modeling capabilities
-are essential when designing embedded (real-time) software,
-which tend to require formal and rigorous design processes to
-ensure its correctness before construction begins.
-
-[2]. The OMG standard characterizes the semantics of sequence
+The OMG standard characterizes the semantics of sequence
 diagrams as the generation of valid and invalid traces where a
 trace is a sequence of event occurrences [2]. While the addition
 of combined fragments increases the expressiveness of sequence
 diagrams, it makes their interpretations quite difficult. This is
 complicated by the fact that sequence diagrams can be used for
-different modeling purposes. For instance, diagrams used to
-model asynchronous distributed systems can be interpreted
-differently from those used to model synchronous reactive systems. These vague semantics are a consequence of the ways in
+different modeling purposes. 
+
+These vague semantics are a consequence of the ways in
 which the OMG specification describes interactions in sequence
 diagrams. Automating the analysis, simulation and verification of
 these diagrams remains a challenge in the face of these vague
 semantics. To address this problem, several semantics were
 proposed in the past to narrow the scope of the original semantics
 using formal denotational or operational semantics in most cases
-[2, 3]. While most formal semantics are denotational, very few
-operational semantics were proposed for this problem. This paper
-proposes a theoretical model based on abstract state machines to
-formalize the semantics of sequence diagrams. These semantics
-are intended for asynchronous distributed systems.
 
 \section{The Approach}
 \label{sec:Approach}

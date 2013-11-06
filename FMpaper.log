@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 18:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  6 NOV 2013 18:11
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -484,32 +484,33 @@ Missing character: There is no ù in font cmr10!
 <./Figure2_merged.png, id=41, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
-<use ./Figure2_merged.png> [8 <./Figure2_merged.png (PNG copy)>]
+<use ./Figure2_merged.png>
+Overfull \hbox (5.6828pt too wide) in paragraph at lines 398--399
+[]\OT1/cmr/m/n/10 (parallel be-haviour), neg (for-bid-den be-haviour), as-sert 
+(manda-tory be-haviour), 
+ []
+
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ü in font cmr10!
 Missing character: There is no ê in font cmr10!
 Missing character: There is no ‚ in font cmr10!
 Missing character: There is no Ü in font cmr10!
 Missing character: There is no ê in font cmr10!
-
-Underfull \vbox (badness 3601) has occurred while \output is active []
-
- [9]
-(./FMpaper.bbl [10]
+[8 <./Figure2_merged.png (PNG copy)>] [9] (./FMpaper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-[11]
+[10]
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
  []
 
-) [12] (./FMpaper.aux) ) 
+) [11] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
  5238 strings out of 495061
  72375 string characters out of 1182621
- 143230 words of memory out of 3000000
+ 143229 words of memory out of 3000000
  8346 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -528,9 +529,9 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (12 pages, 2581570 bytes).
+Output written on FMpaper.pdf (11 pages, 2579963 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
