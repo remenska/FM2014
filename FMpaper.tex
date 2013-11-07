@@ -377,7 +377,7 @@ Messages are shown as horizontal arrows from the lifeline of the sender instance
 Sequence diagrams have been considerably extended in UML 2.x to allow expressing of complex control 
 flows such as branching, iterations, and referring to existing interactions.
 \textbf{Combined fragments} are used for this purpose. The specification
-supports different fragment types, such as \emph{alt, opt, loop, break, par}. They are
+supports different fragment types, with operators such as \emph{alt, opt, loop, break, par}. They are
 visualized as rectangles with a keyword indicating the type.
 Each combined fragment consists of one or more interaction operands. Depending
 on the type of the fragment, constraints can guard each of the interaction operands. 
@@ -393,7 +393,7 @@ used.
 There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in pracice
 is limited, because their semantics described in the UML 2.0 superstructure specification~\cite{UML2.4_superstructure}
 is rather vague and confusing. By default, sequence diagrams without the use of these two operators 
-only reflects possible behavior, while \emph{assert} and \emph{neg} alter the way 
+only reflect possible behavior, while \emph{assert} and \emph{neg} alter the way 
 a trace can be classified as valid or invalid. The specification characterizes
 the semantics of a sequence diagram as a pair of valid and invalid traces,
 where a trace is a sequence of events or messages.
