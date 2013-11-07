@@ -405,10 +405,10 @@ On the other hand, the standard declares that the
 invalid set of traces are associated only with the use of
 a \emph{neg} fragment, which is contradictory.
 For this reason, we also believe that these two operators should rather be considered 
-as modalities. We restrict their usage to property specifications, and assign the following semantics:
+as modalities. We restrict their usage single events in property specifications, and assign the following semantics:
 \emph{neg} is considered a set-complement operator for the event captured by the fragment, while \emph{assert}
-specifies that an event sequence must occur for the property to hold. In addition, we restrict the usage of \emph{neg} to a single event (or message),
-and disallow nesting of \emph{assert} within a \emph{neg} fragment.
+specifies that an event must occur. In addition, we
+disallow nestings between these two fragments.
 We find that this does not limit the expressiveness of property specifications in practice.
 % I cannot find a counter-example where it would
 \section{The Approach}
@@ -419,7 +419,9 @@ Before describing our proposal to a correct and straightforward property elucida
 we outline the rationale behind the choices we made, and how they differ from
 existing related approaches. As already stated, to bridge the gap between everyday practical software 
 requirements specification and the the property patterns classification,
-several conversational tools have already been proposed. While we follow 
+several conversational tools have already been proposed. 
+
+While we follow 
 on the idea of using a guiding questionnaire to incrementally refine various aspects
 of a requirement, we find the resulting artifacts from using the available ones 
 not yet suitable for practical application in our context.
@@ -431,15 +433,27 @@ valid communication between components.
 In addition, we can already obtain~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} mCRL2 models from UML designs comprising sequence diagrams.
 In our experience, visual scenarios are the most suitable and commonly used  
 means to specify the dynamics of a system. 
-We believe that a visual depiction of a scenario, more than finite state machines, 
+We believe that such a visual depiction of a scenario, more than finite state machines, 
 improves the practitioner's understanding of the requirement as well. 
 This is why we chose sequence diagrams as a property specification artifact too.
-% tuka i za negate i assert, and the Profile for marking interval events
+
+Most of the invented notations used by existing scenario approaches can fit well in UML 2.0 sequence diagrams.
+Profiles are a standard way to extend UML for expressing concepts not included in the official metamodel. 
+In short, UML profiles consist of stereotypes that can be applied to any UML model, like classes,
+associations, or messages. We used this mechanism 
+to apply the restrictions on the useage of \emph{neg} and \emph{assert},
+as well as to distinguish between events presenting interval bounds, and regular ones, from the patterns.
+Fig.~\cite{} depicts the \emph{precedence chain} pattern (with a between-Q-and-R scope), with the stereotypes applied to messages \emph{Q} and \emph{R}.
+We find this a much more intuitive graphical scenario representation than the CHARMY/PSP one, for the same pattern.
+
+Notice that we do not have to specify constraints on past unwanted events, as they are automatically
+reflected in the $\mu$-calculus formula, as long as there is a distinction between interval-marking messages,
+regular, mandatory, and forbidden ones.
 Although any mature visual UML modeling tool 
-can be used, we chose IBM’s RSA environment~\cite{terry2006visual}.
+can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
 One of the advantages is that RSA is built on top of Eclipse, making 
-it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, 
-and as such is available to any Eclipse-based UML tool.
+it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
+lightweight UML Profile, and as such is available to any Eclipse-based UML tool.
 
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
@@ -456,485 +470,20 @@ been acquired or released can be naturally expressed by actions. Since state-bas
 temporal logics lack this mechanism, an alternative is to introduce a variable to indicate
 the status of the lock, i.e., expose the state information. With such properties, LTS
 representations are more intuitive, and easier to query using event-based logics.
+Given that communication among components proceeds via actions (or events) which can
+represent synchronous or asynchronous communication, property specification
+can be defined over sequences of actions that are data-dependent.
+Fortunatelly, $\mu$-calculus is rich enough to express both state and action formulas,
+and provides means for quantification over data, something which LTL is missing. For example, with our approach, a practicioner can use 
+a wildcard ``*'' to express that the property should be evaluated for all values
+that message parameters can carry. This allows us to use patterns which would otherwise
+make sense only for state-based formalisms. For example, the \emph{universality}
+pattern is used describe a portion of a system's execution which contains only states/events that have a desired property.
+Checking if a certain event is executed in every step of the system execution is not useful,
+so we adapted it in the context of $\mu$-calculus. 
 
-% 
-% LTL limiting in: specifying data, actions not natural in the example of lock/unlock
-% why sequence diagrams:
-
-
-% -----------------------------------------
-% for paper: The most common instantiations of model checking to date have focused
-% on finite-state models and either branching-time (CTL [CE81]) or linear-time
-% (LTL [LP85]) temporal logics. To apply model checking to software, it is neces-
-% sary to specify (often complex) properties on the finite-state abstracted models
-% of computer programs. The difficulties in doing so are even more pronounced
-% when reasoning about modular software, such as concurrent or component-based
-% sequential programs. Indeed, in modular programs, communication among mod-
-% ules proceeds via actions (or events), which can represent function calls, re-
-% quests and acknowledgments, etc. Moreover, such communication is commonly
-% data-dependent. Software behavioral claims, therefore, are often specifications
-% defined over combinations of program actions and data valuations. ← for abstract?
-% 
-% Negation. We replace UML 2.0’s notorious negation operator neg by a binary logic
-% variant not which sim																																																																																																																																																															ply accepts all those traces that are not valid for its
-% operand.  ← in our case, binary variant simply accepts all other events of the
-% alphabet.
-% 
-% “The visual depiction of this scenario expands the developer’s understanding of
-% the requirement “ ← for the generated SDs… “, and can further help him to draw
-% them from scratch “ ← maybe?
-% 
-% for paper: “Profiles are defined using stereotypes, tag definitions, and
-% constraints which are applied to specific model elements, like Classes,
-% Attributes, Operations, and Activities. A Profile is a collection of such
-% extensions that collectively customize UML for a particular domain (e.g.,
-% aerospace, healthcare, financial) or platform (J2EE, .NET).”
-% 
-% from paper, for paper also: “Required messages have the same meaning of UML 2.0
-% assert messages that are used to identify only valid continuations. ..[] .. UML
-% 2.0 neg operator expresses the same notion. In fact, the operator neg is used to
-% represent invalid traces. ” ← well then why not simply stick with it then? The
-% ambiguity can be simply removed if we restrict the “assert” and “neg” to single
-% messages anyways.
-% 
-% “Required messages (which they annotate with r:) have the same meaning of UML
-% 2.0 assert messages that are used to identify the only valid continuations. “ ←
-% I guess we can just use assert rather than this notation. Same for this: “Fail
-% messages are used to express undesired behaviors and hence safety properties.
-% UML 2.0 neg operator expresses the same notion. “  ← summarize it as: a lot of
-% the invented notation they use can fit well in UML. Like required or forbidden
-% messages. 
-% 
-% 
-% for paper: Finally, we introduce the possibility to define quantifiers for
-% temporal properties to express complex properties in a more concise manner,
-% e.g., every element of a certain type has to fulfill a certain property. <-- !!!! MENTION THE WILDCARD!!OR MAYBE KEEP IT FOR 
-% for paper: The Reaches-Floor property contains a forAll quantifier (on the left
-% side), with an associated structural pattern, visualized by the left-most grey
-% box. This static pattern binds all states to the variable name floor, that are
-% inside an orthogonal region named Position (modeled as a constraint over the
-% name attribute). Thus, the property will be evaluated “for all floors”, and in
-% the case of the Fig. 1 model, floor0, floor1 and floor2 will be bound one after
-% the other, yielding three LTL formulas, concatenated by an and-clause.  ←
-% actually this is true for mu-calculus. Forall is just to avoid rewritting
-% formulas for every individual element of a domain, and making conjunction
-% (formula1 AND formula2 AND …)
-% 
-
-
-% It also adds a lot of interesting
-% features to the stock Eclipse package, such as the graphical representation of
-% UML models, or various profile edition and tooling creation features. In this
-% post I will focus on the UML profile feature. UML profiles are the official way
-% of extending the UML metamodel to express concepts that were not included in the
-% official metamodel. To make things short, UML profiles consist of stereotypes
-% that can be applied on any kind of UML element, associations and annotations,
-% and OCL constraints to enforce specific properties
-% 
-
-Furthermore, (here the mu-calculus stuff, data quantification, events vs states)
-
-In addition,
-
-% 
-% why a wizard:
-% ------------------------------------------------
-% 
-
-% 
-% mention that we have to adapt some of them, for example the universality pattern.
-% - give a bit more explanation and a figure of the patterns here
-% 
-% 
-% for paper: we extended the RAFMC patterns with scope and pattern variations, and the questionnaire covers all the existing ones as well. (so both ways)
-% 
-% 
-% DNL is a restricted subset of natural language that is intended to capture
-% meanings unambiguously. This representation is not intended to stand by itself;
-% it is meant to be used in conjunction with the FSA template representation. Like
-% FSA templates, DNL templates are designed to elucidate the decisions associated
-% with a property pattern. 
-% 
-% Dwyer et al. identified five basic scopes and defined whether the scope was
-% closed or open on either end for each pattern. Most event-based formalisms use
-% some version of an interleaved model of concurrent computation. In such
-% formalisms, two events cannot coincide. In the property patterns system,
-% therefore, event-delimited scopes are open at both ends; an event that occurs
-% within the scope cannot occur at the same time as an event that marks the
-% beginning or end of the scope. We make the additional restrictions that the set
-% of delimiter events defining the scope is disjoint from the alphabet of the FSA
-% defining the intent and that, if the scope has both starting and ending
-% delimiters, these are distinct. These restrictions seem reasonable and greatly
-% simplify the application of a scope to an intent. Thus, the five basic scopes
-% become: Global, which is over the entire system execution. This scope does not
-% have delimiters, and it is not repeatable; Before P, which is concerned with the
-% event sequence up
-% to the first occurrence of P. This scope only has a ending delimiter, and it is
-% not repeatable; After Q, which is concerned with the event sequence after the
-% first occurrence of Q. This scope only has an starting delimiter, and it is not
-% repeatable; Between Q and P, which is concerned with the event sequence after an
-% occurrence of the starting delimiter, Q, and before an occurrence of the ending
-% delimiter, P. P is required to occur for this scope to exist. This scope may
-% occur repeatedly over the course of the system execution; After Q Until P, which
-% is concerned with the event sequence after an occurrence of the starting
-% delimiter, Q, and before an occurrence of the ending delimiter, P. P is not
-% required to occur for this scope to exist. This scope may occur repeatedly over
-% the course of the system execution; 
-% A scope can be applied to an intent by adding additional states that we call
-% "scope states" and by adding transitions between the scope states and the states
-% of the FSA that represent the intent.
-% In the remainder of this section, we explain the additions needed to apply each
-% scope to the Response pattern. Scopes are added to the intents of the other
-% property patterns in much the same way. We interpret the Before P scope to mean
-% that the scope begins at the start of the program execution, so there is no
-% starting delimiter, and that the ending delimiter is the first occurrence of P
-% in the program execution. Subsequent occurrences of P are ignored since this
-% scope is not repeatable. When we apply the Before P scope to the intents, we
-% must determine at each state what the effect will be of encountering the ending
-% delimiter at that point in the sequence. Recall that the intent of the Response
-% property is that an occurrence of action must be followed by an occurrence of
-% response. An occurrence of P results in a scope that has been ended before the
-% intent of the property has been entered. This is called an empty scope. An empty
-% scope is handled differently for each of the property patterns. For instance,
-% the Absence property holds if the scope is empty, since that is actually the
-% meaning of the Absence property
-% pattern. Whether or not a Response property holds if the scope is empty,
-% however, depends on the setting of the Nullity option, which determines whether
-% or not action must occur at all. If action is not required to occur, then the
-% first state, which is also the start state, will be an accepting state. If P
-% occurs at this point and action is not required to occur, then this sequence is
-% not a violation of the property and the empty scope does not prevent the
-% property from holding. When the FSA is in the second state, an action has
-% occurred that is not yet followed by a response. At this point, response must
-% occur before a P ends the scope, or the property is violated. An occurrence of P
-% when the FSA is in the second state therefore puts the FSA into a non-accepting
-% trap state (not shown!).  We interpret the After Q scope to mean that the scope
-% is not started until the first occurrence of the starting delimiter, Q, in the
-% system execution. Subsequent occurrences of Q are ignored since this scope is
-% not repeatable. The scope is not ended until the execution ends, so there is no
-% ending delimiter. As with the Before P scope, when we apply the After Q scope to
-% the intents, we must determine at each state what the effect will be of
-% encountering the ending delimiter at that point in the sequence. An occurrence
-% of Q at this (first!) state would begin the scope and after this point the
-% intent of the property would be required to hold. As is shown with the self-loop
-% that is labeled " ~ Q " on state 1, all events that occur before the starting
-% delimiter are ignored. An occurrence of Q at any of the other states would have
-% no effect on the property, because after the occurrence of the starting
-% delimiter all subsequent occurrences of Q are ignored. We interpret the After Q
-% Until P scope to mean that the starting delimiter is an occurrence of Q and the
-% ending delimiter is an occurrence of P. This scope can be repeated; whether or
-% not it is repeatable is an option for the specifier to determine. For now,
-% consistent with Dwyer et al., we assume that a scope with multiple occurrences
-% of Q is ended by a single occurrence of P. Given this interpretation, when we
-% apply the After Q Until P scope to the intents we must determine at each state
-% what the effect will be o f encountering the ending delimiter at that point in
-% the sequence. An occurrence o f Q at this (first!) state would start the scope
-% and after this point the intent o f the property would be required to hold. As
-% is shown with the self-loop that is labeled " ~ Q " on state 1, all events that
-% occur before the starting delimiter are ignored. An occurrence o f P at state 1
-% would also be ignored, since an occurrence of Q has not yet started the scope.
-% The Between Q and P Scope is identical to the After Q Until P scope except for
-% one important difference. Figure 5d shows the difference: state 3 is accepting.
-% The reason for this change is that the definition of the Between Q and P scope
-% requires that both delimiters occur, whereas the After Q Until P scope does not.
-% The Between Q and P scope does not exist unless both o f its delimiters occur.
-% What this means is that if P does not occur, the intent of the property could be
-% violated and yet the property as a whole would not be violated because it is not
-% within an existing scope when the violation happens.  
-% !!! for paper:  Universality of a state can be viewed as absence of its
-% negation. For event-based formalisms, we look for the existence of the positive
-% event and absence of the negating event. ← how we do it is actually using the
-% “Absence” pattern but negating the state. So we adapt the universality pattern
-% from the patterns, to make it useful for event-based systems
-% 
-% To illustrate, consider the property that throughout a system’s execution the
-% value of a certain variable should always be greater than zero. If we have an
-% action in our model, matching the “Getter method” for this value, then it would
-% be a useful property to check, but in the sense that it is always enabled, not
-% necessarily always taken. Let’s call the action: method_call(getValue), then how
-% would we formulate a property to express that the value should always be greater
-% than zero? ← maybe this can go up in the Rationale section
-% 
-% 
-% for paper: Although SPS patterns are parameterized, adapting the resulting specification
-% to complex properties requires expertise in the area of formal methods. For a
-% general practitioner, refinement of the specification can be difficult. SPS does
-% not provide convenient abstractions for specifying concurrent behavior such as
-% synchronization and non-determinism. Furthermore, the only sequences considered
-% in SPS are those that occur in non-consecutive states, i.e., those in which one
-% event follows another without constraining the number of states between each
-% event. Patterns also do not provide convenient abstractions for defining
-% relations involving multiple propositions, e.g., relations used to define
-% concurrent behavior such as synchronization and non-determinism. The goal of
-% Prospec is to enhance SPS by supporting the specification of concurrent system
-% behavior and extending the type of sequences that can be applied to
-% specification patterns.
-% 
-%  As pointed out in [21], a closer examination of
-% this pattern’s behavior reveals there are significant questions
-% about the pattern that need to be answered and may lead
-% to variants of it. For example, can the Action event occur
-% more than once before the Response event occurs? Taking
-% this fact into consideration, [21] proposes an extension to the
-% patterns’ specification, defining six possible options to obtain
-% a more accurate and complete definition of the pattern: Pre-
-% arity, which determines whether the Action event may occur
-% one time or many times before the Response event does,
-% Post-arity, which determines whether the Response event
-% may occur one time or many times after the Action event
-% does, Immediacy, which determines whether or not other
-% intervening events may occur between the Action event and
-% the Response event, Precedence, which determines whether
-% or not the Response event is allowed to occur before the
-% first occurrence of the Action event, Nullity, which determines
-% whether or not the Action event must ever occur and finally,
-% Repeatability, which determines whether or not occurrences
-% of the Action event after an occurrence of a Response event are
-% required to be followed by a Response event. In what follows
-% we model all six cases in FVS.
-% 
-% Below, how to evaluate! (actually just summarize that with UML SDs and simple
-% profiles and constraining assert/negate without nesting, we were able to
-% represent all the defined patterns
-% 
-% 
-% Inspired to the human nature we think that a “conversational ” tool is what we
-% need at this phase.
-% The tool we are proposing is called W PSC. By means of a set of sentences (based
-% on expertise in requirements formalization and on a set of well-known patterns
-% [6] for specifying temporal properties used in practice) and classified
-% according to temporal properties main keywords, W PSC forces to make decisions
-% that break the uncertainty and the ambiguity of user requirements. ← for paper
-% 
-% 
-% for paper: The goal of Prospec is to enhance SPS by supporting the specification
-% of concurrent system behavior and extending the type of sequences that can be
-% applied to specification patterns. Prospec automates the elicitation process and
-% guides the practitioner in the determination of patterns, scopes, and
-% relationships among propositions. The tool automates the generation of a formal
-% specification that can be used by a variety tools, in particular, runtime
-% monitors. Prospec helps the practitioner consider aspects of a property that may
-% not have been considered, and it highlights the subtleties associated with
-% related SPS patterns and scopes. In Prospec, elicitation is part of the
-% specification process. Guided questions force the user to consider aspects of
-% the problem that may not have been considered previously. This may cause him or
-% her to enhance the original specification, validate the enhancements, and record
-% any assumptions that are made. In the remainder of the paper, the term
-% “specification process” implies that this form of elicitation is part of the
-% process.
-% 
-% 
-% As an elicitation approach, composite propositions can highlight subtle details
-% of sequences of events and concurrent behavior by using directed questions to
-% guide the practitioner. Resolving the choices addressed by these questions
-% results in a precise specification of behavior associated to multiple conditions
-% or events.
-% 
-
-
-% why mu-calculus:
-% --------------------------------------------------
-% - the data part!! quantification!
-% for meeting: another problem is that sometimes you want to query the state of
-% part of the data vector (say setStatus(Staged).*.setStatus(Failed)) and
-% sometimes just the actions or message exchanges. The way we did it was to expose
-% this state information (actually part of the state vector) via self-loops on a
-% state. (state(Staged).*.state(Failed)) ← well that’s not a big problem if we use
-% getters/setters
-% “We present a framework for model checking concurrent soft-
-% ware systems which incorporates both states and events. 
-% 
-% RATIONALE: for paper: In our experience, however, it is more natural for
-% designers and software engineers to express the desired behavior of systems
-% using a combination of states and actions. 
-% why a monitor:
-% -------------------------------------------------
-% Buchi vs our monitor
-% Kripke structures vs LTS, why we do it differently from the many tools
-% 
-% for paper (replace Kripke structures with LTS, and CTL with mu-calculus) :The
-% CTL logic is interpreted over Kripke structures. CTL logic is branching-time
-% logic, meaning that its formulas are interpreted over all paths beginning in a
-% given state (an initial state) of the Kripke structure. The problem of model
-% checking is to verify if a finite-state abstraction of a reactive system
-% satisfies a temporal-logic specification expressed in the language of CTL logic.
-% A CTL model checker is a tool which verifies that a given system satisfies a
-% given CTL logic formula, using an algorithm that determines the states of a
-% model that satisfy the formula.
-% 
-% 
-% In industrial environments it seems that the capacity of a model checker to
-% function as a debugger is perhaps better appreciated than their utility as a
-% tool for verifying correctness.
-% Of course, it may be that all states must be examined before nding a refutation
-% to AGgood . Certainly, once a truly correct design is achieved, all states
-% reachable from s0 must be examined. But in many practical cases, a refutation
-% may be found quickly after limited search.
-% 
-% ---
-% First of all, one can use the so-called on-the-fly model checking (Holzmann,
-% 1996) in which the Kripke structure is not generated first and only then
-% explored. Instead, the property Buchi automaton is composed with the Kripke
-% structure during the generation of the latter. This has two advantages. First,
-% one can stop the state space generation as soon as an error is found, possibly
-% avoiding generation of many further states (which can be quite useful since
-% erroneous systems tend to have more states because they do not observe various
-% invariants they should otherwise observe). Moreover, one can avoid generation of
-% parts of the state space for which it is clear that they do not compose with the
-% property automaton (and hence cannot lead to any error). The state space
-% generation is thus property driven. ← for future work
-% 
-% “We look at a formula as an automaton-like device checking a property of the
-% unwinding of a model from a given state. “ Buchi tree automata are equivalent to
-% the language of mu-calculus.
-% Language of mu-calculus is also intimately related to games, as are automata. We
-% can view the relationship at different levels.” ← for paper
-% 
-% ----
-% These are properties whose violation occurs along a finite execution. ← for
-% meeting and future work: could this be the problem? That with some properties
-% the violation occurs along an infinite execution trace? (livelocks?) And this
-% cannot be captured with a monitoring automaton.
-% A general method for on-the-fly verification of LTL safety properties is based
-% on a construction of a regular automatonA¬ψ , which accepts exactly all the
-% executions that violate ψ. 
-% ---
-% 
-% In this paper, we further discuss, which LTL3 properties
-% are monitorable at all. We follow the definition given by
-% Pnueli and Zaks in [24] essentially stating that a property is
-% monitorable with respect to a trace whenever a corresponding
-% monitor might still report a violation (or satisfaction). We
-% point out the precise relation to Rosu’s notion of never
-% violate states [23] in monitors, which is similar yet not the
-% same. Moreover, we recall the notion of safety and co-safety
-% properties. We show that the popular belief that monitoring is
-% only suitable for safety properties is misleading: The class of
-% monitorable properties is richer than the union of safety and
-% co-safety properties.
-% Runtime verification deals (only) with the detection of vio-
-% lations (or satisfactions) of correctness properties—but it is not
-% concerned with any consequential measures and thus it does
-% not influence the program’s functional behaviour. 
-% 
-%  It is shown that the set of monitorable properties
-% does not only encompass the safety and co-safety properties but
-% is strictly larger ← when you discuss monitorable properties
-% 
-% “ by placing monitors in parallel and enforcing strict communication between these, then the state space actually shrinks” ← for paper
-% 
-% for paper: The study follows an automata-theoretic approach in program verification, originally proposed by Vardi and Wolper [20]. Given a program P and a property φ, the task
-% is to check whether the program satisfies the property φ. If the program P is viewed as a finite-state generator of words, and the specification φ as a finite-state acceptor, the model-
-% checking problem is reduced to an automata-theoretic question: whether the automaton AP ∩ Aφ is empty. 
-% Test automata generated from timeline specifications
-% constitute a limited fragment of the properties expressible
-% in Linear Temporal Logic. In particular, timelines without
-% fail events correspond to certain liveness properties. The
-% formal definition of liveness [8],[10] requires that any
-% finite system execution must be extendable into an infinite
-% execution that satisfies the given requirement (i.e., that
-% does not produce a violation).  ← so we can’t construct a moitor in this case
-% 
-% Defining the scope of a property may constrain the verification technique to be
-% used. For instance, run-time monitors cannot identify violations to liveness
-% properties, i.e., guarantee properties [16] or existence patterns with a global
-% scope [5]. Run-time monitoring can assert universality and absence patterns in
-% combination with any scope. A monitor can assert violations to existence
-% patterns only if the end of the scope is finitely bounded !!!!!! ← for
-% paper!!!!! VERY IMPORTANT
-% 
-% 
-% alphabet - all the actions
-% run - a word that is recognized (in the language of the automaton)
-%
-% 
-% What is its relation to the Buchi automaton? Syntactically Buchi is similar to
-% FSA. Semantically, it differs in the acceptance conditions: FSA accepts finite
-% runs of the system, a Buchi automaton can accept infinite executions. For proper
-% acceptance, the accepting state must be visited infinitely often. 
-% 
-% “Accept states (also referred to as accepting or final states) are those at
-% which the machine reports that the input string, as processed so far, is a
-% member of the language it accepts. It is usually represented by a double
-% circle.”
-% 
-% 
-% Also explain that testing communication in LTL means you have to bypass the
-% problem that LTL is state-based by querying the variable-changes events, so
-% transitions on Buchi automata are not natural? Well, we do the vice-versa thing
-% :)
-% 
-% The computation proceeds by performing a search of M starting at s0 . The
-% potential advantage is that, many times in practice, only a portion of M may
-% need to be examined to settle the question. In the worst case, however, it may
-% still be necessary to examine all of M .
-% 
-% !!!!!! for paper: The interpretation of accepting states is what
-% differentiates a Büchi automaton from a standard finite
-% automaton. A Büchi automaton is used to trap infinite
-% execution sequences that violate a requirement, whereas a
-% standard automaton can only trap finite execution
-% sequences. The graphical test automaton in Figure 9 is
-% produced to aid the user in visually inspecting the test
-% automata. 
-% 
-% 
-% for paper: “However, since their (Buchi automata?) elements are infinite words,
-% not every omega-regular language can sensibly be monitored at runtime when only
-% a finite prefix of a word, modelling the observed system behaviour so far, is
-% available. The monitorability of an omega-regular language, L, is thus a
-% property that holds, if for any finite word u, observed so far, it is possible
-% to add another finite word v, such that uv becomes a "finite witness" wrt. L;
-% that is, for any infinite word w, we have that uvw \in L, or for any infinite
-% word w, we have that uvw \not\in L. This notion has been studied in the past by
-% several authors, and it is known that the class of monitorable languages is
-% strictly more expressive than, e.g., the commonly used class of so-called safety
-% languages. But an exact categorisation of monitorable languages has, so far,
-% been missing. Motivated by the use of linear-time temporal logic (LTL) in many
-% approaches to runtime verification, this paper first determines the complexity
-% of the monitorability problem when L is given by an LTL formula.”
-% 
-% This is why: An executing program defines a sequence of states; an infinite
-% execution can therefore be viewed as an LTL interpretation, which assigns to
-% each moment in time the set of propositions that are true at the particular
-% program state. Model checking [5] detects infinite executions of finite-state
-% systems through cycles in their state graphs. Runtime verification does not
-% store the entire state-space of a program. Rather, it only observes finite
-% program executions, on which we also need to interpret LTL formulae. We only
-% need to modify the semantics of the temporal operators to accommodate this
-% difference.
-% 
-% 
-% 
-% “As for the monitor the LTL3tool spits out: I think it labels the edges with
-% subformulae (that is: I have no other explanation for the presence of the &&
-% symbols on the edges). I'm not sure one can count these monitors to be
-% comparable to the monitors we described by hand. Browsing one of the papers
-% listed on the LTL3tool pages
-% (http://users.cecs.anu.edu.au/~baueran/publications/tum-i0724.pdf), I get the
-% impression that their LTL is not really "proper" LTL (although for safety
-% properties, it probably coincides). “ ← for paper 
-% 
-% 
-% There's one thing that needs some additional motivation (and I must have
-% mentioned that earlier, I think), which is using the monitors; it perhaps
-% shouldn't be too hard though. I think the arguments are that even though mCRL2
-% offers model checking tools for the full modal mu-calculus and even can provide
-% feedback when a property fails to hold, this feedback is not at the level of the
-% mCRL2 process specification, and certainly not at the level of the UML
-% specification, so in order to provide a counterexample at the UML level, two
-% reverse translations are needed, which can be skipped altogether when taking
-% this monitor approach.
-% 
-% 
-% Third, the product automaton AM ^ A:w , which accepts the intersection of the
-% languages of AM and A:w, is constructed. Finally, emptiness of the language of
-% AM ^ A:w is checked. If the language of the product automaton is empty, the
-% system modelled by M satisfies w. Otherwise, the language of the product
-% automaton consists of words corresponding exactly to those executions of M that
-% break the specification w. ← monitoring process
-% 
-
+% for monitor, give the example of the LTL3 tools, where ``actions'' are labeled on the transitions of the Buchi automaton,
+% but thes are not really actions but atomic propositions, since it's not logical to have actionA && actionB in a transition
 
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 

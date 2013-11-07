@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  7 NOV 2013 17:29
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  8 NOV 2013 00:57
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
 (./FMpaper.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (./llncs.cls
 Document Class: llncs 2013/09/27 v2.18 
  LaTeX document class for Lecture Notes in Computer Science
@@ -482,15 +488,24 @@ File: ./Figure2_merged.png Graphic file (type png)
 Underfull \vbox (badness 2035) has occurred while \output is active []
 
  [8 <./Figure2_merged.png (PNG copy)>]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
- [9] (./FMpaper.bbl [10]
+<./ResponseChain_withMonitor.png, id=45, 637.38126pt x 377.41pt>
+File: ./ResponseChain_withMonitor.png Graphic file (type png)
+
+<use ./ResponseChain_withMonitor.png>
+<./ResponseChainPSC.png, id=46, 488.82625pt x 552.0625pt>
+File: ./ResponseChainPSC.png Graphic file (type png)
+
+<use ./ResponseChainPSC.png> [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./ResponseChain_withMonitor.png (PNG copy)> <./ResponseChainPSC.png (PNG 
+copy)>]
+(./FMpaper.bbl [11]
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-[11]
+[12]
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
  []
@@ -505,15 +520,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 []\OT1/cmr/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-) [12] (./FMpaper.aux) ) 
+) [13] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5242 strings out of 495061
- 72440 string characters out of 1182621
- 143245 words of memory out of 3000000
- 8350 multiletter control sequences out of 15000+50000
+ 5256 strings out of 493848
+ 72843 string characters out of 1152823
+ 144265 words of memory out of 3000000
+ 8461 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 36i,14n,38p,284b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 714 hyphenation exceptions out of 8191
+ 36i,14n,45p,284b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
 m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/shar
@@ -528,9 +543,9 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (12 pages, 2582715 bytes).
+Output written on FMpaper.pdf (13 pages, 2731344 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
+ 111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
