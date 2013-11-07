@@ -94,7 +94,7 @@ which we extended with new property templates, to capture variations not covered
 in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
 have focused on LTL, which is a state-based formalism. On the other hand,
- $\mu$-calculus is event-based, making it a good match for sequence diagrams where communication between
+ $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
  components is depicted. 
 Moreover, such communication is data-dependent, so we introduce
 the possibility to define data quantifiers, to express complex properties in a concise manner.
@@ -106,7 +106,7 @@ formula and monitor for checking the property with mCRL2.
 \end{abstract}
 \section{Introduction}
 \label{sec:Introduction}
-One of the challenges in concurrent software development is early discovery of design errors which can lead to deadlocks or race-conditions.
+One of the challenges in concurrent software development is early discovery of design errors which can lead to deadlocks or race conditions.
 Traditional testing does not always expose such problems in complex distributed applications. Performing more rigorous formal analysis, like model-checking, 
 typically requires a model which is an abstraction of the system.
 In the last decades, methods and tools
