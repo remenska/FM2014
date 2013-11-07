@@ -142,4 +142,14 @@ Harel, D., Maoz, S.:
 \newblock {Assert and negate revisited: Modal semantics for UML sequence
   diagrams} (2007)
 
+\bibitem{terry2006visual}
+Terry, Q.:
+\newblock {Visual Modeling with IBM Rational Software Architect and UML}.
+\newblock Pearson Education India (2006)
+
+\bibitem{RAFMC}
+Mateescu, R.:
+\newblock {Property Pattern Mappings for RAFMC}
+  http://www.inrialpes.fr/vasy/cadp/resources/evaluator/rafmc.html.
+
 \end{thebibliography}

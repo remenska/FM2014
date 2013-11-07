@@ -16,48 +16,50 @@ Repeated entry---line 1849 of file FM2014.bib
 I'm skipping whatever remains of this entry
 Warning--entry type for "UML2.4_superstructure" isn't style-file defined
 --line 1855 of file FM2014.bib
+Warning--entry type for "RAFMC" isn't style-file defined
+--line 1870 of file FM2014.bib
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
-You've used 23 entries,
+You've used 25 entries,
             2087 wiz_defined-function locations,
-            651 strings with 8738 characters,
-and the built_in function-call counts, 7580 in all, are:
-= -- 839
-> -- 222
+            660 strings with 8978 characters,
+and the built_in function-call counts, 7863 in all, are:
+= -- 863
+> -- 230
 < -- 18
-+ -- 82
-- -- 59
-* -- 426
-:= -- 956
-add.period$ -- 33
-call.type$ -- 23
-change.case$ -- 23
++ -- 86
+- -- 61
+* -- 434
+:= -- 996
+add.period$ -- 35
+call.type$ -- 25
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 23
-duplicate$ -- 416
-empty$ -- 784
-format.name$ -- 59
-if$ -- 1953
+cite$ -- 25
+duplicate$ -- 433
+empty$ -- 824
+format.name$ -- 61
+if$ -- 2023
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 19
-newline$ -- 115
-num.names$ -- 25
-pop$ -- 121
+int.to.str$ -- 25
+missing$ -- 21
+newline$ -- 124
+num.names$ -- 27
+pop$ -- 136
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 307
+skip$ -- 314
 stack$ -- 0
 substring$ -- 471
-swap$ -- 199
+swap$ -- 201
 text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 74
-width$ -- 25
-write$ -- 266
+while$ -- 76
+width$ -- 27
+write$ -- 284
 (There were 3 error messages)
