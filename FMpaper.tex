@@ -164,7 +164,7 @@ practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
 To mitigate the problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
-elucidating properties, based on the property patterns. These approaches guide users in selecting the appropriate pattern
+elucidating properties, based on the property patterns. These tools guide users in selecting the appropriate pattern
 for the property in mind, and optionally produce a formula in some target temporal logic. 
 Another category of approaches~\cite{Ziemann02anextension,Flake03formalsemantics,Ackermann:2006:LOS:2135315.2135339} deal with temporal extensions 
 of the Object Constraint Language (OCL), as means to specify system
@@ -172,13 +172,13 @@ properties. OCL is a declarative textual language for describing invariants for
 classes and pre- and postconditions of operations. Although it forms an integral
 part of UML, it lacks means to specify constraints over the dynamic behavior
 of a model. Finally, a third class of approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA} tackle the property
-specification problem by proposing graphical notations.
+specification problem by proposing graphical notations for specifying properties.
 
 The objective of this work is to simplify the process of correctly eliciting
 functional requirements, without the need of expertise in temporal logic. 
 First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
 system properties. Our starting point was the pattern system,
-which we also extended with over 40 new property templates, to capture variations not covered 
+which we extended with over 40 new property templates, to capture variations not covered 
 in the original classification. Our strong motivation was to stay
 in the same UML development environment, rather than use an external helper tool for this.
 It should increase the tool accessibility by allowing software engineers to remain focused in the realm of UML designs.
@@ -303,7 +303,7 @@ is denoted by the “+” operator. Processes can be composed sequentially and i
 operator $\sum_{d:D}p$ denotes (possibly infinite) choice among
 processes parameterized by $d$. $c\rightarrow p\diamond p$ is a conditional
 process, and depending on the value of the boolean expression $c$, the first or second operand is selected.
-This allows modeling of systems whose behavior is data-dependent.
+This allows for modeling of systems whose behavior is data-dependent.
 
 To enforce synchronization, the allow operator ${\Delta_H(p)}$ specifies the set of actions $H$ that are allowed
 to occur. To show possible communications in a system and the resulting actions, the communication operator
@@ -344,7 +344,7 @@ $[R]\phi$ is satisfied iff all sequences starting at that state and satisfying R
 lead to states satisfying  $\phi$.
 In other words, $[R]\phi$ describes that $\phi$ holds in all states that can be reached by a sequence in R,
 while $\langle R \rangle\phi$ describes that $\phi$ holds in some state that can be reached by a sequence in R.
-Remember that $[a]\phi$ is trivially satisfied for states with no “\emph{a}” transitions.
+Remember that $[a]\phi$ is trivially satisfied for states with no “\emph{a}”-transitions.
 Combined with these modalities, the least ($\mu X\ldotp f(X)$) and greatest
 ($\nu X\ldotp f(X)$) fixpoints permit reasoning about finite and infinite runs
 of a system in a recursion-like manner.

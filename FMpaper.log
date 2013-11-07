@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  7 NOV 2013 10:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  7 NOV 2013 11:28
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -449,12 +449,6 @@ File: ./Approach.png Graphic file (type png)
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./Approach.png (PNG copy)>]
-Overfull \hbox (1.4604pt too wide) in paragraph at lines 166--176
-\OT1/cmr/m/n/10 tools for elu-ci-dat-ing prop-er-ties, based on the prop-erty p
-at-terns. These ap-proaches
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
@@ -506,7 +500,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--139
 Here is how much of TeX's memory you used:
  5240 strings out of 495061
  72416 string characters out of 1182621
- 142237 words of memory out of 3000000
+ 143237 words of memory out of 3000000
  8348 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -525,7 +519,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (11 pages, 2579593 bytes).
+Output written on FMpaper.pdf (11 pages, 2579603 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
