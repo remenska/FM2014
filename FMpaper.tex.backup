@@ -325,7 +325,7 @@ The syntax of a $\mu$-calculus formula is defined by the following grammar:
 \begin{array}{ll}
 
 \phi_1 & ::= true \mid false \mid \phi\wedge\phi \mid \phi\vee\phi \mid [\rho]\phi \mid \langle\rho\rangle\phi \mid \mu Z\ldotp\phi \mid \nu Z\ldotp\phi \\
-\rho & ::= \alpha \mid \rho\cdot\rho \mid \rho^* \\
+\rho & ::= \alpha \mid nil \mid \rho\cdot\rho \mid \rho^* \mid \rho^+ \\
 \alpha & ::= \alpha\cup\alpha \mid \alpha\cap\alpha \mid\neg\alpha \mid true\\
 \end{array}
 \]
@@ -335,7 +335,7 @@ $\rho$ represents a set of sequences of actions, while $\alpha$ stands for a set
 To describe a sequence of actions $\rho$, the concatenation $\rho\cdot\rho$ and iteration $\rho^*$ (possibly infinite sequences) operators can be used.
 Union and intersection of sets of actions is denoted by $\cup$ and $\cap$ respectively. 
 The notation $\neg\alpha$ denotes the complement of the set of actions $\alpha$ with respect to the set of all actions. 
-The set of actions characterized by $\emph{true}$ is the entire set of actions present in the model.
+The set of actions characterized by $\emph{true}$ is the entire set of actions present in the model, while \emph{nil} represents empty, i.e., no action.
 
 The $\square$ (\emph{must}) and $\Diamond$ (\emph{may}) modalities  have the following semantics:
 a state of the LTS satisfies $\langle R \rangle\phi$ iff there is at least one transition sequence 
@@ -415,8 +415,8 @@ We find that this does not limit the expressiveness of property specifications i
 \label{sec:Approach}
 
 \subsection{The Rationale}
-Before describing our proposal to a correct and straightforward property elucidation,
-we outline the rationale behind the choices we made, and how they differ from
+To describe our proposal to a correct and straightforward property elucidation,
+we outline the motivations behind the choices we made, and how they differ from
 existing related approaches. As already stated, to bridge the gap between everyday practical software 
 requirements specification and the the property patterns classification,
 several conversational tools have already been proposed. 
@@ -443,12 +443,20 @@ In short, UML profiles consist of stereotypes that can be applied to any UML mod
 associations, or messages. We used this mechanism 
 to apply the restrictions on the useage of \emph{neg} and \emph{assert},
 as well as to distinguish between events presenting interval bounds, and regular ones, from the patterns.
-Fig.~\cite{} depicts the \emph{precedence chain} pattern (with a between-Q-and-R scope), with the stereotypes applied to messages \emph{Q} and \emph{R}.
-We find this a much more intuitive graphical scenario representation than the CHARMY/PSP one, for the same pattern.
-
+Fig.~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with a \emph{between-Q-and-R} scope), with the stereotypes applied to messages \emph{Q} and \emph{R}.
+The pattern expresses that event \emph{P} must precede the chain of events \emph{S, T}, always when the system execution is in the scope between events \emph{Q} and \emph{R}.
+We find this a much more intuitive scenario representation than the CHARMY/PSP one (Fig.~\ref{fig:ResponsePatternCharmy}), for the same pattern.
 Notice that we do not have to specify constraints on past unwanted events, as they are automatically
 reflected in the $\mu$-calculus formula, as long as there is a distinction between interval-marking messages,
-regular, mandatory, and forbidden ones.
+regular, mandatory, and forbidden ones. Also, their notation presents the scenario in a negative form, using ``f:'' to
+explicitely fire an error message. 
+\begin{figure*}[t!]
+  \centering
+  \subfloat[Sequence Diagram with monitor]{\label{fig:ResponsePattern}\includegraphics[width=0.62\linewidth]{./ResponseChain_withMonitor.png}}    
+  \hfill
+  \subfloat[PSC with Buchi automaton]{\label{fig:ResponsePatternCharmy}\includegraphics[width =0.38\linewidth]{./ResponseChainPSC.png}}
+  \caption{Scenarios for the precedence chain pattern}
+\end{figure*}
 Although any mature visual UML modeling tool 
 can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
 One of the advantages is that RSA is built on top of Eclipse, making 
@@ -474,7 +482,9 @@ Given that communication among components proceeds via actions (or events) which
 represent synchronous or asynchronous communication, property specification
 can be defined over sequences of actions that are data-dependent.
 Fortunatelly, $\mu$-calculus is rich enough to express both state and action formulas,
-and provides means for quantification over data, something which LTL is missing. For example, with our approach, a practicioner can use 
+and provides means for quantification over data, something which LTL is missing. 
+%maybe this can go to the questionnaire?
+For example, with our approach, a practicioner can use 
 a wildcard ``*'' to express that the property should be evaluated for all values
 that message parameters can carry. This allows us to use patterns which would otherwise
 make sense only for state-based formalisms. For example, the \emph{universality}
@@ -484,7 +494,6 @@ so we adapted it in the context of $\mu$-calculus.
 
 % for monitor, give the example of the LTL3 tools, where ``actions'' are labeled on the transitions of the Buchi automaton,
 % but thes are not really actions but atomic propositions, since it's not logical to have actionA && actionB in a transition
-
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which

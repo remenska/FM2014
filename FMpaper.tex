@@ -478,11 +478,14 @@ been acquired or released can be naturally expressed by actions. Since state-bas
 temporal logics lack this mechanism, an alternative is to introduce a variable to indicate
 the status of the lock, i.e., expose the state information. With such properties, LTS
 representations are more intuitive, and easier to query using event-based logics.
+
 Given that communication among components proceeds via actions (or events) which can
 represent synchronous or asynchronous communication, property specification
 can be defined over sequences of actions that are data-dependent.
 Fortunatelly, $\mu$-calculus is rich enough to express both state and action formulas,
-and provides means for quantification over data, something which LTL is missing. For example, with our approach, a practicioner can use 
+and provides means for quantification over data, something which LTL is missing. 
+%maybe this can go to the questionnaire?
+For example, with our approach, a practicioner can use 
 a wildcard ``*'' to express that the property should be evaluated for all values
 that message parameters can carry. This allows us to use patterns which would otherwise
 make sense only for state-based formalisms. For example, the \emph{universality}

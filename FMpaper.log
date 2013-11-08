@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  8 NOV 2013 01:03
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  8 NOV 2013 01:39
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -496,7 +496,19 @@ File: ./ResponseChain_withMonitor.png Graphic file (type png)
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png> [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (3.77988pt too wide) in paragraph at lines 482--495
+[]\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
+ ac-tions (or events)
+ []
+
+
+Overfull \hbox (0.34927pt too wide) in paragraph at lines 482--495
+\OT1/cmr/m/n/10 which can rep-re-sent syn-chronous or asyn-chronous com-mu-ni-c
+a-tion, prop-erty spec-
+ []
+
+
+Underfull \vbox (badness 4752) has occurred while \output is active []
 
  [10 <./ResponseChain_withMonitor.png (PNG copy)> <./ResponseChainPSC.png (PNG 
 copy)>]
@@ -520,30 +532,33 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 []\OT1/cmr/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-) [13] (./FMpaper.aux) ) 
+) [13] (./FMpaper.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  5256 strings out of 493848
  72843 string characters out of 1152823
- 144265 words of memory out of 3000000
+ 144263 words of memory out of 3000000
  8461 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  36i,14n,45p,284b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public
-/amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
-cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
-e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
-ols/msam10.pfb>
-Output written on FMpaper.pdf (13 pages, 2731347 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on FMpaper.pdf (13 pages, 2731372 bytes).
 PDF statistics:
  111 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
