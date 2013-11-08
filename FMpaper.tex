@@ -499,13 +499,52 @@ pattern is used describe a portion of the system's execution which contains only
 Checking if a certain event is executed in every step of the system execution is not useful,
 so we adapted it in the context of $\mu$-calculus. 
 
-% for monitor, give the example of the LTL3 tools, where ``actions'' are labeled on the transitions of the Buchi automaton,
-% but thes are not really actions but atomic propositions, since it's not logical to have actionA && actionB in a transition
+Finally, for the purpose of on-the-fly verification, we provide an
+automatically generated mCRL2 monitor which corresponds to the property formula.
+We interpret a sequence diagram as an observer of
+the message exchanges in the system. This helps in avoiding generation of those
+parts of the state space for which it is certain that they do not compose with the
+property monitor. In addition, although mcRL2 offers direct model checking
+$\mu$-calculus and can provide feedback when the property fails to hold, this
+feedback is not at the level of the mCRL2 process specification.
+Using the monitor, the counter-example will be provided at the UML level.
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
-We translate a fragment of the $\mu$-calculus to mCRL2 processes which
-can subsequently serve as monitor processes.
+A general model checking mechanism used with state-based formalism tools like SPIN 
+is to construct a Buchi automaton for an LTL formula, which accepts exactly those executions
+that violate the property. A product of the model state space (typically a Kripke structure) and the Buchi automaton is then composed, 
+and checked for emptiness. 
+Although syntactically Buchi is similar to the finite state monitor for which we aim,
+the difference is in the acceptance conditions: a monitor accepts only 
+finite runs of the system, while Buchi can trap infinite executions through
+detection of cycles, but needs the entire state-space
+generated in the process. Runtime or on-the-fly verification
+does not store the entire state space of a model, so it cannot detect such cycles. 
+In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} are labeled with elementary
+propositions rather than single actions (notice the $\wedge$ operator). 
+As such, we cannot use existing tools for constructing Buchi automata with our
+approach.
+\begin{figure}[!t]
+\centering
+\includegraphics[width=0.4\linewidth,keepaspectratio=true]{./Buchi.png}
+\caption{A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
+\label{fig:Buchi}
+\end{figure}
 
+Not every property can be monitored at runtime when only a finite run has been 
+observed so far. Monitorable properties are those for which a violation occurs along a finite execution.
+This problem has been studied~\cite{DBLP:journals/corr/abs-1006-3638}, and it is known that the class of 
+monitorable properties is strictly larger than the commonly used class of \emph{safety} properties.
+However, an exact categorization of monitorable properties is missing.
+In particular, the definition of \emph{liveness} requires that any finite system
+execution must be extendable to an infinite one that satisfies the property. 
+On the other hand, by defining a scope of a property, we can also assert
+violations to \emph{existence} patterns, which are typically in the \emph{liveness} category. 
+Such runtime monitor can also assert \emph{universality} and \emph{absence} patterns 
+with or without a scope combination.
+
+We translate a fragment of the $\mu$-calculus to mCRL2 processes which
+can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
 \[
 \begin{array}{ll}
@@ -566,6 +605,11 @@ the action formula:
 \TrA_l(a(d_a),\exists d:D.\alpha_1) & = \exists d:D. \TrA_l(a(d_a),\alpha_1)
 \end{array}
 \]
+
+Using the above translation, such a monitor can be placed in parallel a the system model,
+to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
+all model states will be traversed. In practice however, refutation can be found 
+quickly after a limited exploration. 
 
 \subsection{The Wizard} 
 %mention free drawing and the profile application 
