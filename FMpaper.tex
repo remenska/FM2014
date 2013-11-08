@@ -442,15 +442,20 @@ Most of the invented notations used by existing scenario approaches can fit well
 Profiles are a standard way to extend UML for expressing concepts not included in the official metamodel. 
 In short, UML profiles consist of stereotypes that can be applied to any UML model, like classes,
 associations, or messages. We used this mechanism 
-to apply the restrictions on the useage of \emph{neg} and \emph{assert},
-as well as to distinguish between events presenting interval bounds, and regular ones, from the patterns.
-Fig.~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with a \emph{between-Q-and-R} scope), with the stereotypes applied to messages \emph{Q} and \emph{R}.
-The pattern expresses that event \emph{P} must precede the chain of events \emph{S, T}, always when the system execution is in the scope between events \emph{Q} and \emph{R}.
-We find this a much more intuitive scenario representation than the CHARMY/PSP one (Fig.~\ref{fig:ResponsePatternCharmy}), for the same pattern.
+to apply the restrictions on the usage of \emph{neg} and \emph{assert},
+as well as to distinguish between events presenting interval bounds and regular ones, from the patterns.
+Fig.~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with
+a \emph{between-Q-and-R} scope), with the stereotypes applied to messages
+\emph{Q} and \emph{R}.
+The pattern expresses that event \emph{P} must precede the chain of events
+\emph{S, T}, always when the system execution is in the scope between events
+\emph{Q} and \emph{R}.
+We find this a much more intuitive scenario representation than the CHARMY/PSP
+one (Fig.~\ref{fig:ResponsePatternCharmy}), for the same pattern.
 Notice that we do not have to specify constraints on past unwanted events, as they are automatically
 reflected in the $\mu$-calculus formula, as long as there is a distinction between interval-marking messages,
 regular, mandatory, and forbidden ones. Also, their notation presents the scenario in a negative form, using ``f:'' to
-explicitely fire an error message. 
+explicitly mark an error message. 
 \begin{figure*}[t!]
   \centering
   \subfloat[Sequence Diagram with monitor]{\label{fig:ResponsePattern}\includegraphics[width=0.62\linewidth]{./ResponseChain_withMonitor.png}}    
@@ -483,14 +488,14 @@ representations are more intuitive, and easier to query using event-based logics
 Given that communication among components proceeds via actions (or events) which can
 represent synchronous or asynchronous communication, property specification
 can be defined over sequences of actions that are data-dependent.
-Fortunatelly, $\mu$-calculus is rich enough to express both state and action formulas,
-and provides means for quantification over data, something which LTL is missing. 
+Fortunately, $\mu$-calculus is rich enough to express both state and action formulas,
+and provides means for quantification over data, which other formalisms lack. 
 %maybe this can go to the questionnaire?
-For example, with our approach, a practicioner can use 
-a wildcard ``*'' to express that the property should be evaluated for all values
+For example, with our approach, a practitioner can use 
+a wild-card ``*'' to express that the property should be evaluated for all values
 that message parameters can carry. This allows us to use patterns which would otherwise
 make sense only for state-based formalisms. For example, the \emph{universality}
-pattern is used describe a portion of a system's execution which contains only states/events that have a desired property.
+pattern is used describe a portion of the system's execution which contains only states/events that have a desired property.
 Checking if a certain event is executed in every step of the system execution is not useful,
 so we adapted it in the context of $\mu$-calculus. 
 
