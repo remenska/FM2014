@@ -193,7 +193,7 @@ These events can represent methods calls or asynchronous communication between d
 Moreover, such communication is data-dependent, which is why we introduce
 the possibility to define quantifiers, to express complex properties in a concise manner, e.g., every
 element of a certain type must fulfill a certain property. 
-Compared to LTL or CTL,  $\mu$-calculus is powerful enough
+Unlike LTL or CTL,  $\mu$-calculus is powerful enough
 to achieve this in a natural way. Third, to cope with state-space explosion,
 we provide one additional automatically-generated notation: a monitor for on-the-fly model checking, or bug hunting.
 We interpret a sequence diagram as an observer of the message exchanges in the system.
@@ -208,7 +208,7 @@ This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
 and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
 syntax and semantics of mCRL2, $\mu$-calculus and UML sequence diagrams.
 We describe our approach in Section~\ref{sec:Approach}.
-In Section~\ref{sec:CaseStudy} we apply it on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \section{Related Work}
 \label{sec:RelatedWork}
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
@@ -222,7 +222,7 @@ does not produce a formula in any of the commonly used temporal logic formalisms
 In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
 Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
 with compositional ones that are built up from combinations of more basic patterns. 
-Unfortunately, we could not find SPIDER online, and the version of Prospec that we tested (Fig.~\ref{fig:Prospec}) produces only 
+Unfortunately, we could not find SPIDER online, and the latest version of Prospec that we found and tested (Fig.~\ref{fig:Approaches} left) produces only 
 formulas in Future Interval Logic, not LTL as stated in the work.
 
 Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
@@ -242,6 +242,7 @@ them manually is error-prone. Another problem is the extent to which designers a
   \hfill
   \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
   \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+  \label{fig:Approaches}
 \end{figure*}
 
 Graphical notation approaches come closest to the realm of modeling the system behavior.
@@ -252,7 +253,7 @@ system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, a
 is measured with the property patterns. SPIN is used as a backend for model checking of
 the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
 an operational representation for LTL formulas generated automatically with this approach.
-The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Charmy}).
+The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Approaches} right).
 Such a mix of textual and visual representation of message communication
 within a diagram can be error-prone. Additionally, asynchronous communication is not supported.
 Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone framework for architectural descriptions,
@@ -277,7 +278,7 @@ Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,M
 Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
 In both approaches, Buchi automata and a LTL formulas are generated automatically from the diagrams.
 However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
-to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lack many UML features.
+to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lacks many UML features.
 
 \section{Preliminaries}
 \label{sec:Preliminaries}
@@ -510,7 +511,7 @@ feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
-A general model checking mechanism used with state-based formalism tools like SPIN 
+A general model checking mechanism used with tools like SPIN 
 is to construct a Buchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the Buchi automaton is then composed, 
 and checked for emptiness. 
@@ -518,10 +519,10 @@ Although syntactically Buchi is similar to the finite state monitor for which we
 the difference is in the acceptance conditions: a monitor accepts only 
 finite runs of the system, while Buchi can trap infinite executions through
 detection of cycles, but needs the entire state-space
-generated in the process. Runtime or on-the-fly verification
+generated in the process. Runtime verification
 does not store the entire state space of a model, so it cannot detect such cycles. 
 In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} are labeled with elementary
-propositions rather than single actions (notice the $\wedge$ operator). 
+propositions rather than actions (notice the $\wedge$ operator). 
 As such, we cannot use existing tools for constructing Buchi automata with our
 approach.
 \begin{figure}[!t]
@@ -533,15 +534,16 @@ approach.
 
 Not every property can be monitored at runtime when only a finite run has been 
 observed so far. Monitorable properties are those for which a violation occurs along a finite execution.
-Several authors have studied this problem, and it is known that the class of 
-monitorable properties is strictly larger than the commonly used class of \emph{safety} properties.
+This problem has been studied~\cite{DBLP:journals/corr/abs-1006-3638}, and it is known that the class of 
+monitorable properties is strictly larger than the commonly believed class of \emph{safety} properties.
 However, an exact categorization of monitorable properties is missing.
 In particular, the definition of \emph{liveness} requires that any finite system
 execution must be extendable to an infinite one that satisfies the property. 
 On the other hand, by defining a scope of a property, we can also assert
 violations to \emph{existence} patterns, which are typically in the \emph{liveness} category. 
 Such runtime monitor can also assert \emph{universality} and \emph{absence} patterns 
-with or without a scope combination.
+with or without a scope combinations. We found that we are able to construct 
+a monitor for about 50\% of the property patterns.
 
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
@@ -605,82 +607,37 @@ the action formula:
 \TrA_l(a(d_a),\exists d:D.\alpha_1) & = \exists d:D. \TrA_l(a(d_a),\alpha_1)
 \end{array}
 \]
+Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the chain response pattern.
+Such a monitor can be placed in parallel a the system model,
+to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
+all model states will be traversed. In practice however, refutation can be found 
+quickly after a limited exploration. 
 
-\subsection{The Wizard} 
-%mention free drawing and the profile application 
-%mention The syntax of the µ-calculus consists of multiactions, action formulas, regular formulas and state formulas.
-% this is why we CAN describe state formulas with mu-calculus!
-% The last part of the property (i.e. “the withdraw request is allowed only
-% after the login request and only until the logout request”) it is easily rec-
-% ognized as a scope. The Scope Selection Engine proposes the different
-% choices and the user is then guided to choose the “After-Until” scope
-% (i.e. “After login” and “Until logout” scope) that embraces the withdraw
-% request and the DB update. ← for paper!
-% 
-% This instantiated sentence can then be mapped to a temporal logic
-% representation. The following temporal logic property, automatically generated
-% by SPIDER, denotes the LTL representation of the property captured in natural
-% language in Expression (6), which can be analyzed by the model checker Spin
-% Fantechi et al. [9] use natural language constructs that map directly into ACTL,
-% an action-based variant of CTL. User input is used to resolve ambiguities that
-% might be encountered in the input phrase. 
-% 
-% DNL is a restricted subset of natural language that is intended to capture
-% meanings unambiguously. This representation is not intended to stand by itself;
-% it is meant to be used in conjunction with the FSA template representation. Like
-% FSA templates, DNL templates are designed to elucidate the decisions associated
-% with a property pattern. Therefore, the same options that must be decided in the
-% FSA template are options in the DNL template representation. A
-% fially-instantiated DNL template results in a paragraph of natural language text
-% that is grammatically correct, readable, and maps to one, and only one,
-% fully-instantiated FSA property. The relationship between the options in a
-% pattern's DNL template and those in a pattern's FSA template is not necessarily
-% one-to-one, however, since some DNL options affect the FSA templates in more
-% than one location.
-% 
-% We illustrate how a property pattern is represented as an FSA template using the
-% Response pattern. As noted above, the Response pattern is concerned with
-% expressing the concept of a stimulus event that must be followed by a response
-% event. An example of this property pattern as written in natural language might
-% look something like this: After the elevator button is pushed, the elevator
-% closes its doors. Questions arise: for example, should the doors close
-% repeatedly if the button is pushed repeatedly? What, if anything, is allowed to
-% occur after the button is pushed, but before the doors are closed? We find that
-% these questions can be captured by using the extended FSA property notation with
-% six options. These options in the Response pattern template combine to produce a
-% total of sixty-four distinct variations on this property pattern. When all of
-% the options have been decided, an FSA that represents only one of the sixty-four
-% possible variations is created. The six Response pattern template options are as
-% follows: 
-% Pre-arity, which determines whether action may occur one time or many times
-% before response does; Post-arity, which determines whether response may occur
-% one time or many times after action does; Immediacy, which determines whether or
-% not other intervening events may occur between action and response; Precedency,
-% which determines whether or not response is allowed to occur before the first
-% occurrence of action; Nullity, which determines whether or not action must ever
-% occur; and Repeatability, which determines whether or not occurrences of action
-% after an occurrence of response are required to be followed by response. Since
-% we assume that the alphabet may include more events than just action and
-% response, Immediacy deals with whether or not these other events may occur at
-% the second state
-% 
-% for paper: Scopes are introduced in FVS in the same way as any
-% other restriction of behavior. Thus, Global scope is implicity
-% modeled by introducing no scope restrictions (all the rules
-% shown up to here assumed Global scope). In what follows we
-% model the rest of the scopes for the basic Response pattern2 .
-% 1) Before P - After Q: The rule in figure 6-a corresponds
-% to the Before P scope. The occurrence of the property must
-% precede the first occurrence of P. This is, if an Action event
-% occurs before the first P occurrence, then a Response event
-% must also occur before P. Similarly, the scenario in figure 6-b
-% shows the After Q scope. That is, if an Action event occur
-% after the first Q occurrence, then a Response event must also
-% occur afterwards.
-
+% showcase:
+%	data quantification
+% 	universality pattern, how it's adapted
+% 	popup window for selection of a message
+% 	extended patterns in the questionnaire (example ...total of xx new distinct variations of this property pattern)
 
 \section{Case Study: DIRAC's Executor Framework revisited}
+
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
+}%
+
+
 \label{sec:CaseStudy}
+\subsection{PASS: the Property ASSistant} 
+\begin{figure}[!t]
+\centering
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
+Here we illustrate how PASS can be used in practice. 
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 

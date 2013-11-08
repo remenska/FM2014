@@ -208,7 +208,7 @@ This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
 and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
 syntax and semantics of mCRL2, $\mu$-calculus and UML sequence diagrams.
 We describe our approach in Section~\ref{sec:Approach}.
-In Section~\ref{sec:CaseStudy} we apply it on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \section{Related Work}
 \label{sec:RelatedWork}
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
@@ -613,81 +613,28 @@ to perform runtime verification. Clearly, in the ``worst'' case, if the model is
 all model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
 
-\subsection{The Wizard} 
-%mention free drawing and the profile application 
-%mention The syntax of the µ-calculus consists of multiactions, action formulas, regular formulas and state formulas.
-% this is why we CAN describe state formulas with mu-calculus!
-% The last part of the property (i.e. “the withdraw request is allowed only
-% after the login request and only until the logout request”) it is easily rec-
-% ognized as a scope. The Scope Selection Engine proposes the different
-% choices and the user is then guided to choose the “After-Until” scope
-% (i.e. “After login” and “Until logout” scope) that embraces the withdraw
-% request and the DB update. ← for paper!
-% 
-% This instantiated sentence can then be mapped to a temporal logic
-% representation. The following temporal logic property, automatically generated
-% by SPIDER, denotes the LTL representation of the property captured in natural
-% language in Expression (6), which can be analyzed by the model checker Spin
-% Fantechi et al. [9] use natural language constructs that map directly into ACTL,
-% an action-based variant of CTL. User input is used to resolve ambiguities that
-% might be encountered in the input phrase. 
-% 
-% DNL is a restricted subset of natural language that is intended to capture
-% meanings unambiguously. This representation is not intended to stand by itself;
-% it is meant to be used in conjunction with the FSA template representation. Like
-% FSA templates, DNL templates are designed to elucidate the decisions associated
-% with a property pattern. Therefore, the same options that must be decided in the
-% FSA template are options in the DNL template representation. A
-% fially-instantiated DNL template results in a paragraph of natural language text
-% that is grammatically correct, readable, and maps to one, and only one,
-% fully-instantiated FSA property. The relationship between the options in a
-% pattern's DNL template and those in a pattern's FSA template is not necessarily
-% one-to-one, however, since some DNL options affect the FSA templates in more
-% than one location.
-% 
-% We illustrate how a property pattern is represented as an FSA template using the
-% Response pattern. As noted above, the Response pattern is concerned with
-% expressing the concept of a stimulus event that must be followed by a response
-% event. An example of this property pattern as written in natural language might
-% look something like this: After the elevator button is pushed, the elevator
-% closes its doors. Questions arise: for example, should the doors close
-% repeatedly if the button is pushed repeatedly? What, if anything, is allowed to
-% occur after the button is pushed, but before the doors are closed? We find that
-% these questions can be captured by using the extended FSA property notation with
-% six options. These options in the Response pattern template combine to produce a
-% total of sixty-four distinct variations on this property pattern. When all of
-% the options have been decided, an FSA that represents only one of the sixty-four
-% possible variations is created. The six Response pattern template options are as
-% follows: 
-% Pre-arity, which determines whether action may occur one time or many times
-% before response does; Post-arity, which determines whether response may occur
-% one time or many times after action does; Immediacy, which determines whether or
-% not other intervening events may occur between action and response; Precedency,
-% which determines whether or not response is allowed to occur before the first
-% occurrence of action; Nullity, which determines whether or not action must ever
-% occur; and Repeatability, which determines whether or not occurrences of action
-% after an occurrence of response are required to be followed by response. Since
-% we assume that the alphabet may include more events than just action and
-% response, Immediacy deals with whether or not these other events may occur at
-% the second state
-% 
-% for paper: Scopes are introduced in FVS in the same way as any
-% other restriction of behavior. Thus, Global scope is implicity
-% modeled by introducing no scope restrictions (all the rules
-% shown up to here assumed Global scope). In what follows we
-% model the rest of the scopes for the basic Response pattern2 .
-% 1) Before P - After Q: The rule in figure 6-a corresponds
-% to the Before P scope. The occurrence of the property must
-% precede the first occurrence of P. This is, if an Action event
-% occurs before the first P occurrence, then a Response event
-% must also occur before P. Similarly, the scenario in figure 6-b
-% shows the After Q scope. That is, if an Action event occur
-% after the first Q occurrence, then a Response event must also
-% occur afterwards.
-
+% showcase:
+%	data quantification
+% 	universality pattern, how it's adapted
+% 	popup window for selection of a message
+% 	extended patterns in the questionnaire (example ...total of xx new distinct variations of this property pattern)
 
 \section{Case Study: DIRAC's Executor Framework revisited}
+\begin{figure}[!t]
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
+}%
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
 \label{sec:CaseStudy}
+\subsection{PASS: the Property ASSistant} 
+
+
+Here we illustrate how PASS can be used in practice. 
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 
