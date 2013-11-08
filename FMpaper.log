@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 17:37
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 17:40
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -509,8 +509,8 @@ File: ./Buchi.png Graphic file (type png)
 File: ./Last.png Graphic file (type png)
 
 <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 627--629
-[][] 
+Overfull \hbox (21.35722pt too wide) in paragraph at lines 628--630
+ [][] 
  []
 
 (./FMpaper.bbl
@@ -556,7 +556,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (15 pages, 4636134 bytes).
+Output written on FMpaper.pdf (15 pages, 4636126 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
