@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 13:28
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 13:51
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -504,7 +504,7 @@ Underfull \vbox (badness 4752) has occurred while \output is active []
  [10 <./ResponseChain_withMonitor.png> <./ResponseChainPSC.png (PNG copy)>]
 <./Buchi.png, id=55, 473.77pt x 172.645pt>
 File: ./Buchi.png Graphic file (type png)
- <use ./Buchi.png> [11 <./Buchi.png (PNG copy)>] (./FMpaper.bbl [12]
+ <use ./Buchi.png> [11 <./Buchi.png (PNG copy)>] [12] (./FMpaper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
@@ -528,7 +528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 Here is how much of TeX's memory you used:
  5264 strings out of 495061
  72992 string characters out of 1182621
- 143302 words of memory out of 3000000
+ 142302 words of memory out of 3000000
  8369 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
@@ -547,7 +547,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (14 pages, 2977131 bytes).
+Output written on FMpaper.pdf (14 pages, 2977272 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
