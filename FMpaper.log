@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 13:51
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  8 NOV 2013 14:17
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -487,13 +487,13 @@ File: ./ResponseChain_withMonitor.png Graphic file (type png)
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png> [9]
-Overfull \hbox (3.77988pt too wide) in paragraph at lines 488--501
+Overfull \hbox (3.77988pt too wide) in paragraph at lines 489--502
 []\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
  ac-tions (or events)
  []
 
 
-Overfull \hbox (0.34927pt too wide) in paragraph at lines 488--501
+Overfull \hbox (0.34927pt too wide) in paragraph at lines 489--502
 \OT1/cmr/m/n/10 which can rep-re-sent syn-chronous or asyn-chronous com-mu-ni-c
 a-tion, prop-erty spec-
  []
@@ -526,10 +526,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 151--154
 
 ) [14] (./FMpaper.aux) ) 
 Here is how much of TeX's memory you used:
- 5264 strings out of 495061
- 72992 string characters out of 1182621
- 142302 words of memory out of 3000000
- 8369 multiletter control sequences out of 15000+50000
+ 5265 strings out of 495061
+ 73008 string characters out of 1182621
+ 143310 words of memory out of 3000000
+ 8370 multiletter control sequences out of 15000+50000
  12749 words of font info for 47 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  36i,14n,45p,284b,337s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -547,7 +547,7 @@ e/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-texlive/fonts/type1/public/am
 sfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb>
-Output written on FMpaper.pdf (14 pages, 2977272 bytes).
+Output written on FMpaper.pdf (14 pages, 2977286 bytes).
 PDF statistics:
  117 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

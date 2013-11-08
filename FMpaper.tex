@@ -222,7 +222,7 @@ does not produce a formula in any of the commonly used temporal logic formalisms
 In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
 Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
 with compositional ones that are built up from combinations of more basic patterns. 
-Unfortunately, we could not find SPIDER online, and the version of Prospec that we tested (Fig.~\ref{fig:Prospec}) produces only 
+Unfortunately, we could not find SPIDER online, and the latest version of Prospec that we found and tested (Fig.~\ref{fig:Approaches} left) produces only 
 formulas in Future Interval Logic, not LTL as stated in the work.
 
 Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
@@ -242,6 +242,7 @@ them manually is error-prone. Another problem is the extent to which designers a
   \hfill
   \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
   \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+  \label{fig:Approaches}
 \end{figure*}
 
 Graphical notation approaches come closest to the realm of modeling the system behavior.
@@ -252,7 +253,7 @@ system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, a
 is measured with the property patterns. SPIN is used as a backend for model checking of
 the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
 an operational representation for LTL formulas generated automatically with this approach.
-The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Charmy}).
+The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Approaches} right).
 Such a mix of textual and visual representation of message communication
 within a diagram can be error-prone. Additionally, asynchronous communication is not supported.
 Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone framework for architectural descriptions,
