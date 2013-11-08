@@ -510,7 +510,7 @@ feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
-A general model checking mechanism used with state-based formalism tools like SPIN 
+A general model checking mechanism used with tools like SPIN 
 is to construct a Buchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the Buchi automaton is then composed, 
 and checked for emptiness. 
@@ -518,7 +518,7 @@ Although syntactically Buchi is similar to the finite state monitor for which we
 the difference is in the acceptance conditions: a monitor accepts only 
 finite runs of the system, while Buchi can trap infinite executions through
 detection of cycles, but needs the entire state-space
-generated in the process. Runtime or on-the-fly verification
+generated in the process. Runtime verification
 does not store the entire state space of a model, so it cannot detect such cycles. 
 In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} are labeled with elementary
 propositions rather than single actions (notice the $\wedge$ operator). 
@@ -541,7 +541,8 @@ execution must be extendable to an infinite one that satisfies the property.
 On the other hand, by defining a scope of a property, we can also assert
 violations to \emph{existence} patterns, which are typically in the \emph{liveness} category. 
 Such runtime monitor can also assert \emph{universality} and \emph{absence} patterns 
-with or without a scope combination.
+with or without a scope combination. We found that we are able to construct 
+a monitor for about 50\% of the property patterns.
 
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
