@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  9 NOV 2013 21:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  9 NOV 2013 23:35
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -457,12 +457,18 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 81.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-<./Approach.png, id=1, 529.22719pt x 296.60812pt>
-File: ./Approach.png Graphic file (type png)
- <use ./Approach.png> [1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+<./Approach.png, id=11, 529.22719pt x 296.60812pt>
+File: ./Approach.png Graphic file (type png)
+ <use ./Approach.png>
+Overfull \hbox (0.3493pt too wide) in paragraph at lines 129--144
+[]\OT1/cmr/m/n/10 Although the mCRL2 toolset au-to-mat-i-cally dis-cov-ers dead
+-locks, model check-
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./Approach.png (PNG copy)>]
@@ -504,13 +510,13 @@ File: ./ResponseChain_withMonitor.png Graphic file (type png)
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png> [9]
-Overfull \hbox (3.77988pt too wide) in paragraph at lines 491--504
+Overfull \hbox (3.77988pt too wide) in paragraph at lines 493--506
 []\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
  ac-tions (or events)
  []
 
 
-Overfull \hbox (0.34927pt too wide) in paragraph at lines 491--504
+Overfull \hbox (0.34927pt too wide) in paragraph at lines 493--506
 \OT1/cmr/m/n/10 which can rep-re-sent syn-chronous or asyn-chronous com-mu-ni-c
 a-tion, prop-erty spec-
  []
@@ -526,7 +532,7 @@ File: ./Buchi.png Graphic file (type png)
 File: ./PASSlaunch.png Graphic file (type png)
  <use ./PASSlaunch.png>
 [11 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [12]
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 652
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 654
 .
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmss.fd
@@ -536,14 +542,14 @@ File: ts1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (21.35722pt too wide) in paragraph at lines 676--678
+Overfull \hbox (21.35722pt too wide) in paragraph at lines 678--680
  [][] 
  []
 
 [13] <./Last.png, id=71, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (21.35722pt too wide) in paragraph at lines 687--689
+Overfull \hbox (21.35722pt too wide) in paragraph at lines 689--691
  [][] 
  []
 
@@ -605,7 +611,7 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/c
 m-super/sfss0700.pfb>
-Output written on FMpaper.pdf (16 pages, 5580673 bytes).
+Output written on FMpaper.pdf (16 pages, 5059385 bytes).
 PDF statistics:
  136 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

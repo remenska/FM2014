@@ -119,11 +119,13 @@ the underlying mathematical formalisms used for describing the models.
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model-checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verification of UML
-models, based on sequence and activity diagrams. Our prototype is able to produce
+models, based on sequence and activity diagrams. Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
+Our prototype is able to produce
 a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
-tool, without the user having to leave the UML domain. We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
+tool, without the user having to leave the UML domain. 
+We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
 %mention why we chose SDs!
-Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain.
+
 Although the mCRL2 toolset automatically discovers deadlocks, model checking
 for application-specific properties requires the use of modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. In principle, regardless of the formal language and tool choice for writing the model, these properties 
 are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
@@ -447,7 +449,7 @@ In short, UML profiles consist of stereotypes that can be applied to any UML mod
 associations, or messages. We used this mechanism 
 to apply the restrictions on the usage of \emph{neg} and \emph{assert},
 as well as to distinguish between events presenting interval bounds and regular ones, from the patterns.
-Fig.~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with
+Figure~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with
 a \emph{between-Q-and-R} scope), with the stereotypes applied to messages
 \emph{Q} and \emph{R}.
 The pattern expresses that event \emph{P} must precede the chain of events
@@ -470,7 +472,7 @@ Although any mature visual UML modeling tool
 can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
 One of the advantages is that RSA is built on top of Eclipse, making 
 it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
-lightweight UML Profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
+lightweight UML profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
 
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
@@ -508,7 +510,7 @@ We interpret a sequence diagram as an observer of
 the message exchanges in the system. This helps in avoiding generation of those
 parts of the state space for which it is certain that they do not compose with the
 property monitor. In addition, although mcRL2 offers direct model checking
-$\mu$-calculus and can provide feedback when the property fails to hold, this
+with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
 
@@ -517,8 +519,8 @@ A general model checking mechanism used with tools like SPIN
 is to construct a Buchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the Buchi automaton is then composed, 
 and checked for emptiness. 
-Although syntactically Buchi is similar to the finite state monitor for which we aim,
-the difference is in the acceptance conditions: a monitor accepts only 
+Although syntactically Buchi is similar to the finite-state monitor for which we aim,
+the difference lies in the acceptance conditions: a monitor accepts only 
 finite runs of the system, while Buchi can trap infinite executions through
 detection of cycles, but needs the entire state-space
 generated in the process. Runtime verification
@@ -558,7 +560,7 @@ monitorable properties is strictly larger than the commonly believed class of \e
 However, an exact categorization of monitorable properties is missing.
 In particular, the definition of \emph{liveness} requires that any finite system
 execution must be extendable to an infinite one that satisfies the property. 
-On the other hand, by defining a scope of a property, we can also assert
+On the other hand, by defining an end-scope of a property, we can also assert
 violations to \emph{existence} patterns, which are typically in the \emph{liveness} category. 
 Such runtime monitor can also assert \emph{universality} and \emph{absence} patterns 
 with or without a scope combinations. We found that we are able to construct 
