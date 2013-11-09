@@ -1,4 +1,5 @@
 \documentclass[letter]{llncs}
+\usepackage{capt-of}
 
 \newcommand{\figshrink}{\vspace{-.6cm}}
 %\newcommand{\figshrinkend}{\vspace{-.4cm}}
@@ -7,6 +8,7 @@
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
 \usepackage{amsmath}
+
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 \usepackage{algorithm}
 \usepackage{amsmath}
@@ -468,7 +470,7 @@ Although any mature visual UML modeling tool
 can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
 One of the advantages is that RSA is built on top of Eclipse, making 
 it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
-lightweight UML Profile, and as such is available to any Eclipse-based UML tool.
+lightweight UML Profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
 
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
@@ -525,11 +527,28 @@ In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} ar
 propositions rather than actions (notice the $\wedge$ operator). 
 As such, we cannot use existing tools for constructing Buchi automata with our
 approach.
+% \begin{figure*}[t!]
+%   \centering
+%   \subfloat[A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}]{\label{fig:ResponsePattern}\includegraphics[width=0.4\linewidth]{./Buchi.png}}    
+%   \label{fig:Buchi}
+%   \hfill
+%   \subfloat[PSC with Buchi automaton]{\label{fig:PASSlaunch}\includegraphics[width =0.38\linewidth]{./PASSlaunch.png}}
+%   \caption{}
+% \end{figure*}
+
 \begin{figure}[!t]
-\centering
-\includegraphics[width=0.4\linewidth,keepaspectratio=true]{./Buchi.png}
+ \centering
+\begin{minipage}[!t]{0.5\linewidth}
+\includegraphics[width=0.7\textwidth]{./Buchi.png}%
 \caption{A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
 \label{fig:Buchi}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\includegraphics[width=1.0\textwidth]{./PASSlaunch.png}%
+\label{fig:PASSlaunch}
+\captionof{figure}{Launching PASS from the Eclipse Project Explorer\label{fig:PASSlaunch}}%
+% \caption{Launching PASS from the Eclipse Project Explorer}
+\end{minipage}
 \end{figure}
 
 Not every property can be monitored at runtime when only a finite run has been 
