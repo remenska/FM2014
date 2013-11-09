@@ -163,4 +163,14 @@ Bauer, A.:
 \newblock {Monitorability of omega-regular languages}.
 \newblock CoRR \textbf{abs/1006.3638} (2010)
 
+\bibitem{DIRAC_CommGridSolution}
+Tsaregorodtsev, A.,  et~al.:
+\newblock {{DIRAC}: A Community {G}rid Solution}.
+\newblock {Proc. CHEP'07}
+
+\bibitem{repo:remenska}
+Remenska, D., Homburg, P.:
+\newblock {The mCRL2$\Leftrightarrow$UML toolset}
+  https://github.com/remenska/NFM.
+
 \end{thebibliography}

@@ -243,7 +243,7 @@ them manually is error-prone. Another problem is the extent to which designers a
   \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
   \hfill
   \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
-  \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+  \caption{Left: Prospec tool; right: CHARMY PSC graphical notation}
   \label{fig:Approaches}
 \end{figure*}
 
@@ -631,14 +631,54 @@ Such a monitor can be placed in parallel a the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
-
-% showcase:
-%	data quantification
-% 	universality pattern, how it's adapted
-% 	popup window for selection of a message
-% 	extended patterns in the questionnaire (example ...total of xx new distinct variations of this property pattern)
-
 \section{Case Study: DIRAC's Executor Framework revisited}
+DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
+All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
+are covered by DIRAC. 
+Jobs submitted via its interface undergo several processing steps between the moment they are submitted to the grid, 
+to the point when their execution on the grid actualizes. 
+
+The crucial Workload Management components responsible for orchestrating this process are the \emph{ExecutorDispatcher} and 
+the \emph{Executors}. Executors process any task sent to them by the ExecutorDispatcher, each one being responsible for a different step in the handling of tasks
+(such as resolving the input data for a job).
+The ExecutorDispatcher takes care of persisting the state of the tasks and distributing them amongst all the Executors, based on the
+requirements of each task. It maintains a queue of tasks waiting to be processed, and other internal data structures to keep track
+of the distribution of tasks among the Executors.
+During testing, certain problems have manifested: occasionally, tasks submitted in the system would not get dispatched, despite the fact that their responsible Executors
+were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
+generated logs. 
+In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+[true* .
+synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
+true*.
+!(synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,popTask([JobPath])))*.
+synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
+$\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
+\end{lstlisting} 
+, meaning that a task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher
+declares that there are no more tasks for processing.
+Explicit model checking was not feasible in this case due to the model size (50 concurrent processes),
+so we resorted to writing a standard monitoring process set to run in parallel with the original model.
+With a depth-first traversal in mCRL2, we effectively discovered a trace~\cite{repo:remenska} violating the property within minutes, and
+used our tool to import and automatically visualize the counter-example as a sequence diagram in RSA.
+Since the bug was reported and fixed, we wanted to check if the problem still persists after the fix, this time using PASS to 
+elicit the property.
+
+\label{sec:CaseStudy}
+\subsection{PASS: The Property ASSistant} 
+
+\begin{figure}[!t]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./ScopeSelection1.png}}%
+}%
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
 \begin{figure}[!t]
 \centering
 {%
@@ -650,11 +690,25 @@ quickly after a limited exploration.
 \label{fig:Last}
 \end{figure}
 
-\label{sec:CaseStudy}
-\subsection{PASS: the Property ASSistant} 
+\begin{figure}[!t]
+\centering
 
+\includegraphics[width=0.5\linewidth,keepaspectratio=true]{./SDProperty.png}
 
-Here we illustrate how PASS can be used in practice. 
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
+% \begin{figure}[!b]
+% \centering
+% {%
+% \setlength{\fboxsep}{1.5pt}%
+% \setlength{\fboxrule}{0.5pt}%
+% \fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./PasspopupWin.png}}%
+% }%
+% \caption{Damn it}
+% \label{fig:Last}
+% \end{figure}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 

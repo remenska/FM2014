@@ -1,4 +1,5 @@
 \documentclass[letter]{llncs}
+\usepackage{capt-of}
 
 \newcommand{\figshrink}{\vspace{-.6cm}}
 %\newcommand{\figshrinkend}{\vspace{-.4cm}}
@@ -7,6 +8,7 @@
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
 \usepackage{amsmath}
+
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 \usepackage{algorithm}
 \usepackage{amsmath}
@@ -241,7 +243,7 @@ them manually is error-prone. Another problem is the extent to which designers a
   \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
   \hfill
   \subfloat{\label{fig:Charmy}\includegraphics[width =0.26\linewidth]{./Charmy.png}}
-  \caption{Left: Prospec tool; Right: CHARMY PSC graphical notation}
+  \caption{Left: Prospec tool; right: CHARMY PSC graphical notation}
   \label{fig:Approaches}
 \end{figure*}
 
@@ -468,7 +470,7 @@ Although any mature visual UML modeling tool
 can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
 One of the advantages is that RSA is built on top of Eclipse, making 
 it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
-lightweight UML Profile, and as such is available to any Eclipse-based UML tool.
+lightweight UML Profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
 
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
@@ -525,11 +527,28 @@ In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} ar
 propositions rather than actions (notice the $\wedge$ operator). 
 As such, we cannot use existing tools for constructing Buchi automata with our
 approach.
+% \begin{figure*}[t!]
+%   \centering
+%   \subfloat[A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}]{\label{fig:ResponsePattern}\includegraphics[width=0.4\linewidth]{./Buchi.png}}    
+%   \label{fig:Buchi}
+%   \hfill
+%   \subfloat[PSC with Buchi automaton]{\label{fig:PASSlaunch}\includegraphics[width =0.38\linewidth]{./PASSlaunch.png}}
+%   \caption{}
+% \end{figure*}
+
 \begin{figure}[!t]
-\centering
-\includegraphics[width=0.4\linewidth,keepaspectratio=true]{./Buchi.png}
+ \centering
+\begin{minipage}[!t]{0.5\linewidth}
+\includegraphics[width=0.7\textwidth]{./Buchi.png}%
 \caption{A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
 \label{fig:Buchi}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\includegraphics[width=1.0\textwidth]{./PASSlaunch.png}%
+\label{fig:PASSlaunch}
+\captionof{figure}{Launching PASS from the Eclipse Project Explorer\label{fig:PASSlaunch}}%
+% \caption{Launching PASS from the Eclipse Project Explorer}
+\end{minipage}
 \end{figure}
 
 Not every property can be monitored at runtime when only a finite run has been 
@@ -612,32 +631,224 @@ Such a monitor can be placed in parallel a the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
-
-% showcase:
-%	data quantification
-% 	universality pattern, how it's adapted
-% 	popup window for selection of a message
-% 	extended patterns in the questionnaire (example ...total of xx new distinct variations of this property pattern)
-
 \section{Case Study: DIRAC's Executor Framework revisited}
+DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
+All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
+are covered by DIRAC. 
+Jobs submitted via its interface undergo several processing steps between the moment they are submitted to the grid, 
+to the point when their execution on the grid actualizes. 
 
+The crucial Workload Management components responsible for orchestrating this process are the \emph{ExecutorDispatcher} and 
+the \emph{Executors}. Executors process any task sent to them by the ExecutorDispatcher, each one being responsible for a different step in the handling of tasks
+(such as resolving the input data for a job).
+The ExecutorDispatcher takes care of persisting the state of the tasks and distributing them amongst all the Executors, based on the
+requirements of each task. It maintains a queue of tasks waiting to be processed, and other internal data structures to keep track
+of the distribution of tasks among the Executors.
+During testing, certain problems have manifested: occasionally, tasks submitted in the system would not get dispatched, despite the fact that their responsible Executors
+were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
+generated logs. 
+In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+[true* .
+synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
+true*.
+!(synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,popTask([JobPath])))*.
+synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
+$\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
+\end{lstlisting} 
+, meaning that a task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher
+declares that there are no more tasks for processing.
+Explicit model checking was not feasible in this case due to the model size (50 concurrent processes),
+so we resorted to writing a standard monitoring process set to run in parallel with the original model.
+With a depth-first traversal in mCRL2, we effectively discovered a trace~\cite{repo:remenska} violating the property within minutes, and
+used our tool to import and automatically visualize the counter-example as a sequence diagram in RSA.
+Since the bug was reported and fixed, we wanted to check if the problem still persists after the fix, this time using PASS to 
+elicit the property.
+
+\begin{figure}[!b]
+\centering
 {%
 \setlength{\fboxsep}{1.5pt}%
 \setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
+\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./ScopeSelection1.png}}%
 }%
-
-
-\label{sec:CaseStudy}
-\subsection{PASS: the Property ASSistant} 
-\begin{figure}[!t]
-\centering
-\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}
 \caption{Damn it}
 \label{fig:Last}
 \end{figure}
 
-Here we illustrate how PASS can be used in practice. 
+\begin{figure}[!b]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./Last.png}}%
+}%
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
+\begin{figure}[!b]
+\centering
+
+\includegraphics[width=0.5\linewidth,keepaspectratio=true]{./SDProperty.png}
+
+\caption{Damn it}
+\label{fig:Last}
+\end{figure}
+
+% \begin{figure}[!b]
+% \centering
+% {%
+% \setlength{\fboxsep}{1.5pt}%
+% \setlength{\fboxrule}{0.5pt}%
+% \fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./PasspopupWin.png}}%
+% }%
+% \caption{Damn it}
+% \label{fig:Last}
+% \end{figure}
+
+\label{sec:CaseStudy}
+\subsection{PASS: The Property ASSistant} 
+
+% 
+% % showcase:
+% %	data quantification (OK)
+% % 	universality pattern, how it's adapted
+% % 	popup window for selection of a message (OK)
+% % 	extended patterns in the questionnaire (example ...total of xx new distinct variations of this property pattern) (could be the same example as popupWin, we extend the pattern)
+% %	sequence diagram with a profile
+% 
+% The last part of the property (i.e. “the withdraw request is allowed only
+% after the login request and only until the logout request”) it is easily rec-
+% ognized as a scope. The Scope Selection Engine proposes the different
+% choices and the user is then guided to choose the “After-Until” scope
+% (i.e. “After login” and “Until logout” scope) that embraces the withdraw
+% request and the DB update. ← for paper!
+% 
+% So far, we have discussed how to develop the intent (the structure of the
+% behavior specified) of a property. In this section, we discuss the definition of
+% a scope and how it is applied to the property
+% 
+% 
+% Prospec uses guided questions to distinguish the types of scope or relations
+% among multiple conditions or events. By answering a series of questions, the
+% practitioner is lead to consider different aspects of the property.
+% scope and behavior
+% 
+%  As pointed out in [21], a closer examination of
+% this pattern’s behavior reveals there are significant questions
+% about the pattern that need to be answered and may lead
+% to variants of it. For example, can the Action event occur
+% more than once before the Response event occurs? Taking
+% this fact into consideration, [21] proposes an extension to the
+% patterns’ specification, defining six possible options to obtain
+% a more accurate and complete definition of the pattern: Pre-
+% arity, which determines whether the Action event may occur
+% one time or many times before the Response event does,
+% Post-arity, which determines whether the Response event
+% may occur one time or many times after the Action event
+% does, Immediacy, which determines whether or not other
+% intervening events may occur between the Action event and
+% the Response event, Precedence, which determines whether
+% or not the Response event is allowed to occur before the
+% first occurrence of the Action event, Nullity, which determines
+% whether or not the Action event must ever occur and finally,
+% Repeatability, which determines whether or not occurrences
+% of the Action event after an occurrence of a Response event are
+% required to be followed by a Response event. In what follows
+% we model all six cases in FVS.
+% 
+% -------
+% Recall that the intent of the Response property is that an occurrence of action
+% must be followed by an occurrence of response. An occurrence of P results in a
+% scope that has been ended before the intent of the property has been entered.
+% This is called an empty scope. An empty scope is handled differently for each of
+% the property patterns. For instance, the Absence property holds if the scope is
+% empty, since that is actually the meaning of the Absence property
+% pattern. Whether or not a Response property holds if the scope is empty,
+% however, depends on the setting of the Nullity option, which determines whether
+% or not action must occur at all. If action is not required to occur, then the
+% first state, which is also the start state, will be an accepting state. If P
+% occurs at this point and action is not required to occur, then this sequence is
+% not a violation of the property and the empty scope does not prevent the
+% property from holding. When the FSA is in the second state, an action has
+% occurred that is not yet followed by a response. At this point, response must
+% occur before a P ends the scope, or the property is violated. An occurrence of P
+% when the FSA is in the second state therefore puts the FSA into a non-accepting
+% trap state (not shown!).  We interpret the After Q scope to mean that the scope
+% is not started until the first occurrence of the starting delimiter, Q, in the
+% system execution. Subsequent occurrences of Q are ignored since this scope is
+% not repeatable.
+% 
+% Between Q and P Scope is identical to the After Q Until P scope except for one
+% important difference. Figure 5d shows the difference: state 3 is accepting. The
+% reason for this change is that the definition of the Between Q and P scope
+% requires that both delimiters occur, whereas the After Q Until P scope does not.
+% The Between Q and P scope does not exist unless both o f its delimiters occur.
+% What this means is that if P does not occur, the intent of the property could be
+% violated and yet the property as a whole would not be violated because it is not
+% within an existing scope when the violation happens.  
+% 
+% When all of the options have been decided, an FSA that represents only one of the sixty-four possible variations is created.
+% 
+% to the Before P scope. The occurrence of the property must
+% precede the first occurrence of P. This is, if an Action event
+% occurs before the first P occurrence, then a Response event
+% must also occur before P. 
+% 
+% The Reaches-Floor property contains a forAll quantifier (on the left side), with
+% an associated structural pattern, visualized by the left-most grey box. This
+% static pattern binds all states to the variable name floor, that are inside an
+% orthogonal region named Position (modeled as a constraint over the name
+% attribute). Thus, the property will be evaluated “for all floors”, and in the
+% case of the Fig. 1 model, floor0, floor1 and floor2 will be bound one after the
+% other, yielding three LTL formulas, concatenated by an and-clause.  ← actually
+% this is true for mu-calculus. Forall is just to avoid rewritting formulas for
+% every individual element of a domain, and making conjunction (formula1 AND
+% formula2 AND …)
+% 
+% Task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher declares that there are no more tasks for processing.
+% [ true * .
+% synch_call ( 1 , ExecutorQueues , queues , pushTask ( JobPath ,taskId, false ) ) .
+% true * .
+% ! (synch_call ( 1 , ExecutorQueues , queues , popTask ( [ JobPath ] ) ) ) * .
+% synch_eply ( 1 , ExecutorDispatcher , eDispatch , sendTaskToExecutor_return (OK, 0 ) ) ] false
+% ← I thought I could fit this one with two events and an exceptional one in between;
+% event1 = pushTask
+% event2 = noMoreTasks 
+% exceptional must happen in-between: popTask
+% but the pushTask and noMoreTasks are not really related.
+% ← this is a Response pattern with scope BEFORE. (S responds to P)
+% [(not R)*. P. (not (S or R))*. R] false
+% for paper: we actually constructed the property wrong (for case study):
+conclusion 2: the formula above does not actually repsesent what the property
+should check. !(popTask..) should be !(popTask or sendTaskToExecutor_return…)
+and ([(not R)*) at the beginning , not true*. We’ve probably devised a weaker
+property and had spurious counter-examples.
+% 
+% 
+% 
+% 
+% W PSC forces to make decisions that break the uncertainty and the ambiguity of user requirements
+% 
+% for paper: we extended the RAFMC patterns with scope and pattern variations, and the questionnaire covers all the existing ones as well. (so both ways)
+% 
+% !!! for paper:  Universality of a state can be viewed as absence of its
+% negation. For event-based formalisms, we look for the existence of the positive
+% event and absence of the negating event. ← how we do it is actually using the
+% “Absence” pattern but negating the state. So we adapt the universality pattern
+% from the patterns, to make it useful for event-based systems
+% 
+% To illustrate, consider the property that throughout a system’s execution the
+% value of a certain variable should always be greater than zero. If we have an
+% action in our model, matching the “Getter method” for this value, then it would
+% be a useful property to check, but in the sense that it is always enabled, not
+% necessarily always taken. Let’s call the action: method_call(getValue), then how
+% would we formulate a property to express that the value should always be greater
+% than zero? ← maybe this can go up in the Rationale section
+
+
+
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 
