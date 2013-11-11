@@ -718,7 +718,7 @@ Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
 Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
-This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram and a monitor process for the concerned property 
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process (visualized in Fig.~\ref{fig:MonitorProperty}) the concerned property 
 are generated, to be used in the final model checking phase.
 \begin{figure}[!t]
 \centering
@@ -740,56 +740,23 @@ The general pattern template obtained with PASS is:
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
 
-% Task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher declares that there are no more tasks for processing.
-% [ true * .
-% synch_call ( 1 , ExecutorQueues , queues , pushTask ( JobPath ,taskId, false ) ) .
-% true * .
-% ! (synch_call ( 1 , ExecutorQueues , queues , popTask ( [ JobPath ] ) ) ) * .
-% synch_eply ( 1 , ExecutorDispatcher , eDispatch , sendTaskToExecutor_return (OK, 0 ) ) ] false
-% ← I thought I could fit this one with two events and an exceptional one in between;
-% event1 = pushTask
-% event2 = noMoreTasks 
-% exceptional must happen in-between: popTask
-% but the pushTask and noMoreTasks are not really related.
-% ← this is a Response pattern with scope BEFORE. (S responds to P)
-% [(not R)*. P. (not (S or R))*. R] false
-% for paper: we actually constructed the property wrong (for case study):
-% conclusion 2: the formula above does not actually repsesent what the property
-% should check. !(popTask..) should be !(popTask or sendTaskToExecutor_return…)
-% and ([(not R)*) at the beginning , not true*. We’ve probably devised a weaker
-% property and had spurious counter-examples.
-% 
-% This is the template:
-% 
-% [(not R)*. P. (not (S or R))*. R] false
-% 
-% This si what we had:
-% 
-% [true*. P. (not S)*. R] false
-% 
-% write the monitor, visualize it again?
+Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 
 
-
-\begin{figure}[!t]
-\centering
-
-\includegraphics[width=0.5\linewidth,keepaspectratio=true]{./SDProperty.png}
-
-\caption{Damn it}
-\label{fig:Last}
+\begin{figure}[!b]
+ \centering
+\begin{minipage}[!t]{0.5\linewidth}
+\includegraphics[width=0.9\textwidth]{./MonitorProperty.png}%
+\caption{A monitor for the property}
+\label{fig:MonitorProperty}
+\end{minipage}%
+\begin{minipage}[t]{0.5\linewidth}
+\includegraphics[width=0.9\textwidth]{./SDProperty.png}%
+\label{fig:PASSlaunch}
+\captionof{figure}{An sequence diagram depicting the property\label{fig:SDProperty}}%
+\end{minipage}
 \end{figure}
 
-% \begin{figure}[!b]
-% \centering
-% {%
-% \setlength{\fboxsep}{1.5pt}%
-% \setlength{\fboxrule}{0.5pt}%
-% \fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./PasspopupWin.png}}%
-% }%
-% \caption{Damn it}
-% \label{fig:Last}
-% \end{figure}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 18:46
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 19:34
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -403,6 +403,9 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `fig:PASSlaunch' multiply defined.
 
+
+LaTeX Warning: Label `fig:PASSlaunch' multiply defined.
+
 )
 \openout1 = `FMpaper.aux'.
 
@@ -539,15 +542,32 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 728--730
  [][] 
  []
 
+
+LaTeX Warning: File `./MonitorProperty.png' not found on input line 749.
+
+
+! Package pdftex.def Error: File `./MonitorProperty.png' not found.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.749 ...dth=0.9\textwidth]{./MonitorProperty.png}
+                                                  %
+Using draft setting for this image.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
 <./SDProperty.png, id=74, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-(./FMpaper.bbl [15 <./ScopeSelection1.png (PNG copy)>]
+[15 <./ScopeSelection1.png (PNG copy)>] (./FMpaper.bbl [16 <./Last.png (PNG cop
+y)> <./SDProperty.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-[16 <./Last.png (PNG copy)> <./SDProperty.png (PNG copy)>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
  []
@@ -574,11 +594,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5308 strings out of 493848
- 73787 string characters out of 1152823
- 143404 words of memory out of 3000000
- 8506 multiletter control sequences out of 15000+50000
- 13695 words of font info for 51 fonts, out of 3000000 for 9000
+ 5312 strings out of 493848
+ 73848 string characters out of 1152823
+ 143416 words of memory out of 3000000
+ 8508 multiletter control sequences out of 15000+50000
+ 13862 words of font info for 52 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  36i,14n,45p,299b,893s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
@@ -594,10 +614,11 @@ e1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
-xmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on FMpaper.pdf (18 pages, 3309000 bytes).
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on FMpaper.pdf (18 pages, 3319084 bytes).
 PDF statistics:
- 137 PDF objects out of 1000 (max. 8388607)
+ 141 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
