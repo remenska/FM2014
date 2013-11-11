@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 19:42
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 19:55
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -271,9 +271,6 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
-(/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
-Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
-)
 (/usr/share/texmf-texlive/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
@@ -406,9 +403,6 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `fig:PASSlaunch' multiply defined.
 
-
-LaTeX Warning: Label `fig:PASSlaunch' multiply defined.
-
 )
 \openout1 = `FMpaper.aux'.
 
@@ -430,11 +424,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 60.
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 60.
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
-File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count152
@@ -453,8 +443,6 @@ Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
 LaTeX Info: Redefining \subref on input line 60.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count157
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
 LaTeX Font Info:    Try loading font information for U+msa on input line 81.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
@@ -463,61 +451,78 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 81.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 83.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 109.
- [1
+) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<./Approach.png, id=10, 529.22719pt x 296.60812pt>
+<./Approach.png, id=11, 529.22719pt x 296.60812pt>
 File: ./Approach.png Graphic file (type png)
  <use ./Approach.png>
+Overfull \hbox (0.3493pt too wide) in paragraph at lines 131--146
+[]\OT1/cmr/m/n/10 Although the mCRL2 toolset au-to-mat-i-cally dis-cov-ers dead
+-locks, model check-
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2 <./Approach.png (PNG copy)>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3]
-<./Prospec.png, id=19, 807.015pt x 481.8pt>
+<./Prospec.png, id=20, 807.015pt x 481.8pt>
 File: ./Prospec.png Graphic file (type png)
  <use ./Prospec.png>
-<./Charmy.png, id=20, 298.11375pt x 373.395pt>
+<./Charmy.png, id=21, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
  <use ./Charmy.png> [4]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 300.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
  [5 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [6]
-<./Figure2_merged.png, id=35, 755.82375pt x 328.22626pt>
+Overfull \hbox (1.96046pt too wide) in paragraph at lines 372--386
+\OT1/cmr/m/n/10 fix-points per-mit rea-son-ing about fi-nite and in-fi-nite run
+s of a sys-tem in a recursion-
+ []
+
+[7] <./Figure2_merged.png, id=40, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
-<use ./Figure2_merged.png> [7] [8 <./Figure2_merged.png (PNG copy)>]
-<./ResponseChain_withMonitor1.png, id=43, 637.38126pt x 377.41pt>
+<use ./Figure2_merged.png> [8 <./Figure2_merged.png (PNG copy)>]
+<./ResponseChain_withMonitor1.png, id=44, 637.38126pt x 377.41pt>
 File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
 <use ./ResponseChain_withMonitor1.png>
-<./ResponseChainPSC.png, id=45, 488.82625pt x 552.0625pt>
+<./ResponseChainPSC.png, id=46, 488.82625pt x 552.0625pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png>
+Underfull \hbox (badness 1292) in paragraph at lines 496--496
+[]\OT1/cmr/m/n/9 (b) |PSC with B^^?uchi au-toma-
+ []
+
+[9]
+Overfull \hbox (3.77988pt too wide) in paragraph at lines 521--534
+[]\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
+ ac-tions (or events)
+ []
+
+
+Overfull \hbox (0.34927pt too wide) in paragraph at lines 521--534
+\OT1/cmr/m/n/10 which can rep-re-sent syn-chronous or asyn-chronous com-mu-ni-c
+a-tion, prop-erty spec-
+ []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
-<./Buchi.png, id=50, 509.905pt x 186.6975pt>
+ [10 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
+<./Buchi.png, id=54, 509.905pt x 186.6975pt>
 File: ./Buchi.png Graphic file (type png)
  <use ./Buchi.png>
-<./PASSlaunch.png, id=51, 429.605pt x 180.675pt>
+<./PASSlaunch.png, id=55, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
  <use ./PASSlaunch.png>
-[10] [11 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 682.
-
-
-(/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
-File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-) [12]
-<./ScopeSelection1.png, id=62, 1014.79124pt x 506.89375pt>
+[11 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [12] [13]
+<./ScopeSelection1.png, id=69, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
@@ -525,8 +530,8 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 719--721
  [][] 
  []
 
-[13 <./ScopeSelection1.png (PNG copy)>]
-<./Last.png, id=69, 359.54324pt x 200.54926pt>
+[14 <./ScopeSelection1.png (PNG copy)>]
+<./Last.png, id=73, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
 Overfull \hbox (4.0pt too wide) in paragraph at lines 754--756
@@ -534,64 +539,70 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 754--756
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2486) has occurred while \output is active []
 
- [14 <./Last.png (PNG copy)>]
+ [15 <./Last.png (PNG copy)>]
 File: ./Buchi.png Graphic file (type png)
  <use ./Buchi.png>
-<./SDProperty.png, id=73, 524.96124pt x 296.10625pt>
+<./SDProperty.png, id=77, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-Underfull \hbox (badness 1584) in paragraph at lines 782--782
-[]\OT1/ptm/b/n/9 Fig.10. \OT1/ptm/m/n/9 An se-quence di-a-gram de-pict-ing the
+(./FMpaper.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 28--31
+[]\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-(./FMpaper.bbl [15 <./SDProperty.png (PNG copy)>]
+[16 <./SDProperty.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+[]\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 150--153
-[]\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
+[]\OT1/cmr/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 165--168
-[]\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
+[]\OT1/cmr/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-
+[17]
 Underfull \hbox (badness 10000) in paragraph at lines 186--189
-[]\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
-ptm/m/n/9 UML toolset
+[]\OT1/cmr/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
+cmr/m/n/9 UML toolset
  []
 
-) [16] (./FMpaper.aux)
+) [18] (./FMpaper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5417 strings out of 493848
- 75350 string characters out of 1152823
- 142554 words of memory out of 3000000
- 8598 multiletter control sequences out of 15000+50000
- 27587 words of font info for 66 fonts, out of 3000000 for 9000
+ 5309 strings out of 493848
+ 73814 string characters out of 1152823
+ 144414 words of memory out of 3000000
+ 8507 multiletter control sequences out of 15000+50000
+ 13695 words of font info for 51 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,14n,45p,299b,1453s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
-y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
-e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
-s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 3258623 bytes).
+ 36i,14n,45p,299b,893s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/publi
+c/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
+cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmib10.p
+fb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/typ
+e1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
+msfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
+msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
+usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on FMpaper.pdf (18 pages, 3309136 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
