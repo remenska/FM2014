@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 15:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 15:51
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -529,7 +529,7 @@ File: ts1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (21.35722pt too wide) in paragraph at lines 702--704
+Overfull \hbox (4.0pt too wide) in paragraph at lines 702--704
  [][] 
  []
 
@@ -598,7 +598,7 @@ b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-tex
 live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/pu
 blic/cm-super/sfss0700.pfb>
-Output written on FMpaper.pdf (17 pages, 3300721 bytes).
+Output written on FMpaper.pdf (17 pages, 3300733 bytes).
 PDF statistics:
  135 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
