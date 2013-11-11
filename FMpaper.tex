@@ -108,8 +108,8 @@ formula and monitor for checking the property with mCRL2.
 \end{abstract}
 \section{Introduction}
 \label{sec:Introduction}
-One of the challenges in concurrent software development is early discovery of design errors which can lead to deadlocks or race conditions.
-Traditional testing does not always expose such problems in complex distributed applications. Performing more rigorous formal analysis, like model-checking, 
+One of the challenges in developing concurrent software is early discovery of design errors which can lead to deadlocks or race conditions.
+Traditional testing does not always expose such problems in complex distributed applications. Performing a more rigorous formal analysis, like model-checking, 
 typically requires a model which is an abstraction of the system.
 In the last decades, methods and tools
 for modeling and formal analysis have been developed. Some of the leading model checking tools include SPIN, nuSMV, CADP and mCRL2. 
@@ -118,7 +118,7 @@ the necessary time investment in the development cycle, for becoming proficient 
 the underlying mathematical formalisms used for describing the models. 
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model-checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
-an automated transformation methodology for verification of UML
+an automated transformation methodology for verifying UML
 models, based on sequence and activity diagrams. Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
 Our prototype is able to produce
 a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
@@ -127,7 +127,7 @@ We chose mCRL2 because of its strong tool support and rich data types compared t
 %mention why we chose SDs!
 
 Although the mCRL2 toolset automatically discovers deadlocks, model checking
-for application-specific properties requires the use of modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. In principle, regardless of the formal language and tool choice for writing the model, these properties 
+of application-specific properties relies on using the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses} for expressing these properties. In principle, regardless of the formal language and tool choice for writing the model, these properties 
 are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
 \begin{figure}[!t]
 \centering
@@ -140,12 +140,12 @@ are specified as formulas in some temporal logic formalism, such as Linear Tempo
 The level of sophistication and mathematical background required for using such formalisms is yet another obstacle for adopting formal methods. 
 In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
 practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
-need to be carefully considered in order to distill the right formula.
+need to be carefully considered in order to distil the right formula.
 
 % just mention here the patterns, the fact that there are 3 categories of approaches
 % tackling the problem, the general deficiencies of these approaches and how we want to
 % take the best of all worlds; 
-Based on investigation of more than 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
+Based on investigating over 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
 was developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed that almost all the surveyed properties
 can be mapped into one of several property patterns. Each pattern is a
 high-level, formalism-independent abstraction that captures a
@@ -167,18 +167,18 @@ different target formalisms, such as LTL, CTL, QRE and Graphical Interval Logic,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
 
-To mitigate the problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
+To mitigate the above problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
 elucidating properties, based on the property patterns. These tools guide users in selecting the appropriate pattern
 for the property in mind, and optionally produce a formula in some target temporal logic. 
 Another category of approaches~\cite{Ziemann02anextension,Flake03formalsemantics,Ackermann:2006:LOS:2135315.2135339} deal with temporal extensions 
 of the Object Constraint Language (OCL), as means to specify system
 properties. OCL is a declarative textual language for describing invariants for
 classes and pre- and postconditions of operations. Although it forms an integral
-part of UML, it lacks means to specify constraints over the dynamic behavior
+part of UML, it lacks the means to specify constraints over the dynamic behavior
 of a model. Finally, a third class of approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA} tackle the property
 specification problem by proposing graphical notations for specifying properties.
 
-The objective of this work is to simplify the process of correctly eliciting
+The objective of our work is to simplify the process of correctly eliciting
 functional requirements, without the need of expertise in temporal logic. 
 First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
 system properties. Our starting point was the pattern system,
@@ -191,18 +191,17 @@ design is changed, these changes can be easily propagated in the property templa
 To this end, we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API. Our tool is developed as an Eclipse plugin.
 Second, the pattern templates instantiated with PASS have three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
-have focused on LTL, which is a state-based temporal logics formalism. On the other hand,
- $\mu$-calculus is event-based, and as such is a good match for the sequence diagrams notation. 
+have focused on LTL, which is a state-based temporal logic formalism. On the other hand,
+the $\mu$-calculus is event-based, and as such is a good match for the sequence diagrams notation. 
 These events can represent methods calls or asynchronous communication between distributed components.
 Moreover, such communication is data-dependent, which is why we introduce
 the possibility to define quantifiers, to express complex properties in a concise manner, e.g., every
-element of a certain type must fulfill a certain property. 
-Unlike LTL or CTL,  $\mu$-calculus is powerful enough
+element of a certain type must fulfil a certain property. 
+Unlike LTL or CTL,  the $\mu$-calculus is powerful enough
 to achieve this in a natural way. Third, to cope with state-space explosion,
 we provide one additional automatically-generated notation: a monitor for on-the-fly model checking, or bug hunting.
 We interpret a sequence diagram as an observer of the message exchanges in the system.
-This helps in avoiding generation of those parts of the state space for which it is 
-certain that they do not compose with the property monitor. The state space
+This helps to avoid exploring irrelevant parts of the state space. The state space
 generation is thus property driven, and stops as soon as an error is found.
 Finally, we revisit a case study we did previously in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}, this time
 using the PASS tool to automatically obtain the formula and monitor for checking the property in mCRL2.
@@ -260,8 +259,8 @@ an operational representation for LTL formulas generated automatically with this
 The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Approaches} right).
 Such a mix of textual and visual representation of message communication
 within a diagram can be error-prone. Additionally, asynchronous communication is not supported.
-Furthermore, even though concepts from UML are borrowed, CHARMY is a stand-alone framework for architectural descriptions,
-not inter-operable with UML tools, and as such has limited usefulness in industrial context.
+Furthermore, even though concepts from UML are borrowed, CHARMY is a standalone framework for architectural descriptions,
+not inter-operable with UML tools, and as such its use in industrial contexts is limited.
 Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
 are represented as acyclic graphs of states and temporal operators as nodes.
 While they manage to hide the formalism from the user by generating LTL formulas, 
@@ -280,7 +279,7 @@ However, properties must be specified in terms of undesired scenarios, which is 
 This is because the verification is based on checking whether it is possible to reach error states, which must be manually specified by the user.
 Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
 Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
-In both approaches, Buchi automata and a LTL formulas are generated automatically from the diagrams.
+In both approaches, Buchi automata and LTL formulas are generated automatically from the diagrams.
 However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lacks many UML features.
 
@@ -289,85 +288,100 @@ to capture mandatory and forbidden behavior. On the other hand, being an older g
 %\subsection{Property Patterns}
 
 \subsection{Brief Introduction to mCRL2 and $\mu$-calculus}
-mCRL2 is a process algebra language for specification and analysis of concurrent systems. 
-Our choice of mCRL2 as a formal language is motivated by its rich set of 
-abstract data types as first-class citizens, as well as its powerful toolset for analysis, simulation, and visualization of specifications. 
-The syntax of mCRL2 is given by the following BNF grammar:
-\vspace{-7 pt}
-$ \\ $
-$ \\ $
-$p ::= a(d_1,\dots,d_n)\ |\ \tau |\ \delta\ |\ p+p\ |\ p.p\ |\ p||p\ |\sum_{d:D}p\ |\ c\rightarrow p\diamond p$
-\vspace{4 pt}
-$ \\ $
+mCRL2 is a language and accompanying toolset for specifying and analyzing concurrent systems. 
+Our choice for using the mCRL2 language is motivated by its rich set of 
+abstract data types as first-class citizens, as well as its powerful toolset for analyzing, simulating, and visualizing specifications. 
+The fragment of the mCRL2 syntax that is most commonly used is given by the following BNF grammar:
+%\vspace{-7 pt}
+\[p ::= a(d_1,\dots,d_n) \mid \tau \mid \delta \mid p+p \mid p\cdot p \mid p||p \mid \sum\nolimits_{d:D}p \mid c\rightarrow p\diamond p \mid \nabla_H(p) \mid \Gamma_C(p)
+\]
 Actions are the basic ingredients for models. They represent some observable
 atomic event. An action $a$ of a process may have a number of data arguments  \begin{math}d_1,...,d_n\end{math}.
 The action ${\tau}$ denotes an internal step, which cannot be observed from the external world. 
 Non-deterministic choice between two processes
-is denoted by the “+” operator. Processes can be composed sequentially and in parallel by means of ``.'' and
+is denoted by the ``$+$'' operator. Processes can be composed sequentially and in parallel by means of ``$\cdot$'' and
 ``${||}$''. The sum
 operator $\sum_{d:D}p$ denotes (possibly infinite) choice among
-processes parameterized by $d$. $c\rightarrow p\diamond p$ is a conditional
-process, and depending on the value of the boolean expression $c$, the first or second operand is selected.
-This allows for modeling of systems whose behavior is data-dependent.
+processes parameterized by variable $d$. The behavior of the conditional process $c\rightarrow p\diamond p$ 
+depends on the value of the boolean expression $c$: if it evaluates to true, process $p$
+is chosen and otherwise process $q$ is chosen.
+This allows for modeling systems whose behavior is data-dependent.
 
-To enforce synchronization, the allow operator ${\Delta_H(p)}$ specifies the set of actions $H$ that are allowed
+To enforce synchronization between processes, the allow operator ${\nabla_H(p)}$ specifies the set of actions $H$ that are allowed
 to occur. To show possible communications in a system and the resulting actions, the communication operator
 ${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
 means that action $c$ is the result of the multi-party synchronization of actions $a_1 , a_2 , \dots $ and $a_n$.
 There are a number of built-in data types in mCRL2, such as (unbounded) integers, (uncountable)
 reals, booleans, lists, and sets. 
-Furthermore, by a \textbf{sort} definition one can define a new data type. A new process
-is declared by \textbf{proc}.
+Furthermore, by a \textbf{sort} definition one can define a new data type. Recursive process 
+equations can be declared by \textbf{proc}.
 
 The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
 system that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
-toolset for model-checking specific properties is the modal
+toolset for model-checking specific properties is an extension of the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
 expressive power. Temporal logics like LTL, CTL and CTL* all have translations into $\mu$-calculus,
 witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
-The syntax of a $\mu$-calculus formula is defined by the following grammar:
+The syntax of mCRL2's modal $\mu$-calculus formulas we are concerned with in this paper
+is defined by the following grammar:
 \[
 \begin{array}{ll}
-
-\phi_1 & ::= true \mid false \mid \phi\wedge\phi \mid \phi\vee\phi \mid [\rho]\phi \mid \langle\rho\rangle\phi \mid \mu Z\ldotp\phi \mid \nu Z\ldotp\phi \\
+\phi & ::= b \mid \phi\wedge\phi \mid \phi\vee\phi \mid \forall d{:}D.~\phi \mid \exists d{:}D.~\phi
+\mid [\rho]\phi \mid \langle\rho\rangle\phi \mid \mu Z\ldotp\phi(Z) \mid \nu Z\ldotp\phi(Z) \\
 \rho & ::= \alpha \mid nil \mid \rho\cdot\rho \mid \rho^* \mid \rho^+ \\
-\alpha & ::= \alpha\cup\alpha \mid \alpha\cap\alpha \mid\neg\alpha \mid true\\
+\alpha & ::= a(d_1,\dots,d_n) \mid b \mid \neg \alpha \mid \alpha\cap\alpha \mid 
+\alpha\cup\alpha \mid \bigcap{d{:}D}.~\alpha \mid \bigcup{d{:}D}.~\alpha \\
 \end{array}
 \]
-Properties represented by $\phi$ can be combined using the standard Boolean connectives.
-The formula $\phi_1\wedge\phi_2$ is true whenever both $\phi_1$ and $\phi_2$ are true.
-$\rho$ represents a set of sequences of actions, while $\alpha$ stands for a set of actions.
-To describe a sequence of actions $\rho$, the concatenation $\rho\cdot\rho$ and iteration $\rho^*$ (possibly infinite sequences) operators can be used.
-Union and intersection of sets of actions is denoted by $\cup$ and $\cap$ respectively. 
-The notation $\neg\alpha$ denotes the complement of the set of actions $\alpha$ with respect to the set of all actions. 
-The set of actions characterized by $\emph{true}$ is the entire set of actions present in the model, while \emph{nil} represents empty, i.e., no action.
+Properties are expressed by state formulas $\phi$, which contain
+Boolean data terms $b$ that evaluate to true or false and which can contain data variables, and the
+standard logical connectives \emph{and} ($\land$) and \emph{or}
+($\lor$), the modal operators \emph{must} ($[\_]\_$) and \emph{may}
+($\langle \_\rangle\_$), and the least and greatest fixpoint operators
+$\mu$ and $\nu$. In addition to these, mCRL2's extensions add universal
+and existential quantifiers $\forall$ and $\exists$.
 
-The $\square$ (\emph{must}) and $\Diamond$ (\emph{may}) modalities  have the following semantics:
-a state of the LTS satisfies $\langle R \rangle\phi$ iff there is at least one transition sequence 
-starting at that state, satisfying R, and leading to a state satisfying $\phi$;
-$[R]\phi$ is satisfied iff all sequences starting at that state and satisfying R, 
-lead to states satisfying  $\phi$.
-In other words, $[R]\phi$ describes that $\phi$ holds in all states that can be reached by a sequence in R,
-while $\langle R \rangle\phi$ describes that $\phi$ holds in some state that can be reached by a sequence in R.
-Remember that $[a]\phi$ is trivially satisfied for states with no “\emph{a}”-transitions.
-Combined with these modalities, the least ($\mu X\ldotp f(X)$) and greatest
-($\nu X\ldotp f(X)$) fixpoints permit reasoning about finite and infinite runs
-of a system in a recursion-like manner.
-For example, we can read $\mu X\ldotp\phi\vee\langle\alpha\rangle X$ as: X is
-the smallest set of states such that a state is in X
-iff $\phi$ holds in that state or there is an $\alpha$-successor in X. 
-On the other hand, 
-Conversely, $\nu X\ldotp\phi \wedge[\alpha]X$ is the largest set of states such that a state is in X iff
-$\phi$ holds in that state and all of its $\alpha$-successors are in X.
+The modal operators take regular expressions
+$\rho$ for describing words of actions, built up from the empty word $nil$, individual
+actions described by an action formula $\alpha$, word
+concatenation $\rho \cdot \rho$ and (arbitrary) iteration of words $\rho^*$ and $\rho^+$.
+Action formulas describe sets of actions; these sets are built up from the empty
+set of actions (in case Boolean expression $b$ evaluates to false), the set of all possible actions
+(in case Boolean expression $b$ evaluates to true); indivual actions $a(d_1,\dots,d_n)$, 
+action complementation and finite and possibly infinite intersection $\cap$ and union $\cup$.
+A state of an LTS (described by an mCRL2 process) satisfies $\langle \rho \rangle \phi$
+iff from that state, there is at least one transition sequence matching $\rho$,
+leading to a state satisfying $\phi$;
+$[\rho]\phi$ is satisfied by a state iff all transition sequences matching $\rho$ starting in that 
+state lead to states satisfying $\phi$.
+For instance, $[\neg (\bigcup{n{:}Nat}.~
+\textit{read}(n+n))]\text{false}$ states that a process should not execute any actions
+other than read actions with even-valued natural numbers.
+Remember that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
 
-Finally, a strong asset of $\mu$-calculus are the universal (\emph{forall}) and existential (\emph{exists}) quantifiers over possibly-infinite data types.
-For example, \emph{forall n:Nat.$\langle$read(n)$\rangle$true} asserts that a process can execute a read action with every natural number as a parameter;
-\emph{[!exists n:Nat.read(n+n)]false} states that a process should only execute read actions with even-valued natural numbers.
+Combining these modalities, the least ($\mu X\ldotp \phi(X)$) and
+greatest ($\nu X\ldotp \phi(X)$) fixpoints permit reasoning about finite
+and infinite runs of a system in a recursion-like manner.  For example,
+we can read $\mu X\ldotp\phi\vee\langle\alpha\rangle X$ as: $X$ is
+the smallest set of states such that a state is in $X$ iff $\phi$
+holds in that state \emph{or} there is an $\alpha$-successor in $X$.
+On the other hand, $\nu X\ldotp\phi \wedge[\alpha]X$ is the largest
+set of states such that a state is in $X$ iff $\phi$ holds in that
+state and all of its $\alpha$-successors are in $X$, too.  Finally, a
+strong asset of mCRL2's $\mu$-calculus are the universal $\forall$ and
+existential $\exists$ quantifiers over potentially infinite data types.
+For example, $\forall n{:}Nat. \langle \textit{read}(n) \rangle \text{true}$
+asserts that a process can execute a \emph{read} action, accepting every
+natural number as a parameter.
 
-Verification using $\mu$-calculus sometimes requires too much overhead to serve as a basis for lightweight 
-bug-hunting, since the entire state-space must be kept in memory in the verification process.
-Observers, or monitors (\`{a} la Buchi) defined in the mCRL2 model itself, are used in some cases to bypass the problem.
-Not all $\mu$-calculus formulas are amenable to such a conversion.
+In mCRL2, verification of $\mu$-calculus formulas is conducted using tooling that operates
+on systems of fixpoint equations over first-order logic expressions.
+This sometimes requires too much overhead to serve as a basis for lightweight 
+bug-hunting, as it can be difficult to interpret the counterexamples that are obtained from
+these equation systems in terms of the original mCRL2 process.
+Observers, or monitors (\`{a} la Buchi) defined in the mCRL2 model itself, can sometimes
+be used to bypass the problem.
+However, not all $\mu$-calculus formulas are amenable to such a conversion.
 
 \subsection{UML Sequence Diagrams}
 
@@ -571,67 +585,70 @@ can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
 \[
 \begin{array}{ll}
-\phi_1 & ::= b \mid \forall d:D.\phi_1 \mid [R]\phi_1 \mid \phi_1\wedge \phi_2\\
-R_1,R_2 & ::= \alpha \mid nil \mid R_1\cdot R_2 \mid
-              R_1+R_2 \mid
-              R_1^* \mid R_1^+ \\
-\alpha_1,\alpha_2 & ::= b \mid \a{a(e)} \mid \neg \alpha_1 \mid
-              \alpha_1 \wedge \alpha_2 \mid
-              \exists d:D.\alpha_1
+\phi & ::= b \mid \forall d{:}D.\phi \mid [\rho]\phi \mid \phi\wedge \phi\\
+\rho & ::= \alpha \mid nil \mid \rho\cdot \rho \mid
+              \rho+\rho \mid
+              \rho^* \mid \rho^+ \\
+\alpha & ::=  a(d_1,\dots,d_n) \mid \neg \alpha \mid b \mid
+              \alpha \cap \alpha \mid \alpha \cup \alpha \mid
+              \bigcap d{:}D.~\alpha \mid \bigcup d{:}D.~\alpha
 \end{array}
 \]
 Before we present the translation, we convert the formulas in
-guarded form. That is, we remove every occurrence of $R^*$ and $nil$ using
+guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
 \begin{array}{ll}
 ~
 [nil]\phi &= \phi \\
-~[R^*]\phi &= [nil]\phi \wedge [R^+]\phi
+~[\rho^*]\phi &= [nil]\phi \wedge [\rho^+]\phi
 \end{array}
 \]
 The function $\Tr$ takes two arguments (a formula and a list of typed
 variables) and produces a process. It is defined inductively as follows:
 \[
 \begin{array}{ll}
-\Tr_l(b) &= (\neg b \to \a{error}) \\
-\Tr_l(\forall d:D.\phi_1) & = \sum d:D. \Tr_{l\concat [d:D]} (\phi_1) \\
+\Tr_l(b) &= (\neg b \to \textit{error}) \\
+\Tr_l(\forall d:D.\phi_1) & = \sum d{:}D. \Tr_{l\concat [d:D]} (\phi_1) \\
 \Tr_l(\phi_1 \wedge \phi_2) & = \Tr_l(\phi_1) + \Tr_l(\phi_2) \\
-\Tr_l([R]\phi_1) & = \TrR_l(R) \cdot \Tr_l(\phi) \\
+\Tr_l([\rho]\phi_1) & = \TrR_l(\rho) \cdot \Tr_l(\phi) \\
 \end{array}
 \]
 where $\TrR$ takes a regular expression (and a list of typed variables)
 and produces a process or a condition:
 \[
 \begin{array}{ll}
-\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a:D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) \\
-\TrR_l(R_1 \cdot R_2) & = \TrR_l(R_1) \cdot \TrR_l(R_2) \\
-\TrR_l(R_1 + R_2) &= \TrR_l(R_1) + \TrR_l(R_2) \\
-\TrR_l(R_1^+) & = X(l) \qquad \textit{where $X(l) = \TrR_l(R_1)\cdot X(l)$ is
+\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a{:}D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) \\
+\TrR_l(\rho_1 \cdot \rho_2) & = \TrR_l(\rho_1) \cdot \TrR_l(\rho_2) \\
+\TrR_l(\rho_1 + \rho_2) &= \TrR_l(\rho_1) + \TrR_l(\rho_2) \\
+\TrR_l(\rho^+) & = X(l) \qquad \textit{where $X(l) = \TrR_l(\rho)\cdot X(l)$ is
 a recursive process} 
 \end{array}
 \]
 where $\bigoplus$ is a finite summation over all action names
-$a \in Act$ and
+$a \in Act$ of the mCRL2 process and
 where $\TrA$ takes an action and an action formula and produces a condition
 that describes when the action is among the set of actions described by
 the action formula:
 \[
 \begin{array}{ll}
-\TrA_l(a(d_a),b) & = b \\
 \TrA_l(a(d_a),a'(e)) & = \left \{ \begin{array}{ll} d_a = e & \text{if a = a'}\\
                                   \text{false} & \text{otherwise}\\
                                   \end{array} \right .\\
-\TrA_l(a(d_a),\neg \alpha_1) & = \neg \TrA_l(a(d_a),\alpha_1) \\
-\TrA_l(a(d_a),\alpha_1 \wedge \alpha_2) & =
+\TrA_l(a(d_a),b) & = b \\
+\TrA_l(a(d_a),\neg \alpha) & = \neg \TrA_l(a(d_a),\alpha) \\
+\TrA_l(a(d_a),\alpha_1 \cap \alpha_2) & =
 \TrA_l(a(d_a),\alpha_1) \wedge \TrA_l(a(d_a),\alpha_2) \\
-\TrA_l(a(d_a),\exists d:D.\alpha_1) & = \exists d:D. \TrA_l(a(d_a),\alpha_1)
+\TrA_l(a(d_a),\alpha_1 \cup \alpha_2) & =
+\TrA_l(a(d_a),\alpha_1) \vee \TrA_l(a(d_a),\alpha_2) \\
+\TrA_l(a(d_a),\bigcup d{:}D.~\alpha) & = \exists d{:}D.~ \TrA_l(a(d_a),\alpha)\\
+\TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha)
 \end{array}
 \]
 Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the chain response pattern.
 Such a monitor can be placed in parallel a the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
-all model states will be traversed. In practice however, refutation can be found 
+all relevant model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
 \section{Case Study: DIRAC's Executor Framework revisited}
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  9 NOV 2013 23:55
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 11:52
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -483,85 +483,76 @@ File: ./Charmy.png Graphic file (type png)
  <use ./Charmy.png> [4]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [5 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
- [6]
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ú in font cmr10!
-Missing character: There is no ‚ in font cmr10!
-Missing character: There is no Ä in font cmr10!
-Missing character: There is no ù in font cmr10!
- [7]
-<./Figure2_merged.png, id=41, 755.82375pt x 328.22626pt>
+ [5 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [6]
+Overfull \hbox (1.96046pt too wide) in paragraph at lines 362--376
+\OT1/cmr/m/n/10 fix-points per-mit rea-son-ing about fi-nite and in-fi-nite run
+s of a sys-tem in a recursion-
+ []
+
+[7] <./Figure2_merged.png, id=40, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
 <use ./Figure2_merged.png> [8 <./Figure2_merged.png (PNG copy)>]
-<./ResponseChain_withMonitor.png, id=45, 637.38126pt x 377.41pt>
+<./ResponseChain_withMonitor.png, id=44, 637.38126pt x 377.41pt>
 File: ./ResponseChain_withMonitor.png Graphic file (type png)
 
 <use ./ResponseChain_withMonitor.png>
-<./ResponseChainPSC.png, id=47, 488.82625pt x 552.0625pt>
+<./ResponseChainPSC.png, id=46, 488.82625pt x 552.0625pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png> [9]
-Overfull \hbox (3.77988pt too wide) in paragraph at lines 493--506
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./ResponseChain_withMonitor.png> <./ResponseChainPSC.png (PNG copy)>]
+Overfull \hbox (3.77988pt too wide) in paragraph at lines 507--520
 []\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
  ac-tions (or events)
  []
 
 
-Overfull \hbox (0.34927pt too wide) in paragraph at lines 493--506
+Overfull \hbox (0.34927pt too wide) in paragraph at lines 507--520
 \OT1/cmr/m/n/10 which can rep-re-sent syn-chronous or asyn-chronous com-mu-ni-c
 a-tion, prop-erty spec-
  []
 
-
-Underfull \vbox (badness 4752) has occurred while \output is active []
-
- [10 <./ResponseChain_withMonitor.png> <./ResponseChainPSC.png (PNG copy)>]
-<./Buchi.png, id=55, 509.905pt x 186.6975pt>
+<./Buchi.png, id=54, 509.905pt x 186.6975pt>
 File: ./Buchi.png Graphic file (type png)
  <use ./Buchi.png>
-<./PASSlaunch.png, id=56, 429.605pt x 180.675pt>
+<./PASSlaunch.png, id=55, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
  <use ./PASSlaunch.png>
-[11 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [12]
-LaTeX Font Info:    Try loading font information for TS1+cmss on input line 654
+[11] [12 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for TS1+cmss on input line 671
 .
 
 (/usr/share/texmf-texlive/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-<./ScopeSelection1.png, id=64, 1014.79124pt x 506.89375pt>
+) [13]
+<./ScopeSelection1.png, id=69, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (21.35722pt too wide) in paragraph at lines 678--680
+Overfull \hbox (21.35722pt too wide) in paragraph at lines 695--697
  [][] 
  []
 
-[13] <./Last.png, id=71, 359.54324pt x 200.54926pt>
+<./Last.png, id=70, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (21.35722pt too wide) in paragraph at lines 689--691
+Overfull \hbox (21.35722pt too wide) in paragraph at lines 706--708
  [][] 
  []
 
-<./SDProperty.png, id=72, 524.96124pt x 296.10625pt>
+<./SDProperty.png, id=71, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-(./FMpaper.bbl [14 <./ScopeSelection1.png (PNG copy)> <./Last.png (PNG copy)>]
+(./FMpaper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 28--31
 []\OT1/cmr/m/n/9 Dwyer, M.B., et al.:  Prop-erty Spec-i-fi-ca-tion Pat-terns
  []
 
-[15 <./SDProperty.png (PNG copy)>]
+[14 <./ScopeSelection1.png (PNG copy)>] [15 <./Last.png (PNG copy)> <./SDProper
+ty.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 118--120
 []\OT1/cmr/m/n/9 Foundation, T.E.:  Eclipse Mod-el-ing MDT-UML2 com-po-nent
  []
@@ -594,7 +585,7 @@ Here is how much of TeX's memory you used:
  8516 multiletter control sequences out of 15000+50000
  14040 words of font info for 52 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,14n,45p,284b,1125s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,14n,45p,299b,1125s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf
 -texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fo
 nts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/p
@@ -608,12 +599,11 @@ lic/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/
 cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss8.pf
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
 re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/symbols/msam10.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfss0700.pfb>
-Output written on FMpaper.pdf (16 pages, 4844085 bytes).
+live/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf/fonts/type1/pu
+blic/cm-super/sfss0700.pfb>
+Output written on FMpaper.pdf (16 pages, 4835762 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
+ 132 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
