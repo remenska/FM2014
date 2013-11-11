@@ -3,24 +3,24 @@ The top-level auxiliary file: FMpaper.aux
 The style file: splncs.bst
 Database file #1: FM2014.bib
 Warning--entry type for "PSP" isn't style-file defined
---line 77 of file FM2014.bib
-Repeated entry---line 1173 of file FM2014.bib
+--line 78 of file FM2014.bib
+Repeated entry---line 1174 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "MDTUML2" isn't style-file defined
---line 1833 of file FM2014.bib
-Repeated entry---line 1849 of file FM2014.bib
+--line 1834 of file FM2014.bib
+Repeated entry---line 1850 of file FM2014.bib
  : @inproceedings{FormalLanguagemCRL2
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "UML2.4_superstructure" isn't style-file defined
---line 1855 of file FM2014.bib
+--line 1856 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
---line 1870 of file FM2014.bib
+--line 1871 of file FM2014.bib
 Warning--entry type for "repo:remenska" isn't style-file defined
---line 1900 of file FM2014.bib
-Repeated entry---line 1907 of file FM2014.bib
+--line 1901 of file FM2014.bib
+Repeated entry---line 1908 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
 I'm skipping whatever remains of this entry
@@ -30,29 +30,29 @@ Warning--I didn't find a database entry for "2013"
 Warning--empty publisher in DIRAC_CommGridSolution
 You've used 31 entries,
             2087 wiz_defined-function locations,
-            693 strings with 9942 characters,
-and the built_in function-call counts, 9307 in all, are:
+            693 strings with 9835 characters,
+and the built_in function-call counts, 9265 in all, are:
 = -- 1007
-> -- 283
+> -- 272
 < -- 20
-+ -- 106
-- -- 75
-* -- 529
-:= -- 1193
++ -- 102
+- -- 71
+* -- 521
+:= -- 1185
 add.period$ -- 41
 call.type$ -- 31
 change.case$ -- 30
 chr.to.int$ -- 0
 cite$ -- 32
 duplicate$ -- 509
-empty$ -- 964
-format.name$ -- 75
-if$ -- 2369
+empty$ -- 965
+format.name$ -- 71
+if$ -- 2362
 int.to.chr$ -- 0
 int.to.str$ -- 31
 missing$ -- 26
 newline$ -- 153
-num.names$ -- 33
+num.names$ -- 35
 pop$ -- 158
 preamble$ -- 1
 purify$ -- 0
@@ -66,7 +66,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 88
+while$ -- 89
 width$ -- 33
 write$ -- 347
 (There were 4 error messages)

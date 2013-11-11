@@ -31,7 +31,7 @@ frank.holzwarth,|
 \setlength{\belowcaptionskip}{1ex}
 \setlength{\floatsep}{1ex}
 \setlength{\textfloatsep}{1ex}
-% \usepackage{times}
+\usepackage{times}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
@@ -79,6 +79,7 @@ NIKHEF, Amsterdam, The Netherlands
 \toctitle{Lecture Notes in Computer Science}
 \tocauthor{Authors' Instructions}
 \maketitle
+\vspace{-10 pt}
 
 \begin{abstract}
 Early discovery of design errors which can lead to deadlocks or race conditions is 
@@ -121,7 +122,8 @@ the underlying mathematical formalisms used for describing the models.
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verifying UML
-models, based on sequence and activity diagrams. Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
+models, based on sequence and activity diagrams. 
+%Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
 Our prototype is able to produce
 a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model checking traces back into any modeling
 tool, without the user having to leave the UML domain. 
@@ -131,14 +133,14 @@ We chose mCRL2 because of its strong tool support and rich data types compared t
 Although the mCRL2 toolset automatically discovers deadlocks, model checking
 of application-specific properties relies on using the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses} for expressing these properties. In principle, regardless of the formal language and tool choice for writing the model, these properties 
 are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
-\begin{figure}[!t]
-\centering
-\figshrink
-\includegraphics[width=0.7\linewidth,keepaspectratio=true]{./Approach.png}
-\caption{Automated verification of UML models}
-\label{fig:approach}
-\figshrinkend
-\end{figure}
+% \begin{figure}[!t]
+% \centering
+% \figshrink
+% \includegraphics[width=0.7\linewidth,keepaspectratio=true]{./Approach.png}
+% \caption{Automated verification of UML models}
+% \label{fig:approach}
+% \figshrinkend
+%\end{figure}
 The level of sophistication and mathematical background required for using such formalisms is yet another obstacle for adopting formal methods. 
 In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
 practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
@@ -744,7 +746,7 @@ Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
 Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
-This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process (visualized in Fig.~\ref{fig:MonitorProperty}) the concerned property 
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (Fig.~\ref{fig:MonitorProperty} visualized without the data for simplicity)  
 are generated, to be used in the final model checking phase.
 \begin{figure}[!t]
 \centering
@@ -772,18 +774,20 @@ Using the generated monitor, we performed runtime verification on the corrected 
 \begin{figure}[!b]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
-\includegraphics[width=0.9\textwidth]{./Buchi.png}%
-\caption{A monitor for the property}
-\label{fig:MonitorProperty}
+\includegraphics[width=0.95\textwidth]{./SDProperty.png}%
+\caption{A sequence diagram for the property}
+\label{fig:SDProperty}
 \end{minipage}%
 \begin{minipage}[t]{0.5\linewidth}
-\includegraphics[width=0.9\textwidth]{./SDProperty.png}%
-\captionof{figure}{An sequence diagram depicting the property\label{fig:SDProperty}}%
+\includegraphics[width=1.0\textwidth]{./PropertyAutomaton.png}%
+\captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
+\vspace{-7 pt}
 
 \section{Conclusions and future work}
 \label{sec:Conclusions}
+\vspace{-7 pt}
 
 %compositional patterns
 \bibliographystyle{splncs} 

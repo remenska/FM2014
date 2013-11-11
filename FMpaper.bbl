@@ -1,12 +1,11 @@
 \begin{thebibliography}{10}
 
 \bibitem{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}
-Remenska, D., Templon, J., Willemse, T.A.C., Homburg, P., Verstoep, K.,
-  Casajus, A., Bal, H.E.:
+Remenska, D.,  et~al.:
 \newblock {From {UML} to {P}rocess {A}lgebra and {B}ack: {A}n {A}utomated
   {A}pproach to {M}odel-{C}hecking {S}oftware {D}esign {A}rtifacts of
   {C}oncurrent {S}ystems.}
-\newblock In: {NASA Formal Methods}. (2013)  244--260
+\newblock In others, ed.: {NASA Formal Methods}. (2013)  244--260
 
 \bibitem{FormalLanguagemCRL2}
 Groote, J.,  et~al.:
