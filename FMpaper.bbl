@@ -5,7 +5,7 @@ Remenska, D.,  et~al.:
 \newblock {From {UML} to {P}rocess {A}lgebra and {B}ack: {A}n {A}utomated
   {A}pproach to {M}odel-{C}hecking {S}oftware {D}esign {A}rtifacts of
   {C}oncurrent {S}ystems.}
-\newblock In others, ed.: {NASA Formal Methods}. (2013)  244--260
+\newblock In: {NASA Formal Methods}. (2013)  244--260
 
 \bibitem{FormalLanguagemCRL2}
 Groote, J.,  et~al.:
@@ -20,8 +20,8 @@ Groote, J.F., Willemse, T.A.C.:
 \bibitem{Dwyer:1999:PPS:302405.302672}
 Dwyer, M.B.,  et~al.:
 \newblock {Patterns in property specifications for finite-state verification}.
-\newblock In: {Proceedings of the 21st international conference on Software
-  engineering}. {ICSE '99}, New York, NY, USA, ACM (1999)  411--420
+\newblock In: {Proc. of the 21st international conference on Software
+  engineering}. {ICSE '99}, ACM (1999)
 
 \bibitem{PSP}
 Dwyer, M.B.,  et~al.:
@@ -32,14 +32,13 @@ Dwyer, M.B.,  et~al.:
 Smith, R.L., Avrunin, G.S., Clarke, L.A., Osterweil, L.J.:
 \newblock {Propel: an approach supporting property elucidation}.
 \newblock In: {24th Intl. Conf. on Software Engineering}, ACM Press (2002)
-  11--21
 
 \bibitem{konrad2005facilitating}
 Konrad, S., Cheng, B.H.:
 \newblock {Facilitating the construction of specification pattern-based
   properties}.
-\newblock In: {Requirements Engineering, 2005. Proceedings. 13th IEEE
-  International Conference on}, IEEE (2005)  329--338
+\newblock In: {Proc. of the 13th IEEE International Conference on Requirements
+  Engineering (2005)}, IEEE
 
 \bibitem{Mondragon_prospec}
 Mondragon, O., Gates, A.Q., Roach, S.:
@@ -50,22 +49,20 @@ Mondragon, O., Gates, A.Q., Roach, S.:
 \bibitem{Ziemann02anextension}
 Ziemann, P., Gogolla, M.:
 \newblock {An Extension of OCL with Temporal Logic}.
-\newblock In: {Critical Systems Development with UML}. (2002)  53--62
+\newblock In: {Critical Systems Development with UML}. (2002)
 
 \bibitem{Flake03formalsemantics}
 Flake, S., Mueller, W.:
 \newblock {Formal Semantics of Static and Temporal State-Oriented OCL
   Constraints}.
 \newblock Software and Systems Modeling (SoSyM), Springer \textbf{2} (2003)
-  186
 
 \bibitem{Ackermann:2006:LOS:2135315.2135339}
 Ackermann, J., Turowski, K.:
 \newblock {A library of OCL specification patterns for behavioral specification
   of software components}.
-\newblock In: {Proceedings of the 18th international conference on Advanced
-  Information Systems Engineering}. {CAiSE'06}, Berlin, Heidelberg,
-  Springer-Verlag (2006)  255--269
+\newblock In: {Proc. of the 18th international conference on Advanced
+  Information Systems Engineering}. {CAiSE'06}, Springer-Verlag (2006)
 
 \bibitem{Autili:2007:GSS:1290845.1290859}
 Autili, M., Inverardi, P., Pelliccione, P.:
@@ -80,12 +77,11 @@ Lee, I., Sokolsky, O.:
   Engineering. IEEE Computer}, Society Press (1997)  42--47
 
 \bibitem{Smith:2001:ECG:882477.883639}
-Smith, M.H., Holzmann, G.J., Etessami, K.:
+Smith, M.H.,  et~al.:
 \newblock {Events and Constraints: A Graphical Editor for Capturing Logic
   Requirements of Programs}.
-\newblock In: {Proceedings of the Fifth IEEE International Symposium on
-  Requirements Engineering}. {RE '01}, Washington, DC, USA, IEEE Computer
-  Society (2001)  14--
+\newblock In: {Proc. of the Fifth IEEE International Symposium on Requirements
+  Engineering}, IEEE Computer Society (2001)  14--
 
 \bibitem{Knapp:2006:MCU:1762828.1762836}
 Knapp, A., Wuttke, J.:

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 21:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 21:43
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -538,17 +538,17 @@ Underfull \vbox (badness 1117) has occurred while \output is active []
 
  [14 <./Last.png (PNG copy)>] (./FMpaper.bbl [15 <./SDProperty.png (PNG copy)> 
 <./PropertyAutomaton.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 149--152
+Underfull \hbox (badness 10000) in paragraph at lines 145--148
 []\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 164--167
+Underfull \hbox (badness 10000) in paragraph at lines 160--163
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--188
+Underfull \hbox (badness 10000) in paragraph at lines 181--184
 []\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
 ptm/m/n/9 UML toolset
  []
@@ -580,7 +580,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 2547389 bytes).
+Output written on FMpaper.pdf (16 pages, 2547198 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
