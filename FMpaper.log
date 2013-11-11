@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 18:01
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 18:43
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -487,10 +487,10 @@ s of a sys-tem in a recursion-
 File: ./Figure2_merged.png Graphic file (type png)
 
 <use ./Figure2_merged.png> [8 <./Figure2_merged.png (PNG copy)>]
-<./ResponseChain_withMonitor.png, id=44, 637.38126pt x 377.41pt>
-File: ./ResponseChain_withMonitor.png Graphic file (type png)
+<./ResponseChain_withMonitor1.png, id=44, 637.38126pt x 377.41pt>
+File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
-<use ./ResponseChain_withMonitor.png>
+<use ./ResponseChain_withMonitor1.png>
 <./ResponseChainPSC.png, id=46, 488.82625pt x 552.0625pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
@@ -502,7 +502,7 @@ Underfull \hbox (badness 1292) in paragraph at lines 482--482
 [9]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10 <./ResponseChain_withMonitor.png> <./ResponseChainPSC.png (PNG copy)>]
+ [10 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
 Overfull \hbox (3.77988pt too wide) in paragraph at lines 507--520
 []\OT1/cmr/m/n/10 Given that com-mu-ni-ca-tion among com-po-nents pro-ceeds via
  ac-tions (or events)
@@ -575,7 +575,7 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  5308 strings out of 493848
- 73782 string characters out of 1152823
+ 73787 string characters out of 1152823
  143404 words of memory out of 3000000
  8506 multiletter control sequences out of 15000+50000
  13695 words of font info for 51 fonts, out of 3000000 for 9000
@@ -595,7 +595,7 @@ msfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on FMpaper.pdf (18 pages, 3309661 bytes).
+Output written on FMpaper.pdf (18 pages, 3309336 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
