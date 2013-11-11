@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 18:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  11 NOV 2013 18:46
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -528,14 +528,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 702--704
+Overfull \hbox (4.0pt too wide) in paragraph at lines 693--695
  [][] 
  []
 
 [14] <./Last.png, id=73, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 737--739
+Overfull \hbox (4.0pt too wide) in paragraph at lines 728--730
  [][] 
  []
 
@@ -595,7 +595,7 @@ msfonts/cm/cmss8.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
 msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy5.pfb></
 usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on FMpaper.pdf (18 pages, 3309336 bytes).
+Output written on FMpaper.pdf (18 pages, 3309000 bytes).
 PDF statistics:
  137 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
