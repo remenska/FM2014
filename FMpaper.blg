@@ -20,49 +20,53 @@ Warning--entry type for "RAFMC" isn't style-file defined
 --line 1870 of file FM2014.bib
 Warning--entry type for "repo:remenska" isn't style-file defined
 --line 1900 of file FM2014.bib
+Repeated entry---line 1907 of file FM2014.bib
+ : @techreport{cranen2010linear
+ :                             ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 29 entries,
+You've used 31 entries,
             2087 wiz_defined-function locations,
-            684 strings with 9574 characters,
-and the built_in function-call counts, 8735 in all, are:
-= -- 946
-> -- 261
-< -- 19
-+ -- 98
-- -- 69
-* -- 489
-:= -- 1114
-add.period$ -- 39
-call.type$ -- 29
-change.case$ -- 27
+            693 strings with 9942 characters,
+and the built_in function-call counts, 9307 in all, are:
+= -- 1007
+> -- 283
+< -- 20
++ -- 106
+- -- 75
+* -- 529
+:= -- 1193
+add.period$ -- 41
+call.type$ -- 31
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 30
-duplicate$ -- 481
-empty$ -- 915
-format.name$ -- 69
-if$ -- 2232
+cite$ -- 32
+duplicate$ -- 509
+empty$ -- 964
+format.name$ -- 75
+if$ -- 2369
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 25
-newline$ -- 143
-num.names$ -- 31
-pop$ -- 155
+int.to.str$ -- 31
+missing$ -- 26
+newline$ -- 153
+num.names$ -- 33
+pop$ -- 158
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 341
+skip$ -- 362
 stack$ -- 0
-substring$ -- 514
-swap$ -- 220
-text.length$ -- 19
+substring$ -- 554
+swap$ -- 236
+text.length$ -- 20
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 1
-while$ -- 83
-width$ -- 31
-write$ -- 324
-(There were 3 error messages)
+while$ -- 88
+width$ -- 33
+write$ -- 347
+(There were 4 error messages)

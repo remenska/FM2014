@@ -182,7 +182,7 @@ The objective of our work is to simplify the process of correctly eliciting
 functional requirements, without the need of expertise in temporal logic. 
 First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
 system properties. Our starting point was the pattern system,
-which we extended with over 40 new property templates, to capture variations not covered 
+which we extended with over 100 new property templates, to capture variations not covered 
 in the original classification. Our strong motivation was to stay
 in the same UML development environment, rather than use an external helper tool for this.
 It should increase the tool accessibility by allowing software engineers to remain focused in the realm of UML designs.
@@ -667,7 +667,7 @@ During testing, certain problems have manifested: occasionally, tasks submitted 
 were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
 generated logs. 
 In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
-\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{8}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true* .
 synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
 true*.
@@ -686,26 +686,93 @@ elicit the property.
 
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
+To cope with the ambiguity of system requirements, PASS 
+guides the practitioner via a series of questions to distinguish the types of scope and 
+behavior as a relation between multiple events. By answering these questions, 
+he is lead to consider some subtle aspects of the property, which are typically 
+overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
 which the user can choose by selecting the appropriate answer from the Scope Question Tree wizard page.
-\begin{figure}[!t]
+\begin{figure}[!b]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
 \setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./ScopeSelection1.png}}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./ScopeSelection1.png}}%
 }%
-\caption{Damn it}
-\label{fig:Last}
+\caption{Eliciting the scope for a property with PASS}
+\label{fig:ScopePASS}
 \end{figure}
+This results in a \emph{Before-R} scope restriction, where the actual communication can be selected by double-clicking the end-event placeholder (Fig.~\ref{fig:ScopePASS}).
+This presents the user with a popup window with all the possible message exchanges in the model, so he can choose the actual message, in this case
+the reply message $\_\_sendTaskToExecutor$.
+As already pointed out in~\cite{Smith02propel:an}, a closer examination of the patterns classification reveals some aspects
+which are not considered, and may lead to variants in the original scope and behavior definitions. 
+For example, the definition of the \emph{Before-R} scope requires that the event \emph{R} necessarily
+occurs. This means, if \emph{R} does not occur until the end of the run, the intent or behavior 
+of the property could be violated, yet the property as a whole would not be violated 
+unless \emph{P} happens. In practice however, it is useful to introduce an \emph{Until-R} variant for cases where the end-delimiter may not occur until the end of 
+the system execution. This is captured by the last question in Fig.~\ref{fig:ScopePASS}.
+Similar considerations have lead to new variants of the \emph{After-Q-Until-R} and \emph{After-Q-Before-R} patterns.
+For instance, whether subsequent occurrences of Q should be ignored, or should effectively reset the beginning of the interval
+in which the behavior is considered, are reflected in the questionnaire.
 
-\begin{figure}[!t]
+Due to space restrictions we do not show the Behavior Question Tree part of the wizard, although it is easy to
+elicit the behavior requirement as a \emph{response} pattern (``a task \emph{pushed} in the queue must be processed, i.e., \emph{removed} from the queue'').
+The actual events of interest in this case are \emph{pushTask} and \emph{popTask}. Again, an extension of the pattern system allows
+for the user to decide whether the first event (the cause) must necessarily occur in the first place. 
+Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
+
+At the end of the questionnaire, the user is presented with with a summary of the requested property, which can be reviewed before making the final decision.
+A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
+Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram and a monitor process for the concerned property 
+are generated, to be used in the final model-checking phase.
+
+One thing worth noticing is the fact that our original manually constructed formula was not entirely correct. The general pattern template obtained with PASS is:
+
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{8}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+[(not R)*. P. (not (S or R))*. R] false
+\end{lstlisting} 
+, while the original one is of the following form:
+
+
+% Task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher declares that there are no more tasks for processing.
+% [ true * .
+% synch_call ( 1 , ExecutorQueues , queues , pushTask ( JobPath ,taskId, false ) ) .
+% true * .
+% ! (synch_call ( 1 , ExecutorQueues , queues , popTask ( [ JobPath ] ) ) ) * .
+% synch_eply ( 1 , ExecutorDispatcher , eDispatch , sendTaskToExecutor_return (OK, 0 ) ) ] false
+% ← I thought I could fit this one with two events and an exceptional one in between;
+% event1 = pushTask
+% event2 = noMoreTasks 
+% exceptional must happen in-between: popTask
+% but the pushTask and noMoreTasks are not really related.
+% ← this is a Response pattern with scope BEFORE. (S responds to P)
+% [(not R)*. P. (not (S or R))*. R] false
+% for paper: we actually constructed the property wrong (for case study):
+% conclusion 2: the formula above does not actually repsesent what the property
+% should check. !(popTask..) should be !(popTask or sendTaskToExecutor_return…)
+% and ([(not R)*) at the beginning , not true*. We’ve probably devised a weaker
+% property and had spurious counter-examples.
+% 
+% This is the template:
+% 
+% [(not R)*. P. (not (S or R))*. R] false
+% 
+% This si what we had:
+% 
+% [true*. P. (not S)*. R] false
+% 
+% write the monitor, visualize it again?
+
+\begin{figure}[!b]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
 \setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./Last.png}}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
 }%
 \caption{Damn it}
 \label{fig:Last}

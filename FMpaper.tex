@@ -95,7 +95,7 @@ as an Eclipse plugin. Our starting point was the well-established property patte
 which we extended with new property templates, to capture variations not covered 
 in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
-have focused on LTL, which is a state-based formalism. On the other hand,
+have focused on LTL, which is a state-based formalism. Conversely,
  $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
  components is depicted. 
 Moreover, such communication is data-dependent, so we introduce
@@ -109,7 +109,7 @@ formula and monitor for checking the property with mCRL2.
 \section{Introduction}
 \label{sec:Introduction}
 One of the challenges in developing concurrent software is early discovery of design errors which can lead to deadlocks or race conditions.
-Traditional testing does not always expose such problems in complex distributed applications. Performing a more rigorous formal analysis, like model-checking, 
+Traditional testing does not always expose such problems in complex distributed applications. Performing a more rigorous formal analysis, like model checking, 
 typically requires a model which is an abstraction of the system.
 In the last decades, methods and tools
 for modeling and formal analysis have been developed. Some of the leading model checking tools include SPIN, nuSMV, CADP and mCRL2. 
@@ -117,11 +117,11 @@ Despite the research effort, these tools are still not widely accepted in the so
 the necessary time investment in the development cycle, for becoming proficient in
 the underlying mathematical formalisms used for describing the models. 
 To bridge the gap between industry-adopted methodologies based on UML software
-designs, and model-checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
+designs, and model checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verifying UML
 models, based on sequence and activity diagrams. Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
 Our prototype is able to produce
-a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model-checking traces back into any modeling
+a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model checking traces back into any modeling
 tool, without the user having to leave the UML domain. 
 We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
 %mention why we chose SDs!
@@ -181,7 +181,7 @@ specification problem by proposing graphical notations for specifying properties
 The objective of our work is to simplify the process of correctly eliciting
 functional requirements, without the need of expertise in temporal logic. 
 First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
-system properties. Our starting point was the pattern system,
+system properties. Our starting point was the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
 which we extended with over 100 new property templates, to capture variations not covered 
 in the original classification. Our strong motivation was to stay
 in the same UML development environment, rather than use an external helper tool for this.
@@ -191,7 +191,7 @@ design is changed, these changes can be easily propagated in the property templa
 To this end, we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API. Our tool is developed as an Eclipse plugin.
 Second, the pattern templates instantiated with PASS have three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
-have focused on LTL, which is a state-based temporal logic formalism. On the other hand,
+have focused on LTL, which is a state-based temporal logic formalism. Conversely,
 the $\mu$-calculus is event-based, and as such is a good match for the sequence diagrams notation. 
 These events can represent methods calls or asynchronous communication between distributed components.
 Moreover, such communication is data-dependent, which is why we introduce
@@ -215,11 +215,11 @@ In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the Grid domai
 \section{Related Work}
 \label{sec:RelatedWork}
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
-selecting the appropriate template. Recognizing that there are subtle aspects
+selecting the appropriate template from the patterns classification. Recognizing that there are subtle aspects
 not covered by the original patterns, such as what happens in a response
 property if the cause occurs multiple times before the effect takes place,
 they extended them with variants. The resulting templates 
-are represented using disciplined natural language and finite state automata. 
+are represented using ``disciplined natural language'' and finite state automata. 
 PROPEL does not support the universality, bounded existence, and the chain patterns. It also 
 does not produce a formula in any of the commonly used temporal logic formalisms.
 In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
@@ -254,7 +254,7 @@ The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents a scenario-b
 Property Sequence Charts (PSC), where a property is seen as a relation on a set of exchanged
 system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, and its expressiveness
 is measured with the property patterns. SPIN is used as a backend for model checking of
-the Buchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
+the B\"uchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
 an operational representation for LTL formulas generated automatically with this approach.
 The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Approaches} right).
 Such a mix of textual and visual representation of message communication
@@ -267,11 +267,11 @@ While they manage to hide the formalism from the user by generating LTL formulas
 their notation is still very close to an actual temporal logic formula.
 The TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} also attempts to simplify the formalization of certain
 kinds of requirements. Response formulas are depicted in timeline diagrams by specifying temporal relations among events and constraints. 
-The timeline specification is automatically converted into a Buchi automaton, amenable to model checking with SPIN.
+The timeline specification is automatically converted into a B\"uchi automaton, amenable to model checking with SPIN.
 Unfortunately the tool is no longer available.
 HUGO/RT~\cite{Knapp:2006:MCU:1762828.1762836} is a tool for model checking UML 2.0 interactions 
 against a model composed of message-exchanging state machines. The interactions represent the desired properties,
-and are translated together with the system model into Buchi automata for model checking with SPIN.
+and are translated together with the system model into B\"uchi automata for model checking with SPIN.
 The approach uses some inner format for textual representation of UML interactions (rather than
 the standard XMI), and the version we tested does not support asynchronous messages, or combined fragments.
 vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models comprising state machines.
@@ -279,7 +279,7 @@ However, properties must be specified in terms of undesired scenarios, which is 
 This is because the verification is based on checking whether it is possible to reach error states, which must be manually specified by the user.
 Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
 Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
-In both approaches, Buchi automata and LTL formulas are generated automatically from the diagrams.
+In both approaches, B\"uchi automata and LTL formulas are generated automatically from the diagrams.
 However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lacks many UML features.
 
@@ -318,9 +318,9 @@ equations can be declared by \textbf{proc}.
 
 The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
 system that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
-toolset for model-checking specific properties is an extension of the modal
+toolset for model checking specific properties is an extension of the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
-expressive power. Temporal logics like LTL, CTL and CTL* all have translations into $\mu$-calculus,
+expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2010linear,cranen2011linear} into $\mu$-calculus,
 witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
 The syntax of mCRL2's modal $\mu$-calculus formulas we are concerned with in this paper
 is defined by the following grammar:
@@ -379,7 +379,7 @@ on systems of fixpoint equations over first-order logic expressions.
 This sometimes requires too much overhead to serve as a basis for lightweight 
 bug-hunting, as it can be difficult to interpret the counterexamples that are obtained from
 these equation systems in terms of the original mCRL2 process.
-Observers, or monitors (\`{a} la Buchi) defined in the mCRL2 model itself, can sometimes
+Observers, or monitors (\`{a} la B\"uchi) defined in the mCRL2 model itself, can sometimes
 be used to bypass the problem.
 However, not all $\mu$-calculus formulas are amenable to such a conversion.
 
@@ -410,7 +410,7 @@ used.
 \label{fig:SDExample}
 \end{figure}
 
-There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in pracice
+There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in practice
 is limited, because their semantics described in the UML 2.0 superstructure specification~\cite{UML2.4_superstructure}
 is rather vague and confusing. By default, sequence diagrams without the use of these two operators 
 only reflect possible behavior, while \emph{assert} and \emph{neg} alter the way 
@@ -419,7 +419,7 @@ the semantics of a sequence diagram as a pair of valid and invalid traces,
 where a trace is a sequence of events or messages.
 The potential problems with the UML 2.0 assertion and negation are explained in~\cite{Harel07assertand}.
 In summary, the specification aims to allow depicting required and forbidden behaviors.
-However, as they point out, stating that ``the sequences of the operand of the assertion are the only valid continuations. All other continuations result in an invalid trace''
+However, as~\cite{Harel07assertand} points out, stating that ``the sequences of the operand of the assertion are the only valid continuations. All other continuations result in an invalid trace''
 suggests that the invalid set of traces for an \emph{assert} fragment is its complement, i.e., the set of all other possible traces.
 On the other hand, the standard declares that the
 invalid set of traces are associated only with the use of
@@ -443,8 +443,8 @@ several conversational tools have already been proposed.
 
 While we follow 
 on the idea of using a guiding questionnaire to incrementally refine various aspects
-of a requirement, we find the resulting artifacts from using the available ones 
-not yet suitable for practical application in our context.
+of a requirement, we find the resulting artifacts (LTL formulas or graphical representations of finite state machines) from using the available ones 
+(discussed in Section~\ref{sec:RelatedWork}) not yet suitable for practical application in our context.
 For one, the practitioner must manually define the events to be associated with the placeholders when 
 instantiating the template. To avoid potential errors, as well as
 reduce effort in specifications, we want to ideally stay in the same IDE used
@@ -463,23 +463,23 @@ In short, UML profiles consist of stereotypes that can be applied to any UML mod
 associations, or messages. We used this mechanism 
 to apply the restrictions on the usage of \emph{neg} and \emph{assert},
 as well as to distinguish between events presenting interval bounds and regular ones, from the patterns.
-Figure~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with
+As an example, Fig.~\ref{fig:ResponsePattern} depicts the \emph{precedence chain} pattern (with
 a \emph{between-Q-and-R} scope), with the stereotypes applied to messages
 \emph{Q} and \emph{R}.
 The pattern expresses that event \emph{P} must precede the chain of events
 \emph{S, T}, always when the system execution is in the scope between events
 \emph{Q} and \emph{R}.
-We find this a much more intuitive scenario representation than the CHARMY/PSP
+We find this a much more intuitive scenario representation than the CHARMY/PSC
 one (Fig.~\ref{fig:ResponsePatternCharmy}), for the same pattern.
 Notice that we do not have to specify constraints on past unwanted events, as they are automatically
 reflected in the $\mu$-calculus formula, as long as there is a distinction between interval-marking messages,
-regular, mandatory, and forbidden ones. Also, their notation presents the scenario in a negative form, using ``f:'' to
+regular, mandatory, and forbidden ones. Also, the CHARMY/PSC notation presents the scenario in a negative form, using ``f:'' to
 explicitly mark an error message. 
 \begin{figure*}[t!]
   \centering
   \subfloat[Sequence Diagram with monitor]{\label{fig:ResponsePattern}\includegraphics[width=0.62\linewidth]{./ResponseChain_withMonitor.png}}    
   \hfill
-  \subfloat[PSC with Buchi automaton]{\label{fig:ResponsePatternCharmy}\includegraphics[width =0.38\linewidth]{./ResponseChainPSC.png}}
+  \subfloat[PSC with B\"uchi automaton~\cite{Autili:2007:GSS:1290845.1290859}]{\label{fig:ResponsePatternCharmy}\includegraphics[width =0.38\linewidth]{./ResponseChainPSC.png}}
   \caption{Scenarios for the precedence chain pattern}
 \end{figure*}
 Although any mature visual UML modeling tool 
@@ -514,7 +514,7 @@ For example, with our approach, a practitioner can use
 a wild-card ``*'' to express that the property should be evaluated for all values
 that message parameters can carry. This allows us to use patterns which would otherwise
 make sense only for state-based formalisms. For example, the \emph{universality}
-pattern is used describe a portion of the system's execution which contains only states/events that have a desired property.
+pattern is used to describe a portion of the system's execution which contains only states/events that have a desired property.
 Checking if a certain event is executed in every step of the system execution is not useful,
 so we adapted it in the context of $\mu$-calculus. 
 
@@ -523,25 +523,25 @@ automatically generated mCRL2 monitor which corresponds to the property formula.
 We interpret a sequence diagram as an observer of
 the message exchanges in the system. This helps in avoiding generation of those
 parts of the state space for which it is certain that they do not compose with the
-property monitor. In addition, although mcRL2 offers direct model checking
+property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 A general model checking mechanism used with tools like SPIN 
-is to construct a Buchi automaton for an LTL formula, which accepts exactly those executions
-that violate the property. A product of the model state space (typically a Kripke structure) and the Buchi automaton is then composed, 
+is to construct a B\"uchi automaton for an LTL formula, which accepts exactly those executions
+that violate the property. A product of the model state space (typically a Kripke structure) and the B\"uchi automaton is then composed, 
 and checked for emptiness. 
-Although syntactically Buchi is similar to the finite-state monitor for which we aim,
+Although syntactically B\"uchi is similar to the finite-state monitor for which we aim,
 the difference lies in the acceptance conditions: a monitor accepts only 
-finite runs of the system, while Buchi can trap infinite executions through
-detection of cycles, but needs the entire state-space
+finite runs of the system, while B\"uchi can trap infinite executions through
+detection of cycles, but potentially needs the entire state-space
 generated in the process. Runtime verification
 does not store the entire state space of a model, so it cannot detect such cycles. 
 In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} are labeled with elementary
 propositions rather than actions (notice the $\wedge$ operator). 
-As such, we cannot use existing tools for constructing Buchi automata with our
+As such, we cannot use existing tools for constructing B\"uchi automata with our
 approach.
 % \begin{figure*}[t!]
 %   \centering
@@ -556,7 +556,7 @@ approach.
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
 \includegraphics[width=0.7\textwidth]{./Buchi.png}%
-\caption{A Buchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
+\caption{A B\"uchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
 \label{fig:Buchi}
 \end{minipage}%
 \begin{minipage}[t]{0.5\linewidth}
@@ -574,7 +574,7 @@ monitorable properties is strictly larger than the commonly believed class of \e
 However, an exact categorization of monitorable properties is missing.
 In particular, the definition of \emph{liveness} requires that any finite system
 execution must be extendable to an infinite one that satisfies the property. 
-On the other hand, by defining an end-scope of a property, we can also assert
+By defining an end-scope of a property, we can also assert
 violations to \emph{existence} patterns, which are typically in the \emph{liveness} category. 
 Such runtime monitor can also assert \emph{universality} and \emph{absence} patterns 
 with or without scope combinations. We found that we are able to construct 
@@ -668,10 +668,10 @@ were idle at the moment. The root cause of this problem could not be identified 
 generated logs. 
 In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
-[true* .
+[true$^*$ .
 synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
-true*.
-!(synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,popTask([JobPath])))*.
+true$^*$.
+!(synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,popTask([JobPath])))$^*$.
 synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
 $\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
 \end{lstlisting} 
@@ -694,7 +694,7 @@ overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
 which the user can choose by selecting the appropriate answer from the Scope Question Tree wizard page.
-\begin{figure}[!b]
+\begin{figure}[!t]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
@@ -724,16 +724,61 @@ The actual events of interest in this case are \emph{pushTask} and \emph{popTask
 for the user to decide whether the first event (the cause) must necessarily occur in the first place. 
 Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
 
-\begin{figure}[!b]
+At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
+A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
+Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram and a monitor process for the concerned property 
+are generated, to be used in the final model checking phase.
+\begin{figure}[!t]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
 \setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./Last.png}}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
 }%
-\caption{Damn it}
-\label{fig:Last}
+\caption{Summary of the elicited property with PASS}
+\label{fig:Summary}
 \end{figure}
+One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
+The general pattern template obtained with PASS is:
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+[(not R)$^*$. P. (not (S or R))$^*$. R] false
+\end{lstlisting} 
+, which puts more restrictions on the behavior, while the original one was of the following form:
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+[true$^*$. P. (not S)$^*$. R] false
+\end{lstlisting} 
+
+% Task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher declares that there are no more tasks for processing.
+% [ true * .
+% synch_call ( 1 , ExecutorQueues , queues , pushTask ( JobPath ,taskId, false ) ) .
+% true * .
+% ! (synch_call ( 1 , ExecutorQueues , queues , popTask ( [ JobPath ] ) ) ) * .
+% synch_eply ( 1 , ExecutorDispatcher , eDispatch , sendTaskToExecutor_return (OK, 0 ) ) ] false
+% ← I thought I could fit this one with two events and an exceptional one in between;
+% event1 = pushTask
+% event2 = noMoreTasks 
+% exceptional must happen in-between: popTask
+% but the pushTask and noMoreTasks are not really related.
+% ← this is a Response pattern with scope BEFORE. (S responds to P)
+% [(not R)*. P. (not (S or R))*. R] false
+% for paper: we actually constructed the property wrong (for case study):
+% conclusion 2: the formula above does not actually repsesent what the property
+% should check. !(popTask..) should be !(popTask or sendTaskToExecutor_return…)
+% and ([(not R)*) at the beginning , not true*. We’ve probably devised a weaker
+% property and had spurious counter-examples.
+% 
+% This is the template:
+% 
+% [(not R)*. P. (not (S or R))*. R] false
+% 
+% This si what we had:
+% 
+% [true*. P. (not S)*. R] false
+% 
+% write the monitor, visualize it again?
+
+
 
 \begin{figure}[!t]
 \centering
