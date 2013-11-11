@@ -763,10 +763,12 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
+\vspace{-5 pt}
 , which puts more restrictions on the behavior, while the original one was of the following form:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
+\vspace{-5 pt}
 
 Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 

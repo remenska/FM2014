@@ -91,21 +91,18 @@ Knapp, A., Wuttke, J.:
 \bibitem{Lilius99vuml:a}
 Lilius, J., Paltor, I.P.:
 \newblock {vUML: a Tool for Verifying UML Models}.
-\newblock In: {}. (1999)  255--258
+\newblock In: {14th IEEE International Conference on Automated Software
+  Engineering}. (1999)
 
 \bibitem{Kugler:2005:TLS:2140653.2140692}
-Kugler, H., Harel, D., Pnueli, A., Lu, Y., Bontemps, Y.:
+Kugler, H.,  et~al.:
 \newblock {Temporal logic for scenario-based specifications}.
-\newblock In: {Proceedings of the 11th international conference on Tools and
-  Algorithms for the Construction and Analysis of Systems}. {TACAS'05}, Berlin,
-  Heidelberg, Springer-Verlag (2005)  445--460
+\newblock In: {Proc TACAS'05}
 
 \bibitem{MVPSA}
 Baresi, L., Ghezzi, C., Zanolin, L.:
 \newblock {Modeling and Validation of Publish/Subscribe Architectures}.
-\newblock In Beydeda, S., Gruhn, V., eds.: {Testing Commercial-off-the-Shelf
-  Components and Systems}.
-\newblock Springer Berlin Heidelberg  273--291
+\newblock In: {Testing Commercial-off-the-Shelf Components and Systems}
 
 \bibitem{MDTUML2}
 Foundation, T.E.:
@@ -115,29 +112,26 @@ Foundation, T.E.:
 Giannakopoulou, D., Havelund, K.:
 \newblock {Automata-Based Verification of Temporal Properties on Running
   Programs}.
-\newblock In: {Proceedings of the 16th IEEE international conference on
-  Automated software engineering}. {ASE '01}, Washington, DC, USA, IEEE
-  Computer Society (2001)  412--
+\newblock In: {Proc. of the 16th IEEE international conference on Automated
+  software engineering}, IEEE Computer Society (2001)
 
 \bibitem{Emerson97modelchecking}
 Emerson, E.A.:
 \newblock {Model checking and the Mu-calculus}.
 \newblock In: {DIMACS Series in Discrete Mathematics}, American Mathematical
-  Society (1997)  185--214
+  Society (1997)
 
 \bibitem{cranen2010linear}
 Cranen, S., Groote, J.F., Reniers, M.:
 \newblock {A linear translation from LTL to the first-order modal
   $\mu$-calculus}.
-\newblock Technical report, Technical Report CSR-10-09, Department of Computer
-  Science, Eindhoven University of Technology, Eindhoven, The Netherlands
-  (2010)
+\newblock Technical report, CSR-10-09, TU/e Eindhoven, The Netherlands (2010)
 
 \bibitem{cranen2011linear}
 Cranen, S., Groote, J.F., Reniers, M.:
 \newblock {A linear translation from CTL* to the first-order modal
   $\mu$-calculus}.
-\newblock Theoretical Computer Science \textbf{412}(28) (2011)  3129--3139
+\newblock Theoretical Computer Science (28) (2011)
 
 \bibitem{UML2.4_superstructure}
 OMG:
@@ -163,7 +157,6 @@ Mateescu, R.:
 Bauer, A., Leucker, M., Schallhart, C.:
 \newblock {Runtime Verification for LTL and TLTL}.
 \newblock ACM Trans. Softw. Eng. Methodol. \textbf{20}(4) (September 2011)
-  14:1--14:64
 
 \bibitem{DBLP:journals/corr/abs-1006-3638}
 Bauer, A.:
