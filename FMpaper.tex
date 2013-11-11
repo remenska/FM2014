@@ -686,19 +686,44 @@ elicit the property.
 
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
-
-\begin{figure}[!t]
+To cope with the ambiguity of system requirements, PASS 
+guides the practitioner via a series of questions to distinguish the types of scope and 
+behavior as a relation between multiple events. By answering these questions, 
+he is lead to consider some subtle aspects of the property, which are typically 
+overlooked when manually specifying the requirement in temporal logic.
+The last part of the property (i.e. ``before the ExecutorDispatcher
+declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
+which the user can choose by selecting the appropriate answer from the Scope Question Tree wizard page.
+\begin{figure}[!b]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
 \setlength{\fboxrule}{0.5pt}%
 \fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./ScopeSelection1.png}}%
 }%
-\caption{Damn it}
-\label{fig:Last}
+\caption{Eliciting the scope for a property with PASS}
+\label{fig:ScopePASS}
 \end{figure}
+This results in a \emph{Before-R} scope restriction, where the actual communication can be selected by double-clicking the end-event placeholder (Fig.~\ref{fig:ScopePASS}).
+This presents the user with a popup window with all the possible message exchanges in the model, so he can choose the actual message, in this case
+the reply message $\_\_sendTaskToExecutor$.
+As already pointed out in~\cite{Smith02propel:an}, a closer examination of the patterns classification reveals some aspects
+which are not considered, and may lead to variants in the original scope and behavior definitions. 
+For example, the definition of the \emph{Before-R} scope requires that the \emph{R}
+occurs. This means, if \emph{R} does not occur until the end of the run, the intent or behavior 
+of the property could be violated, yet the property as a whole would not be violated 
+unless \emph{P} happens. In practice however, it is useful to introduce an \emph{Until-R} variant for cases where the end-delimiter may not occur until the end of 
+the system execution. This is captured by the last question in Fig.~\ref{fig:ScopePASS}.
+Similar considerations have lead to new variants of the \emph{After-Q-Until-R} and \emph{After-Q-Before-R} patterns.
+For instance, whether subsequent occurrences of Q should be ignored, or should effectively reset the beginning of the interval
+in which the behavior is analyzed, are reflected in the questionnaire.
 
-\begin{figure}[!t]
+Due to space restriction we do not show the Behavior Question Tree part of the wizard, although it is easy to
+elicit the behavior requirement as a \emph{response} pattern (``a task \emph{pushed} in the queue must be processed, i.e., \emph{removed} from the queue'').
+The actual events of interest in this case are \emph{pushTask} and \emph{popTask}.
+
+
+\begin{figure}[!b]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
