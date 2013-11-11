@@ -5,7 +5,7 @@ Remenska, D.,  et~al.:
 \newblock {From {UML} to {P}rocess {A}lgebra and {B}ack: {A}n {A}utomated
   {A}pproach to {M}odel-{C}hecking {S}oftware {D}esign {A}rtifacts of
   {C}oncurrent {S}ystems.}
-\newblock In: {NASA Formal Methods}. (2013)  244--260
+\newblock In: {NASA Formal Methods}. (2013)
 
 \bibitem{FormalLanguagemCRL2}
 Groote, J.,  et~al.:
@@ -15,7 +15,7 @@ Groote, J.,  et~al.:
 \bibitem{Groote05model-checkingprocesses}
 Groote, J.F., Willemse, T.A.C.:
 \newblock {Model-checking processes with data}.
-\newblock In: {Science of Computer Programming}, Elsevier (2005)  251--273
+\newblock In: {Science of Computer Programming}, Elsevier (2005)
 
 \bibitem{Dwyer:1999:PPS:302405.302672}
 Dwyer, M.B.,  et~al.:
@@ -68,27 +68,25 @@ Ackermann, J., Turowski, K.:
 Autili, M., Inverardi, P., Pelliccione, P.:
 \newblock {Graphical scenarios for specifying temporal properties: an automated
   approach}.
-\newblock Automated Software Engg. \textbf{14}(3) (September 2007)  293--340
+\newblock Automated Software Engg. \textbf{14}(3) (September 2007)
 
 \bibitem{Lee97agraphical}
 Lee, I., Sokolsky, O.:
 \newblock {A Graphical Property Specification Language}.
-\newblock In: {In Proceedings of 2nd IEEE Workshop on High-Assurance Systems
-  Engineering. IEEE Computer}, Society Press (1997)  42--47
+\newblock In: {Proc. of 2nd IEEE Workshop on High-Assurance Systems
+  Engineering}. (1997)
 
 \bibitem{Smith:2001:ECG:882477.883639}
 Smith, M.H.,  et~al.:
 \newblock {Events and Constraints: A Graphical Editor for Capturing Logic
   Requirements of Programs}.
 \newblock In: {Proc. of the Fifth IEEE International Symposium on Requirements
-  Engineering}, IEEE Computer Society (2001)  14--
+  Engineering}. (2001)
 
 \bibitem{Knapp:2006:MCU:1762828.1762836}
 Knapp, A., Wuttke, J.:
 \newblock {Model checking of UML 2.0 interactions}.
-\newblock In: {Proceedings of the 2006 international conference on Models in
-  software engineering}. {MoDELS'06}, Berlin, Heidelberg, Springer-Verlag
-  (2006)  42--51
+\newblock In: {Proc. MoDELS'06}
 
 \bibitem{Lilius99vuml:a}
 Lilius, J., Paltor, I.P.:
