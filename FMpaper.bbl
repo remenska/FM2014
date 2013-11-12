@@ -37,8 +37,7 @@ Smith, R.L., Avrunin, G.S., Clarke, L.A., Osterweil, L.J.:
 Konrad, S., Cheng, B.H.:
 \newblock {Facilitating the construction of specification pattern-based
   properties}.
-\newblock In: {Proc. of the 13th IEEE International Conference on Requirements
-  Engineering (2005)}, IEEE
+\newblock In: {Proc. RE'05)}, IEEE
 
 \bibitem{Mondragon_prospec}
 Mondragon, O., Gates, A.Q., Roach, S.:
@@ -62,8 +61,7 @@ Lee, I., Sokolsky, O.:
 Smith, M.H.,  et~al.:
 \newblock {Events and Constraints: A Graphical Editor for Capturing Logic
   Requirements of Programs}.
-\newblock In: {Proc. of the Fifth IEEE International Symposium on Requirements
-  Engineering}. (2001)
+\newblock In: {Proc. RE'01}. (2001)
 
 \bibitem{Knapp:2006:MCU:1762828.1762836}
 Knapp, A., Wuttke, J.:
@@ -73,13 +71,12 @@ Knapp, A., Wuttke, J.:
 \bibitem{Lilius99vuml:a}
 Lilius, J., Paltor, I.P.:
 \newblock {vUML: a Tool for Verifying UML Models}.
-\newblock In: {14th IEEE International Conference on Automated Software
-  Engineering}. (1999)
+\newblock In: {Proc. ASE'99}. (1999)
 
 \bibitem{Kugler:2005:TLS:2140653.2140692}
 Kugler, H.,  et~al.:
 \newblock {Temporal logic for scenario-based specifications}.
-\newblock In: {Proc TACAS'05}
+\newblock In: {Proc. TACAS'05}
 
 \bibitem{MVPSA}
 Baresi, L., Ghezzi, C., Zanolin, L.:
@@ -89,6 +86,12 @@ Baresi, L., Ghezzi, C., Zanolin, L.:
 \bibitem{MDTUML2}
 Foundation, T.E.:
 \newblock {Eclipse Modeling {MDT-UML2} component} www.eclipse.org/uml2/.
+
+\bibitem{Giannakopoulou:2001:AVT:872023.872506}
+Giannakopoulou, D., Havelund, K.:
+\newblock {Automata-Based Verification of Temporal Properties on Running
+  Programs}.
+\newblock In: {Proc.ASE 2001}, IEEE Computer Society
 
 \bibitem{Ziemann02anextension}
 Ziemann, P., Gogolla, M.:
@@ -105,15 +108,7 @@ Flake, S., Mueller, W.:
 Ackermann, J., Turowski, K.:
 \newblock {A library of OCL specification patterns for behavioral specification
   of software components}.
-\newblock In: {Proc. of the 18th international conference on Advanced
-  Information Systems Engineering}. {CAiSE'06}, Springer-Verlag (2006)
-
-\bibitem{Giannakopoulou:2001:AVT:872023.872506}
-Giannakopoulou, D., Havelund, K.:
-\newblock {Automata-Based Verification of Temporal Properties on Running
-  Programs}.
-\newblock In: {Proc. of the 16th IEEE international conference on Automated
-  software engineering}, IEEE Computer Society (2001)
+\newblock In: {Proc. CAiSE'06}, Springer-Verlag (2006)
 
 \bibitem{Emerson97modelchecking}
 Emerson, E.A.:
@@ -143,11 +138,6 @@ Harel, D., Maoz, S.:
 \newblock {Assert and negate revisited: Modal semantics for UML sequence
   diagrams} (2007)
 
-\bibitem{terry2006visual}
-Terry, Q.:
-\newblock {Visual Modeling with IBM Rational Software Architect and UML}.
-\newblock Pearson Education India (2006)
-
 \bibitem{RAFMC}
 Mateescu, R.:
 \newblock {Property Pattern Mappings for RAFMC}
@@ -156,7 +146,7 @@ Mateescu, R.:
 \bibitem{Bauer:2011:RVL:2000799.2000800}
 Bauer, A., Leucker, M., Schallhart, C.:
 \newblock {Runtime Verification for LTL and TLTL}.
-\newblock ACM Trans. Softw. Eng. Methodol. \textbf{20}(4) (September 2011)
+\newblock ACM Trans. Softw. Eng. Methodol. \textbf{20} (2011)
 
 \bibitem{DBLP:journals/corr/abs-1006-3638}
 Bauer, A.:
@@ -172,5 +162,10 @@ Tsaregorodtsev, A.,  et~al.:
 Remenska, D., Homburg, P.:
 \newblock {The mCRL2$\Leftrightarrow$UML toolset}
   https://github.com/remenska/NFM.
+
+\bibitem{repo:PASS}
+Remenska, D., Willemse, T.A.C.:
+\newblock {Property ASSistant tool for Eclipse}
+  https://github.com/remenska/FM2014.
 
 \end{thebibliography}

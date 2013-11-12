@@ -1,4 +1,8 @@
 % MONITOR PART
+% formula: [(not R)*. P. (not (S or R))*. R] false
+% R = __sendTaskToExecutor_return
+% P = pushTask
+% S = popTask
 act error;
 
 act synch_call_mon:Nat#ClassType#ClassObject#Method;
@@ -34,49 +38,52 @@ eqn
     satisfy(c1,or(f,g)) = satisfy(c1,f) || satisfy(c1,g);
     satisfy(c1,True) = true;
 
+  proc Proc_alpha1(taskId:Nat) =
+		satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)), 
+		not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+		) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
 
-proc Proc_alpha1 = satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)), 
-not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
-) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
+		+ satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false)),
+		not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+		) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false))
+				  
+		+ satisfy(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath])),
+		not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+		) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
+		;
 
-		 + satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false)),
- not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
-		  ) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
-		  
-		 + satisfy(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath])),
- not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
-		  ) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
-;
-
-proc Proc_alpha2 =  
+proc Proc_alpha2(taskId:Nat) =  
 		
-		satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
-		,not(or
-		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
+		satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false))
+		,not(or	(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))
+		) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false))
 		
 		+
 		
 		satisfy(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
-		,not(or
-		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
+		,not(or	(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))
+		) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
 		
 		+
 		
 		satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
-		,not(or
-		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
+		,not(or	(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))
+		) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
 		
 ;
 
+		   
+		   
 proc Proc_R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0));
-proc Proc_P = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false));
+proc Proc_P(taskId:Nat) = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false));
 proc Proc_S = synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]));
 
-proc Proc_alpha2_star = internal + Proc_alpha2_plus;
-proc Proc_alpha1_star = internal + Proc_alpha1_plus;
-proc Proc_alpha2_plus =   Proc_alpha2.Proc_alpha2_plus + Proc_alpha2;
-proc Proc_alpha1_plus =   Proc_alpha1.Proc_alpha1_plus + Proc_alpha1;
+proc Proc_alpha2_star(taskId:Nat) = internal + Proc_alpha2_plus(taskId);
+proc Proc_alpha1_star(taskId:Nat) = internal + Proc_alpha1_plus(taskId);
+proc Proc_alpha2_plus(taskId:Nat) =   Proc_alpha2(taskId).Proc_alpha2_plus(taskId) + Proc_alpha2(taskId);
+proc Proc_alpha1_plus(taskId:Nat) =   Proc_alpha1(taskId).Proc_alpha1_plus(taskId) + Proc_alpha1(taskId);
 
 
-proc Proc_monitor = Proc_alpha1_star.Proc_P.Proc_alpha2_star.Proc_R.error;
+proc Proc_monitor = sum taskId:Nat.Proc_alpha1_star(taskId).Proc_P(taskId).Proc_alpha2_star(taskId).Proc_R.error;
 
+% END-MONITOR PART

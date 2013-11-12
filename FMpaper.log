@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 11:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 17:19
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -357,6 +357,11 @@ Package caption Info: Unknown document class (or package),
 \sf@top=\skip51
 \sf@bottom=\skip52
 )
+(/usr/share/texmf-texlive/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+File: lipsum.dtx 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count143
+)
 (/usr/share/texmf-texlive/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
@@ -367,15 +372,15 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count143
-\c@ALG@rem=\count144
-\c@ALG@nested=\count145
+\c@ALG@line=\count144
+\c@ALG@rem=\count145
+\c@ALG@nested=\count146
 \ALG@tlm=\skip53
 \ALG@thistlm=\skip54
-\c@ALG@Lnr=\count146
-\c@ALG@blocknr=\count147
-\c@ALG@storecount=\count148
-\c@ALG@tmpcounter=\count149
+\c@ALG@Lnr=\count147
+\c@ALG@blocknr=\count148
+\c@ALG@storecount=\count149
+\c@ALG@tmpcounter=\count150
 \ALG@tmplength=\skip55
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
@@ -385,14 +390,14 @@ nment
 
 (/usr/share/texmf-texlive/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count150
+\c@float@type=\count151
 \float@exts=\toks27
 \float@box=\box58
 \@float@everytoks=\toks28
 \@floatcapt=\box59
 )
 \@float@every@algorithm=\toks29
-\c@algorithm=\count151
+\c@algorithm=\count152
 )
 (/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
 \Urlmuskip=\muskip11
@@ -409,62 +414,62 @@ LaTeX Warning: Label `fig:PASSlaunch' multiply defined.
 )
 \openout1 = `FMpaper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 47.
  (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 46.
+LaTeX Font Info:    ... okay on input line 47.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 47.
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count152
+\scratchcounter=\count153
 \scratchdimen=\dimen146
 \scratchbox=\box60
-\nofMPsegments=\count153
-\nofMParguments=\count154
+\nofMPsegments=\count154
+\nofMParguments=\count155
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count155
+\MPscratchCnt=\count156
 \MPscratchDim=\dimen147
-\MPnumerator=\count156
+\MPnumerator=\count157
 \everyMPtoPDFconversion=\toks31
 )
-\c@lstlisting=\count157
+\c@lstlisting=\count158
 Package caption Info: Begin \AtBeginDocument code.
 Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 46.
+LaTeX Info: Redefining \subref on input line 47.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
-LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
+LaTeX Font Info:    Try loading font information for U+msa on input line 66.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -476,13 +481,17 @@ File: ./Prospec.png Graphic file (type png)
  <use ./Prospec.png>
 <./Charmy.png, id=17, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
- <use ./Charmy.png> [3]
+ <use ./Charmy.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 456.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 428.
- [5]
+ [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [5]
 <./Figure2_merged.png, id=31, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
@@ -495,79 +504,84 @@ File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png>
-Underfull \vbox (badness 5105) has occurred while \output is active []
-
- [8]
-<./Buchi.png, id=45, 509.905pt x 186.6975pt>
-File: ./Buchi.png Graphic file (type png)
- <use ./Buchi.png>
-<./PASSlaunch.png, id=46, 429.605pt x 180.675pt>
-File: ./PASSlaunch.png Graphic file (type png)
- <use ./PASSlaunch.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [9 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>] [10
- <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [11]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 814.
+ [8 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
+<./Buchi.png, id=46, 509.905pt x 186.6975pt>
+File: ./Buchi.png Graphic file (type png)
+ <use ./Buchi.png>
+<./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
+File: ./PASSlaunch.png Graphic file (type png)
+ <use ./PASSlaunch.png>
+[9]
+Underfull \vbox (badness 1107) has occurred while \output is active []
+
+ [10 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 844.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-)
+) [11]
 <./ScopeSelection1.png, id=58, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 850--852
+Overfull \hbox (4.0pt too wide) in paragraph at lines 880--882
  [][] 
  []
 
-[12] <./Last.png, id=64, 359.54324pt x 200.54926pt>
-File: ./Last.png Graphic file (type png)
- <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 885--887
- [][] 
- []
-
-<./SDProperty.png, id=65, 524.96124pt x 296.10625pt>
+[12 <./ScopeSelection1.png (PNG copy)>]
+<./SDProperty.png, id=64, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-<./PropertyAutomaton.png, id=66, 327.2225pt x 123.46124pt>
+<./PropertyAutomaton.png, id=65, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
-<use ./PropertyAutomaton.png> (./FMpaper.bbl
-Underfull \vbox (badness 1960) has occurred while \output is active []
+<use ./PropertyAutomaton.png> <./Last.png, id=66, 359.54324pt x 200.54926pt>
+File: ./Last.png Graphic file (type png)
 
- [13 <./ScopeSelection1.png (PNG copy)>] [14 <./Last.png (PNG copy)> <./SDPrope
-rty.png (PNG copy)> <./PropertyAutomaton.png (PNG copy)>]
-Underfull \hbox (badness 10000) in paragraph at lines 137--140
+<use ./Last.png>
+Overfull \hbox (4.0pt too wide) in paragraph at lines 929--931
+ [][] 
+ []
+
+[13 <./SDProperty.png (PNG copy)> <./PropertyAutomaton.png (PNG copy)>]
+(./FMpaper.bbl [14 <./Last.png (PNG copy)>]
+Underfull \hbox (badness 10000) in paragraph at lines 132--135
 []\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--155
+Underfull \hbox (badness 10000) in paragraph at lines 142--145
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--175
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 162--165
 []\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
 ptm/m/n/9 UML toolset
  []
 
-) [15] (./FMpaper.aux)
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--170
+[]\OT1/ptm/m/n/9 Remenska, D., Willemse, T.A.C.:  Prop-erty AS-Sis-tant tool fo
+r Eclipse
+ []
+
+) [16] (./FMpaper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5409 strings out of 493848
- 75329 string characters out of 1152823
- 142851 words of memory out of 3000000
- 8590 multiletter control sequences out of 15000+50000
- 27080 words of font info for 65 fonts, out of 3000000 for 9000
+ 5584 strings out of 493848
+ 77398 string characters out of 1152823
+ 233426 words of memory out of 3000000
+ 8761 multiletter control sequences out of 15000+50000
+ 27587 words of font info for 66 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,14n,45p,275b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,14n,45p,275b,1451s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -582,9 +596,9 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 2543286 bytes).
+Output written on FMpaper.pdf (16 pages, 2544577 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 
