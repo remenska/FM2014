@@ -1016,13 +1016,11 @@ proc ExecutorDispatcher___sendTaskToExecutor(id:Nat) =
     sum noSlots:Nat.synch_reply_send(id,ExecutorState,__states,freeSlots_return(noSlots)).
     (checkIdle && noSlots==0) ->
       synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)).
-%       step3_2(0) <> 
 	    ( %BUGFIX when trying to fill an executor, the dispatcher will look at all the possible types always
 		synch_call_send(id,ExecutorDispatcher,obj,__idMap_get(eId)).
 		sum eTypes:List(eType).synch_reply_send(id,ExecutorDispatcher,obj,__idMap_get_return(eTypes)).
 		synch_call_send(id,ExecutorQueues,__queues,popTask(eTypes)).
 		sum taskId:Nat,eType:eType.synch_reply_send(id,ExecutorQueues,__queues,popTask_return(taskId,eType)).
-% 		((taskId!=0)-> step2_2(taskId,eType) <> internal).
 		(taskId==0) ->
 		synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)) <> 
 			(
@@ -1116,7 +1114,6 @@ proc ExecutorQueues_pushTask(id:Nat) =
 (
     sum eType:eType,taskId:Nat,ahead:Bool,obj:ClassObject.
 	synch_call_receive(id,ExecutorQueues,obj,pushTask(eType,taskId,ahead)). 
-% 	step1_2(taskId,eType).
       synch_call_send(id,ExecutorQueues,obj,__taskInQueue_keys).
       sum taskids:List(Nat).synch_reply_send(id,ExecutorQueues,obj,__taskInQueue_keys_return(taskids)).
       (taskId in taskids) -> synch_reply_receive(id,ExecutorQueues,obj,pushTask_return)
