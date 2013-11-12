@@ -83,7 +83,6 @@ proc Proc_alpha1_star(taskId:Nat) = internal + Proc_alpha1_plus(taskId);
 proc Proc_alpha2_plus(taskId:Nat) =   Proc_alpha2(taskId).Proc_alpha2_plus(taskId) + Proc_alpha2(taskId);
 proc Proc_alpha1_plus(taskId:Nat) =   Proc_alpha1(taskId).Proc_alpha1_plus(taskId) + Proc_alpha1(taskId);
 
-
 proc Proc_monitor = sum taskId:Nat.Proc_alpha1_star(taskId).Proc_P(taskId).Proc_alpha2_star(taskId).Proc_R.error;
 
 % END-MONITOR PART
