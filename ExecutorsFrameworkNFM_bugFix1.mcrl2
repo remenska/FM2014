@@ -8,16 +8,10 @@ sort Method = struct
   removeTask_return(result:Bool) |   
   __sendTaskToExecutor(eId:Nat,eTypes:List(eType),checkIdle:Bool) |    
   __sendTaskToExecutor_return(reply:Reply,tid:Nat) | 
-   
-%   __sendTaskToExecutor_return_mon(reply:Reply,tid:Nat) |      % added for monitor
-  __sendTaskToExecutor_return_mon_found(reply:Reply,tid:Nat) |      % added for monitor
 
     freeSlots(eId:Nat) |     
   freeSlots_return(fs:Nat) |     
   popTask(eTypes:List(eType)) | 
-  
-  popTask_mon(eTypes:List(eType)) | % added for monitor
-  popTask_mon_found(eTypes:List(eType)) | % added for monitor
 
   popTask_return(taskId:Nat,eType:eType) | 
   addTask(eId:Nat,taskId:Nat) |    
@@ -25,9 +19,7 @@ sort Method = struct
   __msgTaskToExecutor(taskId:Nat,eId:Nat,eType:eType) |     
   __msgTaskToExecutor_return(result:Reply) |     
   pushTask(eType:eType,taskId:Nat,ahead:Bool) |   
-  
-  pushTask_mon(eType:eType,taskId:Nat,ahead:Bool) |   % added for monitor  
-  pushTask_mon_found(eType:eType,taskId:Nat,ahead:Bool) |    % added for monitor 
+
 
   pushTask_return |     
   cbSendTask(taskId:Nat,taskObj:TaskObject,eId:Nat,eType:eType) |     
@@ -905,25 +897,15 @@ act synch_call_send,synch_call_receive:Nat#ClassType#ClassObject#Method;
 act synch_reply_send,synch_reply_receive:Nat#ClassType#ClassObject#Method;
 
 act synch_call:Nat#ClassType#ClassObject#Method;
-act synch_call_mon:Nat#ClassType#ClassObject#Method;
-act synch_call_found:Nat#ClassType#ClassObject#Method;
+
 
 act synch_reply:Nat#ClassType#ClassObject#Method;
-act synch_reply_mon:Nat#ClassType#ClassObject#Method;
-act synch_reply_found:Nat#ClassType#ClassObject#Method;
+
 
 act asynch_call_send, asynch_call_receive:Nat#ClassType#ClassObject#Method;
 act asynch_call:Nat#ClassType#ClassObject#Method;
-act asynch_call_mon:Nat#ClassType#ClassObject#Method;
 
 act internal;
-
-act error;
-
-
-act step1_1,step1_2,step1:Nat#eType;
-act step2_1,step2_2,step2:Nat#eType;
-act step3_1,step3_2,step3:Nat;
 
 map minorStatus2eType:MinorStatus->eType;
 var minor:MinorStatus;
@@ -1042,7 +1024,7 @@ proc ExecutorDispatcher___sendTaskToExecutor(id:Nat) =
 		sum taskId:Nat,eType:eType.synch_reply_send(id,ExecutorQueues,__queues,popTask_return(taskId,eType)).
 % 		((taskId!=0)-> step2_2(taskId,eType) <> internal).
 		(taskId==0) ->
-		synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)).step3_2(0) <> 
+		synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)) <> 
 			(
 			synch_call_send(id,ExecutorState,__states,addTask(eId,taskId)).
 			synch_reply_send(id,ExecutorState,__states,addTask_return).
@@ -2038,7 +2020,6 @@ proc systemInit(id:Nat) =
     		ExecutorState_mem(id,[],[],[],[]) ||
 		ExecutorQueues_mem(id,[],[]) ||
 		ExecutorDispatcher_mem(id,[],[],[],[]) ||
-% 		Monitor(false) ||
 		ExecutorDispatcher_removeTask(id) ||
 		ExecutorState_getExecutorOfTask(id) ||
 		ExecutorState_removeTask(id) ||
@@ -2086,6 +2067,17 @@ proc systemInit(id:Nat) =
 		OptimizationMindHandler_msg_TaskDone(id)
 ;
 
+% MONITOR PART
+act error;
+
+act synch_call_mon:Nat#ClassType#ClassObject#Method;
+act synch_call_found:Nat#ClassType#ClassObject#Method;
+
+act synch_reply_mon:Nat#ClassType#ClassObject#Method;
+act synch_reply_found:Nat#ClassType#ClassObject#Method;
+
+act asynch_call_mon:Nat#ClassType#ClassObject#Method;
+act asynch_call_found:Nat#ClassType#ClassObject#Method;
 
 sort Action = struct 
   synch_reply_mon(id:Nat,ExecutorDispatcher:ClassType,__eDispatch:ClassObject,__sendTaskToExecutor_return:Method) |
@@ -2110,15 +2102,8 @@ eqn
     satisfy(c1,not(f)) = !satisfy(c1,f);
     satisfy(c1,or(f,g)) = satisfy(c1,f) || satisfy(c1,g);
     satisfy(c1,True) = true;
-    
-% formula: [(not R)*. P. (not (S or R))*. R] false
-% R = __sendTaskToExecutor_return
-% P = pushTask
-% S = popTask
 
-% (not R)
-
-proc Proc_alpha3 = satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)), 
+proc Proc_alpha1 = satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)), 
 not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
 ) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
 
@@ -2131,7 +2116,6 @@ not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor
 		  ) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
 ;
 
-% not (S or R)
 proc Proc_alpha2 =  
 		
 		satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
@@ -2144,7 +2128,7 @@ proc Proc_alpha2 =
 		,not(or
 		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
 		
-+
+		+
 		
 		satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
 		,not(or
@@ -2156,19 +2140,18 @@ proc Proc_R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecu
 proc Proc_P = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false));
 proc Proc_S = synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]));
 
-% (not R)
-
 proc Proc_alpha2_star = internal + Proc_alpha2_plus;
-proc Proc_alpha3_star = internal + Proc_alpha3_plus;
+proc Proc_alpha1_star = internal + Proc_alpha1_plus;
 proc Proc_alpha2_plus =   Proc_alpha2.Proc_alpha2_plus + Proc_alpha2;
-proc Proc_alpha3_plus =   Proc_alpha3.Proc_alpha3_plus + Proc_alpha3;
+proc Proc_alpha1_plus =   Proc_alpha1.Proc_alpha1_plus + Proc_alpha1;
 
 
-proc Proc_monitor = Proc_alpha3_star.Proc_P.Proc_alpha2_star.Proc_R.error;
+proc Proc_monitor = Proc_alpha1_star.Proc_P.Proc_alpha2_star.Proc_R.error;
 
+% END-MONITOR PART
 
 init hide ({internal},
-allow({error, synch_call_found, synch_reply_found
+allow({error, synch_call_found, synch_reply_found, internal
 }, 
 comm({
 synch_reply |
@@ -2176,7 +2159,10 @@ synch_reply_mon ->
 synch_reply_found,
 synch_call|
 synch_call_mon ->
-synch_call_found
+synch_call_found,
+asynch_call|
+asynch_call_mon ->
+asynch_call_found
 
 }, 
 
@@ -2192,25 +2178,5 @@ asynch_call
 
 systemInit(1))) ) ));
 
-% 
-% init hide ({internal},
-%  allow({internal,synch_call,synch_reply, asynch_call,error,step1,step2,step3
-% },
-% comm({
-% synch_call_send|synch_call_receive->
-% synch_call,
-% synch_reply_send|synch_reply_receive->
-% synch_reply,
-% asynch_call_send|asynch_call_receive->
-% asynch_call,
-% step1_1|step1_2->
-% step1,
-% step2_1|step2_2->
-% step2,
-% step3_1|step3_2->
-% step3
-% }, 
-% 				systemInit(1)
 
-% )));
 

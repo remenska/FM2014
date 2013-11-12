@@ -1,0 +1,82 @@
+% MONITOR PART
+act error;
+
+act synch_call_mon:Nat#ClassType#ClassObject#Method;
+act synch_call_found:Nat#ClassType#ClassObject#Method;
+
+act synch_reply_mon:Nat#ClassType#ClassObject#Method;
+act synch_reply_found:Nat#ClassType#ClassObject#Method;
+
+act asynch_call_mon:Nat#ClassType#ClassObject#Method;
+act asynch_call_found:Nat#ClassType#ClassObject#Method;
+
+sort Action = struct 
+  synch_reply_mon(id:Nat,ExecutorDispatcher:ClassType,__eDispatch:ClassObject,__sendTaskToExecutor_return:Method) |
+  synch_call_mon(id:Nat,ExecutorQueues:ClassType,__queues:ClassObject,method:Method) 
+  ;
+
+  sort ActionFormula = struct action(act1:Action)  |
+  and(phi1:ActionFormula,phi2:ActionFormula) | 
+    or(phi1:ActionFormula,phi2:ActionFormula) | 
+			    not(ActionFormula) |
+			    Forall(ActionFormula) |
+			    Exists(ActionFormula) |
+                            True;
+ 
+map satisfy:  Action # ActionFormula -> Bool;
+var c1,c2:Action;
+  f,g:ActionFormula;
+  method1,method2:Method;
+eqn
+    satisfy(c1,action(c2)) = c1 == c2; 
+    satisfy(c1,and(f,g)) = satisfy(c1,f) && satisfy(c1,g);
+    satisfy(c1,not(f)) = !satisfy(c1,f);
+    satisfy(c1,or(f,g)) = satisfy(c1,f) || satisfy(c1,g);
+    satisfy(c1,True) = true;
+
+
+proc Proc_alpha1 = satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)), 
+not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
+
+		 + satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false)),
+ not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+		  ) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
+		  
+		 + satisfy(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath])),
+ not(action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))))
+		  ) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
+;
+
+proc Proc_alpha2 =  
+		
+		satisfy(synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
+		,not(or
+		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false))
+		
+		+
+		
+		satisfy(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
+		,not(or
+		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
+		
+		+
+		
+		satisfy(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
+		,not(or
+		(action(synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))),action(synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0)))))) -> synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0))
+		
+;
+
+proc Proc_R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0));
+proc Proc_P = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false));
+proc Proc_S = synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]));
+
+proc Proc_alpha2_star = internal + Proc_alpha2_plus;
+proc Proc_alpha1_star = internal + Proc_alpha1_plus;
+proc Proc_alpha2_plus =   Proc_alpha2.Proc_alpha2_plus + Proc_alpha2;
+proc Proc_alpha1_plus =   Proc_alpha1.Proc_alpha1_plus + Proc_alpha1;
+
+
+proc Proc_monitor = Proc_alpha1_star.Proc_P.Proc_alpha2_star.Proc_R.error;
+
