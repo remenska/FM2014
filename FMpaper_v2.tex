@@ -82,28 +82,47 @@ NIKHEF, Amsterdam, The Netherlands
 \vspace{-10 pt}
 
 \begin{abstract}
-Early discovery of design errors which can lead to deadlocks or race conditions is 
-challenging in concurrent software development. 
-In the last decades, more rigorous
-methods and tools for modeling and formal analysis have been developed. 
-Although approaches for automatically generating formal models from system designs have 
-been proposed, another serious obstacle for adopting model checking tools in industry
-is the formulation of application-specific properties to be checked. 
-This requires expertise in temporal logic, regardless of the verification tool used.
-To bring the process of correctly eliciting functional properties closer to software 
-designers, we introduce PASS, a Property ASSistant wizard developed 
-as an Eclipse plugin. Our starting point was the well-established property pattern system,
-which we extended with new property templates, to capture variations not covered 
-in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
+
+Developing correct concurrent software is challenging. Design errors
+can result in deadlocks, race conditions and livelocks and discovering
+these is difficult. Approaches for automatically generating formal
+models from system designs have been proposed and successfully used in
+industry. A serious obstacle for an industrial uptake of rigorous analysis
+techniques such as model checking is the steep learning curve associated
+to the languages---typically temporal logics---used for specifying the
+application-specific properties to be checked. To bring the process of
+correctly eliciting functional properties closer to software engineers,
+we introduce PASS, a Property ASSistant wizard as part of a UML-based
+front-end to the mCRL2 toolset. PASS instantiates pattern templates using
+three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
 have focused on LTL, which is a state-based formalism. Conversely,
  $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
- components is depicted. 
-Moreover, such communication is data-dependent, so we introduce
-the possibility to define data quantifiers, to express complex properties in a concise manner.
-To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
-We revisit a case study from the Grid domain, using PASS to obtain the
-formula and monitor for checking the property with mCRL2.
+ components is depicted. We revisit a case
+study from the Grid domain, using PASS to obtain the formula and monitor
+for checking the property.
+% Early discovery of design errors which can lead to deadlocks or race conditions is 
+% challenging in concurrent software development. 
+% In the last decades, more rigorous
+% methods and tools for modeling and formal analysis have been developed. 
+% Although approaches for automatically generating formal models from system designs have 
+% been proposed, another serious obstacle for adopting model checking tools in industry
+% is the formulation of application-specific properties to be checked. 
+% This requires expertise in temporal logic, regardless of the verification tool used.
+% To bring the process of correctly eliciting functional properties closer to software 
+% designers, we introduce PASS, a Property ASSistant wizard developed 
+% as an Eclipse plugin. Our starting point was the well-established property pattern system,
+% which we extended with new property templates, to capture variations not covered 
+% in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
+% and a UML sequence diagram depicting the desired behavior. Most approaches to date 
+% have focused on LTL, which is a state-based formalism. Conversely,
+%  $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
+%  components is depicted. 
+% Moreover, such communication is data-dependent, so we introduce
+% the possibility to define data quantifiers, to express complex properties in a concise manner.
+% To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
+% We revisit a case study from the Grid domain, using PASS to obtain the
+% formula and monitor for checking the property with mCRL2.
 % \keywords{property specification, model checking, UML, sequence diagrams, modal
 % $\mu$-calculus, property patterns}
 \end{abstract}

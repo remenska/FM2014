@@ -31,7 +31,7 @@ frank.holzwarth,|
 \setlength{\belowcaptionskip}{1ex}
 \setlength{\floatsep}{1ex}
 \setlength{\textfloatsep}{1ex}
-% \usepackage{times}
+\usepackage{times}
 \usepackage{amssymb}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
@@ -79,6 +79,7 @@ NIKHEF, Amsterdam, The Netherlands
 \toctitle{Lecture Notes in Computer Science}
 \tocauthor{Authors' Instructions}
 \maketitle
+\vspace{-10 pt}
 
 \begin{abstract}
 Early discovery of design errors which can lead to deadlocks or race conditions is 
@@ -107,6 +108,8 @@ formula and monitor for checking the property with mCRL2.
 % $\mu$-calculus, property patterns}
 \end{abstract}
 \section{Introduction}
+\vspace{-8 pt}
+
 \label{sec:Introduction}
 One of the challenges in developing concurrent software is early discovery of design errors which can lead to deadlocks or race conditions.
 Traditional testing does not always expose such problems in complex distributed applications. Performing a more rigorous formal analysis, like model checking, 
@@ -119,7 +122,8 @@ the underlying mathematical formalisms used for describing the models.
 To bridge the gap between industry-adopted methodologies based on UML software
 designs, and model checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
 an automated transformation methodology for verifying UML
-models, based on sequence and activity diagrams. Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
+models, based on sequence and activity diagrams. 
+%Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
 Our prototype is able to produce
 a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model checking traces back into any modeling
 tool, without the user having to leave the UML domain. 
@@ -129,14 +133,14 @@ We chose mCRL2 because of its strong tool support and rich data types compared t
 Although the mCRL2 toolset automatically discovers deadlocks, model checking
 of application-specific properties relies on using the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses} for expressing these properties. In principle, regardless of the formal language and tool choice for writing the model, these properties 
 are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
-\begin{figure}[!t]
-\centering
-\figshrink
-\includegraphics[width=0.7\linewidth,keepaspectratio=true]{./Approach.png}
-\caption{Automated verification of UML models}
-\label{fig:approach}
-\figshrinkend
-\end{figure}
+% \begin{figure}[!t]
+% \centering
+% \figshrink
+% \includegraphics[width=0.7\linewidth,keepaspectratio=true]{./Approach.png}
+% \caption{Automated verification of UML models}
+% \label{fig:approach}
+% \figshrinkend
+%\end{figure}
 The level of sophistication and mathematical background required for using such formalisms is yet another obstacle for adopting formal methods. 
 In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
 practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
@@ -166,6 +170,7 @@ Although the patterns website~\cite{PSP} contains a collection of mappings for
 different target formalisms, such as LTL, CTL, QRE and Graphical Interval Logic, which can be considered helpful,
 practitioners have to fully understand the provided solutions before they can
 select and apply the appropriate ones in practice.
+\vspace{1.5 pt}
 
 To mitigate the above problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
 elucidating properties, based on the property patterns. These tools guide users in selecting the appropriate pattern
@@ -212,7 +217,11 @@ and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} b
 syntax and semantics of mCRL2, $\mu$-calculus and UML sequence diagrams.
 We describe our approach in Section~\ref{sec:Approach}.
 In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+\vspace{-10 pt}
+
 \section{Related Work}
+\vspace{-7 pt}
+
 \label{sec:RelatedWork}
 In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
 selecting the appropriate template from the patterns classification. Recognizing that there are subtle aspects
@@ -282,10 +291,13 @@ Their elements allow to distinguish between possible (cold) and mandatory (hot) 
 In both approaches, B\"uchi automata and LTL formulas are generated automatically from the diagrams.
 However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
 to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lacks many UML features.
+\vspace{-7 pt}
 
 \section{Preliminaries}
+
 \label{sec:Preliminaries}
 %\subsection{Property Patterns}
+\vspace{-7 pt}
 
 \subsection{Brief Introduction to mCRL2 and $\mu$-calculus}
 mCRL2 is a language and accompanying toolset for specifying and analyzing concurrent systems. 
@@ -382,8 +394,10 @@ these equation systems in terms of the original mCRL2 process.
 Observers, or monitors (\`{a} la B\"uchi) defined in the mCRL2 model itself, can sometimes
 be used to bypass the problem.
 However, not all $\mu$-calculus formulas are amenable to such a conversion.
+\vspace{-10 pt}
 
 \subsection{UML Sequence Diagrams}
+\vspace{-7 pt}
 
 Sequence diagrams model the interaction among a set of components, with
 emphasis on the sequence of \emph{messages} exchanged over time. Graphically, they have
@@ -431,8 +445,10 @@ specifies that an event must occur. In addition, we
 disallow nestings between these two fragments.
 We find that this does not limit the expressiveness of property specifications in practice.
 % I cannot find a counter-example where it would
+\vspace{-7 pt}
 \section{The Approach}
 \label{sec:Approach}
+\vspace{-5 pt}
 
 \subsection{The Rationale}
 To describe our proposal to a correct and straightforward property elucidation,
@@ -527,8 +543,11 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
+\vspace{-10 pt}
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
+\vspace{-7 pt}
+
 A general model checking mechanism used with tools like SPIN 
 is to construct a B\"uchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the B\"uchi automaton is then composed, 
@@ -641,7 +660,11 @@ Such a monitor can be placed in parallel a the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
+\vspace{-7 pt}
+
 \section{Case Study: DIRAC's Executor Framework revisited}
+\vspace{-6 pt}
+
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
 All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
 are covered by DIRAC. 
@@ -666,6 +689,8 @@ true$^*$.
 synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
 $\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
 \end{lstlisting} 
+\vspace{-5 pt}
+
 , meaning that a task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher
 declares that there are no more tasks for processing.
 Explicit model checking was not feasible in this case due to the model size (50 concurrent processes),
@@ -674,9 +699,12 @@ With a depth-first traversal in mCRL2, we effectively discovered a trace~\cite{r
 used our tool to import and automatically visualize the counter-example as a sequence diagram in RSA.
 Since the bug was reported and fixed, we wanted to check if the problem still persists after the fix, this time using PASS to 
 elicit the property.
+\vspace{-7 pt}
 
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
+\vspace{-7 pt}
+
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
@@ -718,7 +746,7 @@ Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
 Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
-This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram and a monitor process for the concerned property 
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (Fig.~\ref{fig:MonitorProperty} visualized without the data for simplicity)  
 are generated, to be used in the final model checking phase.
 \begin{figure}[!t]
 \centering
@@ -735,70 +763,33 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
+\vspace{-5 pt}
 , which puts more restrictions on the behavior, while the original one was of the following form:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
+\vspace{-5 pt}
 
-% Task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher declares that there are no more tasks for processing.
-% [ true * .
-% synch_call ( 1 , ExecutorQueues , queues , pushTask ( JobPath ,taskId, false ) ) .
-% true * .
-% ! (synch_call ( 1 , ExecutorQueues , queues , popTask ( [ JobPath ] ) ) ) * .
-% synch_eply ( 1 , ExecutorDispatcher , eDispatch , sendTaskToExecutor_return (OK, 0 ) ) ] false
-% ← I thought I could fit this one with two events and an exceptional one in between;
-% event1 = pushTask
-% event2 = noMoreTasks 
-% exceptional must happen in-between: popTask
-% but the pushTask and noMoreTasks are not really related.
-% ← this is a Response pattern with scope BEFORE. (S responds to P)
-% [(not R)*. P. (not (S or R))*. R] false
-% for paper: we actually constructed the property wrong (for case study):
-% conclusion 2: the formula above does not actually repsesent what the property
-% should check. !(popTask..) should be !(popTask or sendTaskToExecutor_return…)
-% and ([(not R)*) at the beginning , not true*. We’ve probably devised a weaker
-% property and had spurious counter-examples.
-% 
-% This is the template:
-% 
-% [(not R)*. P. (not (S or R))*. R] false
-% 
-% This si what we had:
-% 
-% [true*. P. (not S)*. R] false
-% 
-% write the monitor, visualize it again?
-
+Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 
 
 \begin{figure}[!t]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
-\includegraphics[width=0.7\textwidth]{./Buchi.png}%
-\caption{A B\"uchi automaton~\cite{Bauer:2011:RVL:2000799.2000800}}
-\label{fig:Buchi}
+\includegraphics[width=0.95\textwidth]{./SDProperty.png}%
+\caption{A sequence diagram for the property}
+\label{fig:SDProperty}
 \end{minipage}%
 \begin{minipage}[t]{0.5\linewidth}
-\includegraphics[width=1.0\textwidth]{./SDProperty.png}%
-\label{fig:PASSlaunch}
-\captionof{figure}{Launching PASS from the Eclipse Project Explorer\label{fig:SDProperty}}%
-% \caption{Launching PASS from the Eclipse Project Explorer}
+\includegraphics[width=1.0\textwidth]{./PropertyAutomaton.png}%
+\captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
+\vspace{-7 pt}
 
-
-% \begin{figure}[!b]
-% \centering
-% {%
-% \setlength{\fboxsep}{1.5pt}%
-% \setlength{\fboxrule}{0.5pt}%
-% \fbox{\includegraphics[width=1.05\linewidth,keepaspectratio=true]{./PasspopupWin.png}}%
-% }%
-% \caption{Damn it}
-% \label{fig:Last}
-% \end{figure}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
+\vspace{-7 pt}
 
 %compositional patterns
 \bibliographystyle{splncs} 

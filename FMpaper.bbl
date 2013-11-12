@@ -46,24 +46,6 @@ Mondragon, O., Gates, A.Q., Roach, S.:
   Software Properties}.
 \newblock In: {Proc. of Runtime Verification Workshop, ENTCS}.  2004
 
-\bibitem{Ziemann02anextension}
-Ziemann, P., Gogolla, M.:
-\newblock {An Extension of OCL with Temporal Logic}.
-\newblock In: {Critical Systems Development with UML}. (2002)
-
-\bibitem{Flake03formalsemantics}
-Flake, S., Mueller, W.:
-\newblock {Formal Semantics of Static and Temporal State-Oriented OCL
-  Constraints}.
-\newblock Software and Systems Modeling (SoSyM), Springer \textbf{2} (2003)
-
-\bibitem{Ackermann:2006:LOS:2135315.2135339}
-Ackermann, J., Turowski, K.:
-\newblock {A library of OCL specification patterns for behavioral specification
-  of software components}.
-\newblock In: {Proc. of the 18th international conference on Advanced
-  Information Systems Engineering}. {CAiSE'06}, Springer-Verlag (2006)
-
 \bibitem{Autili:2007:GSS:1290845.1290859}
 Autili, M., Inverardi, P., Pelliccione, P.:
 \newblock {Graphical scenarios for specifying temporal properties: an automated
@@ -107,6 +89,24 @@ Baresi, L., Ghezzi, C., Zanolin, L.:
 \bibitem{MDTUML2}
 Foundation, T.E.:
 \newblock {Eclipse Modeling {MDT-UML2} component} www.eclipse.org/uml2/.
+
+\bibitem{Ziemann02anextension}
+Ziemann, P., Gogolla, M.:
+\newblock {An Extension of OCL with Temporal Logic}.
+\newblock In: {Critical Systems Development with UML}. (2002)
+
+\bibitem{Flake03formalsemantics}
+Flake, S., Mueller, W.:
+\newblock {Formal Semantics of Static and Temporal State-Oriented OCL
+  Constraints}.
+\newblock Software and Systems Modeling (SoSyM), Springer \textbf{2} (2003)
+
+\bibitem{Ackermann:2006:LOS:2135315.2135339}
+Ackermann, J., Turowski, K.:
+\newblock {A library of OCL specification patterns for behavioral specification
+  of software components}.
+\newblock In: {Proc. of the 18th international conference on Advanced
+  Information Systems Engineering}. {CAiSE'06}, Springer-Verlag (2006)
 
 \bibitem{Giannakopoulou:2001:AVT:872023.872506}
 Giannakopoulou, D., Havelund, K.:

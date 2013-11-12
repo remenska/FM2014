@@ -5,18 +5,20 @@
 %\newcommand{\figshrinkend}{\vspace{-.4cm}}
 \newcommand{\figshrinkend}{}
 \usepackage{amssymb}
+\usepackage{times}
 \setcounter{tocdepth}{3}
 \usepackage{graphicx}
 \usepackage{amsmath}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage[caption=false,font=footnotesize]{subfig}
 
 \usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 \usepackage{algorithm}
 \usepackage{amsmath}
 \usepackage{url}
-\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas,
-frank.holzwarth,|
-\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
-\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|  
+
 \newcommand{\Tr}{\ensuremath{\mathsf{TrS}}}
 \newcommand{\TrR}{\ensuremath{\mathsf{TrR}}}
 \newcommand{\TrA}{\ensuremath{\mathsf{Cond}}}
@@ -31,31 +33,15 @@ frank.holzwarth,|
 \setlength{\belowcaptionskip}{1ex}
 \setlength{\floatsep}{1ex}
 \setlength{\textfloatsep}{1ex}
-\usepackage{times}
-\usepackage{amssymb}
+
 \setcounter{tocdepth}{3}
-\usepackage{graphicx}
-\usepackage{amsmath}
-% \usepackage[options]{algorithm2e}
-% \usepackage{algorithm}% http://ctan.org/pkg/algorithms
-\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
-\usepackage{algorithm}
 
 \makeatletter
 \renewcommand{\ALG@beginalgorithmic}{\small}
 \algrenewcommand\algorithmicindent{0.5em}%
 \makeatother
-\usepackage[caption=false,font=footnotesize]{subfig}
-\usepackage{url}
-\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas,
-frank.holzwarth,|
-\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
-\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|  
-\usepackage{listings}
-\usepackage{enumerate}
-\usepackage{textcomp}
+
 \DeclareMathSizes{10}{10}{9}{9}
-\usepackage{algpseudocode}% http://ctan.org/pkg/algorithmicx
 
 \begin{document}
 
@@ -76,63 +62,126 @@ Dept. of Computer Science, TU Eindhoven, The Netherlands
 NIKHEF, Amsterdam, The Netherlands
 }
 
-\toctitle{Lecture Notes in Computer Science}
-\tocauthor{Authors' Instructions}
 \maketitle
-\vspace{-10 pt}
 
 \begin{abstract}
-Early discovery of design errors which can lead to deadlocks or race conditions is 
-challenging in concurrent software development. 
-In the last decades, more rigorous
-methods and tools for modeling and formal analysis have been developed. 
-Although approaches for automatically generating formal models from system designs have 
-been proposed, another serious obstacle for adopting model checking tools in industry
-is the formulation of application-specific properties to be checked. 
-This requires expertise in temporal logic, regardless of the verification tool used.
-To bring the process of correctly eliciting functional properties closer to software 
-designers, we introduce PASS, a Property ASSistant wizard developed 
-as an Eclipse plugin. Our starting point was the well-established property pattern system,
-which we extended with new property templates, to capture variations not covered 
-in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
+Developing correct concurrent software is challenging. Design errors
+can result in deadlocks, race conditions and livelocks and discovering
+these is difficult. Approaches for automatically generating formal
+models from system designs have been proposed and successfully used in
+industry. A serious obstacle for an industrial uptake of rigorous analysis
+techniques such as model checking is the steep learning curve associated
+to the languages---typically temporal logics---used for specifying the
+application-specific properties to be checked. To bring the process of
+correctly eliciting functional properties closer to software engineers,
+we introduce PASS, a Property ASSistant wizard as part of a UML-based
+front-end to the mCRL2 toolset. PASS instantiates pattern templates using
+three notations: a natural language summary, a $\mu$-calculus formula
 and a UML sequence diagram depicting the desired behavior. Most approaches to date 
 have focused on LTL, which is a state-based formalism. Conversely,
  $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
- components is depicted. 
-Moreover, such communication is data-dependent, so we introduce
-the possibility to define data quantifiers, to express complex properties in a concise manner.
-To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
-We revisit a case study from the Grid domain, using PASS to obtain the
-formula and monitor for checking the property with mCRL2.
+ components is depicted. We revisit a case
+study from the Grid domain, using PASS to obtain the formula and monitor
+for checking the property.
+%%
+%%Early discovery of design errors which can lead to deadlocks or race conditions is 
+%%challenging in concurrent software development. 
+%%In the last decades, more rigorous
+%%methods and tools for modeling and formal analysis have been developed. 
+%%Although approaches for automatically generating formal models from system designs have 
+%%been proposed, another serious obstacle for adopting model checking tools in industry
+%%is the formulation of application-specific properties to be checked. 
+%%This requires expertise in temporal logic, regardless of the verification tool used.
+%%To bring the process of correctly eliciting functional properties closer to software 
+%%designers, we introduce PASS, a Property ASSistant wizard developed 
+%%as an Eclipse plugin. Our starting point was the well-established property pattern system,
+%%which we extended with new property templates, to capture variations not covered 
+%%in the original classification. PASS instantiates pattern templates using three notations: a natural language summary, a $\mu$-calculus formula
+%%and a UML sequence diagram depicting the desired behavior. Most approaches to date 
+%%have focused on LTL, which is a state-based formalism. Conversely,
+%% $\mu$-calculus is event-based, making it a good match for sequence diagrams, where communication between
+%% components is depicted. 
+%%Moreover, such communication is data-dependent, so we introduce
+%%the possibility to define data quantifiers, to express complex properties in a concise manner.
+%%To cope with state-space explosion, we provide one additional notation: a monitor for on-the-fly model checking, or bug hunting.
+%%We revisit a case study from the Grid domain, using PASS to obtain the
+%%formula and monitor for checking the property with mCRL2.
 % \keywords{property specification, model checking, UML, sequence diagrams, modal
 % $\mu$-calculus, property patterns}
 \end{abstract}
+
 \section{Introduction}
 \vspace{-8 pt}
 
 \label{sec:Introduction}
-One of the challenges in developing concurrent software is early discovery of design errors which can lead to deadlocks or race conditions.
-Traditional testing does not always expose such problems in complex distributed applications. Performing a more rigorous formal analysis, like model checking, 
-typically requires a model which is an abstraction of the system.
-In the last decades, methods and tools
-for modeling and formal analysis have been developed. Some of the leading model checking tools include SPIN, nuSMV, CADP and mCRL2. 
-Despite the research effort, these tools are still not widely accepted in the software industry. One problem is the lack of expertise and
-the necessary time investment in the development cycle, for becoming proficient in
-the underlying mathematical formalisms used for describing the models. 
-To bridge the gap between industry-adopted methodologies based on UML software
-designs, and model checking tools and languages, in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised 
-an automated transformation methodology for verifying UML
-models, based on sequence and activity diagrams. 
-%Figure~\ref{fig:approach} gives an overview of our approach and implemented toolchain. 
-Our prototype is able to produce
-a formal model into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2}, and feed model checking traces back into any modeling
-tool, without the user having to leave the UML domain. 
-We chose mCRL2 because of its strong tool support and rich data types compared to other languages.
+One of the challenges during the development of concurrent systems is detecting
+design errors, as such errors can cause deadlocks, livelocks, race conditions,
+starvation, etc. The sheer number of different executions and the
+inherent non-determinism in concurrent systems make testing such software
+infeasible. Instead, more rigorous formal analysis techniques like
+model checking are required, which exhaustively analyze the behaviors of 
+(an abstraction of) the system. Several competitive 
+toolsets, such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
+Despite the research effort, these tools are sill not widely accepted
+in industry. One problem is the lack of expertise and the steep learning
+curve associated to becoming proficient in the underlying mathematical
+formalisms that must be used for describing models in these toolsets.
+
+Bridging the gap between industry-adopted methodologies based on
+UML software designs and the aforementioned tools and languages,
+in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised an
+methodology for automatically verifying UML 
+sequence and activity diagrams.  Our prototype uses the mCRL2
+language~\cite{FormalLanguagemCRL2} and toolset as its backend,
+without users having to leave the UML domain, except when specifying
+application-specific properties.
+
+
+%Testing cannot expose all such problems due to the
+%inherent non-determinism and the sheer number of different possible
+%executions. 
+%Performing a more rigorous formal analysis,
+%like model checking, typically requires a model which is an abstraction
+%of the system.  In the last decades, methods and tools for modeling and
+%formal analysis have been developed. Some of the leading model checking
+%tools include SPIN, nuSMV, CADP and mCRL2.  Despite the research
+%effort, these tools are still not widely accepted in the software
+%industry. One problem is the lack of expertise and the necessary time
+%investment in the development cycle, for becoming proficient in the
+%underlying mathematical formalisms used for describing the models.
+%To bridge the gap between industry-adopted methodologies based
+%on UML software designs, and model checking tools and languages,
+%in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised an automated
+%transformation methodology for verifying UML models, based on sequence
+%and activity diagrams.  Our prototype is able to produce a formal model
+%into the mCRL2 process algebra language~\cite{FormalLanguagemCRL2},
+%and feed model checking traces back into any modeling tool, without
+%the user having to leave the UML domain.  We chose mCRL2 because of its
+%strong tool support and rich data types compared to other languages.
+
 %mention why we chose SDs!
 
-Although the mCRL2 toolset automatically discovers deadlocks, model checking
-of application-specific properties relies on using the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses} for expressing these properties. In principle, regardless of the formal language and tool choice for writing the model, these properties 
-are specified as formulas in some temporal logic formalism, such as Linear Temporal Logic (LTL), Computation Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
+While the mCRL2 toolset can automatically discover deadlocks and search
+for specific events, its model checking facilities require the user to
+specify his application-specific properties in a data-enriched extension
+of the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. 
+This is a highly expressive language, subsuming Linear Temporal Logic
+(LTL) and Computation Tree Logic (CTL). A downside is that
+it is not very accessible and
+requires a high level of sophistication and mathematical background.
+Even so, even LTL and CTL are not widespread in industry, despite being
+considered simpler, more accessible languages. In fact, most requirements
+are written in natural language, and often contain ambiguities which
+make it difficult even for experienced practitioners to capture them
+accurately in any temporal logic. There are subtle but crucial details
+which are often overlooked and need to be carefully considered in order
+to distil the right formula.
+
+%%In principle, regardless of the formal language and tool choice for
+%%writing the model, these properties are specified as formulas in some
+%%temporal logic formalism, such as Linear Temporal Logic (LTL), Computation
+%%Tree Logic (CTL), Quantified Regular Expressions (QRE) or $\mu$-calculus.
+
 % \begin{figure}[!t]
 % \centering
 % \figshrink
@@ -141,83 +190,159 @@ are specified as formulas in some temporal logic formalism, such as Linear Tempo
 % \label{fig:approach}
 % \figshrinkend
 %\end{figure}
-The level of sophistication and mathematical background required for using such formalisms is yet another obstacle for adopting formal methods. 
-In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
-practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
-need to be carefully considered in order to distil the right formula.
+
+%%The level of sophistication and mathematical background required for using such formalisms is yet another obstacle for adopting formal methods. 
+%%In practice, software requirements are written in natural language, and often contain ambiguities, making it difficult even for experienced 
+%%practitioners to capture them accurately with temporal logic. There are subtle, but crucial details which are often overlooked and 
+%%need to be carefully considered in order to distil the right formula.
 
 % just mention here the patterns, the fact that there are 3 categories of approaches
 % tackling the problem, the general deficiencies of these approaches and how we want to
 % take the best of all worlds; 
-Based on investigating over 500 properties coming from different domains, and specified in several formalisms, a pattern-based classification
-was developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed that almost all the surveyed properties
-can be mapped into one of several property patterns. Each pattern is a
-high-level, formalism-independent abstraction that captures a
-commonly occurring requirement. These patterns can be instantiated with specific
-events or states and then mapped to several different formalisms for model
-checking tools. Their hierarchical taxonomy is based on the idea that each
-pattern has a \emph{scope}, which defines the extent of program execution over
-which the pattern must hold, and a \emph{behavior}, which describes the intent of the pattern. The pattern
-system identifies 5 scopes and 11 behavior variations that can be
-combined to create 55 different property templates. Examples of scopes are: globally,
-before an event or state occurs, after an event or state occurs.
-Examples of behavior classification are: absence (an event or state should never
-occur during an execution), precedence (an event or
-state always occurs before another one), 
-or response (the occurrence of a an event or state must be followed by
-another event or state), capturing a cause-effect relation.
-Although the patterns website~\cite{PSP} contains a collection of mappings for
-different target formalisms, such as LTL, CTL, QRE and Graphical Interval Logic, which can be considered helpful,
-practitioners have to fully understand the provided solutions before they can
-select and apply the appropriate ones in practice.
-\vspace{1.5 pt}
 
-To mitigate the above problem, several approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec} propose conversational tools for
-elucidating properties, based on the property patterns. These tools guide users in selecting the appropriate pattern
-for the property in mind, and optionally produce a formula in some target temporal logic. 
-Another category of approaches~\cite{Ziemann02anextension,Flake03formalsemantics,Ackermann:2006:LOS:2135315.2135339} deal with temporal extensions 
-of the Object Constraint Language (OCL), as means to specify system
-properties. OCL is a declarative textual language for describing invariants for
-classes and pre- and postconditions of operations. Although it forms an integral
-part of UML, it lacks the means to specify constraints over the dynamic behavior
-of a model. Finally, a third class of approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA} tackle the property
-specification problem by proposing graphical notations for specifying properties.
+In an attempt to ease the use of temporal logic,
+in~\cite{Dwyer:1999:PPS:302405.302672}, a pattern-based classification
+was developed for capturing requirements and generating input to model
+checking tools. The authors observed that almost
+all ($>500$)  properties they surveyed can be mapped into one of several
+property patterns. Each pattern is a high-level, formalism-independent
+abstraction and captures a commonly occurring requirement. Their
+hierarchical taxonomy is based on the idea that each pattern has a
+\emph{scope}, which defines the extent of program execution over which
+the pattern must hold, and a \emph{behavior}, which describes the
+intent of the pattern. The pattern system identifies 5 scopes and 11
+behavior variations that can be combined to create 55 different property
+templates. Examples of scopes are: \emph{globally}, and \emph{after}
+an event or state occurs; examples of behavior classification are:
+\emph{absence} (an event or state should never occur during an execution)
+and \emph{response} (an event or state must be followed by another event
+or state).
 
-The objective of our work is to simplify the process of correctly eliciting
-functional requirements, without the need of expertise in temporal logic. 
-First, we introduce PASS, a Property ASSistant which guides and facilitates the process of deriving
-system properties. Our starting point was the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
-which we extended with over 100 new property templates, to capture variations not covered 
-in the original classification. Our strong motivation was to stay
-in the same UML development environment, rather than use an external helper tool for this.
-It should increase the tool accessibility by allowing software engineers to remain focused in the realm of UML designs.
-In addition, a tight bond between elements of the design and instances of the property template is kept, such that, if the 
-design is changed, these changes can be easily propagated in the property template placeholders. 
-To this end, we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API. Our tool is developed as an Eclipse plugin.
-Second, the pattern templates instantiated with PASS have three notations: a natural language summary, a $\mu$-calculus formula
-and a UML sequence diagram depicting the desired behavior. Most approaches to date 
-have focused on LTL, which is a state-based temporal logic formalism. Conversely,
-the $\mu$-calculus is event-based, and as such is a good match for the sequence diagrams notation. 
-These events can represent methods calls or asynchronous communication between distributed components.
-Moreover, such communication is data-dependent, which is why we introduce
-the possibility to define quantifiers, to express complex properties in a concise manner, e.g., every
-element of a certain type must fulfil a certain property. 
-Unlike LTL or CTL,  the $\mu$-calculus is powerful enough
-to achieve this in a natural way. Third, to cope with state-space explosion,
-we provide one additional automatically-generated notation: a monitor for on-the-fly model checking, or bug hunting.
-We interpret a sequence diagram as an observer of the message exchanges in the system.
-This helps to avoid exploring irrelevant parts of the state space. The state space
-generation is thus property driven, and stops as soon as an error is found.
-Finally, we revisit a case study we did previously in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}, this time
-using the PASS tool to automatically obtain the formula and monitor for checking the property in mCRL2.
+Although the patterns website~\cite{PSP} contains a collection
+of mappings for different target formalisms such as LTL and CTL, 
+in practice practitioners have to fully understand the
+solutions before they can select and apply the appropriate ones.
+%%Based on investigating over 500 properties coming from different domains,
+%%and specified in several formalisms, a pattern-based classification was
+%%developed in~\cite{Dwyer:1999:PPS:302405.302672}. The authors observed
+%%that almost all the surveyed properties can be mapped into one of several
+%%property patterns. Each pattern is a high-level, formalism-independent
+%%abstraction that captures a commonly occurring requirement. These patterns
+%%can be instantiated with specific events or states and then mapped to
+%%several different formalisms for model checking tools. Their hierarchical
+%%taxonomy is based on the idea that each pattern has a \emph{scope}, which
+%%defines the extent of program execution over which the pattern must hold,
+%%and a \emph{behavior}, which describes the intent of the pattern. The
+%%pattern system identifies 5 scopes and 11 behavior variations that can be
+%%combined to create 55 different property templates. Examples of scopes
+%%are: globally, before an event or state occurs, after an event or state
+%%occurs.  Examples of behavior classification are: absence (an event or
+%%state should never occur during an execution), precedence (an event or
+%%state always occurs before another one), or response (the occurrence of a
+%%an event or state must be followed by another event or state), capturing a
+%%cause-effect relation.  Although the patterns website~\cite{PSP} contains
+%%a collection of mappings for different target formalisms, such as LTL,
+%%CTL, QRE and Graphical Interval Logic, which can be considered helpful,
+%%practitioners have to fully understand the provided solutions before
+%%they can select and apply the appropriate ones in practice.\medskip
+%%
+To mitigate this problem, several
+approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec}
+propose conversational tools for elucidating properties,
+based on the patterns. These tools guide users in
+selecting the appropriate pattern and optionally produce
+a formula in some target temporal logic.  
+%Another category of
+%approaches~\cite{Ziemann02anextension,Flake03formalsemantics,Ackermann:2006:LOS:2135315.2135339}
+%deal with temporal extensions of the Object Constraint Language
+%(OCL), as means to specify system properties. OCL is a declarative
+%textual language for describing invariants for classes and
+%pre- and postconditions of operations. Although it forms an
+%integral part of UML, it lacks the means to specify constraints
+%over the dynamic behavior of a model. 
+Alternative
+approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA}
+tackle the property specification problem by proposing new graphical
+notations for specifying properties. A downside of all these approaches is
+that they still expect users to have some expertise in temporal logic.
+Moreover, most approaches rely on state-based temporal logics. Such
+logics conceptually do not match the typical event-based UML sequence
+diagrams and activity diagrams, in which events represent methods calls
+or asynchronous communication between distributed components.
 
-This paper is structured as follows: in Section~\ref{sec:RelatedWork} we
+The objective of our work is to simplify the process of specifying
+functional requirements for event-based systems, \emph{without}
+the need of expertise in temporal logic.  We introduce PASS,
+a Property ASSistant which is a tool that guides and facilitates 
+deriving system properties. Our starting point was the pattern
+system~\cite{Dwyer:1999:PPS:302405.302672}, which we extended with over
+100 new property templates. 
+The pattern templates instantiated with PASS have three notations:
+a natural language summary, a $\mu$-calculus formula and a UML sequence
+diagram depicting desired behaviors.  We utilized mCRL2's rich data
+extensions of the $\mu$-calculus to express complex data-dependent
+properties.  Lastly, we automatically generate
+monitors which can be used for property-driven on-the-fly model checking
+using the standard state-space exploration facilities
+of mCRL2.
+Our monitors are essentially sequence diagrams,  acting as
+observers of message exchanges.
+
+We deliberately chose to develop our tool as an Eclipse plugin, as
+our strong motivation was to stay within an existing UML development
+environment, rather than use an external helper tool for this.  We are
+convinced that this increases the tool accessibility by allowing software
+engineers to remain focused in the realm of UML designs.  In addition,
+a tight connection between elements of the design and instances of the property
+template is kept, such that, if the design is changed, these changes can
+be easily propagated in the property template placeholders.  To this end,
+we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API,
+and we developed PASS as an Eclipse plugin.
+
+
+%Our strong
+%motivation was to stay in the same UML development environment, rather
+%than use an external helper tool for this.  It should increase the tool
+%accessibility by allowing software engineers to remain focused in the
+%realm of UML designs.  In addition, a tight bond between elements of
+%the design and instances of the property template is kept, such that,
+%if the design is changed, these changes can be easily propagated in
+%the property template placeholders.  To this end, we use the standard
+%MDT-UML2~\cite{MDTUML2} Eclipse modeling API. Our tool is developed
+%as an Eclipse plugin.  Second, the pattern templates instantiated with
+%PASS have three notations: a natural language summary, a $\mu$-calculus
+%formula and a UML sequence diagram depicting the desired behavior. Most
+%approaches to date have focused on LTL, which is a state-based temporal
+%logic formalism. Conversely, the $\mu$-calculus is event-based, and as
+%such is a good match for the sequence diagrams notation.  These events can
+%represent methods calls or asynchronous communication between distributed
+%components.  Moreover, such communication is data-dependent, which is why
+%we introduce the possibility to define quantifiers, to express complex
+%properties in a concise manner, e.g., every element of a certain type
+%must fulfil a certain property.  Unlike LTL or CTL,  the $\mu$-calculus
+%is powerful enough to achieve this in a natural way. Third, to cope with
+%state-space explosion, we provide one additional automatically-generated
+%notation: a monitor for on-the-fly model checking, or bug hunting.
+%We interpret a sequence diagram as an observer of the message exchanges
+%in the system.  This helps to avoid exploring irrelevant parts of
+%the state space. The state space generation is thus property driven,
+%and stops as soon as an error is found.  
+
+We illustrate PASS by revisiting a case study we did previously
+in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}, this time using PASS
+to automatically obtain the formula and monitor for checking the
+property.\medskip
+
+\noindent\emph{Structure.}
+In Section~\ref{sec:RelatedWork} we
  survey the most relevant related approaches,
-and outline their advantages and shortcomings. Section~\ref{sec:Preliminaries} briefly introduces the
-syntax and semantics of mCRL2, $\mu$-calculus and UML sequence diagrams.
-We describe our approach in Section~\ref{sec:Approach}.
-In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
-\vspace{-10 pt}
+and outline their advantages and
+shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
+the syntax and semantics of mCRL2, $\mu$-calculus and UML sequence
+diagrams.  We describe our approach in Section~\ref{sec:Approach}.
+In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the
+Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
+\vspace{-7 pt}
 
 \section{Related Work}
 \vspace{-7 pt}
@@ -304,7 +429,7 @@ mCRL2 is a language and accompanying toolset for specifying and analyzing concur
 Our choice for using the mCRL2 language is motivated by its rich set of 
 abstract data types as first-class citizens, as well as its powerful toolset for analyzing, simulating, and visualizing specifications. 
 The fragment of the mCRL2 syntax that is most commonly used is given by the following BNF grammar:
-%\vspace{-7 pt}
+\vspace{-7 pt}
 \[p ::= a(d_1,\dots,d_n) \mid \tau \mid \delta \mid p+p \mid p\cdot p \mid p||p \mid \sum\nolimits_{d:D}p \mid c\rightarrow p\diamond p \mid \nabla_H(p) \mid \Gamma_C(p)
 \]
 Actions are the basic ingredients for models. They represent some observable
@@ -397,7 +522,7 @@ However, not all $\mu$-calculus formulas are amenable to such a conversion.
 \vspace{-10 pt}
 
 \subsection{UML Sequence Diagrams}
-\vspace{-7 pt}
+\vspace{-6 pt}
 
 Sequence diagrams model the interaction among a set of components, with
 emphasis on the sequence of \emph{messages} exchanged over time. Graphically, they have
@@ -445,10 +570,10 @@ specifies that an event must occur. In addition, we
 disallow nestings between these two fragments.
 We find that this does not limit the expressiveness of property specifications in practice.
 % I cannot find a counter-example where it would
-\vspace{-7 pt}
+\vspace{-8 pt}
 \section{The Approach}
 \label{sec:Approach}
-\vspace{-5 pt}
+\vspace{-7 pt}
 
 \subsection{The Rationale}
 To describe our proposal to a correct and straightforward property elucidation,
@@ -543,10 +668,10 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
-\vspace{-10 pt}
+\vspace{-20 pt}
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
-\vspace{-7 pt}
+\vspace{-10 pt}
 
 A general model checking mechanism used with tools like SPIN 
 is to construct a B\"uchi automaton for an LTL formula, which accepts exactly those executions
@@ -663,7 +788,7 @@ quickly after a limited exploration.
 \vspace{-7 pt}
 
 \section{Case Study: DIRAC's Executor Framework revisited}
-\vspace{-6 pt}
+\vspace{-8 pt}
 
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
 All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
@@ -703,7 +828,7 @@ elicit the property.
 
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
-\vspace{-7 pt}
+\vspace{-6 pt}
 
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
@@ -763,17 +888,15 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
-\vspace{-5 pt}
 , which puts more restrictions on the behavior, while the original one was of the following form:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
-\vspace{-5 pt}
 
 Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 
 
-\begin{figure}[!t]
+\begin{figure}[!b]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
 \includegraphics[width=0.95\textwidth]{./SDProperty.png}%
