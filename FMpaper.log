@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 10:15
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 11:06
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -464,7 +464,7 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 113.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
@@ -481,12 +481,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 427.
- [5] [6]
-<./Figure2_merged.png, id=34, 755.82375pt x 328.22626pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 428.
+ [5]
+<./Figure2_merged.png, id=31, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
-<use ./Figure2_merged.png> [7 <./Figure2_merged.png (PNG copy)>]
+<use ./Figure2_merged.png> [6] [7 <./Figure2_merged.png (PNG copy)>]
 <./ResponseChain_withMonitor1.png, id=39, 637.38126pt x 377.41pt>
 File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
@@ -494,20 +494,21 @@ File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 <./ResponseChainPSC.png, id=41, 488.82625pt x 552.0625pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
-<use ./ResponseChainPSC.png> [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<use ./ResponseChainPSC.png>
+Underfull \vbox (badness 5105) has occurred while \output is active []
 
- [9 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
-<./Buchi.png, id=49, 509.905pt x 186.6975pt>
+ [8]
+<./Buchi.png, id=45, 509.905pt x 186.6975pt>
 File: ./Buchi.png Graphic file (type png)
  <use ./Buchi.png>
-<./PASSlaunch.png, id=50, 429.605pt x 180.675pt>
+<./PASSlaunch.png, id=46, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
  <use ./PASSlaunch.png>
-Underfull \vbox (badness 3460) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [10 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [11]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 809.
+ [9 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>] [10
+ <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [11]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 811.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
@@ -517,26 +518,26 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 846--848
+Overfull \hbox (4.0pt too wide) in paragraph at lines 848--850
  [][] 
  []
 
 [12] <./Last.png, id=64, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 881--883
+Overfull \hbox (4.0pt too wide) in paragraph at lines 883--885
  [][] 
  []
 
-[13 <./ScopeSelection1.png (PNG copy)>]
-<./SDProperty.png, id=69, 524.96124pt x 296.10625pt>
+<./SDProperty.png, id=65, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-<./PropertyAutomaton.png, id=70, 327.2225pt x 123.46124pt>
+<./PropertyAutomaton.png, id=66, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
-<use ./PropertyAutomaton.png> (./FMpaper.bbl [14 <./Last.png (PNG copy)> <./SDP
-roperty.png (PNG copy)> <./PropertyAutomaton.png (PNG copy)>]
+<use ./PropertyAutomaton.png> (./FMpaper.bbl [13 <./ScopeSelection1.png (PNG co
+py)>] [14 <./Last.png (PNG copy)> <./SDProperty.png (PNG copy)> <./PropertyAuto
+maton.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 137--140
 []\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
@@ -546,13 +547,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--155
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-[15]
+
 Underfull \hbox (badness 10000) in paragraph at lines 172--175
 []\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
 ptm/m/n/9 UML toolset
  []
 
-) [16] (./FMpaper.aux)
+) [15] (./FMpaper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -560,7 +561,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  5409 strings out of 493848
  75329 string characters out of 1152823
- 143851 words of memory out of 3000000
+ 142851 words of memory out of 3000000
  8590 multiletter control sequences out of 15000+50000
  27080 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
@@ -579,9 +580,9 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 2545549 bytes).
+Output written on FMpaper.pdf (15 pages, 2543302 bytes).
 PDF statistics:
- 128 PDF objects out of 1000 (max. 8388607)
+ 125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -109,9 +109,10 @@ for checking the property.
 % \keywords{property specification, model checking, UML, sequence diagrams, modal
 % $\mu$-calculus, property patterns}
 \end{abstract}
+\vspace{-20 pt}
 
 \section{Introduction}
-\vspace{-8 pt}
+\vspace{-10 pt}
 
 \label{sec:Introduction}
 One of the challenges during the development of concurrent systems is detecting
@@ -430,7 +431,9 @@ Our choice for using the mCRL2 language is motivated by its rich set of
 abstract data types as first-class citizens, as well as its powerful toolset for analyzing, simulating, and visualizing specifications. 
 The fragment of the mCRL2 syntax that is most commonly used is given by the following BNF grammar:
 \vspace{-7 pt}
-\[p ::= a(d_1,\dots,d_n) \mid \tau \mid \delta \mid p+p \mid p\cdot p \mid p||p \mid \sum\nolimits_{d:D}p \mid c\rightarrow p\diamond p \mid \nabla_H(p) \mid \Gamma_C(p)
+% \[p ::= a(d_1,\dots,d_n) \mid \tau \mid \delta \mid p+p \mid p\cdot p \mid p||p \mid \sum\nolimits_{d:D}p \mid c\rightarrow p\diamond p \mid \nabla_H(p) \mid \Gamma_C(p)
+% \]
+\[p ::= a(d_1,\dots,d_n) \mid \tau \mid \delta \mid p+p \mid p\cdot p \mid p||p \mid \sum\nolimits_{d:D}p \mid c\rightarrow p\diamond p
 \]
 Actions are the basic ingredients for models. They represent some observable
 atomic event. An action $a$ of a process may have a number of data arguments  \begin{math}d_1,...,d_n\end{math}.
@@ -443,11 +446,10 @@ processes parameterized by variable $d$. The behavior of the conditional process
 depends on the value of the boolean expression $c$: if it evaluates to true, process $p$
 is chosen and otherwise process $q$ is chosen.
 This allows for modeling systems whose behavior is data-dependent.
-
-To enforce synchronization between processes, the allow operator ${\nabla_H(p)}$ specifies the set of actions $H$ that are allowed
-to occur. To show possible communications in a system and the resulting actions, the communication operator
-${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
-means that action $c$ is the result of the multi-party synchronization of actions $a_1 , a_2 , \dots $ and $a_n$.
+% To enforce synchronization between processes, the allow operator ${\nabla_H(p)}$ specifies the set of actions $H$ that are allowed
+% to occur. To show possible communications in a system and the resulting actions, the communication operator
+% ${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
+% means that action $c$ is the result of the multi-party synchronization of actions $a_1 , a_2 , \dots $ and $a_n$.
 There are a number of built-in data types in mCRL2, such as (unbounded) integers, (uncountable)
 reals, booleans, lists, and sets. 
 Furthermore, by a \textbf{sort} definition one can define a new data type. Recursive process 
