@@ -646,6 +646,7 @@ been acquired or released can be naturally expressed by actions. Since state-bas
 temporal logics lack this mechanism, an alternative is to introduce a variable to indicate
 the status of the lock, i.e., expose the state information. With such properties, LTS
 representations are more intuitive, and easier to query using event-based logics.
+\vspace{-2 pt}
 
 Given that communication among components proceeds via actions (or events) which can
 represent synchronous or asynchronous communication, property specification
@@ -660,6 +661,7 @@ make sense only for state-based formalisms. For example, the \emph{universality}
 pattern is used to describe a portion of the system's execution which contains only states/events that have a desired property.
 Checking if a certain event is executed in every step of the system execution is not useful,
 so we adapted it in the context of $\mu$-calculus. 
+\vspace{-2 pt}
 
 Finally, for the purpose of on-the-fly verification, we provide an
 automatically generated mCRL2 monitor which corresponds to the property formula.
@@ -720,6 +722,7 @@ a monitor for about 50\% of the property patterns.
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
+\vspace{-5 pt}
 \[
 \begin{array}{ll}
 \phi & ::= b \mid \forall d{:}D.\phi \mid [\rho]\phi \mid \phi\wedge \phi\\
@@ -827,7 +830,6 @@ used our tool to import and automatically visualize the counter-example as a seq
 Since the bug was reported and fixed, we wanted to check if the problem still persists after the fix, this time using PASS to 
 elicit the property.
 \vspace{-7 pt}
-
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
 \vspace{-6 pt}
@@ -887,14 +889,17 @@ are generated, to be used in the final model checking phase.
 \end{figure}
 One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
 The general pattern template obtained with PASS is:
+\vspace{-4 pt}
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
+\vspace{-6 pt}
 , which puts more restrictions on the behavior, while the original one was of the following form:
+\vspace{-5 pt}
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
-
+\vspace{-7 pt}
 Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 
 

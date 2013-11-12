@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 11:06
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  12 NOV 2013 11:11
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -508,7 +508,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [9 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>] [10
  <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG copy)>] [11]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 811.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 814.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
@@ -518,14 +518,14 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 848--850
+Overfull \hbox (4.0pt too wide) in paragraph at lines 850--852
  [][] 
  []
 
 [12] <./Last.png, id=64, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 883--885
+Overfull \hbox (4.0pt too wide) in paragraph at lines 885--887
  [][] 
  []
 
@@ -535,9 +535,11 @@ File: ./SDProperty.png Graphic file (type png)
 <./PropertyAutomaton.png, id=66, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
-<use ./PropertyAutomaton.png> (./FMpaper.bbl [13 <./ScopeSelection1.png (PNG co
-py)>] [14 <./Last.png (PNG copy)> <./SDProperty.png (PNG copy)> <./PropertyAuto
-maton.png (PNG copy)>]
+<use ./PropertyAutomaton.png> (./FMpaper.bbl
+Underfull \vbox (badness 1960) has occurred while \output is active []
+
+ [13 <./ScopeSelection1.png (PNG copy)>] [14 <./Last.png (PNG copy)> <./SDPrope
+rty.png (PNG copy)> <./PropertyAutomaton.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 137--140
 []\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
@@ -580,7 +582,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 2543302 bytes).
+Output written on FMpaper.pdf (15 pages, 2543286 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
