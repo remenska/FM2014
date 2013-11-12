@@ -20,8 +20,7 @@ Groote, J.F., Willemse, T.A.C.:
 \bibitem{Dwyer:1999:PPS:302405.302672}
 Dwyer, M.B.,  et~al.:
 \newblock {Patterns in property specifications for finite-state verification}.
-\newblock In: {Proc. of the 21st international conference on Software
-  engineering}. {ICSE '99}, ACM (1999)
+\newblock In: {Proc. ICSE '99}, ACM
 
 \bibitem{PSP}
 Dwyer, M.B.,  et~al.:
@@ -31,7 +30,7 @@ Dwyer, M.B.,  et~al.:
 \bibitem{Smith02propel:an}
 Smith, R.L., Avrunin, G.S., Clarke, L.A., Osterweil, L.J.:
 \newblock {Propel: an approach supporting property elucidation}.
-\newblock In: {24th Intl. Conf. on Software Engineering}, ACM Press (2002)
+\newblock In: {Proc. ISCE'02}. (2002)
 
 \bibitem{konrad2005facilitating}
 Konrad, S., Cheng, B.H.:
@@ -49,7 +48,7 @@ Mondragon, O., Gates, A.Q., Roach, S.:
 Autili, M., Inverardi, P., Pelliccione, P.:
 \newblock {Graphical scenarios for specifying temporal properties: an automated
   approach}.
-\newblock Automated Software Engg. \textbf{14}(3) (September 2007)
+\newblock Automated Software Eng. (2007)
 
 \bibitem{Lee97agraphical}
 Lee, I., Sokolsky, O.:
@@ -71,7 +70,7 @@ Knapp, A., Wuttke, J.:
 \bibitem{Lilius99vuml:a}
 Lilius, J., Paltor, I.P.:
 \newblock {vUML: a Tool for Verifying UML Models}.
-\newblock In: {Proc. ASE'99}. (1999)
+\newblock In: {Proc. ASE'99}
 
 \bibitem{Kugler:2005:TLS:2140653.2140692}
 Kugler, H.,  et~al.:
@@ -91,7 +90,7 @@ Foundation, T.E.:
 Giannakopoulou, D., Havelund, K.:
 \newblock {Automata-Based Verification of Temporal Properties on Running
   Programs}.
-\newblock In: {Proc.ASE 2001}, IEEE Computer Society
+\newblock In: {Proc. ASE'01}
 
 \bibitem{Ziemann02anextension}
 Ziemann, P., Gogolla, M.:
@@ -102,13 +101,13 @@ Ziemann, P., Gogolla, M.:
 Flake, S., Mueller, W.:
 \newblock {Formal Semantics of Static and Temporal State-Oriented OCL
   Constraints}.
-\newblock Software and Systems Modeling (SoSyM), Springer \textbf{2} (2003)
+\newblock Proc. SoSyM'03
 
 \bibitem{Ackermann:2006:LOS:2135315.2135339}
 Ackermann, J., Turowski, K.:
 \newblock {A library of OCL specification patterns for behavioral specification
   of software components}.
-\newblock In: {Proc. CAiSE'06}, Springer-Verlag (2006)
+\newblock In: {Proc. CAiSE'06}
 
 \bibitem{Emerson97modelchecking}
 Emerson, E.A.:
@@ -146,7 +145,7 @@ Mateescu, R.:
 \bibitem{Bauer:2011:RVL:2000799.2000800}
 Bauer, A., Leucker, M., Schallhart, C.:
 \newblock {Runtime Verification for LTL and TLTL}.
-\newblock ACM Trans. Softw. Eng. Methodol. \textbf{20} (2011)
+\newblock In Proc. TOSEM'11
 
 \bibitem{DBLP:journals/corr/abs-1006-3638}
 Bauer, A.:
@@ -162,10 +161,5 @@ Tsaregorodtsev, A.,  et~al.:
 Remenska, D., Homburg, P.:
 \newblock {The mCRL2$\Leftrightarrow$UML toolset}
   https://github.com/remenska/NFM.
-
-\bibitem{repo:PASS}
-Remenska, D., Willemse, T.A.C.:
-\newblock {Property ASSistant tool for Eclipse}
-  https://github.com/remenska/FM2014.
 
 \end{thebibliography}

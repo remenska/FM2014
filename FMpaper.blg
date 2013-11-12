@@ -4,72 +4,70 @@ The style file: splncs.bst
 Database file #1: FM2014.bib
 Warning--entry type for "PSP" isn't style-file defined
 --line 76 of file FM2014.bib
-Repeated entry---line 1149 of file FM2014.bib
+Repeated entry---line 1141 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "MDTUML2" isn't style-file defined
---line 1784 of file FM2014.bib
-Repeated entry---line 1799 of file FM2014.bib
+--line 1762 of file FM2014.bib
+Repeated entry---line 1777 of file FM2014.bib
  : @inproceedings{FormalLanguagemCRL2
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "UML2.4_superstructure" isn't style-file defined
---line 1805 of file FM2014.bib
+--line 1783 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
---line 1820 of file FM2014.bib
+--line 1798 of file FM2014.bib
 Warning--entry type for "repo:remenska" isn't style-file defined
---line 1850 of file FM2014.bib
-Repeated entry---line 1857 of file FM2014.bib
+--line 1828 of file FM2014.bib
+Repeated entry---line 1835 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
 I'm skipping whatever remains of this entry
-Warning--entry type for "repo:PASS" isn't style-file defined
---line 1873 of file FM2014.bib
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 Warning--I didn't find a database entry for "2013"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 31 entries,
+You've used 30 entries,
             2087 wiz_defined-function locations,
-            664 strings with 8905 characters,
-and the built_in function-call counts, 5792 in all, are:
-= -- 509
-> -- 252
+            650 strings with 8575 characters,
+and the built_in function-call counts, 5534 in all, are:
+= -- 465
+> -- 244
 < -- 1
-+ -- 96
-- -- 65
-* -- 279
-:= -- 832
-add.period$ -- 37
-call.type$ -- 31
-change.case$ -- 31
++ -- 93
+- -- 63
+* -- 241
+:= -- 789
+add.period$ -- 35
+call.type$ -- 30
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 341
-empty$ -- 746
-format.name$ -- 65
-if$ -- 1447
+cite$ -- 32
+duplicate$ -- 335
+empty$ -- 728
+format.name$ -- 63
+if$ -- 1380
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 30
 missing$ -- 24
-newline$ -- 151
-num.names$ -- 31
-pop$ -- 201
+newline$ -- 147
+num.names$ -- 30
+pop$ -- 214
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 136
+skip$ -- 138
 stack$ -- 0
 substring$ -- 8
-swap$ -- 71
+swap$ -- 62
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 32
-width$ -- 33
-write$ -- 305
+while$ -- 31
+width$ -- 32
+write$ -- 285
 (There were 4 error messages)
