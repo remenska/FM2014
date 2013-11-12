@@ -67,7 +67,7 @@ NIKHEF, Amsterdam, The Netherlands
 
 \begin{abstract}
 Developing correct concurrent software is challenging. Design errors
-can result in deadlocks, race conditions and livelocks and discovering
+can result in deadlocks, race conditions and livelocks, and discovering
 these is difficult. Approaches for automatically generating formal
 models from system designs have been proposed and successfully used in
 industry. A serious obstacle for an industrial uptake of rigorous analysis
@@ -350,32 +350,44 @@ Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \vspace{-7 pt}
 
 \label{sec:RelatedWork}
-In~\cite{Smith02propel:an} the authors developed PROPEL, a tool for guiding users in 
-selecting the appropriate template from the patterns classification. Recognizing that there are subtle aspects
-not covered by the original patterns, such as what happens in a response
-property if the cause occurs multiple times before the effect takes place,
-they extended them with variants. The resulting templates 
-are represented using ``disciplined natural language'' and finite state automata. 
-PROPEL does not support the universality, bounded existence, and the chain patterns. It also 
-does not produce a formula in any of the commonly used temporal logic formalisms.
-In a similar manner, SPIDER~\cite{konrad2005facilitating} and 
-Prospec~\cite{Mondragon_prospec} offer assistance in the specification process, and extend the original patterns
-with compositional ones that are built up from combinations of more basic patterns. 
-Unfortunately, we could not find SPIDER online, and the latest version of Prospec that we found and tested (Fig.~\ref{fig:Approaches} left) produces only 
-formulas in Future Interval Logic, not LTL as stated in the work.
+PROPEL~\cite{Smith02propel:an} is a tool that
+guides users in selecting the appropriate template from the patterns
+classification. PROPEL adds new patterns covering subtle aspects
+not addressed by the original patterns (such as considering the effect
+of multiple occurrences of a cause in a pattern); at the same time it
+omits patterns such as the universality, bounded
+existence and chain patterns. The resulting templates are represented
+using ``disciplined natural language'' and finite state automata rather
+than temporal logic expressions.
+%
+%Recognizing that there are subtle aspects not covered
+%by the original patterns, such as what happens in a response property
+%if the cause occurs multiple times before the effect takes place, they
+%extended them with variants. The resulting templates are represented
+%using ``disciplined natural language'' and finite state automata.
+%PROPEL does not support the universality, bounded existence, and
+%the chain patterns, nor does it generate formulas in any of
+%the commonly used temporal logic formalisms.  
+Similar to PROPEL, the tools SPIDER~\cite{konrad2005facilitating}
+and Prospec~\cite{Mondragon_prospec} extend the original patterns but
+add compositionality.  SPIDER is no longer maintained and
+available; the latest version of Prospec that we found and tested
+(Fig.~\ref{fig:Approaches} left) produces formulas in Future Interval
+Logic, not LTL as stated in~\cite{Mondragon_prospec}.
 
-Of the approaches that deal with temporal extensions of OCL,~\cite{Ziemann02anextension}
-introduces the @pre and @next temporal modifiers for specification of past and future state-oriented constraints. 
-By means of UML Profiles,~\cite{Flake03formalsemantics}
-proposes another OCL extension for real-time constraints. They claim to be able to describe all the existing 
-patterns in these OCL expressions. Their starting point for model descriptions are UML state machines.
-To simplify constraint definition with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors 
-propose to use specification patterns for which OCL constraints can be generated automatically.
-The behavioral specification of software components refers to interface specifications,
-which are not really dynamic views. This work does not yet introduce means to specify temporal properties.
-Resembling an OO programming language, OCL constraints can become quite dense and cryptic, and editing 
-them manually is error-prone. Another problem is the extent to which designers are familiar with this language.
-\begin{figure*}[t!]
+Approaches that use a graphical notation for specifying properrties
+come closest to the realm of modeling the system behavior.
+In~\cite{Lee97agraphical}, formulas are represented as acyclic graphs of
+states and temporal operators as nodes.  Technically, the underlying LTL
+formalism is hidden from the user but the notation still closely resembles
+the formalism.  As such, it is not very accessible.  Another tool,
+called the TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} permits
+formalizing specific requirements using timeline diagrams. For instance,
+response formulas are depicted in timeline diagrams by specifying
+temporal relations among events and constraints.  These diagrams are
+then automatically converted into B\"uchi automata, amenable to model
+checking with SPIN.  Unfortunately the tool is no longer available.
+\begin{figure*}[h!]
   \centering
   \subfloat{\label{fig:Prospec}\includegraphics[width=0.73\linewidth]{./Prospec.png}}    
   \hfill
@@ -383,45 +395,60 @@ them manually is error-prone. Another problem is the extent to which designers a
   \caption{Left: Prospec tool; right: CHARMY PSC graphical notation}
   \label{fig:Approaches}
 \end{figure*}
+The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents
+a scenario-based visual language called Property Sequence Charts
+(PSC). Properties in this language are relations on a set of exchanged
+system messages. The language borrows concepts from UML 2.0 Sequence
+Diagrams and the tool uses the toolset SPIN as a backend for model checking
+generated B\"uchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}.
+The PSC notation uses textual restrictions for past and future events,
+placed as circles directly on message arrows (Fig.~\ref{fig:Approaches}
+right). A drawback of PSC is that it does not support asynchronous
+communication, which is omnipresent in concurrent systems.  Furthermore,
+CHARMY is a standalone framework for architectural descriptions, not
+inter-operable with UML tools. As such, its use in industrial contexts
+is limited.
 
-Graphical notation approaches come closest to the realm of modeling the system behavior.
-%closest to our work...
-The CHARMY approach~\cite{Autili:2007:GSS:1290845.1290859} presents a scenario-based visual language called 
-Property Sequence Charts (PSC), where a property is seen as a relation on a set of exchanged
-system messages. The language borrows concepts from UML 2.0 Sequence Diagrams, and its expressiveness
-is measured with the property patterns. SPIN is used as a backend for model checking of
-the B\"uchi automata~\cite{Giannakopoulou:2001:AVT:872023.872506}, which are 
-an operational representation for LTL formulas generated automatically with this approach.
-The PSC notation uses textual restrictions for past and future events, placed as circles directly on the message arrows (Fig.~\ref{fig:Approaches} right).
-Such a mix of textual and visual representation of message communication
-within a diagram can be error-prone. Additionally, asynchronous communication is not supported.
-Furthermore, even though concepts from UML are borrowed, CHARMY is a standalone framework for architectural descriptions,
-not inter-operable with UML tools, and as such its use in industrial contexts is limited.
-Another graphical language is proposed in~\cite{Lee97agraphical}, where formulas
-are represented as acyclic graphs of states and temporal operators as nodes.
-While they manage to hide the formalism from the user by generating LTL formulas, 
-their notation is still very close to an actual temporal logic formula.
-The TimeLine Editor~\cite{Smith:2001:ECG:882477.883639} also attempts to simplify the formalization of certain
-kinds of requirements. Response formulas are depicted in timeline diagrams by specifying temporal relations among events and constraints. 
-The timeline specification is automatically converted into a B\"uchi automaton, amenable to model checking with SPIN.
-Unfortunately the tool is no longer available.
-HUGO/RT~\cite{Knapp:2006:MCU:1762828.1762836} is a tool for model checking UML 2.0 interactions 
-against a model composed of message-exchanging state machines. The interactions represent the desired properties,
-and are translated together with the system model into B\"uchi automata for model checking with SPIN.
-The approach uses some inner format for textual representation of UML interactions (rather than
-the standard XMI), and the version we tested does not support asynchronous messages, or combined fragments.
-vUML~\cite{Lilius99vuml:a} is a tool for automatic verification of UML models comprising state machines.
-However, properties must be specified in terms of undesired scenarios, which is not always convenient.
-This is because the verification is based on checking whether it is possible to reach error states, which must be manually specified by the user.
-Live Sequence Charts (LSC) are also used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical formalism for expressing behavioral properties.
-Their elements allow to distinguish between possible (cold) and mandatory (hot) behavior.
-In both approaches, B\"uchi automata and LTL formulas are generated automatically from the diagrams.
-However, UML 2.0 sequence diagrams already borrow many concepts from LSC, by introducing the \emph{assert} and \emph{negate} fragments
-to capture mandatory and forbidden behavior. On the other hand, being an older graphical notation, LSC lacks many UML features.
+Among the UML-based tools are
+HUGO/RT~\cite{Knapp:2006:MCU:1762828.1762836} and
+vUML~\cite{Lilius99vuml:a}.  HUGO/RT is a tool for model checking
+UML 2.0 interactions against a model composed of message-exchanging
+state machines. The interactions represent the desired properties,
+and are translated together with the system model into B\"uchi automata
+for model checking with SPIN.  The version we tested neither supports
+asynchronous messages nor combined fragments.  vUML~\cite{Lilius99vuml:a}
+is, like HUGO/RT, essentially a tool for automating verifications
+of UML state machines.  Properties must be specified in terms of
+undesired scenarios.  The verification is based on checking whether
+it is possible to reach error states. This is inconvenient, as users
+must specify these manually.  Live Sequence Charts (LSC) are also
+used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical
+formalism for expressing behavioral properties.  They can distinguish
+between possible (cold) and mandatory (hot) behaviors.  For both, B\"uchi
+automata and LTL formulas are generated automatically from the diagrams.
+UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing
+the \emph{assert} and \emph{negate} fragments to capture mandatory and
+forbidden behavior. On the other hand, LSCs lack many UML features.
+
+Finally, there are several temporal extensions of UML's property
+language OCL.  Resembling an OO programming language, OCL constraints
+quickly become quite dense and cryptic, and editing them manually is
+error-prone. Another problem is the extent to which designers are
+familiar with this language.  Finally, OCL is by itself incapable
+of reasoning about temporal behavior.  In~\cite{Ziemann02anextension}
+temporal modifiers @pre and @next are introduced for specifying past and
+future state-oriented constraints.  In~\cite{Flake03formalsemantics},
+a real-time constraint extension of OCL is proposed for models described
+by UML state machines; they claim to be able to describe all the existing
+patterns in these OCL expressions.  To simplify constraint definitions
+with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors propose
+to use specification patterns for which OCL constraints can be generated
+automatically.  The behavioral specification of software components refers
+to interface specifications, which are not really dynamic views. Moreover,
+this work does not yet introduce means to specify temporal properties.
 \vspace{-7 pt}
 
 \section{Preliminaries}
-
 \label{sec:Preliminaries}
 %\subsection{Property Patterns}
 \vspace{-7 pt}
@@ -579,6 +606,8 @@ We find that this does not limit the expressiveness of property specifications i
 \vspace{-7 pt}
 
 \subsection{The Rationale}
+\vspace{-7 pt}
+
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
 existing related approaches. As already stated, to bridge the gap between everyday practical software 
@@ -627,7 +656,7 @@ explicitly mark an error message.
   \caption{Scenarios for the precedence chain pattern}
 \end{figure*}
 Although any mature visual UML modeling tool 
-can be used, we chose IBM's RSA environment~\cite{terry2006visual}.
+can be used, we chose IBM's Rational Software Architect (RSA) environment.
 One of the advantages is that RSA is built on top of Eclipse, making 
 it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
 lightweight UML profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
@@ -673,7 +702,7 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
-\vspace{-20 pt}
+\vspace{-10 pt}
 
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 \vspace{-10 pt}
@@ -875,8 +904,8 @@ Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{
 
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
-Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the \emph{pushTask} message's second parameter).
-This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (Fig.~\ref{fig:MonitorProperty} visualized without the data for simplicity)  
+Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the second parameter of \emph{pushTask}).
+This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (visualized in Fig.~\ref{fig:MonitorProperty} without the data, for clarity)  
 are generated, to be used in the final model checking phase.
 
 \begin{figure}[!b]
@@ -891,7 +920,6 @@ are generated, to be used in the final model checking phase.
 \captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
-\vspace{-7 pt}
 
 \begin{figure}[!t]
 \centering
@@ -904,27 +932,19 @@ are generated, to be used in the final model checking phase.
 \label{fig:Summary}
 \end{figure}
 
-
 One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
 The general pattern template obtained with PASS is:
-\vspace{-4 pt}
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
-\vspace{-6 pt}
 , which puts more restrictions on the behavior, while the original one was of the following form:
-\vspace{-5 pt}
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
-\vspace{-7 pt}
-
-Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
-The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
-The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
-
-
-
+    
+% Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
+% The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
+% The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 \vspace{-7 pt}
