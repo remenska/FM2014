@@ -900,12 +900,6 @@ act asynch_call:Nat#ClassType#ClassObject#Method;
 
 act internal;
 
-act found;
-
-
-act step1_1,step1_2,step1:Nat#eType;
-act step2_1,step2_2,step2:Nat#eType;
-act step3_1,step3_2,step3:Nat;
 
 map minorStatus2eType:MinorStatus->eType;
 var minor:MinorStatus;
@@ -1015,15 +1009,14 @@ proc ExecutorDispatcher___sendTaskToExecutor(id:Nat) =
     synch_call_send(id,ExecutorState,__states,freeSlots(eId)). 
     sum noSlots:Nat.synch_reply_send(id,ExecutorState,__states,freeSlots_return(noSlots)).
     (checkIdle && noSlots==0) ->
-      synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)).step3_2(0) <> 
+      synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)). 
 	    ( %BUGFIX when trying to fill an executor, the dispatcher will look at all the possible types always
 		synch_call_send(id,ExecutorDispatcher,obj,__idMap_get(eId)).
 		sum eTypes:List(eType).synch_reply_send(id,ExecutorDispatcher,obj,__idMap_get_return(eTypes)).
 		synch_call_send(id,ExecutorQueues,__queues,popTask(eTypes)).
 		sum taskId:Nat,eType:eType.synch_reply_send(id,ExecutorQueues,__queues,popTask_return(taskId,eType)).
-		((taskId!=0)-> step2_2(taskId,eType) <> internal).
 		(taskId==0) ->
-		synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)).step3_2(0) <> 
+		synch_reply_receive(id,ExecutorDispatcher,obj,__sendTaskToExecutor_return(OK,0)) <> 
 			(
 			synch_call_send(id,ExecutorState,__states,addTask(eId,taskId)).
 			synch_reply_send(id,ExecutorState,__states,addTask_return).
@@ -1114,7 +1107,7 @@ proc ExecutorDispatcher___msgTaskToExecutor(id:Nat) =
 proc ExecutorQueues_pushTask(id:Nat) = 
 (
     sum eType:eType,taskId:Nat,ahead:Bool,obj:ClassObject.
-	synch_call_receive(id,ExecutorQueues,obj,pushTask(eType,taskId,ahead)). step1_2(taskId,eType).
+	synch_call_receive(id,ExecutorQueues,obj,pushTask(eType,taskId,ahead)).
       synch_call_send(id,ExecutorQueues,obj,__taskInQueue_keys).
       sum taskids:List(Nat).synch_reply_send(id,ExecutorQueues,obj,__taskInQueue_keys_return(taskids)).
       (taskId in taskids) -> synch_reply_receive(id,ExecutorQueues,obj,pushTask_return)
@@ -2018,7 +2011,6 @@ proc systemInit(id:Nat) =
     		ExecutorState_mem(id,[],[],[],[]) ||
 		ExecutorQueues_mem(id,[],[]) ||
 		ExecutorDispatcher_mem(id,[],[],[],[]) ||
-		Monitor(false) ||
 		ExecutorDispatcher_removeTask(id) ||
 		ExecutorState_getExecutorOfTask(id) ||
 		ExecutorState_removeTask(id) ||
@@ -2066,15 +2058,9 @@ proc systemInit(id:Nat) =
 		OptimizationMindHandler_msg_TaskDone(id)
 ;
 
-proc Monitor(b:Bool) = 
-	sum taskId:Nat,eType:eType.step1_1(taskId,eType).Monitor(true)
-	+
-	sum taskId:Nat,eType:eType.step2_1(taskId,eType).Monitor(false)
-	+ step3_1(0). b -> found <> Monitor(b);
-
 
 init hide ({internal},
- allow({internal,synch_call,synch_reply, asynch_call,found,step1,step2,step3
+ allow({internal,synch_call,synch_reply, asynch_call
 },
 comm({
 synch_call_send|synch_call_receive->
@@ -2082,13 +2068,7 @@ synch_call,
 synch_reply_send|synch_reply_receive->
 synch_reply,
 asynch_call_send|asynch_call_receive->
-asynch_call,
-step1_1|step1_2->
-step1,
-step2_1|step2_2->
-step2,
-step3_1|step3_2->
-step3
+asynch_call
 }, 
 				systemInit(1)
 

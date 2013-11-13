@@ -3,71 +3,74 @@ The top-level auxiliary file: FMpaper.aux
 The style file: splncs.bst
 Database file #1: FM2014.bib
 Warning--entry type for "PSP" isn't style-file defined
---line 76 of file FM2014.bib
-Repeated entry---line 1141 of file FM2014.bib
+--line 85 of file FM2014.bib
+Repeated entry---line 1146 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "MDTUML2" isn't style-file defined
---line 1762 of file FM2014.bib
-Repeated entry---line 1777 of file FM2014.bib
+--line 1765 of file FM2014.bib
+Repeated entry---line 1780 of file FM2014.bib
  : @inproceedings{FormalLanguagemCRL2
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "UML2.4_superstructure" isn't style-file defined
---line 1783 of file FM2014.bib
+--line 1786 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
---line 1798 of file FM2014.bib
+--line 1801 of file FM2014.bib
 Warning--entry type for "repo:remenska" isn't style-file defined
---line 1828 of file FM2014.bib
-Repeated entry---line 1835 of file FM2014.bib
+--line 1831 of file FM2014.bib
+Repeated entry---line 1838 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
 I'm skipping whatever remains of this entry
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
+A bad cross reference---entry "DBLP:conf/tacas/GaravelLMS11"
+refers to entry "DBLP:conf/tacas/2011", which doesn't exist
 Warning--I didn't find a database entry for "2013"
+Warning--I didn't find a database entry for "DBLP:conf/tacas/2011"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 30 entries,
+You've used 31 entries,
             2087 wiz_defined-function locations,
-            650 strings with 8575 characters,
-and the built_in function-call counts, 5534 in all, are:
-= -- 465
-> -- 244
+            656 strings with 8755 characters,
+and the built_in function-call counts, 5671 in all, are:
+= -- 464
+> -- 249
 < -- 1
-+ -- 93
-- -- 63
-* -- 241
-:= -- 789
-add.period$ -- 35
-call.type$ -- 30
-change.case$ -- 30
++ -- 95
+- -- 64
+* -- 239
+:= -- 802
+add.period$ -- 36
+call.type$ -- 31
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 32
-duplicate$ -- 335
-empty$ -- 728
-format.name$ -- 63
-if$ -- 1380
+cite$ -- 33
+duplicate$ -- 348
+empty$ -- 757
+format.name$ -- 64
+if$ -- 1412
 int.to.chr$ -- 0
-int.to.str$ -- 30
-missing$ -- 24
-newline$ -- 147
-num.names$ -- 30
-pop$ -- 214
+int.to.str$ -- 31
+missing$ -- 25
+newline$ -- 152
+num.names$ -- 31
+pop$ -- 227
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 138
+skip$ -- 148
 stack$ -- 0
 substring$ -- 8
-swap$ -- 62
+swap$ -- 63
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 31
-width$ -- 32
-write$ -- 285
-(There were 4 error messages)
+while$ -- 32
+width$ -- 33
+write$ -- 291
+(There were 5 error messages)

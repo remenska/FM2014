@@ -15,12 +15,12 @@ Groote, J.,  et~al.:
 \bibitem{Groote05model-checkingprocesses}
 Groote, J.F., Willemse, T.A.C.:
 \newblock {Model-checking processes with data}.
-\newblock In: {Science of Computer Programming}, Elsevier (2005)
+\newblock In: {Science of Computer Programming}. (2005)
 
 \bibitem{Dwyer:1999:PPS:302405.302672}
 Dwyer, M.B.,  et~al.:
 \newblock {Patterns in property specifications for finite-state verification}.
-\newblock In: {Proc. ICSE '99}, ACM
+\newblock In: {Proc. ICSE'99}
 
 \bibitem{PSP}
 Dwyer, M.B.,  et~al.:
@@ -28,9 +28,9 @@ Dwyer, M.B.,  et~al.:
   http://patterns.projects.cis.ksu.edu.
 
 \bibitem{Smith02propel:an}
-Smith, R.L., Avrunin, G.S., Clarke, L.A., Osterweil, L.J.:
+Smith, R.L.,  et~al.:
 \newblock {Propel: an approach supporting property elucidation}.
-\newblock In: {Proc. ISCE'02}. (2002)
+\newblock In: {Proc. ISCE'02}
 
 \bibitem{konrad2005facilitating}
 Konrad, S., Cheng, B.H.:
@@ -143,7 +143,7 @@ Mateescu, R.:
   http://www.inrialpes.fr/vasy/cadp/resources/evaluator/rafmc.html.
 
 \bibitem{Bauer:2011:RVL:2000799.2000800}
-Bauer, A., Leucker, M., Schallhart, C.:
+Bauer, A.,  et~al.:
 \newblock {Runtime Verification for LTL and TLTL}.
 \newblock In Proc. TOSEM'11
 
@@ -161,5 +161,11 @@ Tsaregorodtsev, A.,  et~al.:
 Remenska, D., Homburg, P.:
 \newblock {The mCRL2$\Leftrightarrow$UML toolset}
   https://github.com/remenska/NFM.
+
+\bibitem{DBLP:conf/tacas/GaravelLMS11}
+Garavel, H., Lang, F., Mateescu, R., Serwe, W.:
+\newblock {CADP 2010: A Toolbox for the Construction and Analysis of
+  Distributed Processes}.
+\newblock In: {Proc. TACAS'11}
 
 \end{thebibliography}

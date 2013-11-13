@@ -491,6 +491,7 @@ expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\
 witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
 The syntax of mCRL2's modal $\mu$-calculus formulas we are concerned with in this paper
 is defined by the following grammar:
+\vspace{-5 pt}
 \[
 \begin{array}{ll}
 \phi & ::= b \mid \phi\wedge\phi \mid \phi\vee\phi \mid \forall d{:}D.~\phi \mid \exists d{:}D.~\phi
@@ -558,9 +559,9 @@ Sequence diagrams model the interaction among a set of components, with
 emphasis on the sequence of \emph{messages} exchanged over time. Graphically, they have
 two dimensions: the objects participating in the scenarios are placed horizontally, 
 while time flows in the vertical dimension. The participants are shown as rectangular boxes, with the vertical lines
-falling from them known as \emph{lifelines}. 
-Each message sent between the lifelines defines a specific act of communication, synchronous or asynchronous.
-Messages are shown as horizontal arrows from the lifeline of the sender instance to the lifeline of the receiver. 
+emanating from them known as \emph{lifelines}. 
+Each message sent between the lifelines defines a specific communication, synchronous or asynchronous.
+Messages are shown as horizontal arrows from the lifeline of the sender to the lifeline of the receiver instance. 
 
 Sequence diagrams have been considerably extended in UML 2.x to allow expressing of complex control 
 flows such as branching, iterations, and referring to existing interactions.
@@ -590,7 +591,7 @@ The potential problems with the UML 2.0 assertion and negation are explained in~
 In summary, the specification aims to allow depicting required and forbidden behaviors.
 However, as~\cite{Harel07assertand} points out, stating that ``the sequences of the operand of the assertion are the only valid continuations. All other continuations result in an invalid trace''
 suggests that the invalid set of traces for an \emph{assert} fragment is its complement, i.e., the set of all other possible traces.
-On the other hand, the standard declares that the
+Conversely, the standard also declares that the
 invalid set of traces are associated only with the use of
 a \emph{neg} fragment, which is contradictory.
 For this reason, we also believe that these two operators should rather be considered 
@@ -607,7 +608,6 @@ We find that this does not limit the expressiveness of property specifications i
 
 \subsection{The Rationale}
 \vspace{-7 pt}
-
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
 existing related approaches. As already stated, to bridge the gap between everyday practical software 
@@ -691,7 +691,7 @@ make sense only for state-based formalisms. For example, the \emph{universality}
 pattern is used to describe a portion of the system's execution which contains only states/events that have a desired property.
 Checking if a certain event is executed in every step of the system execution is not useful,
 so we adapted it in the context of $\mu$-calculus. 
-\vspace{-2 pt}
+\vspace{-1 pt}
 
 Finally, for the purpose of on-the-fly verification, we provide an
 automatically generated mCRL2 monitor which corresponds to the property formula.
@@ -702,11 +702,9 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
-\vspace{-10 pt}
-
+\vspace{-13 pt}
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
-\vspace{-10 pt}
-
+\vspace{-5 pt}
 A general model checking mechanism used with tools like SPIN 
 is to construct a B\"uchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the B\"uchi automaton is then composed, 
@@ -752,7 +750,7 @@ a monitor for about 50\% of the property patterns.
 We translate a fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
-\vspace{-5 pt}
+\vspace{-7 pt}
 \[
 \begin{array}{ll}
 \phi & ::= b \mid \forall d{:}D.\phi \mid [\rho]\phi \mid \phi\wedge \phi\\
@@ -800,6 +798,7 @@ $a \in Act$ of the mCRL2 process and
 where $\TrA$ takes an action and an action formula and produces a condition
 that describes when the action is among the set of actions described by
 the action formula:
+\vspace{-7 pt}
 \[
 \begin{array}{ll}
 \TrA_l(a(d_a),a'(e)) & = \left \{ \begin{array}{ll} d_a = e & \text{if a = a'}\\
@@ -828,14 +827,14 @@ quickly after a limited exploration.
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
 All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
 are covered by DIRAC. 
-Jobs submitted via its interface undergo several processing steps between the moment they are submitted to the grid, 
-to the point when their execution on the grid actualizes. 
+Jobs submitted via its interface undergo several processing steps between the moment they are submitted, 
+to the point when they execute on the grid. 
 
 The crucial Workload Management components responsible for orchestrating this process are the \emph{ExecutorDispatcher} and 
 the \emph{Executors}. Executors process any task sent to them by the ExecutorDispatcher, each one being responsible for a different step in the handling of tasks
-(such as resolving the input data for a job).
-The ExecutorDispatcher takes care of persisting the state of the tasks and distributing them amongst all the Executors, based on the
-requirements of each task. It maintains a queue of tasks waiting to be processed, and other internal data structures to keep track
+(such as resolving the job's input data).
+The ExecutorDispatcher takes care of persisting the state of the tasks and distributing them amongst the Executors, based on the
+task requirements. It maintains a queue of tasks waiting to be processed, and other internal data structures to keep track
 of the distribution of tasks among the Executors.
 During testing, certain problems have manifested: occasionally, tasks submitted in the system would not get dispatched, despite the fact that their responsible Executors
 were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
@@ -859,7 +858,7 @@ With a depth-first traversal in mCRL2, we effectively discovered a trace~\cite{r
 used our tool to import and automatically visualize the counter-example as a sequence diagram in RSA.
 Since the bug was reported and fixed, we wanted to check if the problem still persists after the fix, this time using PASS to 
 elicit the property.
-\vspace{-7 pt}
+\vspace{-11 pt}
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
 \vspace{-6 pt}
@@ -908,6 +907,17 @@ Since the property should be evaluated for all possible values of the taskId's d
 This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (visualized in Fig.~\ref{fig:MonitorProperty} without the data, for clarity)  
 are generated, to be used in the final model checking phase.
 
+\begin{figure}[!t]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
+}%
+\caption{Summary of the elicited property with PASS}
+\label{fig:Summary}
+\end{figure}
+
 \begin{figure}[!b]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
@@ -920,18 +930,6 @@ are generated, to be used in the final model checking phase.
 \captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
-
-\begin{figure}[!t]
-\centering
-{%
-\setlength{\fboxsep}{1.5pt}%
-\setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
-}%
-\caption{Summary of the elicited property with PASS}
-\label{fig:Summary}
-\end{figure}
-
 One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
 The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
@@ -945,13 +943,47 @@ The general pattern template obtained with PASS is:
 % Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
 % The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
 % The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+\vspace{-23 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
-\vspace{-7 pt}
-\lipsum[4-6]
-% mention that we  coverexisting patterns
-%compositional patterns
+\vspace{-8 pt}
+% \lipsum[4-6]
+In an effort to automate more aspects of formal verification of distributed
+systems, we introduced PASS, a Property ASSistant that brings the process of
+correctly specifying 
+functional porperties closer to software engineers.
+Through a series of questions, the practitioner can
+consider subtle aspects about a property which are often overlooked.
+Motivated by the wish to stay within an existing UML development environment,
+rather than use an external helper tool, PASS was developed as an Eclipse plugin,
+thus keeping a strong relationship between the model elements and the property template ones.
+Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
+which we extend with over 100 new pattern variations for the event-based $\mu$-calculus
+formalism. Besides offering a natural language summary of the elicited property,
+the user is provided with $\mu$-calculus formula and a UML sequence
+diagram depicting the desired behavior. In addition, PASS
+automatically generates monitors to be used for property-driven 
+runtime verification using the mCRL2 toolset. We believe that automating the property specification process while keeping
+practicioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
+
+We revisited a case study from the grid domain, and discovered that 
+despite a good understanding of $\mu$-calculus, our previously manually
+defined property was in fact not fully correct.  
+
+Besides instantiating pattern templates, part of our ongoing work is to define 
+a methodology that would allow the experienced practicioner to directly 
+draw sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
+would be provided. Automating performance analysis is on our road-map as well. 
+Profiles are provided as UML extension mechanisms, which allow 
+annotating models with quantitative information (such as expected execution time, resource usage etc.),
+and this mechanism would permit assessing aspects of the system
+such as efficiency and reliability.
+We can use the same target formalism for enhancing the models
+with such quantitative information. The CADP toolset~\cite{DBLP:conf/tacas/GaravelLMS11} for analysis of stochastic
+models is well integrated with mCRL2 for this purpose.
+\vspace{-10 pt}
 \bibliographystyle{splncs} 
+\vspace{-3 pt}
 \bibliography{FM2014}
 \end{document}
 
