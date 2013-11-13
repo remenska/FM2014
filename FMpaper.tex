@@ -940,9 +940,9 @@ The general pattern template obtained with PASS is:
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
 Using the generated monitor, we performed runtime verification on the corrected model. We linearized the model with the mCRL2 toolset,
-and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking backend. 
+and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking back-end. 
 Taking less than 2 hours, the symbolic equation system explorer 
-finished the traversal without discovering an \emph{error} step, effectively concluding that the property holds.
+finished the traversal (2.85 million states) without discovering an \emph{error} step, effectively concluding that the property holds.
 The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
 \vspace{-14 pt}
 \section{Conclusions and future work}
