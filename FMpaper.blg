@@ -4,23 +4,23 @@ The style file: splncs.bst
 Database file #1: FM2014.bib
 Warning--entry type for "PSP" isn't style-file defined
 --line 85 of file FM2014.bib
-Repeated entry---line 1146 of file FM2014.bib
+Repeated entry---line 1148 of file FM2014.bib
  : @inproceedings{Dwyer:1999:PPS:302405.302672
  :                                            ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "MDTUML2" isn't style-file defined
---line 1765 of file FM2014.bib
-Repeated entry---line 1780 of file FM2014.bib
+--line 1766 of file FM2014.bib
+Repeated entry---line 1781 of file FM2014.bib
  : @inproceedings{FormalLanguagemCRL2
  :                                   ,
 I'm skipping whatever remains of this entry
 Warning--entry type for "UML2.4_superstructure" isn't style-file defined
---line 1786 of file FM2014.bib
+--line 1787 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
---line 1801 of file FM2014.bib
+--line 1802 of file FM2014.bib
 Warning--entry type for "repo:remenska" isn't style-file defined
---line 1831 of file FM2014.bib
-Repeated entry---line 1838 of file FM2014.bib
+--line 1832 of file FM2014.bib
+Repeated entry---line 1839 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
 I'm skipping whatever remains of this entry
@@ -34,37 +34,37 @@ Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
 You've used 31 entries,
             2087 wiz_defined-function locations,
-            656 strings with 8755 characters,
-and the built_in function-call counts, 5671 in all, are:
-= -- 464
+            658 strings with 8786 characters,
+and the built_in function-call counts, 5677 in all, are:
+= -- 463
 > -- 249
 < -- 1
 + -- 95
 - -- 64
-* -- 239
-:= -- 802
+* -- 241
+:= -- 805
 add.period$ -- 36
 call.type$ -- 31
 change.case$ -- 31
 chr.to.int$ -- 0
 cite$ -- 33
-duplicate$ -- 348
-empty$ -- 757
+duplicate$ -- 352
+empty$ -- 756
 format.name$ -- 64
-if$ -- 1412
+if$ -- 1411
 int.to.chr$ -- 0
 int.to.str$ -- 31
-missing$ -- 25
-newline$ -- 152
+missing$ -- 26
+newline$ -- 153
 num.names$ -- 31
-pop$ -- 227
+pop$ -- 225
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 148
+skip$ -- 145
 stack$ -- 0
 substring$ -- 8
-swap$ -- 63
+swap$ -- 64
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
@@ -72,5 +72,5 @@ type$ -- 0
 warning$ -- 2
 while$ -- 32
 width$ -- 33
-write$ -- 291
+write$ -- 293
 (There were 5 error messages)

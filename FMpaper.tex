@@ -958,12 +958,12 @@ Motivated by the wish to stay within an existing UML development environment,
 rather than use an external helper tool, PASS was developed as an Eclipse plugin,
 thus keeping a strong relationship between the model elements and the property template ones.
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
-which we extend with over 100 new pattern variations for the event-based $\mu$-calculus
+which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
 formalism. Besides offering a natural language summary of the elicited property,
 the user is provided with $\mu$-calculus formula and a UML sequence
 diagram depicting the desired behavior. In addition, PASS
-automatically generates monitors to be used for property-driven 
-runtime verification using the mCRL2 toolset. We believe that automating the property specification process while keeping
+automatically generates monitors to be used for efficient property-driven 
+runtime verification using the mCRL2 toolset. We believe that automating the property specification process, while keeping
 practitioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
 
 We revisited a case study from the grid domain, and discovered that 
@@ -972,7 +972,7 @@ defined property was in fact not fully correct.
 
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
-draw sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
+write sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
 would be provided. Automating performance analysis is on our road-map as well. 
 Profiles are provided as UML extension mechanisms, which allow 
 annotating models with quantitative information (such as expected execution time, resource usage etc.),

@@ -60,7 +60,7 @@ Lee, I., Sokolsky, O.:
 Smith, M.H.,  et~al.:
 \newblock {Events and Constraints: A Graphical Editor for Capturing Logic
   Requirements of Programs}.
-\newblock In: {Proc. RE'01}. (2001)
+\newblock In: {Proc. RE'01}
 
 \bibitem{Knapp:2006:MCU:1762828.1762836}
 Knapp, A., Wuttke, J.:
@@ -135,7 +135,8 @@ OMG:
 \bibitem{Harel07assertand}
 Harel, D., Maoz, S.:
 \newblock {Assert and negate revisited: Modal semantics for UML sequence
-  diagrams} (2007)
+  diagrams}.
+\newblock {Software \& Systems Modeling} \textbf{7} (2008)
 
 \bibitem{RAFMC}
 Mateescu, R.:

@@ -177,7 +177,7 @@ are written in natural language, and often contain ambiguities which
 make it difficult even for experienced practitioners to capture them
 accurately in any temporal logic. There are subtle but crucial details
 which are often overlooked and need to be carefully considered in order
-to distil the right formula.
+to distill the right formula.
 
 %%In principle, regardless of the formal language and tool choice for
 %%writing the model, these properties are specified as formulas in some
@@ -515,7 +515,7 @@ actions described by an action formula $\alpha$, word
 concatenation $\rho \cdot \rho$ and (arbitrary) iteration of words $\rho^*$ and $\rho^+$.
 Action formulas describe sets of actions; these sets are built up from the empty
 set of actions (in case Boolean expression $b$ evaluates to false), the set of all possible actions
-(in case Boolean expression $b$ evaluates to true); indivual actions $a(d_1,\dots,d_n)$, 
+(in case Boolean expression $b$ evaluates to true); individual actions $a(d_1,\dots,d_n)$, 
 action complementation and finite and possibly infinite intersection $\cap$ and union $\cup$.
 A state of an LTS (described by an mCRL2 process) satisfies $\langle \rho \rangle \phi$
 iff from that state, there is at least one transition sequence matching $\rho$,
@@ -702,10 +702,9 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
-\vspace{-11 pt}
+\vspace{-13 pt}
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 \vspace{-5 pt}
-
 A general model checking mechanism used with tools like SPIN 
 is to construct a B\"uchi automaton for an LTL formula, which accepts exactly those executions
 that violate the property. A product of the model state space (typically a Kripke structure) and the B\"uchi automaton is then composed, 
@@ -815,7 +814,6 @@ the action formula:
 \TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha)
 \end{array}
 \]
-\vspace{-3 pt}
 Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the chain response pattern.
 Such a monitor can be placed in parallel a the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
@@ -909,6 +907,17 @@ Since the property should be evaluated for all possible values of the taskId's d
 This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (visualized in Fig.~\ref{fig:MonitorProperty} without the data, for clarity)  
 are generated, to be used in the final model checking phase.
 
+\begin{figure}[!t]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
+}%
+\caption{Summary of the elicited property with PASS}
+\label{fig:Summary}
+\end{figure}
+
 \begin{figure}[!b]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
@@ -921,18 +930,6 @@ are generated, to be used in the final model checking phase.
 \captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
-
-\begin{figure}[!t]
-\centering
-{%
-\setlength{\fboxsep}{1.5pt}%
-\setlength{\fboxrule}{0.5pt}%
-\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./Last.png}}%
-}%
-\caption{Summary of the elicited property with PASS}
-\label{fig:Summary}
-\end{figure}
-
 One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
 The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
@@ -943,9 +940,9 @@ The general pattern template obtained with PASS is:
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
     
-Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
-The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
-The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+% Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
+% The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
+% The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
 \vspace{-23 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
@@ -954,27 +951,27 @@ The PASS tool, along with model and the monitor of this case study is available 
 In an effort to automate more aspects of formal verification of distributed
 systems, we introduced PASS, a Property ASSistant that brings the process of
 correctly specifying 
-functional porperties closer to software engineers.
+functional properties closer to software engineers.
 Through a series of questions, the practitioner can
 consider subtle aspects about a property which are often overlooked.
 Motivated by the wish to stay within an existing UML development environment,
 rather than use an external helper tool, PASS was developed as an Eclipse plugin,
 thus keeping a strong relationship between the model elements and the property template ones.
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
-which we extend with over 100 new pattern variations for the event-based $\mu$-calculus
+which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
 formalism. Besides offering a natural language summary of the elicited property,
 the user is provided with $\mu$-calculus formula and a UML sequence
 diagram depicting the desired behavior. In addition, PASS
-automatically generates monitors to be used for property-driven 
+automatically generates monitors to be used for efficient property-driven 
 runtime verification using the mCRL2 toolset. We believe that automating the property specification process while keeping
-practicioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
+practitioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
 
 We revisited a case study from the grid domain, and discovered that 
 despite a good understanding of $\mu$-calculus, our previously manually
 defined property was in fact not fully correct.  
 
 Besides instantiating pattern templates, part of our ongoing work is to define 
-a methodology that would allow the experienced practicioner to directly 
+a methodology that would allow the experienced practitioner to directly 
 draw sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
 would be provided. Automating performance analysis is on our road-map as well. 
 Profiles are provided as UML extension mechanisms, which allow 
