@@ -1049,7 +1049,7 @@ ExecutorState_freeSlots(id:Nat) =
       sum maxtasks:Nat.synch_reply_send(id,ExecutorState,obj,__maxTasks_get_return(maxtasks)).
       synch_call_send(id,ExecutorState,obj,__execTasks_taskids(eId)).
       sum taskids:List(Nat).synch_reply_send(id,ExecutorState,obj,__execTasks_taskids_return(taskids)).
-      (maxtasks==0) -> synch_reply_receive(id,ExecutorState,obj,freeSlots_return(0))
+      (maxtasks==0 || maxtasks < #taskids) -> synch_reply_receive(id,ExecutorState,obj,freeSlots_return(0))
 	    <>
 		  synch_reply_receive(id,ExecutorState,obj,freeSlots_return(Int2Nat(maxtasks-#taskids)))
 )
