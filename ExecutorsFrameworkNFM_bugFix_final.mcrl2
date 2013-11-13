@@ -2070,61 +2070,24 @@ proc systemInit(id:Nat) =
 % P = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false))
 % S = synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
 
-% % formula again: [(not R)*] forall taskId:Nat.[P(taskId). (not (S or R))*. R] false
-% %
-% % TW: since taskID:Nat is only used in action P, I'll push the quantifier inward and
-% %     flip it to become an existential one; this has no semantic impact
-% %
-% %  [(not R)*. (exists taskId:Nat.P(taskId) ) . (not (S or R))*. R] false
-% %
-% %     now, remove the two *s and replace them by +; this will lead to some minor blowup:
-% %
-% %  phi = [ ( (exists taskId:Nat. P(taskId)). R) +   
-% %          ( (not R)+. (exists taskId:Nat. P(taskId)). R) +
-% %          ( (exists taskId:Nat. P(taskId)). (not (S or R))+. R) +
-% %          ( (not R)+. (exists taskId:Nat. P(taskId)). (not (S or R))+. R) ] false 
-% %
-% % In what follows, let Q = exists taskId:Nat. P(taskId). Repeating the formula with this abbreviation yields:
-% %
-% %  phi = [ ( Q. R) +                                       % TW: abbreviate to rho1
-% %          ( (not R)+. Q. R) +                             % TW: abbreviate to rho2
-% %          ( Q. (not (S or R))+. R) +                      % TW: abbreviate to rho3
-% %          ( (not R)+. Q. (not (S or R))+. R) ] false      % TW: abbreviate to rho4
-% %
-% %
-% % The monitor for this formula is as follows:
-% %
-
-% %proc Monitor_phi = (Monitor_rho1 + Monitor_rho2 + Monitor_rho3 + Monitor_rho4). ( !false -> error);
 proc Monitor_phi = (Monitor_rho1plusrho3 + Monitor_rho2plusrho4). ( !false -> error);
 
-% %
-% % where:
-% %
-
-proc Monitor_rho1 = Monitor_Q. Monitor_R;                                        % this covers rho1
-proc Monitor_rho2 = Monitor_notRplus. Monitor_rho1;                              % this covers rho2
-proc Monitor_rho3 = Monitor_Q. Monitor_notSorRplus. Monitor_R;                   % this covers rho3
-proc Monitor_rho4 = Monitor_notRplus. Monitor_rho3                             ; % this covers rho4
+proc Monitor_rho1 = Monitor_Q. Monitor_R;                                       
+proc Monitor_rho2 = Monitor_notRplus. Monitor_rho1;                              
+proc Monitor_rho3 = Monitor_Q. Monitor_notSorRplus. Monitor_R;                  
+proc Monitor_rho4 = Monitor_notRplus. Monitor_rho3; 
 
 proc Monitor_rho1plusrho3 = Monitor_Q. (Monitor_R + AB);
 proc AB = Monitor_notSorRplus.Monitor_R;
 proc Monitor_rho2plusrho4 = Monitor_notRplus. Monitor_rho1plusrho3;
 
-% Recall:
-% R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0) )
-% P = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,taskId,false))
-% S = synch_call_mon(1,ExecutorQueues,__queues,popTask([JobPath]))
-% %
-% % where:
-% %
 
-proc Monitor_R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0) );      % this covers R
+proc Monitor_R = synch_reply_mon(1,ExecutorDispatcher,__eDispatch,__sendTaskToExecutor_return(OK,0) );    
 proc Monitor_Q = synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,22,false) )
 + synch_call_mon(1,ExecutorQueues,__queues,pushTask(JobPath,333,false) )
-; % this covers Q
+; 
 
-proc Monitor_notRplus = Monitor_notR. Monitor_notRplus + Monitor_notR;                                      % this covers (not R)+
+proc Monitor_notRplus = Monitor_notR. Monitor_notRplus + Monitor_notR;                                     
 
 proc Monitor_notR = sum c:ClassType,o:ClassObject,m:Method. 
                         (! (c == ExecutorDispatcher && o == __eDispatch && m == __sendTaskToExecutor_return(OK,0)) )
@@ -2133,9 +2096,9 @@ proc Monitor_notR = sum c:ClassType,o:ClassObject,m:Method.
                            synch_call_mon(1,c,o,m)
                    +internal_mon
                    +sum c:ClassType,o:ClassObject,m:Method.
-                           asynch_call_mon(1,c,o,m);                                                        % this covers not R
+                           asynch_call_mon(1,c,o,m);                                                        
                    
-proc Monitor_notSorRplus = Monitor_notSorR. Monitor_notSorRplus + Monitor_notSorR;                          % this covers (not (S or R))+
+proc Monitor_notSorRplus = Monitor_notSorR. Monitor_notSorRplus + Monitor_notSorR;                          
 
 proc Monitor_notSorR = sum c:ClassType,o:ClassObject,m:Method. 
                            (! (c == ExecutorDispatcher && o == __eDispatch && m == __sendTaskToExecutor_return(OK,0)) )
@@ -2145,7 +2108,8 @@ proc Monitor_notSorR = sum c:ClassType,o:ClassObject,m:Method.
                            -> synch_call_mon(1,c,o,m)
                       +internal_mon
                       +sum c:ClassType,o:ClassObject,m:Method. 
-                              asynch_call_mon(1,c,o,m);                                                        % this covers not (S or R)
+                              asynch_call_mon(1,c,o,m);                                                        
+                             
  
 act error, internal_mon, synch_internal;
 
@@ -2162,24 +2126,7 @@ act asynch_call_found:Nat#ClassType#ClassObject#Method;
 
 % END-MONITOR PART
 
-% % %
-% % % This is the standalone model
-% % %
-% % % init  allow({internal,synch_call,synch_reply, asynch_call}, comm({
-% % % 
-% % % synch_call_send|synch_call_receive->
-% % % synch_call,
-% % % synch_reply_send|synch_reply_receive->
-% % % synch_reply,
-% % % asynch_call_send|asynch_call_receive->
-% % % asynch_call
-% % % }, 
-% % % 
-% % % systemInit(1)));
 
-% % %
-% % % This is the monitor composed with the system; shallow integration
-% % %
 init hide ({synch_internal},
 allow({error, synch_call_found, synch_reply_found, asynch_call_found, synch_internal
 }, 
