@@ -939,10 +939,10 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
-    
-% Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
-% The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
-% The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+Using the generated monitor, we performed runtime verification on the corrected model. We linearized the model with the mCRL2 toolset,
+and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. Taking less than 2 hours, the symbolic equation system explorer 
+finished the traversal without discovering an \emph{error} step, effectively concluding that the property holds.
+The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
 \vspace{-23 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
@@ -963,16 +963,16 @@ formalism. Besides offering a natural language summary of the elicited property,
 the user is provided with $\mu$-calculus formula and a UML sequence
 diagram depicting the desired behavior. In addition, PASS
 automatically generates monitors to be used for efficient property-driven 
-runtime verification using the mCRL2 toolset. We believe that automating the property specification process while keeping
+runtime verification using the mCRL2 toolset. We believe that automating the property specification process, while keeping
 practitioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
 
 We revisited a case study from the grid domain, and discovered that 
-despite a good understanding of $\mu$-calculus, our previously manually
+despite a reasonably good understanding of $\mu$-calculus, our previously manually
 defined property was in fact not fully correct.  
 
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
-draw sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
+write sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
 would be provided. Automating performance analysis is on our road-map as well. 
 Profiles are provided as UML extension mechanisms, which allow 
 annotating models with quantitative information (such as expected execution time, resource usage etc.),

@@ -163,6 +163,17 @@ Remenska, D., Homburg, P.:
 \newblock {The mCRL2$\Leftrightarrow$UML toolset}
   https://github.com/remenska/NFM.
 
+\bibitem{so62465}
+{Blom}, S., van~de {Pol}, J.:
+\newblock {Symbolic Reachability for Process Algebras with Recursive Data
+  Types}.
+\newblock In: {Theoretical Aspects of Computing}. (2008)
+
+\bibitem{repo:PASS}
+Remenska, D., Willemse, T.A.C.:
+\newblock {PASS: Property ASSistant tool for Eclipse}
+  https://github.com/remenska/FM2014.
+
 \bibitem{DBLP:conf/tacas/GaravelLMS11}
 Garavel, H., Lang, F., Mateescu, R., Serwe, W.:
 \newblock {CADP 2010: A Toolbox for the Construction and Analysis of

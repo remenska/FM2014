@@ -24,6 +24,8 @@ Repeated entry---line 1839 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
 I'm skipping whatever remains of this entry
+Warning--entry type for "repo:PASS" isn't style-file defined
+--line 1855 of file FM2014.bib
 A bad cross reference---entry "DBLP:dblp_conf/nfm/RemenskaTWHVCB13"
 refers to entry "2013", which doesn't exist
 A bad cross reference---entry "DBLP:conf/tacas/GaravelLMS11"
@@ -32,45 +34,45 @@ Warning--I didn't find a database entry for "2013"
 Warning--I didn't find a database entry for "DBLP:conf/tacas/2011"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 31 entries,
+You've used 33 entries,
             2087 wiz_defined-function locations,
-            658 strings with 8786 characters,
-and the built_in function-call counts, 5677 in all, are:
-= -- 463
-> -- 249
+            667 strings with 9070 characters,
+and the built_in function-call counts, 6024 in all, are:
+= -- 492
+> -- 265
 < -- 1
-+ -- 95
-- -- 64
-* -- 241
-:= -- 805
-add.period$ -- 36
-call.type$ -- 31
-change.case$ -- 31
++ -- 101
+- -- 68
+* -- 256
+:= -- 853
+add.period$ -- 39
+call.type$ -- 33
+change.case$ -- 33
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 352
-empty$ -- 756
-format.name$ -- 64
-if$ -- 1411
+cite$ -- 35
+duplicate$ -- 371
+empty$ -- 803
+format.name$ -- 68
+if$ -- 1498
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 26
-newline$ -- 153
-num.names$ -- 31
-pop$ -- 225
+int.to.str$ -- 33
+missing$ -- 27
+newline$ -- 162
+num.names$ -- 33
+pop$ -- 240
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 145
+skip$ -- 154
 stack$ -- 0
 substring$ -- 8
-swap$ -- 64
+swap$ -- 67
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 32
-width$ -- 33
-write$ -- 293
+while$ -- 34
+width$ -- 35
+write$ -- 311
 (There were 5 error messages)

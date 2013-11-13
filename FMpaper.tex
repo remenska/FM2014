@@ -939,11 +939,11 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
-    
-% Using the generated monitor, we performed runtime verification on the corrected model with the mCRL2 toolset.
-% The tool did not discover a counter-example trace, and the resulting LTS (as a product of the model and the monitor) was empty, as expected. 
-% The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
-\vspace{-23 pt}
+Using the generated monitor, we performed runtime verification on the corrected model. We linearized the model with the mCRL2 toolset,
+and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. Taking less than 2 hours, the symbolic equation system explorer 
+finished the traversal without discovering an \emph{error} step, effectively concluding that the property holds.
+The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+\vspace{-16 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
 \vspace{-8 pt}
@@ -968,7 +968,8 @@ practitioners in their familiar environment, should lead to more active adoption
 
 We revisited a case study from the grid domain, and discovered that 
 despite a reasonably good understanding of $\mu$-calculus, our previously manually
-defined property was in fact not fully correct.  
+defined property was in fact not fully correct. Using the monitor, we performed runtime verification, which in
+the end resorted to full exploration of the the state space, and did not disprove the property.
 
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
