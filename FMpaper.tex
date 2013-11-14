@@ -119,19 +119,19 @@ for checking the property.
 One of the challenges during the development of concurrent systems is detecting
 design errors, as such errors can cause deadlocks, livelocks, race conditions,
 starvation, etc. The sheer number of different executions and the
-inherent non-determinism in concurrent systems make testing such software
+inherent non-determinism in concurrent systems make complete testing such software
 infeasible. Instead, more rigorous formal analysis techniques like
 model checking are required, which exhaustively analyze the behaviors of 
 (an abstraction of) the system. Several competitive 
 toolsets, such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
-Despite the research effort, these tools are sill not widely accepted
+Despite the research effort, these tools are still not widely accepted
 in industry. One problem is the lack of expertise and the steep learning
-curve associated to becoming proficient in the underlying mathematical
+curve associated with becoming proficient in the underlying mathematical
 formalisms that must be used for describing models in these toolsets.
 
 Bridging the gap between industry-adopted methodologies based on
 UML software designs and the aforementioned tools and languages,
-in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised an
+in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we devised a
 methodology for automatically verifying UML 
 sequence and activity diagrams.  Our prototype uses the mCRL2
 language~\cite{FormalLanguagemCRL2} and toolset as its backend,
@@ -165,7 +165,7 @@ application-specific properties.
 
 While the mCRL2 toolset can automatically discover deadlocks and search
 for specific events, its model checking facilities require the user to
-specify his application-specific properties in a data-enriched extension
+specify her application-specific properties in a data-enriched extension
 of the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. 
 This is a highly expressive language, subsuming Linear Temporal Logic
 (LTL) and Computation Tree Logic (CTL). A downside is that
@@ -290,7 +290,7 @@ of mCRL2.
 Our monitors are essentially sequence diagrams,  acting as
 observers of message exchanges.
 
-We deliberately chose to develop our tool as an Eclipse plugin, as
+We deliberately chose to develop PASS as an Eclipse plug-in, as
 our strong motivation was to stay within an existing UML development
 environment, rather than use an external helper tool for this.  We are
 convinced that this increases the tool accessibility by allowing software
@@ -298,8 +298,7 @@ engineers to remain focused in the realm of UML designs.  In addition,
 a tight connection between elements of the design and instances of the property
 template is kept, such that, if the design is changed, these changes can
 be easily propagated in the property template placeholders.  To this end,
-we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API,
-and we developed PASS as an Eclipse plugin.
+we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API.
 
 
 %Our strong
@@ -375,7 +374,7 @@ available; the latest version of Prospec that we found and tested
 (Fig.~\ref{fig:Approaches} left) produces formulas in Future Interval
 Logic, not LTL as stated in~\cite{Mondragon_prospec}.
 
-Approaches that use a graphical notation for specifying properrties
+Approaches that use a graphical notation for specifying properties
 come closest to the realm of modeling the system behavior.
 In~\cite{Lee97agraphical}, formulas are represented as acyclic graphs of
 states and temporal operators as nodes.  Technically, the underlying LTL
@@ -611,7 +610,7 @@ We find that this does not limit the expressiveness of property specifications i
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
 existing related approaches. As already stated, to bridge the gap between everyday practical software 
-requirements specification and the the property patterns classification,
+requirements specification and the property patterns classification,
 several conversational tools have already been proposed. 
 
 While we follow 
@@ -655,11 +654,6 @@ explicitly mark an error message.
   \subfloat[PSC with B\"uchi automaton~\cite{Autili:2007:GSS:1290845.1290859}]{\label{fig:ResponsePatternCharmy}\includegraphics[width =0.38\linewidth]{./ResponseChainPSC.png}}
   \caption{Scenarios for the precedence chain pattern}
 \end{figure*}
-Although any mature visual UML modeling tool 
-can be used, we chose IBM's Rational Software Architect (RSA) environment.
-One of the advantages is that RSA is built on top of Eclipse, making 
-it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plugin, using the 
-lightweight UML profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
 
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
@@ -667,7 +661,7 @@ system does not cover $\mu$-calculus, such mappings~\cite{RAFMC} have been devel
 However, there are no pattern extensions available. These are adequate for action- or event-based systems,
 making them a good match for sequence diagrams, where communication between components is depicted.
 LTL logic is interpreted over Kripke structures, where the states are labeled with elementary 
-propositions that hold in each state, while $\mu$-calculus is interpreted over LTS, in which the transitions
+propositions that hold in each state, while $\mu$-calculus is interpreted over LTS-es, in which the transitions
 are labeled with actions that represent state changes.
 Even though both are complementary representations of the more general finite state automata, 
 conversions between them are not practical, as they usually lead to a significant state space increase. 
@@ -702,6 +696,13 @@ property monitor. In addition, although mCRL2 offers direct model checking
 with $\mu$-calculus and can provide feedback when the property fails to hold, this
 feedback is not at the level of the mCRL2 process specification.
 Using the monitor, the counter-example will be provided at the UML level.
+
+Although any mature visual UML modeling tool 
+can be used, we chose IBM's Rational Software Architect (RSA) environment.
+One of the advantages is that RSA is built on top of Eclipse, making 
+it relatively easy to extend the functionality. To this end, PASS is developed as an Eclipse plug-in, using the 
+lightweight UML profile, and as such is available (Fig.~\ref{fig:PASSlaunch}) to any Eclipse-based UML tool.
+
 \vspace{-10 pt}
 \subsection{Transforming a $\mu$-calculus Formula Into a Monitor Process} 
 \vspace{-5 pt}
@@ -747,7 +748,7 @@ Such runtime monitor can also assert \emph{universality} and \emph{absence} patt
 with or without scope combinations. We found that we are able to construct 
 a monitor for about 50\% of the property patterns.
 
-We translate a fragment of the $\mu$-calculus to mCRL2 processes which
+We translate a core fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
 \vspace{-7 pt}
@@ -815,7 +816,7 @@ the action formula:
 \end{array}
 \]
 Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the chain response pattern.
-Such a monitor can be placed in parallel a the system model,
+Such a monitor can be placed in parallel with the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
@@ -889,7 +890,7 @@ which are not considered, and may lead to variants in the original scope and beh
 For example, the definition of the \emph{Before-R} scope requires that the event \emph{R} necessarily
 occurs. This means, if \emph{R} does not occur until the end of the run, the intent or behavior 
 of the property could be violated, yet the property as a whole would not be violated 
-unless \emph{P} happens. In practice however, it is useful to introduce an \emph{Until-R} variant for cases where the end-delimiter may not occur until the end of 
+unless \emph{R} happens. In practice however, it is useful to introduce an \emph{Until-R} variant for cases where the end-delimiter may not occur until the end of 
 the system execution. This is captured by the last question in Fig.~\ref{fig:ScopePASS}.
 Similar considerations have lead to new variants of the \emph{After-Q-Until-R} and \emph{After-Q-Before-R} patterns.
 For instance, whether subsequent occurrences of Q should be ignored, or should effectively reset the beginning of the interval
@@ -902,7 +903,7 @@ for the user to decide whether the first event (the cause) must necessarily occu
 Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
 
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
-A $\mu$-calculus formula pertaining the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
+A $\mu$-calculus formula pertaining to the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
 Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the second parameter of \emph{pushTask}).
 This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (visualized in Fig.~\ref{fig:MonitorProperty} without the data, for clarity)  
 are generated, to be used in the final model checking phase.
@@ -956,7 +957,7 @@ functional properties closer to software engineers.
 Through a series of questions, the practitioner can
 consider subtle aspects about a property which are often overlooked.
 Motivated by the wish to stay within an existing UML development environment,
-rather than use an external helper tool, PASS was developed as an Eclipse plugin,
+rather than use an external helper tool, PASS was developed as an Eclipse plug-in,
 thus keeping a strong relationship between the model elements and the property template ones.
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
 which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
@@ -970,7 +971,7 @@ practitioners in their familiar environment, should lead to more active adoption
 We revisited a case study from the grid domain, and discovered that 
 despite a reasonably good understanding of $\mu$-calculus, our previously manually
 defined property was in fact not fully correct. Using the monitor, we performed runtime verification, which in
-the end resorted to full exploration of the the state space, and did not disprove the property.
+the end resorted to full exploration of the state space, and did not disprove the property.
 
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
