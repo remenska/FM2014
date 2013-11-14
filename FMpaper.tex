@@ -847,7 +847,6 @@ synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
 $\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
 \end{lstlisting} 
 \vspace{-5 pt}
-
 , meaning that a task pushed in the queue must be processed, i.e., removed from the queue before the ExecutorDispatcher
 declares that there are no more tasks for processing.
 Explicit model checking was not feasible in this case due to the model size (50 concurrent processes),
@@ -869,7 +868,7 @@ overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
 which the user can choose by selecting the appropriate answer from the Scope Question Tree wizard page.
-\begin{figure}[!t]
+\begin{figure}[!b]
 \centering
 {%
 \setlength{\fboxsep}{1.5pt}%
@@ -892,19 +891,20 @@ the system execution. This is captured by the last question in Fig.~\ref{fig:Sco
 Similar considerations have lead to new variants of the \emph{After-Q-Until-R} and \emph{After-Q-Before-R} patterns.
 For instance, whether subsequent occurrences of Q should be ignored, or should effectively reset the beginning of the interval
 in which the behavior is considered, are reflected in the questionnaire.
+\vspace{-2 pt}
 
 Due to space restrictions we do not show the Behavior Question Tree part of the wizard, although it is easy to
 elicit the behavior requirement as a \emph{response} pattern (``a task \emph{pushed} in the queue must be processed, i.e., \emph{removed} from the queue'').
 The actual events of interest in this case are \emph{pushTask} and \emph{popTask}. Again, an extension of the pattern system allows
 for the user to decide whether the first event (the cause) must necessarily occur in the first place. 
 Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
+\vspace{-2 pt}
 
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining to the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
 Since the property should be evaluated for all possible values of the taskId's domain, a wildcard ``*'' can be used (as shown in the second parameter of \emph{pushTask}).
 This assignment results in a formula with a \emph{forall} quantifier. In addition, a sequence diagram (Fig.~\ref{fig:SDProperty}) and a monitor process in mCRL2 (visualized in Fig.~\ref{fig:MonitorProperty} without the data, for clarity)  
 are generated, to be used in the final model checking phase.
-
 \begin{figure}[!t]
 \centering
 {%
@@ -916,7 +916,7 @@ are generated, to be used in the final model checking phase.
 \label{fig:Summary}
 \end{figure}
 
-\begin{figure}[!b]
+\begin{figure}[!t]
  \centering
 \begin{minipage}[!t]{0.5\linewidth}
 \includegraphics[width=0.95\textwidth]{./SDProperty.png}%
@@ -928,7 +928,9 @@ are generated, to be used in the final model checking phase.
 \captionof{figure}{A monitor for the property\label{fig:MonitorProperty}}%
 \end{minipage}
 \end{figure}
-One thing worth noticing is the fact that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
+\vspace{-3 pt}
+
+It is worth noticing that our original manually constructed formula was not entirely correct, and as such could potentially produce spurious counter-examples. 
 The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
