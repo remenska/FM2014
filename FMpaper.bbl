@@ -143,11 +143,6 @@ Mateescu, R.:
 \newblock {Property Pattern Mappings for RAFMC}
   http://www.inrialpes.fr/vasy/cadp/resources/evaluator/rafmc.html.
 
-\bibitem{Bauer:2011:RVL:2000799.2000800}
-Bauer, A.,  et~al.:
-\newblock {Runtime Verification for LTL and TLTL}.
-\newblock In Proc. TOSEM'11
-
 \bibitem{DBLP:journals/corr/abs-1006-3638}
 Bauer, A.:
 \newblock {Monitorability of omega-regular languages}.

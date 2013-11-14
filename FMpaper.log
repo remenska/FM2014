@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  14 NOV 2013 14:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  14 NOV 2013 17:04
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -487,7 +487,7 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 455.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 452.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -504,24 +504,27 @@ File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png> [8 <./ResponseChain_withMonitor1.png> <./ResponseC
-hainPSC.png (PNG copy)>] <./Buchi.png, id=46, 509.905pt x 186.6975pt>
-File: ./Buchi.png Graphic file (type png)
+hainPSC.png (PNG copy)>] <./Buchi2.jpg, id=46, 227.85126pt x 207.77625pt>
+File: ./Buchi2.jpg Graphic file (type jpg)
 
-<use ./Buchi.png> <./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
+<use ./Buchi2.jpg> <./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
 
-<use ./PASSlaunch.png> [9] [10 <./Buchi.png (PNG copy)> <./PASSlaunch.png (PNG 
-copy)>]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 844.
+<use ./PASSlaunch.png> [9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
+ [10 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 841.
+
+
+(/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 ) [11]
-<./ScopeSelection1.png, id=60, 1014.79124pt x 506.89375pt>
+<./ScopeSelection1.png, id=58, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 880--882
+Overfull \hbox (4.0pt too wide) in paragraph at lines 877--879
  [][] 
  []
 
@@ -529,7 +532,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 880--882
 <./Last.png, id=64, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 916--918
+Overfull \hbox (4.0pt too wide) in paragraph at lines 913--915
  [][] 
  []
 
@@ -542,8 +545,8 @@ File: ./PropertyAutomaton.png Graphic file (type png)
 <use ./PropertyAutomaton.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13 <./Last.png (PNG copy)> <./SDProperty.png (PNG copy)> <./PropertyAutomaton
-.png (PNG copy)>] (./FMpaper.bbl [14]
+ [13 <./Last.png (PNG copy)>] [14 <./SDProperty.png (PNG copy)> <./PropertyAuto
+maton.png (PNG copy)>] (./FMpaper.bbl [15]
 Underfull \hbox (badness 10000) in paragraph at lines 131--134
 []\OT1/ptm/m/n/9 OMG:  UML2.4 Su-per-struc-ture Specification$
  []
@@ -553,14 +556,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--145
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 162--165
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--160
 []\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
 ptm/m/n/9 UML toolset
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 173--176
+Underfull \hbox (badness 4739) in paragraph at lines 168--171
 []\OT1/ptm/m/n/9 Remenska, D., Willemse, T.A.C.:  PASS: Prop-erty AS-Sis-tant t
 ool for Eclipse
  []
@@ -571,13 +574,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5585 strings out of 493848
- 77424 string characters out of 1152823
- 235434 words of memory out of 3000000
+ 5586 strings out of 493848
+ 77414 string characters out of 1152823
+ 234430 words of memory out of 3000000
  8762 multiletter control sequences out of 15000+50000
- 27080 words of font info for 65 fonts, out of 3000000 for 9000
+ 27587 words of font info for 66 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,14n,45p,275b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,14n,45p,275b,1451s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -592,7 +595,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 3065097 bytes).
+Output written on FMpaper.pdf (16 pages, 2801505 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
