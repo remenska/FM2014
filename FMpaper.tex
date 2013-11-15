@@ -116,7 +116,7 @@ for checking the property.
 \vspace{-10 pt}
 
 \label{sec:Introduction}
-One of the challenges during the development of concurrent systems is detecting
+A challenge during the development of concurrent systems is detecting
 design errors, as such errors can cause deadlocks, livelocks, race conditions,
 starvation, etc. The sheer number of different executions and the
 inherent non-determinism in concurrent systems make complete testing such software
@@ -328,8 +328,9 @@ we use the standard MDT-UML2~\cite{MDTUML2} Eclipse modeling API.
 %and stops as soon as an error is found.  
 We revisit a case study we did previously
 in~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}, this time using PASS
-to automatically obtain the formula and monitor for checking the
+to obtain the formula and monitor for checking the
 property.\medskip
+\vspace{-3 pt}
 
 \noindent\emph{Structure.}
 In Section~\ref{sec:RelatedWork} we
@@ -667,7 +668,7 @@ been acquired or released can be naturally expressed by actions. Since state-bas
 temporal logics lack this mechanism, an alternative is to introduce a variable to indicate
 the status of the lock, i.e., expose the state information. With such properties, LTS
 representations are more intuitive, and easier to query using event-based logics.
-\vspace{-2 pt}
+\vspace{-1 pt}
 
 Given that communication among components proceeds via actions (or events) which can
 represent synchronous or asynchronous communication, property specification
@@ -724,7 +725,7 @@ approach.
 \caption{A B\"uchi automaton}
 \label{fig:Buchi}
 \end{minipage}%
-\begin{minipage}[t]{0.5\linewidth}
+\begin{minipage}[!t]{0.5\linewidth}
 \includegraphics[width=1.0\textwidth]{./PASSlaunch.png}%
 \label{fig:PASSlaunch}
 \captionof{figure}{Launching PASS from the Eclipse Project Explorer\label{fig:PASSlaunch}}%
@@ -817,7 +818,7 @@ Such a monitor can be placed in parallel with the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
-\vspace{-7 pt}
+\vspace{-8 pt}
 
 \section{Case Study: DIRAC's Executor Framework revisited}
 \vspace{-8 pt}
@@ -838,7 +839,7 @@ During testing, certain problems have manifested: occasionally, tasks submitted 
 were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
 generated logs. 
 In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
-\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
+\begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{8}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$ .
 synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
 true$^*$.
@@ -958,12 +959,11 @@ thus keeping a strong relationship between the model elements and the property t
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
 which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
 formalism. Besides offering a natural language summary of the elicited property,
-the user is provided with $\mu$-calculus formula and a UML sequence
-diagram depicting the desired behavior. In addition, PASS
+a $\mu$-calculus formula and a UML sequence
+diagram is provided, depicting the desired behavior. In addition, PASS
 automatically generates monitors to be used for efficient property-driven 
 runtime verification using the mCRL2 toolset. We believe that automating the property specification process, while keeping
 practitioners in their familiar environment, should lead to more active adoption of methods for formal analysis of designs.
-
 We revisited a case study from the grid domain, and discovered that 
 despite a reasonably good understanding of $\mu$-calculus, our previously manually
 defined property was in fact not fully correct. Using the monitor, we performed runtime verification, which in
