@@ -835,7 +835,7 @@ the \emph{Executors}. Executors process any task sent to them by the ExecutorDis
 The ExecutorDispatcher takes care of persisting the state of the tasks and distributing them amongst the Executors, based on the
 task requirements. It maintains a queue of tasks waiting to be processed, and other internal data structures to keep track
 of the distribution of tasks among the Executors.
-During testing, certain problems have manifested: occasionally, tasks submitted in the system would not get dispatched, despite the fact that their responsible Executors
+During testing, developers experienced certain problems: occasionally, tasks submitted in the system would not get dispatched, despite the fact that their responsible Executors
 were idle at the moment. The root cause of this problem could not be identified by testing  with different workload scenarios, nor by analysis of the 
 generated logs. 
 In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
