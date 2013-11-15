@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  15 NOV 2013 16:02
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  15 NOV 2013 16:17
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -557,10 +557,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5585 strings out of 493848
- 77401 string characters out of 1152823
- 234430 words of memory out of 3000000
- 8761 multiletter control sequences out of 15000+50000
+ 5584 strings out of 493848
+ 77386 string characters out of 1152823
+ 234426 words of memory out of 3000000
+ 8760 multiletter control sequences out of 15000+50000
  27080 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  36i,14n,45p,275b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -578,7 +578,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 2800857 bytes).
+Output written on FMpaper.pdf (16 pages, 2800810 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

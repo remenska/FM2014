@@ -749,7 +749,7 @@ a monitor for about 50\% of the property patterns.
 We translate a core fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
 We restrict to the following grammar:
-\vspace{-5 pt}
+\vspace{-4 pt}
 \[
 \begin{array}{ll}
 \phi & ::= b \mid \forall d{:}D.\phi \mid [\rho]\phi \mid \phi\wedge \phi\\
@@ -765,7 +765,7 @@ Before we present the translation, we convert the formulas in
 guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
-\vspace{-3 pt}
+\vspace{-4 pt}
 \begin{array}{ll}
 ~
 [nil]\phi &= \phi \\
@@ -899,7 +899,7 @@ elicit the behavior requirement as a \emph{response} pattern (``a task \emph{pus
 The actual events of interest in this case are \emph{pushTask} and \emph{popTask}. Again, an extension of the pattern system allows
 for the user to decide whether the first event (the cause) must necessarily occur in the first place. 
 Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
-\vspace{-2 pt}
+\vspace{-1 pt}
 
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining to the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
