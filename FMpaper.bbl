@@ -153,11 +153,6 @@ Tsaregorodtsev, A.,  et~al.:
 \newblock {{DIRAC}: A Community {G}rid Solution}.
 \newblock {Proc. CHEP'07}
 
-\bibitem{repo:remenska}
-Remenska, D., Homburg, P.:
-\newblock {The mCRL2$\Leftrightarrow$UML toolset}
-  https://github.com/remenska/NFM.
-
 \bibitem{so62465}
 {Blom}, S., van~de {Pol}, J.:
 \newblock {Symbolic Reachability for Process Algebras with Recursive Data

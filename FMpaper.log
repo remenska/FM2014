@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  15 NOV 2013 15:12
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  15 NOV 2013 16:02
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -510,17 +510,14 @@ File: ./Buchi2.jpg Graphic file (type jpg)
 <use ./Buchi2.jpg> <./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
 
-<use ./PASSlaunch.png> [9]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 842.
+<use ./PASSlaunch.png> [9] [10 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 843.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 ) [11]
-<./ScopeSelection1.png, id=58, 1014.79124pt x 506.89375pt>
+<./ScopeSelection1.png, id=60, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
@@ -542,40 +539,31 @@ File: ./SDProperty.png Graphic file (type png)
 <./PropertyAutomaton.png, id=66, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
-<use ./PropertyAutomaton.png>
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [13 <./Last.png (PNG copy)>] (./FMpaper.bbl [14 <./SDProperty.png (PNG copy)> 
-<./PropertyAutomaton.png (PNG copy)>] [15]
+<use ./PropertyAutomaton.png> [13 <./Last.png (PNG copy)>] (./FMpaper.bbl
+[14 <./SDProperty.png (PNG copy)> <./PropertyAutomaton.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 142--145
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for RAFMC
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 157--160
-[]\OT1/ptm/m/n/9 Remenska, D., Hom-burg, P.:  The mCRL2$\OMS/cmsy/m/n/9 ,$\OT1/
-ptm/m/n/9 UML toolset
- []
-
-
-Underfull \hbox (badness 4739) in paragraph at lines 168--171
+Underfull \hbox (badness 4739) in paragraph at lines 163--166
 []\OT1/ptm/m/n/9 Remenska, D., Willemse, T.A.C.:  PASS: Prop-erty AS-Sis-tant t
 ool for Eclipse
  []
 
-) [16] (./FMpaper.aux)
+[15]) [16] (./FMpaper.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5586 strings out of 493848
- 77414 string characters out of 1152823
- 235430 words of memory out of 3000000
- 8762 multiletter control sequences out of 15000+50000
- 27587 words of font info for 66 fonts, out of 3000000 for 9000
+ 5585 strings out of 493848
+ 77401 string characters out of 1152823
+ 234430 words of memory out of 3000000
+ 8761 multiletter control sequences out of 15000+50000
+ 27080 words of font info for 65 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 36i,14n,45p,275b,1451s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,14n,45p,275b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -590,7 +578,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (16 pages, 2801425 bytes).
+Output written on FMpaper.pdf (16 pages, 2800857 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

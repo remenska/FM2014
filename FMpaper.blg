@@ -18,8 +18,6 @@ Warning--entry type for "UML2.4_superstructure" isn't style-file defined
 --line 1787 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
 --line 1804 of file FM2014.bib
-Warning--entry type for "repo:remenska" isn't style-file defined
---line 1834 of file FM2014.bib
 Repeated entry---line 1841 of file FM2014.bib
  : @techreport{cranen2010linear
  :                             ,
@@ -34,36 +32,36 @@ Warning--I didn't find a database entry for "2013"
 Warning--I didn't find a database entry for "DBLP:conf/tacas/2011"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 32 entries,
+You've used 31 entries,
             2087 wiz_defined-function locations,
-            661 strings with 8895 characters,
-and the built_in function-call counts, 5874 in all, are:
-= -- 480
-> -- 257
+            657 strings with 8775 characters,
+and the built_in function-call counts, 5735 in all, are:
+= -- 470
+> -- 249
 < -- 1
-+ -- 98
-- -- 66
-* -- 251
-:= -- 829
-add.period$ -- 38
-call.type$ -- 32
-change.case$ -- 32
++ -- 95
+- -- 64
+* -- 246
+:= -- 808
+add.period$ -- 37
+call.type$ -- 31
+change.case$ -- 31
 chr.to.int$ -- 0
-cite$ -- 34
-duplicate$ -- 361
-empty$ -- 786
-format.name$ -- 66
-if$ -- 1463
+cite$ -- 33
+duplicate$ -- 355
+empty$ -- 768
+format.name$ -- 64
+if$ -- 1430
 int.to.chr$ -- 0
-int.to.str$ -- 32
+int.to.str$ -- 31
 missing$ -- 26
-newline$ -- 157
-num.names$ -- 32
-pop$ -- 234
+newline$ -- 153
+num.names$ -- 31
+pop$ -- 226
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 152
+skip$ -- 149
 stack$ -- 0
 substring$ -- 8
 swap$ -- 66
@@ -72,7 +70,7 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 33
-width$ -- 34
-write$ -- 302
+while$ -- 32
+width$ -- 33
+write$ -- 294
 (There were 5 error messages)
