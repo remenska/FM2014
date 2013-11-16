@@ -48,9 +48,9 @@
 
 \title{Property Specification Made Easy: Harnessing the Power of Model Checking in UML designs}
 
-\author{Daniela Remenska\inst{1,3}
-\and Tim A.C. Willemse\inst{2} \and Jeff Templon\inst{3} \and\
-Kees Verstoep\inst{1} \and Henri Bal\inst{1}}
+  \author{Daniela Remenska\inst{1,3}
+  \and Tim A.C. Willemse\inst{2} \and \\ Jeff Templon\inst{3} \and\
+  Kees Verstoep\inst{1} \and Henri Bal\inst{1}}
 %
 % (feature abused for this document to repeat the title also on left hand pages)
 
@@ -201,7 +201,7 @@ to distill the right formula.
 % just mention here the patterns, the fact that there are 3 categories of approaches
 % tackling the problem, the general deficiencies of these approaches and how we want to
 % take the best of all worlds; 
-
+\vspace{-3 pt}
 In an attempt to ease the use of temporal logic,
 in~\cite{Dwyer:1999:PPS:302405.302672}, a pattern-based classification
 was developed for capturing requirements and generating input to model
@@ -220,6 +220,7 @@ an event or state occurs; examples of behavior classification are:
 and \emph{response} (an event or state must be followed by another event
 or state).
 
+\vspace{-3 pt}
 Although the patterns website~\cite{PSP} contains a collection
 of mappings for different target formalisms such as LTL and CTL, 
 in practice practitioners have to fully understand the
@@ -290,6 +291,7 @@ of mCRL2.
 Our monitors are essentially sequence diagrams, acting as
 observers of message exchanges.
 
+\vspace{-3 pt}
 We deliberately chose to develop PASS as an Eclipse plug-in, as
 our strong motivation was to stay within an existing UML development
 environment, rather than use an external helper tool for this.  We are
@@ -334,11 +336,13 @@ property.\medskip
 
 \noindent\emph{Structure.}
 In Section~\ref{sec:RelatedWork} we
- survey the most relevant related approaches,
+% survey the most relevant related approaches,
+survey related approaches,
 and outline their advantages and
-shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
+% shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
+shortcomings. Section~\ref{sec:Preliminaries} introduces
 the syntax and semantics of mCRL2, $\mu$-calculus and UML sequence
-diagrams.  We describe our approach in Section~\ref{sec:Approach}.
+diagrams. We describe our approach in Section~\ref{sec:Approach}.
 In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the
 Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \vspace{-7 pt}
@@ -412,23 +416,28 @@ vUML~\cite{Lilius99vuml:a}.  HUGO/RT is a tool for model checking
 UML 2.0 interactions against a model composed of message-exchanging
 state machines. The interactions represent the desired properties,
 and are translated together with the system model into B\"uchi automata
-for model checking with SPIN.  The version we tested neither supports
+% for model checking with SPIN.  The version we tested neither supports
+for model checking with SPIN.  The version we tested supports no
 asynchronous messages nor combined fragments.  vUML~\cite{Lilius99vuml:a}
 is, like HUGO/RT, essentially a tool for automating verifications
 of UML state machines.  Properties must be specified in terms of
-undesired scenarios.  The verification is based on checking whether
-it is possible to reach error states. This is inconvenient, as users
+% undesired scenarios.  The verification is based on checking whether
+% it is possible to reach error states. This is inconvenient, as users
+undesired scenarios.  The verification is based on ability
+to reach error states. This is inconvenient, as users
 must specify these manually.  Live Sequence Charts (LSC) are also
 used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical
 formalism for expressing behavioral properties.  They can distinguish
 between possible (cold) and mandatory (hot) behaviors.  For both, B\"uchi
 automata and LTL formulas are generated automatically from the diagrams.
 UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing
-the \emph{assert} and \emph{negate} fragments to capture mandatory and
-forbidden behavior. On the other hand, LSCs lack many UML features.
-
-Finally, there are several temporal extensions of UML's property
-language OCL.  Resembling an OO programming language, OCL constraints
+% the \emph{assert} and \emph{negate} fragments to capture mandatory and
+% forbidden behavior. On the other hand, LSCs lack many UML features.
+the \emph{assert} and \emph{negate} fragments capturing mandatory and
+forbidden behavior. However, LSCs lack many UML features.
+  
+  Finally, there are several temporal extensions of UML's property
+  language OCL. Resembling an OO programming language, OCL constraints
 quickly become quite dense and cryptic, and editing them manually is
 error-prone. Another problem is the extent to which designers are
 familiar with this language.  Finally, OCL is by itself incapable
@@ -438,11 +447,11 @@ future state-oriented constraints.  In~\cite{Flake03formalsemantics},
 a real-time constraint extension of OCL is proposed for models described
 by UML state machines; they claim to be able to describe all the existing
 patterns in these OCL expressions.  To simplify constraint definitions
-with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors propose
+with OCL, \cite{Ackermann:2006:LOS:2135315.2135339} proposes 
 to use specification patterns for which OCL constraints can be generated
 automatically.  The behavioral specification of software components refers
 to interface specifications, which are not really dynamic views. Moreover,
-this work does not yet introduce means to specify temporal properties.
+this work does not introduce means to specify temporal properties.
 \vspace{-7 pt}
 
 \section{Preliminaries}
