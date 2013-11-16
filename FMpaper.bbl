@@ -115,12 +115,6 @@ Emerson, E.A.:
 \newblock In: {DIMACS Series in Discrete Mathematics}, American Mathematical
   Society (1997)
 
-\bibitem{cranen2010linear}
-Cranen, S., Groote, J.F., Reniers, M.:
-\newblock {A linear translation from LTL to the first-order modal
-  $\mu$-calculus}.
-\newblock Technical report, CSR-10-09, TU/e Eindhoven, The Netherlands (2010)
-
 \bibitem{cranen2011linear}
 Cranen, S., Groote, J.F., Reniers, M.:
 \newblock {A linear translation from CTL* to the first-order modal

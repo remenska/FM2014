@@ -18,10 +18,6 @@ Warning--entry type for "UML2.4_superstructure" isn't style-file defined
 --line 1785 of file FM2014.bib
 Warning--entry type for "RAFMC" isn't style-file defined
 --line 1802 of file FM2014.bib
-Repeated entry---line 1839 of file FM2014.bib
- : @techreport{cranen2010linear
- :                             ,
-I'm skipping whatever remains of this entry
 Warning--entry type for "repo:PASS" isn't style-file defined
 --line 1855 of file FM2014.bib
 A bad cross reference---entry "DBLP:conf/tacas/GaravelLMS11"
@@ -29,45 +25,45 @@ refers to entry "DBLP:conf/tacas/2011", which doesn't exist
 Warning--I didn't find a database entry for "DBLP:conf/tacas/2011"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 31 entries,
+You've used 30 entries,
             2087 wiz_defined-function locations,
-            656 strings with 8806 characters,
-and the built_in function-call counts, 5719 in all, are:
-= -- 465
-> -- 249
+            653 strings with 8677 characters,
+and the built_in function-call counts, 5544 in all, are:
+= -- 447
+> -- 238
 < -- 1
-+ -- 95
-- -- 64
-* -- 243
-:= -- 806
-add.period$ -- 36
-call.type$ -- 31
-change.case$ -- 31
++ -- 91
+- -- 61
+* -- 233
+:= -- 775
+add.period$ -- 35
+call.type$ -- 30
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 355
-empty$ -- 768
-format.name$ -- 64
-if$ -- 1425
+cite$ -- 32
+duplicate$ -- 348
+empty$ -- 752
+format.name$ -- 61
+if$ -- 1384
 int.to.chr$ -- 0
-int.to.str$ -- 31
+int.to.str$ -- 30
 missing$ -- 26
-newline$ -- 153
-num.names$ -- 31
-pop$ -- 228
+newline$ -- 148
+num.names$ -- 30
+pop$ -- 226
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 149
+skip$ -- 146
 stack$ -- 0
 substring$ -- 8
-swap$ -- 65
+swap$ -- 64
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 32
-width$ -- 33
-write$ -- 293
-(There were 4 error messages)
+while$ -- 31
+width$ -- 32
+write$ -- 282
+(There were 3 error messages)

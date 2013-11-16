@@ -341,7 +341,7 @@ survey related approaches,
 and outline their advantages and
 % shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
 shortcomings. Section~\ref{sec:Preliminaries} introduces
-the syntax and semantics of mCRL2, $\mu$-calculus and UML sequence
+mCRL2, $\mu$-calculus and UML sequence
 diagrams. We describe our approach in Section~\ref{sec:Approach}.
 In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the
 Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
@@ -493,7 +493,7 @@ The semantics associated with the mCRL2 syntax is a Labeled Transition System (L
 that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
 toolset for model checking specific properties is an extension of the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
-expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2010linear,cranen2011linear} into $\mu$-calculus,
+expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2011linear} into $\mu$-calculus,
 witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
 The syntax of mCRL2's modal $\mu$-calculus formulas we are concerned with in this paper
 is defined by the following grammar:
@@ -616,9 +616,12 @@ We find that this does not limit the expressiveness of property specifications i
 \vspace{-7 pt}
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
-existing related approaches. As already stated, to bridge the gap between everyday practical software 
-requirements specification and the property patterns classification,
-several conversational tools have already been proposed. 
+existing related approaches. 
+%
+% TW: removed because of repetition...
+%As already stated, to bridge the gap between everyday practical software 
+%requirements specification and the property patterns classification,
+%several conversational tools have already been proposed. 
 
 While we follow 
 on the idea of using a guiding questionnaire to incrementally refine various aspects
@@ -684,7 +687,7 @@ Given that communication among components proceeds via actions (or events) which
 represent synchronous or asynchronous communication, property specification
 can be defined over sequences of actions that are data-dependent.
 Fortunately, $\mu$-calculus is rich enough to express both state and action formulas,
-and provides means for quantification over data, which other formalisms lack. 
+and provides means for quantification over data, which many formalisms lack. 
 %maybe this can go to the questionnaire?
 For example, with our approach, a practitioner can use 
 a wild-card ``*'' to express that the property should be evaluated for all values
@@ -760,6 +763,12 @@ a monitor for about 50\% of the property patterns.
 
 We translate a core fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
+The idea behind the translation is a violation of a property of the 
+form $[\alpha]\phi$ is witnessed by an action that matches the action
+formula $\alpha$.  A monitor for such a formula synchronizes
+with precisely those actions matching $\alpha$. This generalizes
+to sequences of actions matching words described by some $\rho$ for
+formulas of the form $[\rho]\phi$.
 We restrict to the following grammar:
 \vspace{-4 pt}
 \[
@@ -778,10 +787,9 @@ guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
 \vspace{-4 pt}
-\begin{array}{ll}
-~
-[nil]\phi &= \phi \\
-~[\rho^*]\phi &= [nil]\phi \wedge [\rho^+]\phi
+\begin{array}{lcl}
+[nil]\phi = \phi & \qquad\qquad
+[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi
 \end{array}
 \]
 The function $\Tr$ takes two arguments (a formula and a list of typed
@@ -876,7 +884,7 @@ elicit the property.
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
-one is lead to consider some subtle aspects of the property, which are typically 
+one is led to consider some subtle aspects of the property, which are typically 
 overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
@@ -945,13 +953,13 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
-, which puts more restrictions on the behavior, while the original one was of the following form:
+while the original one was a more restrictive formula of the following form:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
 Using the generated monitor, we performed runtime verification on the corrected model. We linearized the model with the mCRL2 toolset,
 and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking back-end. 
-Taking less than 20 minutes, the symbolic equation system explorer 
+Taking less than 20 minutes, the symbolic state space explorer 
 finished the traversal (2.85 million states) without discovering an \emph{error} step, effectively concluding that the property holds.
 The PASS tool, along with model and the monitor of this case study, is available at~\cite{repo:PASS}.
 \vspace{-14 pt}
