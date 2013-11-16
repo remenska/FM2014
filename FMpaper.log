@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  16 NOV 2013 21:18
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.12.2)  16 NOV 2013 22:08
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -490,26 +490,23 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 <./Figure2_merged.png, id=31, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
-<use ./Figure2_merged.png> [6]
-<./ResponseChain_withMonitor1.png, id=35, 604.2575pt x 376.40625pt>
+<use ./Figure2_merged.png> [6] [7 <./Figure2_merged.png (PNG copy)>]
+<./ResponseChain_withMonitor1.png, id=39, 604.2575pt x 376.40625pt>
 File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
 <use ./ResponseChain_withMonitor1.png>
-<./ResponseChainPSC.png, id=37, 463.7325pt x 455.7025pt>
+<./ResponseChainPSC.png, id=41, 463.7325pt x 455.7025pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
-<use ./ResponseChainPSC.png> [7 <./Figure2_merged.png (PNG copy)>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png (PNG copy)>]
-<./Buchi2.jpg, id=46, 227.85126pt x 207.77625pt>
+<use ./ResponseChainPSC.png> [8 <./ResponseChain_withMonitor1.png> <./ResponseC
+hainPSC.png (PNG copy)>] <./Buchi2.jpg, id=46, 227.85126pt x 207.77625pt>
 File: ./Buchi2.jpg Graphic file (type jpg)
- <use ./Buchi2.jpg>
-<./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
+
+<use ./Buchi2.jpg> <./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
- <use ./PASSlaunch.png>
-[9] [10 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 852.
+
+<use ./PASSlaunch.png> [9] [10 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 855.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
@@ -519,7 +516,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 886--888
+Overfull \hbox (4.0pt too wide) in paragraph at lines 889--891
  [][] 
  []
 
@@ -527,7 +524,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 886--888
 <./Last.png, id=64, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 923--925
+Overfull \hbox (4.0pt too wide) in paragraph at lines 926--928
  [][] 
  []
 
@@ -577,7 +574,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 2800209 bytes).
+Output written on FMpaper.pdf (15 pages, 2800138 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

@@ -475,7 +475,7 @@ The action ${\tau}$ denotes an internal step, which cannot be observed from the 
 Non-deterministic choice between two processes
 is denoted by the ``$+$'' operator. Processes can be composed sequentially and in parallel by means of ``$\cdot$'' and
 ``${||}$''. The sum
-operator $\sum_{d:D}p$ denotes (possibly infinite) choice among
+operator $\sum_{d:D}p$ denotes choice among
 processes parameterized by variable $d$. The behavior of the conditional process $c\rightarrow p\diamond p$ 
 depends on the value of the boolean expression $c$: if it evaluates to true, process $p$
 is chosen and otherwise process $q$ is chosen.
@@ -484,13 +484,13 @@ This allows for modeling systems whose behavior is data-dependent.
 % to occur. To show possible communications in a system and the resulting actions, the communication operator
 % ${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
 % means that action $c$ is the result of the multi-party synchronization of actions $a_1 , a_2 , \dots $ and $a_n$.
-There are a number of built-in data types in mCRL2, such as (unbounded) integers, (uncountable)
+There are a number of built-in data types in mCRL2, such as integers,
 reals, booleans, lists, and sets. 
 Furthermore, by a \textbf{sort} definition one can define a new data type. Recursive process 
 equations can be declared by \textbf{proc}.
 
 The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
-system that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
+that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
 toolset for model checking specific properties is an extension of the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
 expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2010linear,cranen2011linear} into $\mu$-calculus,
@@ -531,7 +531,7 @@ state lead to states satisfying $\phi$.
 For instance, $[\neg (\bigcup{n{:}Nat}.~
 \textit{read}(n+n))]\text{false}$ states that a process should not execute any actions
 other than read actions with even-valued natural numbers.
-Remember that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
+Note that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
 
 Combining these modalities, the least ($\mu X\ldotp \phi(X)$) and
 greatest ($\nu X\ldotp \phi(X)$) fixpoints permit reasoning about finite
@@ -588,7 +588,7 @@ used.
 
 There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in practice
 is limited, because their semantics described in the UML 2.0 superstructure specification~\cite{UML2.4_superstructure}
-is rather vague and confusing. By default, sequence diagrams without the use of these two operators 
+are rather vague and confusing. By default, sequence diagrams without the use of these two operators 
 only reflect possible behavior, while \emph{assert} and \emph{neg} alter the way 
 a trace can be classified as valid or invalid. The specification characterizes
 the semantics of a sequence diagram as a pair of valid and invalid traces,
@@ -629,7 +629,7 @@ instantiating the template. To avoid potential errors, as well as
 reduce effort in specifications, we want to ideally stay in the same IDE used
 for modeling the system, and select only existing events that represent
 valid communication between components.  
-In addition, we can already obtain~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} mCRL2 models from UML designs comprising sequence diagrams.
+In addition, we can already obtain mCRL2 models from UML designs comprising sequence diagrams~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}.
 In our experience, visual scenarios are the most suitable and commonly used  
 means to specify the dynamics of a system. 
 We believe that such a visual depiction of a scenario, more than finite state machines, 
@@ -665,7 +665,8 @@ explicitly mark an error message.
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
 system does not cover $\mu$-calculus, such mappings~\cite{RAFMC} have been developed by the CADP team.
-However, there are no pattern extensions available. These are adequate for action- or event-based systems,
+% However, there are no pattern extensions available.
+These are adequate for action- or event-based systems,
 making them a good match for sequence diagrams, where communication between components is depicted.
 LTL logic is interpreted over Kripke structures, where the states are labeled with elementary 
 propositions that hold in each state, while $\mu$-calculus is interpreted over LTS-es, in which the transitions
@@ -745,7 +746,9 @@ approach.
 Not every property can be monitored at runtime when only a finite run has been 
 observed so far. Monitorable properties are those for which a violation occurs along a finite execution.
 This problem has been studied~\cite{DBLP:journals/corr/abs-1006-3638}, and it is known that the class of 
-monitorable properties is strictly larger than the commonly believed class of \emph{safety} properties.
+monitorable properties is strictly larger than
+% the commonly believed class
+that of \emph{safety} properties.
 However, an exact categorization of monitorable properties is missing.
 In particular, the definition of \emph{liveness} requires that any finite system
 execution must be extendable to an infinite one that satisfies the property. 
@@ -873,7 +876,7 @@ elicit the property.
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
-he is lead to consider some subtle aspects of the property, which are typically 
+one is lead to consider some subtle aspects of the property, which are typically 
 overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
@@ -950,7 +953,7 @@ Using the generated monitor, we performed runtime verification on the corrected 
 and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking back-end. 
 Taking less than 20 minutes, the symbolic equation system explorer 
 finished the traversal (2.85 million states) without discovering an \emph{error} step, effectively concluding that the property holds.
-The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+The PASS tool, along with model and the monitor of this case study, is available at~\cite{repo:PASS}.
 \vspace{-14 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
