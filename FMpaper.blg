@@ -34,7 +34,7 @@ Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
 You've used 31 entries,
             2087 wiz_defined-function locations,
-            657 strings with 8775 characters,
+            657 strings with 8817 characters,
 and the built_in function-call counts, 5735 in all, are:
 = -- 470
 > -- 249
