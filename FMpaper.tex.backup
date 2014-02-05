@@ -48,9 +48,9 @@
 
 \title{Property Specification Made Easy: Harnessing the Power of Model Checking in UML designs}
 
-\author{Daniela Remenska\inst{1,3}
-\and Tim A.C. Willemse\inst{2} \and Jeff Templon\inst{3} \and\
-Kees Verstoep\inst{1} \and Henri Bal\inst{1}}
+  \author{Daniela Remenska\inst{1,3}
+  \and Tim A.C. Willemse\inst{2} \and \\ Jeff Templon\inst{3} \and\
+  Kees Verstoep\inst{1} \and Henri Bal\inst{1}}
 %
 % (feature abused for this document to repeat the title also on left hand pages)
 
@@ -201,7 +201,7 @@ to distill the right formula.
 % just mention here the patterns, the fact that there are 3 categories of approaches
 % tackling the problem, the general deficiencies of these approaches and how we want to
 % take the best of all worlds; 
-
+\vspace{-3 pt}
 In an attempt to ease the use of temporal logic,
 in~\cite{Dwyer:1999:PPS:302405.302672}, a pattern-based classification
 was developed for capturing requirements and generating input to model
@@ -220,6 +220,7 @@ an event or state occurs; examples of behavior classification are:
 and \emph{response} (an event or state must be followed by another event
 or state).
 
+\vspace{-3 pt}
 Although the patterns website~\cite{PSP} contains a collection
 of mappings for different target formalisms such as LTL and CTL, 
 in practice practitioners have to fully understand the
@@ -265,9 +266,10 @@ a formula in some target temporal logic.
 Alternative
 approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA}
 tackle the property specification problem by proposing new graphical
-notations for specifying properties. A downside of all these approaches is
-that they still expect users to have some expertise in temporal logic.
-Moreover, most approaches rely on state-based temporal logics. Such
+notations for specifying properties. 
+% A downside of all these approaches is
+% that they still expect users to have some expertise in temporal logic.
+Most approaches, however, rely on state-based temporal logics. Such
 logics conceptually do not match the typical event-based UML sequence
 diagrams and activity diagrams, in which events represent methods calls
 or asynchronous communication between distributed components.
@@ -278,7 +280,7 @@ the need of expertise in temporal logic.  We introduce PASS,
 a Property ASSistant which is a tool that guides and facilitates 
 deriving system properties. Our starting point was the pattern
 system~\cite{Dwyer:1999:PPS:302405.302672}, which we extended with over
-100 new property templates. 
+50 useful property templates. 
 The pattern templates instantiated with PASS have three notations:
 a natural language summary, a $\mu$-calculus formula and a UML sequence
 diagram depicting desired behaviors.  We utilized mCRL2's rich data
@@ -290,6 +292,7 @@ of mCRL2.
 Our monitors are essentially sequence diagrams, acting as
 observers of message exchanges.
 
+\vspace{-3 pt}
 We deliberately chose to develop PASS as an Eclipse plug-in, as
 our strong motivation was to stay within an existing UML development
 environment, rather than use an external helper tool for this.  We are
@@ -334,11 +337,13 @@ property.\medskip
 
 \noindent\emph{Structure.}
 In Section~\ref{sec:RelatedWork} we
- survey the most relevant related approaches,
+% survey the most relevant related approaches,
+survey related approaches,
 and outline their advantages and
-shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
-the syntax and semantics of mCRL2, $\mu$-calculus and UML sequence
-diagrams.  We describe our approach in Section~\ref{sec:Approach}.
+% shortcomings. Section~\ref{sec:Preliminaries} briefly introduces
+shortcomings. Section~\ref{sec:Preliminaries} introduces
+mCRL2, $\mu$-calculus and UML sequence
+diagrams. We describe our approach in Section~\ref{sec:Approach}.
 In Section~\ref{sec:CaseStudy} we apply PASS on a case study from the
 Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 \vspace{-7 pt}
@@ -412,37 +417,44 @@ vUML~\cite{Lilius99vuml:a}.  HUGO/RT is a tool for model checking
 UML 2.0 interactions against a model composed of message-exchanging
 state machines. The interactions represent the desired properties,
 and are translated together with the system model into B\"uchi automata
-for model checking with SPIN.  The version we tested neither supports
+% for model checking with SPIN.  The version we tested neither supports
+for model checking with SPIN.  The version we tested supports no
 asynchronous messages nor combined fragments.  vUML~\cite{Lilius99vuml:a}
 is, like HUGO/RT, essentially a tool for automating verifications
 of UML state machines.  Properties must be specified in terms of
-undesired scenarios.  The verification is based on checking whether
-it is possible to reach error states. This is inconvenient, as users
+% undesired scenarios.  The verification is based on checking whether
+% it is possible to reach error states. This is inconvenient, as users
+undesired scenarios.  The verification is based on the ability
+to reach error states. This is inconvenient, as users
 must specify these manually.  Live Sequence Charts (LSC) are also
 used~\cite{Kugler:2005:TLS:2140653.2140692,MVPSA} as a graphical
 formalism for expressing behavioral properties.  They can distinguish
 between possible (cold) and mandatory (hot) behaviors.  For both, B\"uchi
 automata and LTL formulas are generated automatically from the diagrams.
 UML 2.0 sequence diagrams borrow many concepts from LSC, by introducing
-the \emph{assert} and \emph{negate} fragments to capture mandatory and
-forbidden behavior. On the other hand, LSCs lack many UML features.
-
-Finally, there are several temporal extensions of UML's property
-language OCL.  Resembling an OO programming language, OCL constraints
+% the \emph{assert} and \emph{negate} fragments to capture mandatory and
+% forbidden behavior. On the other hand, LSCs lack many UML features.
+the \emph{assert} and \emph{negate} fragments capturing mandatory and
+forbidden behavior. However, LSCs lack many UML features.
+  
+  Finally, there are several temporal extensions of UML's property
+  language OCL. Resembling an OO programming language, OCL constraints
 quickly become quite dense and cryptic, and editing them manually is
 error-prone. Another problem is the extent to which designers are
 familiar with this language.  Finally, OCL is by itself incapable
 of reasoning about temporal behavior.  In~\cite{Ziemann02anextension}
 temporal modifiers @pre and @next are introduced for specifying past and
-future state-oriented constraints.  In~\cite{Flake03formalsemantics},
-a real-time constraint extension of OCL is proposed for models described
-by UML state machines; they claim to be able to describe all the existing
-patterns in these OCL expressions.  To simplify constraint definitions
-with OCL, in~\cite{Ackermann:2006:LOS:2135315.2135339} the authors propose
+future state-oriented constraints.  
+% In~\cite{Flake03formalsemantics},
+% a real-time constraint extension of OCL is proposed for models described
+% by UML state machines; they claim to be able to describe all the existing
+% patterns in these OCL expressions. 
+To simplify constraint definitions
+with OCL, \cite{Ackermann:2006:LOS:2135315.2135339} proposes 
 to use specification patterns for which OCL constraints can be generated
 automatically.  The behavioral specification of software components refers
 to interface specifications, which are not really dynamic views. Moreover,
-this work does not yet introduce means to specify temporal properties.
+this work does not introduce means to specify temporal properties.
 \vspace{-7 pt}
 
 \section{Preliminaries}
@@ -466,7 +478,7 @@ The action ${\tau}$ denotes an internal step, which cannot be observed from the 
 Non-deterministic choice between two processes
 is denoted by the ``$+$'' operator. Processes can be composed sequentially and in parallel by means of ``$\cdot$'' and
 ``${||}$''. The sum
-operator $\sum_{d:D}p$ denotes (possibly infinite) choice among
+operator $\sum_{d:D}p$ denotes choice among
 processes parameterized by variable $d$. The behavior of the conditional process $c\rightarrow p\diamond p$ 
 depends on the value of the boolean expression $c$: if it evaluates to true, process $p$
 is chosen and otherwise process $q$ is chosen.
@@ -475,16 +487,16 @@ This allows for modeling systems whose behavior is data-dependent.
 % to occur. To show possible communications in a system and the resulting actions, the communication operator
 % ${\Gamma_C(p)}$ is used. The elements of set $C$ are so-called multi-actions of the form $a_1\ |\ a_2\ |\ \dots |\ a_n \rightarrow c$, which intuitively
 % means that action $c$ is the result of the multi-party synchronization of actions $a_1 , a_2 , \dots $ and $a_n$.
-There are a number of built-in data types in mCRL2, such as (unbounded) integers, (uncountable)
+There are a number of built-in data types in mCRL2, such as integers,
 reals, booleans, lists, and sets. 
 Furthermore, by a \textbf{sort} definition one can define a new data type. Recursive process 
 equations can be declared by \textbf{proc}.
 
 The semantics associated with the mCRL2 syntax is a Labeled Transition System (LTS)
-system that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
+that has multi-action labeled transitions, which can carry data parameters. The language used by the mCRL2
 toolset for model checking specific properties is an extension of the modal
 $\mu$-calculus~\cite{Emerson97modelchecking}. This formalism stands out from most modal and temporal logic formalisms with respect to its
-expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2010linear,cranen2011linear} into $\mu$-calculus,
+expressive power. Temporal logics like LTL, CTL and CTL* all have translations~\cite{cranen2011linear} into $\mu$-calculus,
 witnessing its generality. This expressiveness comes at a cost: very complex formulas with no intuitive and apparent interpretation can be coined. 
 The syntax of mCRL2's modal $\mu$-calculus formulas we are concerned with in this paper
 is defined by the following grammar:
@@ -522,7 +534,7 @@ state lead to states satisfying $\phi$.
 For instance, $[\neg (\bigcup{n{:}Nat}.~
 \textit{read}(n+n))]\text{false}$ states that a process should not execute any actions
 other than read actions with even-valued natural numbers.
-Remember that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
+Note that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
 
 Combining these modalities, the least ($\mu X\ldotp \phi(X)$) and
 greatest ($\nu X\ldotp \phi(X)$) fixpoints permit reasoning about finite
@@ -579,7 +591,7 @@ used.
 
 There are also two less-known combined fragments: \emph{assert} and \emph{neg}. Their use in practice
 is limited, because their semantics described in the UML 2.0 superstructure specification~\cite{UML2.4_superstructure}
-is rather vague and confusing. By default, sequence diagrams without the use of these two operators 
+are rather vague and confusing. By default, sequence diagrams without the use of these two operators 
 only reflect possible behavior, while \emph{assert} and \emph{neg} alter the way 
 a trace can be classified as valid or invalid. The specification characterizes
 the semantics of a sequence diagram as a pair of valid and invalid traces,
@@ -607,9 +619,12 @@ We find that this does not limit the expressiveness of property specifications i
 \vspace{-7 pt}
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
-existing related approaches. As already stated, to bridge the gap between everyday practical software 
-requirements specification and the property patterns classification,
-several conversational tools have already been proposed. 
+existing related approaches. 
+%
+% TW: removed because of repetition...
+%As already stated, to bridge the gap between everyday practical software 
+%requirements specification and the property patterns classification,
+%several conversational tools have already been proposed. 
 
 While we follow 
 on the idea of using a guiding questionnaire to incrementally refine various aspects
@@ -620,7 +635,7 @@ instantiating the template. To avoid potential errors, as well as
 reduce effort in specifications, we want to ideally stay in the same IDE used
 for modeling the system, and select only existing events that represent
 valid communication between components.  
-In addition, we can already obtain~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} mCRL2 models from UML designs comprising sequence diagrams.
+In addition, we can already obtain mCRL2 models from UML designs comprising sequence diagrams~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13}.
 In our experience, visual scenarios are the most suitable and commonly used  
 means to specify the dynamics of a system. 
 We believe that such a visual depiction of a scenario, more than finite state machines, 
@@ -656,7 +671,8 @@ explicitly mark an error message.
 Furthermore, most visual scenario approaches cover the (state-based) LTL mappings and extensions of the pattern system. 
 Event-based temporal logics have not received much attention. Even though the original pattern 
 system does not cover $\mu$-calculus, such mappings~\cite{RAFMC} have been developed by the CADP team.
-However, there are no pattern extensions available. These are adequate for action- or event-based systems,
+% However, there are no pattern extensions available.
+These are adequate for action- or event-based systems,
 making them a good match for sequence diagrams, where communication between components is depicted.
 LTL logic is interpreted over Kripke structures, where the states are labeled with elementary 
 propositions that hold in each state, while $\mu$-calculus is interpreted over LTS-es, in which the transitions
@@ -674,7 +690,7 @@ Given that communication among components proceeds via actions (or events) which
 represent synchronous or asynchronous communication, property specification
 can be defined over sequences of actions that are data-dependent.
 Fortunately, $\mu$-calculus is rich enough to express both state and action formulas,
-and provides means for quantification over data, which other formalisms lack. 
+and provides means for quantification over data, which many formalisms lack. 
 %maybe this can go to the questionnaire?
 For example, with our approach, a practitioner can use 
 a wild-card ``*'' to express that the property should be evaluated for all values
@@ -736,7 +752,9 @@ approach.
 Not every property can be monitored at runtime when only a finite run has been 
 observed so far. Monitorable properties are those for which a violation occurs along a finite execution.
 This problem has been studied~\cite{DBLP:journals/corr/abs-1006-3638}, and it is known that the class of 
-monitorable properties is strictly larger than the commonly believed class of \emph{safety} properties.
+monitorable properties is strictly larger than
+% the commonly believed class
+that of \emph{safety} properties.
 However, an exact categorization of monitorable properties is missing.
 In particular, the definition of \emph{liveness} requires that any finite system
 execution must be extendable to an infinite one that satisfies the property. 
@@ -748,6 +766,12 @@ a monitor for about 50\% of the property patterns.
 
 We translate a core fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
+The idea behind the translation is a violation of a property of the 
+form $[\alpha]\phi$ is witnessed by an action that matches the action
+formula $\alpha$.  A monitor for such a formula synchronizes
+with precisely those actions matching $\alpha$. This generalizes
+to sequences of actions matching words described by some $\rho$ for
+formulas of the form $[\rho]\phi$.
 We restrict to the following grammar:
 \vspace{-4 pt}
 \[
@@ -766,10 +790,9 @@ guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
 \vspace{-4 pt}
-\begin{array}{ll}
-~
-[nil]\phi &= \phi \\
-~[\rho^*]\phi &= [nil]\phi \wedge [\rho^+]\phi
+\begin{array}{lcl}
+[nil]\phi = \phi & \qquad\qquad
+[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi
 \end{array}
 \]
 The function $\Tr$ takes two arguments (a formula and a list of typed
@@ -864,7 +887,7 @@ elicit the property.
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
-he is lead to consider some subtle aspects of the property, which are typically 
+one is led to consider some subtle aspects of the property, which are typically 
 overlooked when manually specifying the requirement in temporal logic.
 The last part of the property (i.e. ``before the ExecutorDispatcher
 declares that there are no more tasks for processing'') is easily recognized as a scope restriction,
@@ -898,8 +921,8 @@ Due to space restrictions we do not show the Behavior Question Tree part of the 
 elicit the behavior requirement as a \emph{response} pattern (``a task \emph{pushed} in the queue must be processed, i.e., \emph{removed} from the queue'').
 The actual events of interest in this case are \emph{pushTask} and \emph{popTask}. Again, an extension of the pattern system allows
 for the user to decide whether the first event (the cause) must necessarily occur in the first place. 
-Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) new unique patterns to be chosen from. 
-\vspace{-2 pt}
+Adding 4 scope and 2 behavior variations have lead to more than 100 ((5+\textbf{4})$\ast$(11+\textbf{2})) unique patterns to be chosen from. 
+\vspace{-1 pt}
 
 At the end of the questionnaire, the user is presented (Fig.~\ref{fig:Summary}) with a summary of the requested property, which can be reviewed before making the final decision.
 A $\mu$-calculus formula pertaining to the property is presented, along with the possibility to assign concrete parameter values that messages carry. 
@@ -933,15 +956,16 @@ The general pattern template obtained with PASS is:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [(not R)$^*$. P. (not (S or R))$^*$. R] false
 \end{lstlisting} 
-, which puts more restrictions on the behavior, while the original one was of the following form:
+while the original one was a more restrictive formula of the following form:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{7}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$. P. (not S)$^*$. R] false
 \end{lstlisting} 
 Using the generated monitor, we performed runtime verification on the corrected model. We linearized the model with the mCRL2 toolset,
 and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking back-end. 
-Taking less than 2 hours, the symbolic equation system explorer 
+Taking less than 20 minutes, the symbolic state space explorer 
 finished the traversal (2.85 million states) without discovering an \emph{error} step, effectively concluding that the property holds.
-The PASS tool, along with model and the monitor of this case study is available at~\cite{repo:PASS}.
+The PASS tool, along with model and the monitor of this case study, is available at~\cite{repo:PASS}.
+% here mention the patterns published, and PASSWebStart?
 \vspace{-14 pt}
 \section{Conclusions and future work}
 \label{sec:Conclusions}
@@ -957,7 +981,7 @@ Motivated by the wish to stay within an existing UML development environment,
 rather than use an external helper tool, PASS was developed as an Eclipse plug-in,
 thus keeping a strong relationship between the model elements and the property template ones.
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
-which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
+which we extended with useful pattern variations for the event-based $\mu$-calculus
 formalism. Besides offering a natural language summary of the elicited property,
 a $\mu$-calculus formula and a UML sequence
 diagram is provided, depicting the desired behavior. In addition, PASS
