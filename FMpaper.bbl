@@ -97,12 +97,6 @@ Ziemann, P., Gogolla, M.:
 \newblock {An Extension of OCL with Temporal Logic}.
 \newblock In: {Critical Systems Development with UML}. (2002)
 
-\bibitem{Flake03formalsemantics}
-Flake, S., Mueller, W.:
-\newblock {Formal Semantics of Static and Temporal State-Oriented OCL
-  Constraints}.
-\newblock Proc. SoSyM'03
-
 \bibitem{Ackermann:2006:LOS:2135315.2135339}
 Ackermann, J., Turowski, K.:
 \newblock {A library of OCL specification patterns for behavioral specification
