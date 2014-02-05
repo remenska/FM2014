@@ -137,6 +137,11 @@ Bauer, A.:
 \newblock {Monitorability of omega-regular languages}.
 \newblock CoRR \textbf{abs/1006.3638} (2010)
 
+\bibitem{repo:PASS}
+Remenska, D., Willemse, T.A.C.:
+\newblock {PASS: Property ASSistant tool for Eclipse}
+  https://github.com/remenska/PASS.
+
 \bibitem{DIRAC_CommGridSolution}
 Tsaregorodtsev, A.,  et~al.:
 \newblock {{DIRAC}: A Community {G}rid Solution}.
@@ -147,11 +152,6 @@ Tsaregorodtsev, A.,  et~al.:
 \newblock {Symbolic Reachability for Process Algebras with Recursive Data
   Types}.
 \newblock In: {Theoretical Aspects of Computing}. (2008)
-
-\bibitem{repo:PASS}
-Remenska, D., Willemse, T.A.C.:
-\newblock {PASS: Property ASSistant tool for Eclipse}
-  https://github.com/remenska/PASS.
 
 \bibitem{DBLP:conf/tacas/GaravelLMS11}
 Garavel, H., Lang, F., Mateescu, R., Serwe, W.:

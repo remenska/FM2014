@@ -1,17 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  5 FEB 2014 14:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.9)  5 FEB 2014 21:12
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **FMpaper.tex
 (./FMpaper.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
 (./llncs.cls
 Document Class: llncs 2013/09/27 v2.18 
  LaTeX document class for Lecture Notes in Computer Science
-(/usr/share/texmf-texlive/tex/latex/base/article.cls
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size10.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -26,8 +26,8 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-(/usr/share/texmf-texlive/tex/latex/tools/multicol.sty
-Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2011/06/27 v1.7a multicolumn formatting (FMi)
 \c@tracingmulticols=\count87
 \mult@box=\box26
 \multicol@leftmargin=\dimen103
@@ -72,11 +72,12 @@ Package: multicol 2008/12/05 v1.6h multicolumn formatting (FMi)
 \multicolundershoot=\dimen110
 \mult@nat@firstbox=\box50
 \colbreak@box=\box51
+\multicol@sort@counter=\count95
 ) (./aliascnt.sty
 Package: aliascnt 2009/09/08 v1.3 Alias counter (HO)
 
 (./remreset.sty))
-\c@chapter=\count95
+\c@chapter=\count96
 LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 362.
 LaTeX Font Info:    Redeclaring math symbol \Delta on input line 363.
 LaTeX Font Info:    Redeclaring math symbol \Theta on input line 364.
@@ -98,11 +99,11 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \tocparanum=\dimen118
 \tocparatotal=\dimen119
 \tocsubparanum=\dimen120
-\@tempcntc=\count96
+\@tempcntc=\count97
 \fnindent=\dimen121
-\c@@inst=\count97
-\c@@auth=\count98
-\c@auco=\count99
+\c@@inst=\count98
+\c@@auth=\count99
+\c@auco=\count100
 \instindent=\dimen122
 \authrun=\box52
 \authorrunning=\toks14
@@ -110,110 +111,118 @@ LaTeX Font Info:    Redeclaring math symbol \Omega on input line 372.
 \titrun=\box53
 \titlerunning=\toks16
 \toctitle=\toks17
-\c@theorem=\count100
-\c@case=\count101
-\c@conjecture=\count102
-\c@corollary=\count103
-\c@definition=\count104
-\c@example=\count105
-\c@exercise=\count106
-\c@lemma=\count107
-\c@note=\count108
-\c@problem=\count109
-\c@property=\count110
-\c@proposition=\count111
-\c@question=\count112
-\c@solution=\count113
-\c@remark=\count114
+\c@theorem=\count101
+\c@case=\count102
+\c@conjecture=\count103
+\c@corollary=\count104
+\c@definition=\count105
+\c@example=\count106
+\c@exercise=\count107
+\c@lemma=\count108
+\c@note=\count109
+\c@problem=\count110
+\c@property=\count111
+\c@proposition=\count112
+\c@question=\count113
+\c@solution=\count114
+\c@remark=\count115
 \headlineindent=\dimen123
-) (/usr/share/texmf-texlive/tex/latex/ltxmisc/capt-of.sty)
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2009/06/22 v3.00
+) (/usr/share/texlive/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks18
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(/usr/share/texmf-texlive/tex/latex/psnfss/times.sty
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks19
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
-\Gread@gobject=\count115
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count116
 ))
 \Gin@req@height=\dimen124
 \Gin@req@width=\dimen125
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2000/07/18 v2.13 AMS math features
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2013/01/14 v2.14 AMS math features
 \@mathmargin=\skip45
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks20
 \ex@=\dimen126
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen127
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count116
-LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count117
-\leftroot@=\count118
-LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count119
-\DOTSCASE@=\count120
-LaTeX Info: Redefining \ldots on input line 379.
-LaTeX Info: Redefining \dots on input line 382.
-LaTeX Info: Redefining \cdots on input line 467.
+\inf@bad=\count117
+LaTeX Info: Redefining \frac on input line 210.
+\uproot@=\count118
+\leftroot@=\count119
+LaTeX Info: Redefining \overline on input line 306.
+\classnum@=\count120
+\DOTSCASE@=\count121
+LaTeX Info: Redefining \ldots on input line 378.
+LaTeX Info: Redefining \dots on input line 381.
+LaTeX Info: Redefining \cdots on input line 466.
 \Mathstrutbox@=\box54
 \strutbox@=\box55
 \big@size=\dimen128
-LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 
 
 Package amsmath Warning: Unable to redefine math accent \vec.
 
-\macc@depth=\count121
-\c@MaxMatrixCols=\count122
+\macc@depth=\count122
+\c@MaxMatrixCols=\count123
 \dotsspace@=\muskip10
-\c@parentequation=\count123
-\dspbrk@lvl=\count124
+\c@parentequation=\count124
+\dspbrk@lvl=\count125
 \tag@help=\toks21
-\row@=\count125
-\column@=\count126
-\maxfields@=\count127
+\row@=\count126
+\column@=\count127
+\maxfields@=\count128
 \andhelp@=\toks22
 \eqnshift@=\dimen129
 \alignsep@=\dimen130
@@ -225,38 +234,38 @@ Package amsmath Warning: Unable to redefine math accent \vec.
 \multlinegap=\skip46
 \multlinetaggap=\skip47
 \mathdisplay@stack=\toks24
-LaTeX Info: Redefining \[ on input line 2666.
-LaTeX Info: Redefining \] on input line 2667.
-) (/usr/share/texmf-texlive/tex/latex/listings/listings.sty
-\lst@mode=\count128
+LaTeX Info: Redefining \[ on input line 2665.
+LaTeX Info: Redefining \] on input line 2666.
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count129
 \lst@gtempboxa=\box56
 \lst@token=\toks25
-\lst@length=\count129
+\lst@length=\count130
 \lst@currlwidth=\dimen135
-\lst@column=\count130
-\lst@pos=\count131
+\lst@column=\count131
+\lst@pos=\count132
 \lst@lostspace=\dimen136
 \lst@width=\dimen137
-\lst@newlines=\count132
-\lst@lineno=\count133
+\lst@newlines=\count133
+\lst@lineno=\count134
 \lst@maxwidth=\dimen138
 
-(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-\c@lstnumber=\count134
-\lst@skipnumbers=\count135
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/07/10 1.5 (Carsten Heinz)
+\c@lstnumber=\count135
+\lst@skipnumbers=\count136
 \lst@framebox=\box57
 )
-(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
-File: listings.cfg 2007/02/22 1.4 listings configuration
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/06/27 1.5pre1 listings configuration
 ))
-Package: listings 2007/02/22 1.4 (Carsten Heinz)
+Package: listings 2013/07/10 1.5 (Carsten Heinz)
 
-(/usr/share/texmf-texlive/tex/latex/tools/enumerate.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks26
 )
-(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -271,7 +280,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -306,94 +315,109 @@ Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
 Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
 Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
 Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 311.
+Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 312.
+Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 313.
+Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 314.
+Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 315.
+Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 316.
+Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 317.
+Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 318.
+Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 319.
+Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 320.
+Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 321.
+Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 322.
+Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 323.
+Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 324.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 326.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 327.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 328.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 329.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 330.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 331.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 332.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 333.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 334.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 335.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 336.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 337.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-(/usr/share/texmf-texlive/tex/latex/subfig/subfig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/subfig/subfig.sty
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
-Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen139
 \captionmargin@=\dimen140
 \captionwidth=\dimen141
-\caption@indent=\dimen142
-\caption@parindent=\dimen143
-\caption@hangindent=\dimen144
+\caption@tempdima=\dimen142
+\caption@indent=\dimen143
+\caption@parindent=\dimen144
+\caption@hangindent=\dimen145
 Package caption Info: Unknown document class (or package),
-(caption)             standard defaults will be used on input line 1068.
+(caption)             standard defaults will be used.
 )
-\c@KVtest=\count136
+\c@KVtest=\count137
 \sf@farskip=\skip48
-\sf@captopadj=\dimen145
+\sf@captopadj=\dimen146
 \sf@capskip=\skip49
 \sf@nearskip=\skip50
-\c@subfigure=\count137
-\c@subfigure@save=\count138
-\c@lofdepth=\count139
-\c@subtable=\count140
-\c@subtable@save=\count141
-\c@lotdepth=\count142
+\c@subfigure=\count138
+\c@subfigure@save=\count139
+\c@lofdepth=\count140
+\c@subtable=\count141
+\c@subtable@save=\count142
+\c@lotdepth=\count143
 \sf@top=\skip51
 \sf@bottom=\skip52
 )
-(/usr/share/texmf-texlive/tex/latex/lipsum/lipsum.sty
-Package: lipsum 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
-File: lipsum.dtx 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
-\c@lips@count=\count143
+(/usr/share/texlive/texmf-dist/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2011/04/14 v1.2 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count144
 )
-(/usr/share/texmf-texlive/tex/latex/algorithmicx/algpseudocode.sty
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/share/texmf-texlive/tex/latex/algorithmicx/algorithmicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count144
-\c@ALG@rem=\count145
-\c@ALG@nested=\count146
+\c@ALG@line=\count145
+\c@ALG@rem=\count146
+\c@ALG@nested=\count147
 \ALG@tlm=\skip53
 \ALG@thistlm=\skip54
-\c@ALG@Lnr=\count147
-\c@ALG@blocknr=\count148
-\c@ALG@storecount=\count149
-\c@ALG@tmpcounter=\count150
+\c@ALG@Lnr=\count148
+\c@ALG@blocknr=\count149
+\c@ALG@storecount=\count150
+\c@ALG@tmpcounter=\count151
 \ALG@tmplength=\skip55
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) (/usr/share/texmf-texlive/tex/latex/algorithms/algorithm.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-(/usr/share/texmf-texlive/tex/latex/float/float.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count151
+\c@float@type=\count152
 \float@exts=\toks27
 \float@box=\box58
 \@float@everytoks=\toks28
 \@floatcapt=\box59
 )
 \@float@every@algorithm=\toks29
-\c@algorithm=\count152
+\c@algorithm=\count153
 )
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
@@ -422,43 +446,91 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 47.
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 47.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 47.
- (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 47.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 47.
 
-(/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count153
-\scratchdimen=\dimen146
+\scratchcounter=\count154
+\scratchdimen=\dimen147
 \scratchbox=\box60
-\nofMPsegments=\count154
-\nofMParguments=\count155
+\nofMPsegments=\count155
+\nofMParguments=\count156
 \everyMPshowfont=\toks30
-\MPscratchCnt=\count156
-\MPscratchDim=\dimen147
-\MPnumerator=\count157
+\MPscratchCnt=\count157
+\MPscratchDim=\dimen148
+\MPnumerator=\count158
+\makeMPintoPDFobject=\count159
 \everyMPtoPDFconversion=\toks31
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
-\c@lstlisting=\count158
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+\c@lstlisting=\count160
 Package caption Info: Begin \AtBeginDocument code.
-Package caption3 Info: subfig package 1.2 or 1.3 is loaded.
-LaTeX Info: Redefining \subref on input line 47.
+Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 66.
 LaTeX Font Info:    Try loading font information for U+msa on input line 66.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 66.
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
@@ -470,75 +542,109 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-<./Prospec.png, id=16, 807.015pt x 481.8pt>
+<./Prospec.png, id=17, 807.015pt x 481.8pt>
 File: ./Prospec.png Graphic file (type png)
  <use ./Prospec.png>
-<./Charmy.png, id=17, 298.11375pt x 373.395pt>
+Package pdftex.def Info: ./Prospec.png used on input line 394.
+(pdftex.def)             Requested size: 253.3987pt x 151.28258pt.
+
+<./Charmy.png, id=18, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
  <use ./Charmy.png>
+Package pdftex.def Info: ./Charmy.png used on input line 396.
+(pdftex.def)             Requested size: 90.2502pt x 113.03922pt.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 465.
- [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [5]
-<./Figure2_merged.png, id=31, 755.82375pt x 328.22626pt>
+ [4 <./Prospec.png> <./Charmy.png>] [5]
+<./Figure2_merged.png, id=32, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
-<use ./Figure2_merged.png> [6 <./Figure2_merged.png (PNG copy)>]
-<./ResponseChain_withMonitor1.png, id=35, 604.2575pt x 376.40625pt>
+<use ./Figure2_merged.png>
+Package pdftex.def Info: ./Figure2_merged.png used on input line 587.
+(pdftex.def)             Requested size: 347.12354pt x 150.7405pt.
+ [6 <./Figure2_merged.png>]
+<./ResponseChain_withMonitor1.png, id=36, 604.2575pt x 376.40625pt>
 File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
 <use ./ResponseChain_withMonitor1.png>
-<./ResponseChainPSC.png, id=37, 463.7325pt x 455.7025pt>
+Package pdftex.def Info: ./ResponseChain_withMonitor1.png used on input line 66
+5.
+(pdftex.def)             Requested size: 215.21489pt x 134.05878pt.
+
+<./ResponseChainPSC.png, id=38, 463.7325pt x 455.7025pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
-<use ./ResponseChainPSC.png> [7] [8 <./ResponseChain_withMonitor1.png> <./Respo
-nseChainPSC.png (PNG copy)>] <./Buchi2.jpg, id=46, 227.85126pt x 207.77625pt>
+<use ./ResponseChainPSC.png>
+Package pdftex.def Info: ./ResponseChainPSC.png used on input line 667.
+(pdftex.def)             Requested size: 131.90863pt x 129.62622pt.
+ [7] [8 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png>] <./Buchi2.
+jpg, id=47, 227.85126pt x 207.77625pt>
 File: ./Buchi2.jpg Graphic file (type jpg)
 
-<use ./Buchi2.jpg> <./PASSlaunch.png, id=47, 429.605pt x 180.675pt>
+<use ./Buchi2.jpg>
+Package pdftex.def Info: ./Buchi2.jpg used on input line 740.
+(pdftex.def)             Requested size: 104.1381pt x 94.96317pt.
+ <./PASSlaunch.png, id=48, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
 
-<use ./PASSlaunch.png> [9 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
-[10]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 866.
+<use ./PASSlaunch.png>
+Package pdftex.def Info: ./PASSlaunch.png used on input line 745.
+(pdftex.def)             Requested size: 173.56177pt x 72.99376pt.
+ [9 <./Buchi2.jpg> <./PASSlaunch.png>] [10]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 865.
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-)
-<./ScopeSelection1.png, id=55, 1014.79124pt x 506.89375pt>
+) [11]
+<./ScopeSelection1.png, id=61, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 900--902
+Package pdftex.def Info: ./ScopeSelection1.png used on input line 899.
+(pdftex.def)             Requested size: 347.12354pt x 173.38576pt.
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 899--901
  [][] 
  []
 
-[11] [12 <./ScopeSelection1.png (PNG copy)>]
-<./Last.png, id=64, 359.54324pt x 200.54926pt>
+[12 <./ScopeSelection1.png>] <./Last.png, id=65, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
- <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 937--939
+
+<use ./Last.png>
+Package pdftex.def Info: ./Last.png used on input line 936.
+(pdftex.def)             Requested size: 347.12354pt x 193.62672pt.
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 936--938
  [][] 
  []
 
-<./SDProperty.png, id=65, 524.96124pt x 296.10625pt>
+<./SDProperty.png, id=66, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-<./PropertyAutomaton.png, id=66, 327.2225pt x 123.46124pt>
+Package pdftex.def Info: ./SDProperty.png used on input line 944.
+(pdftex.def)             Requested size: 164.88315pt x 93.00285pt.
+
+<./PropertyAutomaton.png, id=67, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
-<use ./PropertyAutomaton.png> [13 <./Last.png (PNG copy)> <./SDProperty.png (PN
-G copy)> <./PropertyAutomaton.png (PNG copy)>] (./FMpaper.bbl [14]
+<use ./PropertyAutomaton.png>
+Package pdftex.def Info: ./PropertyAutomaton.png used on input line 949.
+(pdftex.def)             Requested size: 173.56177pt x 65.485pt.
+ [13 <./Last.png> <./SDProperty.png> <./PropertyAutomaton.png>] (./FMpaper.bbl 
+[14]
 Underfull \hbox (badness 1389) in paragraph at lines 130--134
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for Reg-u-lar Alte
 rnation-Free $\OML/cmm/m/it/9 ^^V$\OT1/ptm/m/n/9 -Calculus
  []
 
 
-Underfull \hbox (badness 4739) in paragraph at lines 152--155
+Underfull \hbox (badness 4739) in paragraph at lines 141--144
 []\OT1/ptm/m/n/9 Remenska, D., Willemse, T.A.C.:  PASS: Prop-erty AS-Sis-tant t
 ool for Eclipse
  []
@@ -549,30 +655,32 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5582 strings out of 495061
- 77344 string characters out of 1182621
- 237436 words of memory out of 3000000
- 8659 multiletter control sequences out of 15000+50000
- 27080 words of font info for 65 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 36i,14n,45p,275b,894s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmmi9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmmib10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmsy5.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cms
-y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
-e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
-s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
-mri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 2799896 bytes).
+ 6254 strings out of 493307
+ 89256 string characters out of 6139906
+ 249404 words of memory out of 5000000
+ 9571 multiletter control sequences out of 15000+600000
+ 27080 words of font info for 65 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 38i,14n,47p,275b,894s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+s10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
+tmri8a.pfb>
+Output written on FMpaper.pdf (15 pages, 686721 bytes).
 PDF statistics:
- 125 PDF objects out of 1000 (max. 8388607)
+ 127 PDF objects out of 1000 (max. 8388607)
+ 82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  56 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -790,30 +790,30 @@ guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
 \vspace{-4 pt}
-\begin{array}{lcl}
+\begin{array}{lclr}
 [nil]\phi = \phi & \qquad\qquad
-[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi
+[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (1)
 \end{array}
 \]
 The function $\Tr$ takes two arguments (a formula and a list of typed
 variables) and produces a process. It is defined inductively as follows:
 \[
-\begin{array}{ll}
-\Tr_l(b) &= (\neg b \to \textit{error}) \\
-\Tr_l(\forall d:D.\phi_1) & = \sum d{:}D. \Tr_{l\concat [d:D]} (\phi_1) \\
-\Tr_l(\phi_1 \wedge \phi_2) & = \Tr_l(\phi_1) + \Tr_l(\phi_2) \\
-\Tr_l([\rho]\phi_1) & = \TrR_l(\rho) \cdot \Tr_l(\phi) \\
+\begin{array}{lll}
+\Tr_l(b) &= (\neg b \to \textit{error}) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (2)\\ 
+\Tr_l(\forall d:D.\phi_1) & = \sum d{:}D. \Tr_{l\concat [d:D]} (\phi_1) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (3)\\
+\Tr_l(\phi_1 \wedge \phi_2) & = \Tr_l(\phi_1) + \Tr_l(\phi_2) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (4)\\
+\Tr_l([\rho]\phi_1) & = \TrR_l(\rho) \cdot \Tr_l(\phi) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (5)\\
 \end{array}
 \]
 where $\TrR$ takes a regular expression (and a list of typed variables)
 and produces a process or a condition:
 \[
-\begin{array}{ll}
-\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a{:}D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) \\
-\TrR_l(\rho_1 \cdot \rho_2) & = \TrR_l(\rho_1) \cdot \TrR_l(\rho_2) \\
-\TrR_l(\rho_1 + \rho_2) &= \TrR_l(\rho_1) + \TrR_l(\rho_2) \\
+\begin{array}{llr}
+\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a{:}D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) & (6)\\
+\TrR_l(\rho_1 \cdot \rho_2) & = \TrR_l(\rho_1) \cdot \TrR_l(\rho_2) & (7)\\
+\TrR_l(\rho_1 + \rho_2) &= \TrR_l(\rho_1) + \TrR_l(\rho_2) & (8)\\
 \TrR_l(\rho^+) & = X(l) \qquad \textit{where $X(l) = \TrR_l(\rho)\cdot X(l)$ is
-a recursive process} 
+a recursive process} & (9)
 \end{array}
 \]
 where $\bigoplus$ is a finite summation over all action names
@@ -823,30 +823,29 @@ that describes when the action is among the set of actions described by
 the action formula:
 \vspace{-5 pt}
 \[
-\begin{array}{ll}
+\begin{array}{llr}
 \TrA_l(a(d_a),a'(e)) & = \left \{ \begin{array}{ll} d_a = e & \text{if a = a'}\\
                                   \text{false} & \text{otherwise}\\
-                                  \end{array} \right .\\
-\TrA_l(a(d_a),b) & = b \\
-\TrA_l(a(d_a),\neg \alpha) & = \neg \TrA_l(a(d_a),\alpha) \\
+                                  \end{array} \right .& \qquad\qquad (10)\\
+\TrA_l(a(d_a),b) & = b & \qquad\qquad (11)\\
+\TrA_l(a(d_a),\neg \alpha) & = \neg \TrA_l(a(d_a),\alpha) & \qquad\qquad (12)\\
 \TrA_l(a(d_a),\alpha_1 \cap \alpha_2) & =
-\TrA_l(a(d_a),\alpha_1) \wedge \TrA_l(a(d_a),\alpha_2) \\
+\TrA_l(a(d_a),\alpha_1) \wedge \TrA_l(a(d_a),\alpha_2) & \qquad\qquad (13)\\
 \TrA_l(a(d_a),\alpha_1 \cup \alpha_2) & =
-\TrA_l(a(d_a),\alpha_1) \vee \TrA_l(a(d_a),\alpha_2) \\
-\TrA_l(a(d_a),\bigcup d{:}D.~\alpha) & = \exists d{:}D.~ \TrA_l(a(d_a),\alpha)\\
-\TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha)
+\TrA_l(a(d_a),\alpha_1) \vee \TrA_l(a(d_a),\alpha_2) & \qquad\qquad (14)\\
+\TrA_l(a(d_a),\bigcup d{:}D.~\alpha) & = \exists d{:}D.~ \TrA_l(a(d_a),\alpha) & \qquad\qquad (15)\\
+\TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha) & \qquad\qquad (16)
 \end{array}
 \]
 Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the precedence chain pattern.
 Such a monitor can be placed in parallel with the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
-quickly after a limited exploration. 
-\vspace{-8 pt}
-
+quickly after a limited exploration. Examples of generated monitors along with references to
+the applied transformation rules in each step, can be found at~\cite{repo:PASS}.
+\vspace{-10 pt}
 \section{Case Study: DIRAC's Executor Framework revisited}
 \vspace{-8 pt}
-
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
 All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
 are covered by DIRAC. 
@@ -883,7 +882,7 @@ elicit the property.
 \vspace{-12 pt}
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
-\vspace{-6 pt}
+\vspace{-5 pt}
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
