@@ -266,9 +266,10 @@ a formula in some target temporal logic.
 Alternative
 approaches~\cite{Autili:2007:GSS:1290845.1290859,Lee97agraphical,Smith:2001:ECG:882477.883639,Knapp:2006:MCU:1762828.1762836,Lilius99vuml:a,Kugler:2005:TLS:2140653.2140692,MVPSA}
 tackle the property specification problem by proposing new graphical
-notations for specifying properties. A downside of all these approaches is
-that they still expect users to have some expertise in temporal logic.
-Moreover, most approaches rely on state-based temporal logics. Such
+notations for specifying properties. 
+% A downside of all these approaches is
+% that they still expect users to have some expertise in temporal logic.
+Most approaches, however, rely on state-based temporal logics. Such
 logics conceptually do not match the typical event-based UML sequence
 diagrams and activity diagrams, in which events represent methods calls
 or asynchronous communication between distributed components.
@@ -279,7 +280,7 @@ the need of expertise in temporal logic.  We introduce PASS,
 a Property ASSistant which is a tool that guides and facilitates 
 deriving system properties. Our starting point was the pattern
 system~\cite{Dwyer:1999:PPS:302405.302672}, which we extended with over
-100 new property templates. 
+50 useful property templates. 
 The pattern templates instantiated with PASS have three notations:
 a natural language summary, a $\mu$-calculus formula and a UML sequence
 diagram depicting desired behaviors.  We utilized mCRL2's rich data
@@ -979,7 +980,7 @@ Motivated by the wish to stay within an existing UML development environment,
 rather than use an external helper tool, PASS was developed as an Eclipse plug-in,
 thus keeping a strong relationship between the model elements and the property template ones.
 Our approach to specifying properties is based on the pattern system~\cite{Dwyer:1999:PPS:302405.302672},
-which we extended with over 100 new pattern variations for the event-based $\mu$-calculus
+which we extended with new pattern variations for the event-based $\mu$-calculus
 formalism. Besides offering a natural language summary of the elicited property,
 a $\mu$-calculus formula and a UML sequence
 diagram is provided, depicting the desired behavior. In addition, PASS

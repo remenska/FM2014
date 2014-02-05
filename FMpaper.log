@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  5 FEB 2014 10:44
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.9)  5 FEB 2014 10:58
 entering extended mode
  %&-line parsing enabled.
 **FMpaper.tex
@@ -466,20 +466,22 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] <./Prospec.png, id=16,
- 807.015pt x 481.8pt>
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2]
+<./Prospec.png, id=16, 807.015pt x 481.8pt>
 File: ./Prospec.png Graphic file (type png)
-
-<use ./Prospec.png> <./Charmy.png, id=17, 298.11375pt x 373.395pt>
+ <use ./Prospec.png>
+<./Charmy.png, id=17, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
-
-<use ./Charmy.png>
+ <use ./Charmy.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 464.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 465.
  [4 <./Prospec.png (PNG copy)> <./Charmy.png (PNG copy)>] [5]
 <./Figure2_merged.png, id=31, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
@@ -501,7 +503,7 @@ File: ./PASSlaunch.png Graphic file (type png)
 
 <use ./PASSlaunch.png> [9 <./Buchi2.jpg> <./PASSlaunch.png (PNG copy)>]
 [10]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 865.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 866.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -510,7 +512,7 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 899--901
+Overfull \hbox (4.0pt too wide) in paragraph at lines 900--902
  [][] 
  []
 
@@ -518,7 +520,7 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 899--901
 <./Last.png, id=64, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
  <use ./Last.png>
-Overfull \hbox (4.0pt too wide) in paragraph at lines 936--938
+Overfull \hbox (4.0pt too wide) in paragraph at lines 937--939
  [][] 
  []
 
@@ -568,7 +570,7 @@ y9.pfb></usr/share/texmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/shar
 e/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/font
 s/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/ut
 mri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 2799859 bytes).
+Output written on FMpaper.pdf (15 pages, 2799746 bytes).
 PDF statistics:
  125 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
