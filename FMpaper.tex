@@ -68,11 +68,9 @@ NIKHEF, Amsterdam, The Netherlands
 \begin{abstract}
 Developing correct concurrent software is challenging. Design errors
 can result in deadlocks, race conditions and livelocks, and discovering
-these is difficult. Approaches for automatically generating formal
-models from system designs have been proposed and successfully used in
-industry. A serious obstacle for an industrial uptake of rigorous analysis
+these is difficult.  A serious obstacle for an industrial uptake of rigorous analysis
 techniques such as model checking is the steep learning curve associated
-to the languages---typically temporal logics---used for specifying the
+to the languages --- typically temporal logics --- used for specifying the
 application-specific properties to be checked. To bring the process of
 correctly eliciting functional properties closer to software engineers,
 we introduce PASS, a Property ASSistant wizard as part of a UML-based
@@ -122,10 +120,9 @@ starvation, etc. The sheer number of different executions and the
 inherent non-determinism in concurrent systems make complete testing of such software
 infeasible. Instead, more rigorous formal analysis techniques like
 model checking are required, which exhaustively analyze the behaviors of 
-(an abstraction of) the system. Several competitive 
-toolsets, such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
+(an abstraction of) the system. Toolsets such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
 Despite the research effort, these tools are still not widely accepted
-in industry. One problem is the lack of expertise and the steep learning
+in industry. One problem is the the steep learning
 curve associated with becoming proficient in the underlying mathematical
 formalisms that must be used for describing models in these toolsets.
 
@@ -167,12 +164,13 @@ While the mCRL2 toolset can automatically discover deadlocks and search
 for specific events, its model checking facilities require users to
 specify their application-specific properties in a data-enriched extension
 of the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. 
-This is a highly expressive language, subsuming Linear Temporal Logic
-(LTL) and Computation Tree Logic (CTL). A downside is that
+A downside is that
 it is not very accessible and
-requires a high level of sophistication and mathematical background.
-Even so, even LTL and CTL are not widespread in industry, despite being
-considered simpler, more accessible languages. In fact, most requirements
+requires a high degree of mathematical maturity.
+As already simpler languages such as Linear Temporal Logic (LTL) and 
+Computational Tree Logic (CTL) are not widespread in industry, the $\mu$-calculus 
+stands little chance of being embraced by the industry.
+In fact, most requirements
 are written in natural language, and often contain ambiguities which
 make it difficult even for experienced practitioners to capture them
 accurately in any temporal logic. There are subtle but crucial details
@@ -249,9 +247,9 @@ solutions before they can select and apply the appropriate ones.
 %%practitioners have to fully understand the provided solutions before
 %%they can select and apply the appropriate ones in practice.\medskip
 %%
-To mitigate this problem, several
-approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec}
-propose conversational tools for elucidating properties,
+To mitigate this problem, 
+several conversational tools~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec}
+have been proposed for elucidating properties,
 based on the patterns. These tools guide users in
 selecting the appropriate pattern and optionally produce
 a formula in some target temporal logic.  
@@ -269,14 +267,13 @@ tackle the property specification problem by proposing new graphical
 notations for specifying properties. 
 % A downside of all these approaches is
 % that they still expect users to have some expertise in temporal logic.
-Most approaches, however, rely on state-based temporal logics. Such
+As far as we have been able to trace, all approaches deal with state-based logics. Such
 logics conceptually do not match the typical event-based UML sequence
 diagrams and activity diagrams, in which events represent methods calls
 or asynchronous communication between distributed components.
 
-The objective of our work is to simplify the process of specifying
-functional requirements for event-based systems, \emph{without}
-the need of expertise in temporal logic.  We introduce PASS,
+The contribution of our work is a simplification of the process of specifying
+functional requirements for event-based systems.  We introduce PASS,
 a Property ASSistant which is a tool that guides and facilitates 
 deriving system properties. Our starting point was the pattern
 system~\cite{Dwyer:1999:PPS:302405.302672}, which we extended with over
@@ -286,9 +283,8 @@ a natural language summary, a $\mu$-calculus formula and a UML sequence
 diagram depicting desired behaviors.  We utilized mCRL2's rich data
 extensions of the $\mu$-calculus to express complex data-dependent
 properties.  Lastly, we automatically generate
-monitors which can be used for property-driven on-the-fly model checking
-using the standard state-space exploration facilities
-of mCRL2.
+monitors which can be used for property-driven on-the-fly state-space 
+exploration using the standard exploration facilities of mCRL2.
 Our monitors are essentially sequence diagrams, acting as
 observers of message exchanges.
 
@@ -355,7 +351,7 @@ Grid domain, and we conclude in Section~\ref{sec:Conclusions}.
 PROPEL~\cite{Smith02propel:an} is a tool that
 guides users in selecting the appropriate template from the patterns
 classification. PROPEL adds new patterns covering subtle aspects
-not addressed by the original patterns (such as considering the effect
+not addressed by the patterns classification of~\cite{Dwyer:1999:PPS:302405.302672} (such as considering the effect
 of multiple occurrences of a cause in a pattern); at the same time it
 omits patterns such as the universality, bounded
 existence and chain patterns. The resulting templates are represented
@@ -535,21 +531,6 @@ For instance, $[\neg (\bigcup{n{:}Nat}.~
 \textit{read}(n+n))]\text{false}$ states that a process should not execute any actions
 other than read actions with even-valued natural numbers.
 Note that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
-
-Combining these modalities, the least ($\mu X\ldotp \phi(X)$) and
-greatest ($\nu X\ldotp \phi(X)$) fixpoints permit reasoning about finite
-and infinite runs of a system in a recursion-like manner.  For example,
-we can read $\mu X\ldotp\phi\vee\langle\alpha\rangle X$ as: $X$ is
-the smallest set of states such that a state is in $X$ iff $\phi$
-holds in that state \emph{or} there is an $\alpha$-successor in $X$.
-On the other hand, $\nu X\ldotp\phi \wedge[\alpha]X$ is the largest
-set of states such that a state is in $X$ iff $\phi$ holds in that
-state and all of its $\alpha$-successors are in $X$, too.  Finally, a
-strong asset of mCRL2's $\mu$-calculus are the universal $\forall$ and
-existential $\exists$ quantifiers over potentially infinite data types.
-For example, $\forall n{:}Nat. \langle \textit{read}(n) \rangle \text{true}$
-asserts that a process can execute a \emph{read} action, accepting every
-natural number as a parameter.
 
 In mCRL2, verification of $\mu$-calculus formulas is conducted using tooling that operates
 on systems of fixpoint equations over first-order logic expressions.
@@ -841,7 +822,21 @@ Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visual
 Such a monitor can be placed in parallel with the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
-quickly after a limited exploration. Examples of generated monitors along with references to
+quickly after a limited exploration. 
+A sketch of such a translation applied on a model with actions \textit{action\_1}, \textit{action\_2},\dots,\textit{action\_n} is shown in Fig.~\ref{fig:MonitorConstruction}.
+\begin{figure}[!t]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./MonitorConstruction.png}}%
+}%
+\caption{Transforming a $\mu$-calculus formula into a monitor}
+\label{fig:MonitorConstruction}
+\end{figure}
+Intuitively, monitor process will step through those exact actions that the original system takes. If a sequence of steps refuting the formula is completed,
+the monitor will execute the ``error'' action as a last step, indicating that a counter-example trace has been found.
+More examples of monitors along with references to
 the applied transformation rules in each step, can be found at~\cite{repo:PASS}.
 \vspace{-10 pt}
 \section{Case Study: DIRAC's Executor Framework revisited}
@@ -864,8 +859,7 @@ generated logs.
 In~\cite{DBLP:dblp_conf/nfm/RemenskaTWHVCB13} we manually formulated this problem as the following safety property:
 \begin{lstlisting}[basicstyle=\sffamily\fontsize{7}{8}\selectfont,showspaces=false,showstringspaces=false,showtabs=false,mathescape]
 [true$^*$ .
-synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).
-true$^*$.
+synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,pushTask(JobPath,taskId,false)).true$^*$.
 !(synch_call(1,ExecutorQueues,$\underline{\hspace*{7pt}}$queues,popTask([JobPath])))$^*$.
 synch_reply(1,ExecutorDispatcher,$\underline{\hspace*{7pt}}$eDispatch,
 $\underline{\hspace*{7pt}}$sendTaskToExecutor_return(OK,0))]false 
@@ -998,14 +992,15 @@ the end resorted to full exploration of the state space, and did not disprove th
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
 write sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
-would be provided. Automating performance analysis is on our road-map as well. 
-Profiles are provided as UML extension mechanisms, which allow 
-annotating models with quantitative information (such as expected execution time, resource usage etc.),
-and this mechanism would permit assessing aspects of the system
-such as efficiency and reliability.
-We can use the same target formalism for enhancing the models
-with such quantitative information. The CADP toolset~\cite{DBLP:conf/tacas/GaravelLMS11} for analysis of stochastic
-models is well integrated with mCRL2 for this purpose.
+would be provided. 
+% Automating performance analysis is on our road-map as well. 
+% Profiles are provided as UML extension mechanisms, which allow 
+% annotating models with quantitative information (such as expected execution time, resource usage etc.),
+% and this mechanism would permit assessing aspects of the system
+% such as efficiency and reliability.
+% We can use the same target formalism for enhancing the models
+% with such quantitative information. The CADP toolset~\cite{DBLP:conf/tacas/GaravelLMS11} for analysis of stochastic
+% models is well integrated with mCRL2 for this purpose.
 \vspace{-10 pt}
 \bibliographystyle{splncs} 
 \vspace{-3 pt}

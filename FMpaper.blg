@@ -21,50 +21,47 @@ Warning--entry type for "RAFMC" isn't style-file defined
 --line 1805 of file FM2014.bib
 Warning--entry type for "repo:PASS" isn't style-file defined
 --line 1858 of file FM2014.bib
-A bad cross reference---entry "DBLP:conf/tacas/GaravelLMS11"
-refers to entry "DBLP:conf/tacas/2011", which doesn't exist
-Warning--I didn't find a database entry for "DBLP:conf/tacas/2011"
 Warning--empty publisher in MVPSA
 Warning--empty publisher in DIRAC_CommGridSolution
-You've used 29 entries,
+You've used 28 entries,
             2087 wiz_defined-function locations,
-            648 strings with 8511 characters,
-and the built_in function-call counts, 5393 in all, are:
-= -- 435
-> -- 230
+            641 strings with 8237 characters,
+and the built_in function-call counts, 5175 in all, are:
+= -- 421
+> -- 216
 < -- 1
-+ -- 88
-- -- 59
-* -- 227
-:= -- 751
-add.period$ -- 34
-call.type$ -- 29
-change.case$ -- 28
++ -- 83
+- -- 55
+* -- 216
+:= -- 720
+add.period$ -- 33
+call.type$ -- 28
+change.case$ -- 27
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 338
-empty$ -- 735
-format.name$ -- 59
-if$ -- 1349
+cite$ -- 30
+duplicate$ -- 325
+empty$ -- 706
+format.name$ -- 55
+if$ -- 1296
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 25
-newline$ -- 143
-num.names$ -- 29
-pop$ -- 220
+int.to.str$ -- 28
+missing$ -- 24
+newline$ -- 138
+num.names$ -- 28
+pop$ -- 211
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 144
+skip$ -- 138
 stack$ -- 0
 substring$ -- 8
-swap$ -- 63
+swap$ -- 61
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 2
-while$ -- 30
-width$ -- 31
-write$ -- 273
-(There were 3 error messages)
+while$ -- 29
+width$ -- 30
+write$ -- 264
+(There were 2 error messages)

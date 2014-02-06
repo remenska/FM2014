@@ -68,11 +68,9 @@ NIKHEF, Amsterdam, The Netherlands
 \begin{abstract}
 Developing correct concurrent software is challenging. Design errors
 can result in deadlocks, race conditions and livelocks, and discovering
-these is difficult. Approaches for automatically generating formal
-models from system designs have been proposed and successfully used in
-industry. A serious obstacle for an industrial uptake of rigorous analysis
+these is difficult.  A serious obstacle for an industrial uptake of rigorous analysis
 techniques such as model checking is the steep learning curve associated
-to the languages---typically temporal logics---used for specifying the
+to the languages --- typically temporal logics --- used for specifying the
 application-specific properties to be checked. To bring the process of
 correctly eliciting functional properties closer to software engineers,
 we introduce PASS, a Property ASSistant wizard as part of a UML-based
@@ -122,10 +120,9 @@ starvation, etc. The sheer number of different executions and the
 inherent non-determinism in concurrent systems make complete testing of such software
 infeasible. Instead, more rigorous formal analysis techniques like
 model checking are required, which exhaustively analyze the behaviors of 
-(an abstraction of) the system. Several competitive 
-toolsets, such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
+(an abstraction of) the system. Toolsets such as SPIN, nuSMV, CADP and mCRL2 offer such analysis techniques.
 Despite the research effort, these tools are still not widely accepted
-in industry. One problem is the lack of expertise and the steep learning
+in industry. One problem is the the steep learning
 curve associated with becoming proficient in the underlying mathematical
 formalisms that must be used for describing models in these toolsets.
 
@@ -167,12 +164,13 @@ While the mCRL2 toolset can automatically discover deadlocks and search
 for specific events, its model checking facilities require users to
 specify their application-specific properties in a data-enriched extension
 of the modal $\mu$-calculus~\cite{Groote05model-checkingprocesses}. 
-This is a highly expressive language, subsuming Linear Temporal Logic
-(LTL) and Computation Tree Logic (CTL). A downside is that
+A downside is that
 it is not very accessible and
-requires a high level of sophistication and mathematical background.
-Even so, even LTL and CTL are not widespread in industry, despite being
-considered simpler, more accessible languages. In fact, most requirements
+requires a high degree of mathematical maturity.
+As already simpler languages such as Linear Temporal Logic (LTL) and 
+Computational Tree Logic (CTL) are not widespread in industry, the $\mu$-calculus 
+stands little chance of being embraced by the industry.
+In fact, most requirements
 are written in natural language, and often contain ambiguities which
 make it difficult even for experienced practitioners to capture them
 accurately in any temporal logic. There are subtle but crucial details
@@ -249,9 +247,9 @@ solutions before they can select and apply the appropriate ones.
 %%practitioners have to fully understand the provided solutions before
 %%they can select and apply the appropriate ones in practice.\medskip
 %%
-To mitigate this problem, several
-approaches~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec}
-propose conversational tools for elucidating properties,
+To mitigate this problem, 
+several conversational tools~\cite{Smith02propel:an,konrad2005facilitating,Mondragon_prospec}
+have been proposed for elucidating properties,
 based on the patterns. These tools guide users in
 selecting the appropriate pattern and optionally produce
 a formula in some target temporal logic.  
@@ -269,14 +267,13 @@ tackle the property specification problem by proposing new graphical
 notations for specifying properties. 
 % A downside of all these approaches is
 % that they still expect users to have some expertise in temporal logic.
-Most approaches, however, rely on state-based temporal logics. Such
+As far as we have been able to trace, all approaches deal with state-based logics. Such
 logics conceptually do not match the typical event-based UML sequence
 diagrams and activity diagrams, in which events represent methods calls
 or asynchronous communication between distributed components.
 
-The objective of our work is to simplify the process of specifying
-functional requirements for event-based systems, \emph{without}
-the need of expertise in temporal logic.  We introduce PASS,
+The contribution of our work is a simplification of the process of specifying
+functional requirements for event-based systems.  We introduce PASS,
 a Property ASSistant which is a tool that guides and facilitates 
 deriving system properties. Our starting point was the pattern
 system~\cite{Dwyer:1999:PPS:302405.302672}, which we extended with over
@@ -790,30 +787,30 @@ guarded form. That is, we remove every occurrence of $\rho^*$ and $nil$ using
 the following rules:
 \[
 \vspace{-4 pt}
-\begin{array}{lcl}
+\begin{array}{lclr}
 [nil]\phi = \phi & \qquad\qquad
-[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi
+[\rho^*]\phi = [nil]\phi \wedge [\rho^+]\phi & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (1)
 \end{array}
 \]
 The function $\Tr$ takes two arguments (a formula and a list of typed
 variables) and produces a process. It is defined inductively as follows:
 \[
-\begin{array}{ll}
-\Tr_l(b) &= (\neg b \to \textit{error}) \\
-\Tr_l(\forall d:D.\phi_1) & = \sum d{:}D. \Tr_{l\concat [d:D]} (\phi_1) \\
-\Tr_l(\phi_1 \wedge \phi_2) & = \Tr_l(\phi_1) + \Tr_l(\phi_2) \\
-\Tr_l([\rho]\phi_1) & = \TrR_l(\rho) \cdot \Tr_l(\phi) \\
+\begin{array}{lll}
+\Tr_l(b) &= (\neg b \to \textit{error}) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (2)\\ 
+\Tr_l(\forall d:D.\phi_1) & = \sum d{:}D. \Tr_{l\concat [d:D]} (\phi_1) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (3)\\
+\Tr_l(\phi_1 \wedge \phi_2) & = \Tr_l(\phi_1) + \Tr_l(\phi_2) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (4)\\
+\Tr_l([\rho]\phi_1) & = \TrR_l(\rho) \cdot \Tr_l(\phi) & \qquad\qquad\qquad\qquad\qquad\qquad\qquad (5)\\
 \end{array}
 \]
 where $\TrR$ takes a regular expression (and a list of typed variables)
 and produces a process or a condition:
 \[
-\begin{array}{ll}
-\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a{:}D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) \\
-\TrR_l(\rho_1 \cdot \rho_2) & = \TrR_l(\rho_1) \cdot \TrR_l(\rho_2) \\
-\TrR_l(\rho_1 + \rho_2) &= \TrR_l(\rho_1) + \TrR_l(\rho_2) \\
+\begin{array}{llr}
+\TrR_l(\alpha) &= \bigoplus\limits_{a \in Act} (\sum d_a{:}D_a.~ \TrA_l(a(d_a),\alpha) \to a(d_a)) & (6)\\
+\TrR_l(\rho_1 \cdot \rho_2) & = \TrR_l(\rho_1) \cdot \TrR_l(\rho_2) & (7)\\
+\TrR_l(\rho_1 + \rho_2) &= \TrR_l(\rho_1) + \TrR_l(\rho_2) & (8)\\
 \TrR_l(\rho^+) & = X(l) \qquad \textit{where $X(l) = \TrR_l(\rho)\cdot X(l)$ is
-a recursive process} 
+a recursive process} & (9)
 \end{array}
 \]
 where $\bigoplus$ is a finite summation over all action names
@@ -823,30 +820,42 @@ that describes when the action is among the set of actions described by
 the action formula:
 \vspace{-5 pt}
 \[
-\begin{array}{ll}
+\begin{array}{llr}
 \TrA_l(a(d_a),a'(e)) & = \left \{ \begin{array}{ll} d_a = e & \text{if a = a'}\\
                                   \text{false} & \text{otherwise}\\
-                                  \end{array} \right .\\
-\TrA_l(a(d_a),b) & = b \\
-\TrA_l(a(d_a),\neg \alpha) & = \neg \TrA_l(a(d_a),\alpha) \\
+                                  \end{array} \right .& \qquad\qquad (10)\\
+\TrA_l(a(d_a),b) & = b & \qquad\qquad (11)\\
+\TrA_l(a(d_a),\neg \alpha) & = \neg \TrA_l(a(d_a),\alpha) & \qquad\qquad (12)\\
 \TrA_l(a(d_a),\alpha_1 \cap \alpha_2) & =
-\TrA_l(a(d_a),\alpha_1) \wedge \TrA_l(a(d_a),\alpha_2) \\
+\TrA_l(a(d_a),\alpha_1) \wedge \TrA_l(a(d_a),\alpha_2) & \qquad\qquad (13)\\
 \TrA_l(a(d_a),\alpha_1 \cup \alpha_2) & =
-\TrA_l(a(d_a),\alpha_1) \vee \TrA_l(a(d_a),\alpha_2) \\
-\TrA_l(a(d_a),\bigcup d{:}D.~\alpha) & = \exists d{:}D.~ \TrA_l(a(d_a),\alpha)\\
-\TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha)
+\TrA_l(a(d_a),\alpha_1) \vee \TrA_l(a(d_a),\alpha_2) & \qquad\qquad (14)\\
+\TrA_l(a(d_a),\bigcup d{:}D.~\alpha) & = \exists d{:}D.~ \TrA_l(a(d_a),\alpha) & \qquad\qquad (15)\\
+\TrA_l(a(d_a),\bigcap d{:}D.~\alpha) & = \forall d{:}D.~ \TrA_l(a(d_a),\alpha) & \qquad\qquad (16)
 \end{array}
 \]
-Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the chain response pattern.
+Using the above translation, Fig.~\ref{fig:ResponsePattern} shows monitor visualization next to the sequence diagram for the precedence chain pattern.
 Such a monitor can be placed in parallel with the system model,
 to perform runtime verification. Clearly, in the ``worst'' case, if the model is correct with respect to the property,
 all relevant model states will be traversed. In practice however, refutation can be found 
 quickly after a limited exploration. 
-\vspace{-8 pt}
-
+A sketch of such a translation applied on a model with actions \textit{action\_1}, \textit{action\_2},\dots,\textit{action\_n} is shown in Fig.~\ref{fig:MonitorConstruction}.
+\begin{figure}[!b]
+\centering
+{%
+\setlength{\fboxsep}{1.5pt}%
+\setlength{\fboxrule}{0.5pt}%
+\fbox{\includegraphics[width=1.0\linewidth,keepaspectratio=true]{./MonitorConstruction.png}}%
+}%
+\caption{Transforming a $\mu$-calculus formula into a monitor}
+\label{fig:MonitorConstruction}
+\end{figure}
+Intuitively, monitor process will step through those exact actions that the original system takes. If a sequence of steps refuting the formula is completed,
+the monitor will execute the ``error'' action as a last step, indicating that a counter-example trace has been found.
+More examples of generated monitors along with references to
+the applied transformation rules in each step, can be found at~\cite{repo:PASS}.
 \section{Case Study: DIRAC's Executor Framework revisited}
 \vspace{-8 pt}
-
 DIRAC \cite{DIRAC_CommGridSolution} is the grid framework used to support production activities of the LHCb experiment at CERN.
 All major LHCb tasks, such as raw data transfer from the experiment's detector to the grid storage, data processing, and user analysis,
 are covered by DIRAC. 
@@ -883,7 +892,7 @@ elicit the property.
 \vspace{-12 pt}
 \label{sec:CaseStudy}
 \subsection{PASS: The Property ASSistant} 
-\vspace{-6 pt}
+\vspace{-5 pt}
 To cope with the ambiguity of system requirements, PASS 
 guides the practitioner via a series of questions to distinguish the types of scope and 
 behavior as a relation between multiple events. By answering these questions, 
@@ -964,7 +973,10 @@ Using the generated monitor, we performed runtime verification on the corrected 
 and used LTSmin's symbolic reachability tool~\cite{so62465} for efficient state space exploration. LTSmin is language-independent, and can be used as an mCRL2 model checking back-end. 
 Taking less than 20 minutes, the symbolic state space explorer 
 finished the traversal (2.85 million states) without discovering an \emph{error} step, effectively concluding that the property holds.
-The PASS tool, along with model and the monitor of this case study, is available at~\cite{repo:PASS}.
+The PASS tool, along with the patterns extensions, the model and the monitor of this case study, is available at~\cite{repo:PASS}.
+While outside of the current scope, a Java Web Start version of the tool is available for users
+who want to elicit a property for existing mCRL2 models created manually and
+independently of any UML environment.
 % here mention the patterns published, and PASSWebStart?
 \vspace{-14 pt}
 \section{Conclusions and future work}
@@ -996,13 +1008,14 @@ the end resorted to full exploration of the state space, and did not disprove th
 Besides instantiating pattern templates, part of our ongoing work is to define 
 a methodology that would allow the experienced practitioner to directly 
 write sequence diagrams expressing requirements, based on which a $\mu$-calculus formula and a monitor 
-would be provided. Automating performance analysis is on our road-map as well. 
-Profiles are provided as UML extension mechanisms, which allow 
-annotating models with quantitative information (such as expected execution time, resource usage etc.),
-and this mechanism would permit assessing aspects of the system
-such as efficiency and reliability.
-We can use the same target formalism for enhancing the models
-with such quantitative information. The CADP toolset~\cite{DBLP:conf/tacas/GaravelLMS11} for analysis of stochastic
+would be provided. 
+% Automating performance analysis is on our road-map as well. 
+% Profiles are provided as UML extension mechanisms, which allow 
+% annotating models with quantitative information (such as expected execution time, resource usage etc.),
+% and this mechanism would permit assessing aspects of the system
+% such as efficiency and reliability.
+% We can use the same target formalism for enhancing the models
+% with such quantitative information. The CADP toolset~\cite{DBLP:conf/tacas/GaravelLMS11} for analysis of stochastic
 models is well integrated with mCRL2 for this purpose.
 \vspace{-10 pt}
 \bibliographystyle{splncs} 

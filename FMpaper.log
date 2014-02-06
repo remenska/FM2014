@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.9)  5 FEB 2014 21:12
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.9)  6 FEB 2014 13:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -534,9 +534,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 68.
+
+Overfull \hbox (0.83885pt too wide) in paragraph at lines 69--110
+\OT1/ptm/m/n/9 guages --- typ-i-cally tem-po-ral log-ics --- used for spec-i-fy
+-ing the application-specific
+ []
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 115.
- [1
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 113.
+[1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -545,13 +551,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <./Prospec.png, id=17, 807.015pt x 481.8pt>
 File: ./Prospec.png Graphic file (type png)
  <use ./Prospec.png>
-Package pdftex.def Info: ./Prospec.png used on input line 394.
+Package pdftex.def Info: ./Prospec.png used on input line 390.
 (pdftex.def)             Requested size: 253.3987pt x 151.28258pt.
 
 <./Charmy.png, id=18, 298.11375pt x 373.395pt>
 File: ./Charmy.png Graphic file (type png)
  <use ./Charmy.png>
-Package pdftex.def Info: ./Charmy.png used on input line 396.
+Package pdftex.def Info: ./Charmy.png used on input line 392.
 (pdftex.def)             Requested size: 90.2502pt x 113.03922pt.
 
 
@@ -559,85 +565,99 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 465.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 461.
  [4 <./Prospec.png> <./Charmy.png>] [5]
 <./Figure2_merged.png, id=32, 755.82375pt x 328.22626pt>
 File: ./Figure2_merged.png Graphic file (type png)
 
 <use ./Figure2_merged.png>
-Package pdftex.def Info: ./Figure2_merged.png used on input line 587.
+Package pdftex.def Info: ./Figure2_merged.png used on input line 568.
 (pdftex.def)             Requested size: 347.12354pt x 150.7405pt.
  [6 <./Figure2_merged.png>]
 <./ResponseChain_withMonitor1.png, id=36, 604.2575pt x 376.40625pt>
 File: ./ResponseChain_withMonitor1.png Graphic file (type png)
 
 <use ./ResponseChain_withMonitor1.png>
-Package pdftex.def Info: ./ResponseChain_withMonitor1.png used on input line 66
-5.
+Package pdftex.def Info: ./ResponseChain_withMonitor1.png used on input line 64
+6.
 (pdftex.def)             Requested size: 215.21489pt x 134.05878pt.
 
 <./ResponseChainPSC.png, id=38, 463.7325pt x 455.7025pt>
 File: ./ResponseChainPSC.png Graphic file (type png)
 
 <use ./ResponseChainPSC.png>
-Package pdftex.def Info: ./ResponseChainPSC.png used on input line 667.
+Package pdftex.def Info: ./ResponseChainPSC.png used on input line 648.
 (pdftex.def)             Requested size: 131.90863pt x 129.62622pt.
- [7] [8 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png>] <./Buchi2.
-jpg, id=47, 227.85126pt x 207.77625pt>
+ [7]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8 <./ResponseChain_withMonitor1.png> <./ResponseChainPSC.png>]
+<./Buchi2.jpg, id=47, 227.85126pt x 207.77625pt>
 File: ./Buchi2.jpg Graphic file (type jpg)
-
-<use ./Buchi2.jpg>
-Package pdftex.def Info: ./Buchi2.jpg used on input line 740.
+ <use ./Buchi2.jpg>
+Package pdftex.def Info: ./Buchi2.jpg used on input line 721.
 (pdftex.def)             Requested size: 104.1381pt x 94.96317pt.
- <./PASSlaunch.png, id=48, 429.605pt x 180.675pt>
+
+<./PASSlaunch.png, id=48, 429.605pt x 180.675pt>
 File: ./PASSlaunch.png Graphic file (type png)
-
-<use ./PASSlaunch.png>
-Package pdftex.def Info: ./PASSlaunch.png used on input line 745.
+ <use ./PASSlaunch.png>
+Package pdftex.def Info: ./PASSlaunch.png used on input line 726.
 (pdftex.def)             Requested size: 173.56177pt x 72.99376pt.
- [9 <./Buchi2.jpg> <./PASSlaunch.png>] [10]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 865.
 
+[9 <./Buchi2.jpg> <./PASSlaunch.png>]
+<./MonitorConstruction.png, id=52, 989.6975pt x 418.56375pt>
+File: ./MonitorConstruction.png Graphic file (type png)
 
-(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
+<use ./MonitorConstruction.png>
+Package pdftex.def Info: ./MonitorConstruction.png used on input line 832.
+(pdftex.def)             Requested size: 347.12354pt x 146.80606pt.
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 832--834
+ [][] 
+ []
+
+[10]
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 860.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
-) [11]
-<./ScopeSelection1.png, id=61, 1014.79124pt x 506.89375pt>
+) [11 <./MonitorConstruction.png (PNG copy)>]
+<./ScopeSelection1.png, id=62, 1014.79124pt x 506.89375pt>
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Package pdftex.def Info: ./ScopeSelection1.png used on input line 899.
+Package pdftex.def Info: ./ScopeSelection1.png used on input line 893.
 (pdftex.def)             Requested size: 347.12354pt x 173.38576pt.
 
-Overfull \hbox (4.0pt too wide) in paragraph at lines 899--901
+Overfull \hbox (4.0pt too wide) in paragraph at lines 893--895
  [][] 
  []
 
-[12 <./ScopeSelection1.png>] <./Last.png, id=65, 359.54324pt x 200.54926pt>
+[12 <./ScopeSelection1.png>] <./Last.png, id=66, 359.54324pt x 200.54926pt>
 File: ./Last.png Graphic file (type png)
 
 <use ./Last.png>
-Package pdftex.def Info: ./Last.png used on input line 936.
+Package pdftex.def Info: ./Last.png used on input line 930.
 (pdftex.def)             Requested size: 347.12354pt x 193.62672pt.
 
-Overfull \hbox (4.0pt too wide) in paragraph at lines 936--938
+Overfull \hbox (4.0pt too wide) in paragraph at lines 930--932
  [][] 
  []
 
-<./SDProperty.png, id=66, 524.96124pt x 296.10625pt>
+<./SDProperty.png, id=67, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-Package pdftex.def Info: ./SDProperty.png used on input line 944.
+Package pdftex.def Info: ./SDProperty.png used on input line 938.
 (pdftex.def)             Requested size: 164.88315pt x 93.00285pt.
 
-<./PropertyAutomaton.png, id=67, 327.2225pt x 123.46124pt>
+<./PropertyAutomaton.png, id=68, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
 <use ./PropertyAutomaton.png>
-Package pdftex.def Info: ./PropertyAutomaton.png used on input line 949.
+Package pdftex.def Info: ./PropertyAutomaton.png used on input line 943.
 (pdftex.def)             Requested size: 173.56177pt x 65.485pt.
- [13 <./Last.png> <./SDProperty.png> <./PropertyAutomaton.png>] (./FMpaper.bbl 
-[14]
+ [13 <./Last.png>] (./FMpaper.bbl [14 <./SDProperty.png> <./PropertyAutomaton.p
+ng>]
 Underfull \hbox (badness 1389) in paragraph at lines 130--134
 []\OT1/ptm/m/n/9 Mateescu, R.:  Prop-erty Pat-tern Map-pings for Reg-u-lar Alte
 rnation-Free $\OML/cmm/m/it/9 ^^V$\OT1/ptm/m/n/9 -Calculus
@@ -655,10 +675,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 6254 strings out of 493307
- 89256 string characters out of 6139906
- 249404 words of memory out of 5000000
- 9571 multiletter control sequences out of 15000+600000
+ 6260 strings out of 493307
+ 89409 string characters out of 6139906
+ 248410 words of memory out of 5000000
+ 9576 multiletter control sequences out of 15000+600000
  27080 words of font info for 65 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  38i,14n,47p,275b,894s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -677,10 +697,10 @@ texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 686721 bytes).
+Output written on FMpaper.pdf (15 pages, 1920084 bytes).
 PDF statistics:
- 127 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
