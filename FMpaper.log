@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.9)  6 FEB 2014 13:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.1.9)  6 FEB 2014 14:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -605,19 +605,19 @@ Package pdftex.def Info: ./PASSlaunch.png used on input line 726.
 (pdftex.def)             Requested size: 173.56177pt x 72.99376pt.
 
 [9 <./Buchi2.jpg> <./PASSlaunch.png>]
-<./MonitorConstruction.png, id=52, 989.6975pt x 418.56375pt>
+<./MonitorConstruction.png, id=52, 949.5475pt x 417.56pt>
 File: ./MonitorConstruction.png Graphic file (type png)
 
 <use ./MonitorConstruction.png>
 Package pdftex.def Info: ./MonitorConstruction.png used on input line 832.
-(pdftex.def)             Requested size: 347.12354pt x 146.80606pt.
+(pdftex.def)             Requested size: 347.12354pt x 152.64705pt.
 
 Overfull \hbox (4.0pt too wide) in paragraph at lines 832--834
  [][] 
  []
 
 [10]
-LaTeX Font Info:    Try loading font information for OT1+phv on input line 860.
+LaTeX Font Info:    Try loading font information for OT1+phv on input line 861.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -626,10 +626,10 @@ File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
 File: ./ScopeSelection1.png Graphic file (type png)
 
 <use ./ScopeSelection1.png>
-Package pdftex.def Info: ./ScopeSelection1.png used on input line 893.
+Package pdftex.def Info: ./ScopeSelection1.png used on input line 894.
 (pdftex.def)             Requested size: 347.12354pt x 173.38576pt.
 
-Overfull \hbox (4.0pt too wide) in paragraph at lines 893--895
+Overfull \hbox (4.0pt too wide) in paragraph at lines 894--896
  [][] 
  []
 
@@ -637,24 +637,24 @@ Overfull \hbox (4.0pt too wide) in paragraph at lines 893--895
 File: ./Last.png Graphic file (type png)
 
 <use ./Last.png>
-Package pdftex.def Info: ./Last.png used on input line 930.
+Package pdftex.def Info: ./Last.png used on input line 931.
 (pdftex.def)             Requested size: 347.12354pt x 193.62672pt.
 
-Overfull \hbox (4.0pt too wide) in paragraph at lines 930--932
+Overfull \hbox (4.0pt too wide) in paragraph at lines 931--933
  [][] 
  []
 
 <./SDProperty.png, id=67, 524.96124pt x 296.10625pt>
 File: ./SDProperty.png Graphic file (type png)
  <use ./SDProperty.png>
-Package pdftex.def Info: ./SDProperty.png used on input line 938.
+Package pdftex.def Info: ./SDProperty.png used on input line 939.
 (pdftex.def)             Requested size: 164.88315pt x 93.00285pt.
 
 <./PropertyAutomaton.png, id=68, 327.2225pt x 123.46124pt>
 File: ./PropertyAutomaton.png Graphic file (type png)
 
 <use ./PropertyAutomaton.png>
-Package pdftex.def Info: ./PropertyAutomaton.png used on input line 943.
+Package pdftex.def Info: ./PropertyAutomaton.png used on input line 944.
 (pdftex.def)             Requested size: 173.56177pt x 65.485pt.
  [13 <./Last.png>] (./FMpaper.bbl [14 <./SDProperty.png> <./PropertyAutomaton.p
 ng>]
@@ -697,7 +697,7 @@ texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on FMpaper.pdf (15 pages, 1920084 bytes).
+Output written on FMpaper.pdf (15 pages, 1867216 bytes).
 PDF statistics:
  128 PDF objects out of 1000 (max. 8388607)
  82 compressed objects within 1 object stream
