@@ -283,7 +283,7 @@ a natural language summary, a $\mu$-calculus formula and a UML sequence
 diagram depicting desired behaviors.  We utilized mCRL2's rich data
 extensions of the $\mu$-calculus to express complex data-dependent
 properties.  Lastly, we automatically generate
-monitors which can be used for property-driven on-the-fly state-space 
+monitors which can be used for property-driven on-the-fly state space 
 exploration using the standard exploration facilities of mCRL2.
 Our monitors are essentially sequence diagrams, acting as
 observers of message exchanges.
@@ -507,7 +507,7 @@ is defined by the following grammar:
 \end{array}
 \]
 Properties are expressed by state formulas $\phi$, which contain
-Boolean data terms $b$ that evaluate to true or false and which can contain data variables, and the
+Boolean data terms $b$ that evaluate to true or false and which can contain data variables, the
 standard logical connectives \emph{and} ($\land$) and \emph{or}
 ($\lor$), the modal operators \emph{must} ($[\_]\_$) and \emph{may}
 ($\langle \_\rangle\_$), and the least and greatest fixpoint operators
@@ -528,7 +528,7 @@ leading to a state satisfying $\phi$;
 $[\rho]\phi$ is satisfied by a state iff all transition sequences matching $\rho$ starting in that 
 state lead to states satisfying $\phi$.
 For instance, $[\neg (\bigcup{n{:}Nat}.~
-\textit{read}(n+n))]\text{false}$ states that a process should not execute any actions
+\textit{read}(n+n))]\textit{false}$ states that a process should not execute any actions
 other than read actions with even-valued natural numbers.
 Note that $[a]\phi$ is trivially satisfied in states with no ``\emph{a}''-transitions.
 
@@ -578,7 +578,7 @@ a trace can be classified as valid or invalid. The specification characterizes
 the semantics of a sequence diagram as a pair of valid and invalid traces,
 where a trace is a sequence of events or messages.
 The potential problems with the UML 2.0 assertion and negation are explained in~\cite{Harel07assertand}.
-In summary, the specification aims to allow depicting required and forbidden behaviors.
+In summary, the specification aims at depicting of required and forbidden behaviors.
 However, as~\cite{Harel07assertand} points out, stating that ``the sequences of the operand of the assertion are the only valid continuations. All other continuations result in an invalid trace''
 suggests that the invalid set of traces for an \emph{assert} fragment is its complement, i.e., the set of all other possible traces.
 Conversely, the standard also declares that the
@@ -590,14 +590,13 @@ as modalities. We restrict their usage to single events in property specificatio
 specifies that an event must occur. In addition, we
 disallow nestings between these two fragments.
 We find that this does not limit the expressiveness of property specifications in practice.
-% I cannot find a counter-example where it would
-\vspace{-8 pt}
+\vspace{-6 pt}
 \section{The Approach}
 \label{sec:Approach}
 \vspace{-7 pt}
 
 \subsection{The Rationale}
-\vspace{-7 pt}
+\vspace{-5 pt}
 To describe our proposal to a correct and straightforward property elucidation,
 we outline the motivations behind the choices we made, and how they differ from
 existing related approaches. 
@@ -678,7 +677,7 @@ a wild-card ``*'' to express that the property should be evaluated for all value
 that message parameters can carry. This allows us to use patterns which would otherwise
 make sense only for state-based formalisms. For example, the \emph{universality}
 pattern is used to describe a portion of the system's execution which contains only states/events that have a desired property.
-Checking if a certain event is executed in every step of the system execution is not useful,
+Checking if a certain event is executed in every step of the system execution is not useful most of the time,
 so we adapted it in the context of $\mu$-calculus. 
 \vspace{-1 pt}
 
@@ -708,7 +707,7 @@ and checked for emptiness.
 Although syntactically B\"uchi is similar to the finite-state monitor for which we aim,
 the difference lies in the acceptance conditions: a monitor accepts only 
 finite runs of the system, while B\"uchi can trap infinite executions through
-detection of cycles, but potentially needs the entire state-space
+detection of cycles, but potentially needs the entire state space
 generated in the process. Runtime verification
 does not store the entire state space of a model, so it cannot detect such cycles. 
 In addition, to expose state information, transitions in Fig.~\ref{fig:Buchi} are labeled with elementary
@@ -747,7 +746,7 @@ a monitor for about 50\% of the property patterns.
 
 We translate a core fragment of the $\mu$-calculus to mCRL2 processes which
 can subsequently serve as an observer processes for monitorable properties.
-The idea behind the translation is a violation of a property of the 
+The idea behind the translation is that a violation of a property of the 
 form $[\alpha]\phi$ is witnessed by an action that matches the action
 formula $\alpha$.  A monitor for such a formula synchronizes
 with precisely those actions matching $\alpha$. This generalizes
@@ -835,7 +834,7 @@ A sketch of such a translation applied on a model with actions \textit{action\_1
 \label{fig:MonitorConstruction}
 \vspace{-6 pt}
 \end{figure}
-Intuitively, monitor process will step through those exact actions that the original system takes. If a sequence of steps refuting the formula is completed,
+Intuitively, the monitor process will step through those exact actions that the original system takes. If a sequence of steps refuting the formula is completed,
 the monitor will execute the ``error'' action as a last step, indicating that a counter-example trace has been found.
 More examples of monitors along with references to
 the applied transformation rules in each step, can be found at~\cite{repo:PASS}.
